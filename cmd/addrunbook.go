@@ -36,7 +36,7 @@ type Rule struct {
 }
 
 // const filename = "blackbox.yaml"
-const runbook_url = "https://github.com/srerun/prometheus-alerts/content/runbooks"
+const runbook_url = "https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks"
 const runbookPath = "/Users/tdavis/src/srerun/prometheus-alerts/content/runbooks"
 const rulesPath = "/Users/tdavis/src/srerun/prometheus-alerts/rules"
 
@@ -73,7 +73,7 @@ func main() {
 		for _, group := range rules.Groups {
 			for _, rule := range group.Rules {
 				fmt.Printf("Adding runbook for %s\n", rule.Alert)
-				rule.Annotations.Runbook = fmt.Sprintf("%s/%s", runbook_url, rule.Alert)
+				rule.Annotations.Runbook = fmt.Sprintf("%s/%s/%s.md", runbook_url, path, rule.Alert)
 				createRunbook(path, tmpl, rule)
 			}
 		}
