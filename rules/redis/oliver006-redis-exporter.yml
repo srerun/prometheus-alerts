@@ -13,18 +13,18 @@ groups:
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
             runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisDown.md
-        - alert: RedisMissingMaster
-          expr: (count(redis_instance_info{role="master"}) or vector(0)) < 1
-          for: 0m
-          labels:
-            severity: critical
-          annotations:
-            summary: Redis missing master (instance {{ $labels.instance }})
-            description: |-
-                Redis cluster has no node marked as master.
-                  VALUE = {{ $value }}
-                  LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisMissingMaster.md
+        # - alert: RedisMissingMaster
+        #   expr: (count(redis_instance_info{role="master"}) or vector(0)) < 1
+        #   for: 0m
+        #   labels:
+        #     severity: critical
+        #   annotations:
+        #     summary: Redis missing master (instance {{ $labels.instance }})
+        #     description: |-
+        #         Redis cluster has no node marked as master.
+        #           VALUE = {{ $value }}
+        #           LABELS = {{ $labels }}
+        #     runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisMissingMaster.md
         - alert: RedisTooManyMasters
           expr: count(redis_instance_info{role="master"}) > 1
           for: 0m

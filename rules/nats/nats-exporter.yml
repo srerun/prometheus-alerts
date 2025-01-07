@@ -73,18 +73,18 @@ groups:
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
             runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsSlowConsumers.md
-        - alert: NatsServerDown
-          expr: absent(up{job="nats"})
-          for: 5m
-          labels:
-            severity: critical
-          annotations:
-            summary: Nats server down (instance {{ $labels.instance }})
-            description: |-
-                NATS server has been down for more than 5 minutes
-                  VALUE = {{ $value }}
-                  LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsServerDown.md
+        # - alert: NatsServerDown
+        #   expr: absent(up{job="nats"})
+        #   for: 5m
+        #   labels:
+        #     severity: critical
+        #   annotations:
+        #     summary: Nats server down (instance {{ $labels.instance }})
+        #     description: |-
+        #         NATS server has been down for more than 5 minutes
+        #           VALUE = {{ $value }}
+        #           LABELS = {{ $labels }}
+        #     runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsServerDown.md
         - alert: NatsHighCpuUsage
           expr: rate(gnatsd_varz_cpu[5m]) > 0.8
           for: 5m
