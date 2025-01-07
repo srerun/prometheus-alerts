@@ -1,0 +1,135 @@
+groups:
+    - name: KbuddeRabbitmqExporter
+      rules:
+        - alert: RabbitmqDown
+          expr: rabbitmq_up == 0
+          for: 0m
+          labels:
+            severity: critical
+          annotations:
+            summary: RabbitMQ down (instance {{ $labels.instance }})
+            description: |-
+                RabbitMQ node down
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqDown
+        - alert: RabbitmqClusterDown
+          expr: sum(rabbitmq_running) < 3
+          for: 0m
+          labels:
+            severity: critical
+          annotations:
+            summary: RabbitMQ cluster down (instance {{ $labels.instance }})
+            description: |-
+                Less than 3 nodes running in RabbitMQ cluster
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqClusterDown
+        - alert: RabbitmqClusterPartition
+          expr: rabbitmq_partitions > 0
+          for: 0m
+          labels:
+            severity: critical
+          annotations:
+            summary: RabbitMQ cluster partition (instance {{ $labels.instance }})
+            description: |-
+                Cluster partition
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqClusterPartition
+        - alert: RabbitmqOutOfMemory
+          expr: rabbitmq_node_mem_used / rabbitmq_node_mem_limit * 100 > 90
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: RabbitMQ out of memory (instance {{ $labels.instance }})
+            description: |-
+                Memory available for RabbmitMQ is low (< 10%)
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqOutOfMemory
+        - alert: RabbitmqTooManyConnections
+          expr: rabbitmq_connectionsTotal > 1000
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: RabbitMQ too many connections (instance {{ $labels.instance }})
+            description: |-
+                RabbitMQ instance has too many connections (> 1000)
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqTooManyConnections
+        - alert: RabbitmqDeadLetterQueueFillingUp
+          expr: rabbitmq_queue_messages{queue="my-dead-letter-queue"} > 10
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: RabbitMQ dead letter queue filling up (instance {{ $labels.instance }})
+            description: |-
+                Dead letter queue is filling up (> 10 msgs)
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqDeadLetterQueueFillingUp
+        - alert: RabbitmqTooManyMessagesInQueue
+          expr: rabbitmq_queue_messages_ready{queue="my-queue"} > 1000
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: RabbitMQ too many messages in queue (instance {{ $labels.instance }})
+            description: |-
+                Queue is filling up (> 1000 msgs)
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqTooManyMessagesInQueue
+        - alert: RabbitmqSlowQueueConsuming
+          expr: time() - rabbitmq_queue_head_message_timestamp{queue="my-queue"} > 60
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: RabbitMQ slow queue consuming (instance {{ $labels.instance }})
+            description: |-
+                Queue messages are consumed slowly (> 60s)
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqSlowQueueConsuming
+        - alert: RabbitmqNoConsumer
+          expr: rabbitmq_queue_consumers == 0
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: RabbitMQ no consumer (instance {{ $labels.instance }})
+            description: |-
+                Queue has no consumer
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqNoConsumer
+        - alert: RabbitmqTooManyConsumers
+          expr: rabbitmq_queue_consumers{queue="my-queue"} > 1
+          for: 0m
+          labels:
+            severity: critical
+          annotations:
+            summary: RabbitMQ too many consumers (instance {{ $labels.instance }})
+            description: |-
+                Queue should have only 1 consumer
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqTooManyConsumers
+        - alert: RabbitmqUnactiveExchange
+          expr: rate(rabbitmq_exchange_messages_published_in_total{exchange="my-exchange"}[1m]) < 5
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: RabbitMQ unactive exchange (instance {{ $labels.instance }})
+            description: |-
+                Exchange receive less than 5 msgs per second
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqUnactiveExchange

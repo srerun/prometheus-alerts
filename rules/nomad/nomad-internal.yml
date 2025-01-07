@@ -1,0 +1,51 @@
+groups:
+    - name: EmbeddedExporter
+      rules:
+        - alert: NomadJobFailed
+          expr: nomad_nomad_job_summary_failed > 0
+          for: 0m
+          labels:
+            severity: warning
+          annotations:
+            summary: Nomad job failed (instance {{ $labels.instance }})
+            description: |-
+                Nomad job failed
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NomadJobFailed
+        - alert: NomadJobLost
+          expr: nomad_nomad_job_summary_lost > 0
+          for: 0m
+          labels:
+            severity: warning
+          annotations:
+            summary: Nomad job lost (instance {{ $labels.instance }})
+            description: |-
+                Nomad job lost
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NomadJobLost
+        - alert: NomadJobQueued
+          expr: nomad_nomad_job_summary_queued > 0
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: Nomad job queued (instance {{ $labels.instance }})
+            description: |-
+                Nomad job queued
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NomadJobQueued
+        - alert: NomadBlockedEvaluation
+          expr: nomad_nomad_blocked_evals_total_blocked > 0
+          for: 0m
+          labels:
+            severity: warning
+          annotations:
+            summary: Nomad blocked evaluation (instance {{ $labels.instance }})
+            description: |-
+                Nomad blocked evaluation
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NomadBlockedEvaluation

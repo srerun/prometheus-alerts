@@ -1,0 +1,123 @@
+groups:
+    - name: EmbeddedExporter
+      rules:
+        - alert: IstioKubernetesGatewayAvailabilityDrop
+          expr: min(kube_deployment_status_replicas_available{deployment="istio-ingressgateway", namespace="istio-system"}) without (instance, pod) < 2
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: Istio Kubernetes gateway availability drop (instance {{ $labels.instance }})
+            description: |-
+                Gateway pods have dropped. Inbound traffic will likely be affected.
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/IstioKubernetesGatewayAvailabilityDrop
+        - alert: IstioPilotHighTotalRequestRate
+          expr: sum(rate(pilot_xds_push_errors[1m])) / sum(rate(pilot_xds_pushes[1m])) * 100 > 5
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: Istio Pilot high total request rate (instance {{ $labels.instance }})
+            description: |-
+                Number of Istio Pilot push errors is too high (> 5%). Envoy sidecars might have outdated configuration.
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/IstioPilotHighTotalRequestRate
+        - alert: IstioMixerPrometheusDispatchesLow
+          expr: sum(rate(mixer_runtime_dispatches_total{adapter=~"prometheus"}[1m])) < 180
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: Istio Mixer Prometheus dispatches low (instance {{ $labels.instance }})
+            description: |-
+                Number of Mixer dispatches to Prometheus is too low. Istio metrics might not be being exported properly.
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/IstioMixerPrometheusDispatchesLow
+        - alert: IstioHighTotalRequestRate
+          expr: sum(rate(istio_requests_total{reporter="destination"}[5m])) > 1000
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: Istio high total request rate (instance {{ $labels.instance }})
+            description: |-
+                Global request rate in the service mesh is unusually high.
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/IstioHighTotalRequestRate
+        - alert: IstioLowTotalRequestRate
+          expr: sum(rate(istio_requests_total{reporter="destination"}[5m])) < 100
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: Istio low total request rate (instance {{ $labels.instance }})
+            description: |-
+                Global request rate in the service mesh is unusually low.
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/IstioLowTotalRequestRate
+        - alert: IstioHigh4xxErrorRate
+          expr: sum(rate(istio_requests_total{reporter="destination", response_code=~"4.*"}[5m])) / sum(rate(istio_requests_total{reporter="destination"}[5m])) * 100 > 5
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: Istio high 4xx error rate (instance {{ $labels.instance }})
+            description: |-
+                High percentage of HTTP 5xx responses in Istio (> 5%).
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/IstioHigh4xxErrorRate
+        - alert: IstioHigh5xxErrorRate
+          expr: sum(rate(istio_requests_total{reporter="destination", response_code=~"5.*"}[5m])) / sum(rate(istio_requests_total{reporter="destination"}[5m])) * 100 > 5
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: Istio high 5xx error rate (instance {{ $labels.instance }})
+            description: |-
+                High percentage of HTTP 5xx responses in Istio (> 5%).
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/IstioHigh5xxErrorRate
+        - alert: IstioHighRequestLatency
+          expr: rate(istio_request_duration_milliseconds_sum{reporter="destination"}[1m]) / rate(istio_request_duration_milliseconds_count{reporter="destination"}[1m]) > 100
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: Istio high request latency (instance {{ $labels.instance }})
+            description: |-
+                Istio average requests execution is longer than 100ms.
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/IstioHighRequestLatency
+        - alert: IstioLatency99Percentile
+          expr: histogram_quantile(0.99, sum(rate(istio_request_duration_milliseconds_bucket[1m])) by (destination_canonical_service, destination_workload_namespace, source_canonical_service, source_workload_namespace, le)) > 1000
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: Istio latency 99 percentile (instance {{ $labels.instance }})
+            description: |-
+                Istio 1% slowest requests are longer than 1000ms.
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/IstioLatency99Percentile
+        - alert: IstioPilotDuplicateEntry
+          expr: sum(rate(pilot_duplicate_envoy_clusters{}[5m])) > 0
+          for: 0m
+          labels:
+            severity: critical
+          annotations:
+            summary: Istio Pilot Duplicate Entry (instance {{ $labels.instance }})
+            description: |-
+                Istio pilot duplicate entry error.
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/IstioPilotDuplicateEntry

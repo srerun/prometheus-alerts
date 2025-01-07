@@ -1,0 +1,75 @@
+groups:
+    - name: ThanosComponentAbsent
+      rules:
+        - alert: ThanosCompactIsDown
+          expr: absent(up{job=~".*thanos-compact.*"} == 1)
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: Thanos Compact Is Down (instance {{ $labels.instance }})
+            description: |-
+                ThanosCompact has disappeared. Prometheus target for the component cannot be discovered.
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosCompactIsDown
+        - alert: ThanosQueryIsDown
+          expr: absent(up{job=~".*thanos-query.*"} == 1)
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: Thanos Query Is Down (instance {{ $labels.instance }})
+            description: |-
+                ThanosQuery has disappeared. Prometheus target for the component cannot be discovered.
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosQueryIsDown
+        - alert: ThanosReceiveIsDown
+          expr: absent(up{job=~".*thanos-receive.*"} == 1)
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: Thanos Receive Is Down (instance {{ $labels.instance }})
+            description: |-
+                ThanosReceive has disappeared. Prometheus target for the component cannot be discovered.
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosReceiveIsDown
+        - alert: ThanosRuleIsDown
+          expr: absent(up{job=~".*thanos-rule.*"} == 1)
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: Thanos Rule Is Down (instance {{ $labels.instance }})
+            description: |-
+                ThanosRule has disappeared. Prometheus target for the component cannot be discovered.
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosRuleIsDown
+        - alert: ThanosSidecarIsDown
+          expr: absent(up{job=~".*thanos-sidecar.*"} == 1)
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: Thanos Sidecar Is Down (instance {{ $labels.instance }})
+            description: |-
+                ThanosSidecar has disappeared. Prometheus target for the component cannot be discovered.
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosSidecarIsDown
+        - alert: ThanosStoreIsDown
+          expr: absent(up{job=~".*thanos-store.*"} == 1)
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: Thanos Store Is Down (instance {{ $labels.instance }})
+            description: |-
+                ThanosStore has disappeared. Prometheus target for the component cannot be discovered.
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosStoreIsDown

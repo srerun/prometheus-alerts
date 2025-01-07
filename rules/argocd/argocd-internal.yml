@@ -1,0 +1,27 @@
+groups:
+    - name: EmbeddedExporter
+      rules:
+        - alert: ArgocdServiceNotSynced
+          expr: argocd_app_info{sync_status!="Synced"} != 0
+          for: 15m
+          labels:
+            severity: warning
+          annotations:
+            summary: ArgoCD service not synced (instance {{ $labels.instance }})
+            description: |-
+                Service {{ $labels.name }} run by argo is currently not in sync.
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ArgocdServiceNotSynced
+        - alert: ArgocdServiceUnhealthy
+          expr: argocd_app_info{health_status!="Healthy"} != 0
+          for: 15m
+          labels:
+            severity: warning
+          annotations:
+            summary: ArgoCD service unhealthy (instance {{ $labels.instance }})
+            description: |-
+                Service {{ $labels.name }} run by argo is currently not healthy.
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ArgocdServiceUnhealthy
