@@ -12,7 +12,7 @@ groups:
                 Minio cluster disk is offline
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MinioClusterDiskOffline
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/minio-internal/MinioClusterDiskOffline.md
         - alert: MinioNodeDiskOffline
           expr: minio_cluster_nodes_offline_total > 0
           for: 0m
@@ -24,7 +24,7 @@ groups:
                 Minio cluster node disk is offline
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MinioNodeDiskOffline
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/minio-internal/MinioNodeDiskOffline.md
         - alert: MinioDiskSpaceUsage
           expr: disk_storage_available / disk_storage_total * 100 < 10
           for: 0m
@@ -36,4 +36,4 @@ groups:
                 Minio available free space is low (< 10%)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MinioDiskSpaceUsage
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/minio-internal/MinioDiskSpaceUsage.md

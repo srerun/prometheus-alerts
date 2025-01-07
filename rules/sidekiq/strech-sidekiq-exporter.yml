@@ -12,7 +12,7 @@ groups:
                 Sidekiq queue {{ $labels.name }} is growing
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SidekiqQueueSize
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/strech-sidekiq-exporter/SidekiqQueueSize.md
         - alert: SidekiqSchedulingLatencyTooHigh
           expr: max(sidekiq_queue_latency) > 60
           for: 0m
@@ -24,4 +24,4 @@ groups:
                 Sidekiq jobs are taking more than 1min to be picked up. Users may be seeing delays in background processing.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SidekiqSchedulingLatencyTooHigh
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/strech-sidekiq-exporter/SidekiqSchedulingLatencyTooHigh.md

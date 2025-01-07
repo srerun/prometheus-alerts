@@ -12,7 +12,7 @@ groups:
                 Nomad job failed
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NomadJobFailed
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nomad-internal/NomadJobFailed.md
         - alert: NomadJobLost
           expr: nomad_nomad_job_summary_lost > 0
           for: 0m
@@ -24,7 +24,7 @@ groups:
                 Nomad job lost
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NomadJobLost
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nomad-internal/NomadJobLost.md
         - alert: NomadJobQueued
           expr: nomad_nomad_job_summary_queued > 0
           for: 2m
@@ -36,7 +36,7 @@ groups:
                 Nomad job queued
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NomadJobQueued
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nomad-internal/NomadJobQueued.md
         - alert: NomadBlockedEvaluation
           expr: nomad_nomad_blocked_evals_total_blocked > 0
           for: 0m
@@ -48,4 +48,4 @@ groups:
                 Nomad blocked evaluation
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NomadBlockedEvaluation
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nomad-internal/NomadBlockedEvaluation.md

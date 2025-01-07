@@ -12,7 +12,7 @@ groups:
                 Service: `{{ $labels.service_name }}` Healthcheck: `{{ $labels.service_id }}`
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ConsulServiceHealthcheckFailed
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/consul-exporter/ConsulServiceHealthcheckFailed.md
         - alert: ConsulMissingMasterNode
           expr: consul_raft_peers < 3
           for: 0m
@@ -24,7 +24,7 @@ groups:
                 Numbers of consul raft peers should be 3, in order to preserve quorum.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ConsulMissingMasterNode
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/consul-exporter/ConsulMissingMasterNode.md
         - alert: ConsulAgentUnhealthy
           expr: consul_health_node_status{status="critical"} == 1
           for: 0m
@@ -36,4 +36,4 @@ groups:
                 A Consul agent is down
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ConsulAgentUnhealthy
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/consul-exporter/ConsulAgentUnhealthy.md

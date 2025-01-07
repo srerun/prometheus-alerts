@@ -12,7 +12,7 @@ groups:
                 Redis instance is down
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisDown
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisDown.md
         - alert: RedisMissingMaster
           expr: (count(redis_instance_info{role="master"}) or vector(0)) < 1
           for: 0m
@@ -24,7 +24,7 @@ groups:
                 Redis cluster has no node marked as master.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisMissingMaster
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisMissingMaster.md
         - alert: RedisTooManyMasters
           expr: count(redis_instance_info{role="master"}) > 1
           for: 0m
@@ -36,7 +36,7 @@ groups:
                 Redis cluster has too many nodes marked as master.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisTooManyMasters
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisTooManyMasters.md
         - alert: RedisDisconnectedSlaves
           expr: count without (instance, job) (redis_connected_slaves) - sum without (instance, job) (redis_connected_slaves) - 1 > 0
           for: 0m
@@ -48,7 +48,7 @@ groups:
                 Redis not replicating for all slaves. Consider reviewing the redis replication status.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisDisconnectedSlaves
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisDisconnectedSlaves.md
         - alert: RedisReplicationBroken
           expr: delta(redis_connected_slaves[1m]) < 0
           for: 0m
@@ -60,7 +60,7 @@ groups:
                 Redis instance lost a slave
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisReplicationBroken
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisReplicationBroken.md
         - alert: RedisClusterFlapping
           expr: changes(redis_connected_slaves[1m]) > 1
           for: 2m
@@ -72,7 +72,7 @@ groups:
                 Changes have been detected in Redis replica connection. This can occur when replica nodes lose connection to the master and reconnect (a.k.a flapping).
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisClusterFlapping
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisClusterFlapping.md
         - alert: RedisMissingBackup
           expr: time() - redis_rdb_last_save_timestamp_seconds > 60 * 60 * 24
           for: 0m
@@ -84,7 +84,7 @@ groups:
                 Redis has not been backuped for 24 hours
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisMissingBackup
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisMissingBackup.md
         - alert: RedisOutOfSystemMemory
           expr: redis_memory_used_bytes / redis_total_system_memory_bytes * 100 > 90
           for: 2m
@@ -96,7 +96,7 @@ groups:
                 Redis is running out of system memory (> 90%)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisOutOfSystemMemory
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisOutOfSystemMemory.md
         - alert: RedisOutOfConfiguredMaxmemory
           expr: redis_memory_used_bytes / redis_memory_max_bytes * 100 > 90 and on(instance) redis_memory_max_bytes > 0
           for: 2m
@@ -108,7 +108,7 @@ groups:
                 Redis is running out of configured maxmemory (> 90%)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisOutOfConfiguredMaxmemory
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisOutOfConfiguredMaxmemory.md
         - alert: RedisTooManyConnections
           expr: redis_connected_clients / redis_config_maxclients * 100 > 90
           for: 2m
@@ -120,7 +120,7 @@ groups:
                 Redis is running out of connections (> 90% used)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisTooManyConnections
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisTooManyConnections.md
         - alert: RedisNotEnoughConnections
           expr: redis_connected_clients < 5
           for: 2m
@@ -132,7 +132,7 @@ groups:
                 Redis instance should have more connections (> 5)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisNotEnoughConnections
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisNotEnoughConnections.md
         - alert: RedisRejectedConnections
           expr: increase(redis_rejected_connections_total[1m]) > 0
           for: 0m
@@ -144,4 +144,4 @@ groups:
                 Some connections to Redis has been rejected
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisRejectedConnections
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisRejectedConnections.md

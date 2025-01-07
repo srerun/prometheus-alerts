@@ -12,7 +12,7 @@ groups:
                 The heap usage is over 90%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchHeapUsageTooHigh
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchHeapUsageTooHigh.md
         - alert: ElasticsearchHeapUsageWarning
           expr: (elasticsearch_jvm_memory_used_bytes{area="heap"} / elasticsearch_jvm_memory_max_bytes{area="heap"}) * 100 > 80
           for: 2m
@@ -24,7 +24,7 @@ groups:
                 The heap usage is over 80%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchHeapUsageWarning
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchHeapUsageWarning.md
         - alert: ElasticsearchDiskOutOfSpace
           expr: elasticsearch_filesystem_data_available_bytes / elasticsearch_filesystem_data_size_bytes * 100 < 10
           for: 0m
@@ -36,7 +36,7 @@ groups:
                 The disk usage is over 90%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchDiskOutOfSpace
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchDiskOutOfSpace.md
         - alert: ElasticsearchDiskSpaceLow
           expr: elasticsearch_filesystem_data_available_bytes / elasticsearch_filesystem_data_size_bytes * 100 < 20
           for: 2m
@@ -48,7 +48,7 @@ groups:
                 The disk usage is over 80%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchDiskSpaceLow
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchDiskSpaceLow.md
         - alert: ElasticsearchClusterRed
           expr: elasticsearch_cluster_health_status{color="red"} == 1
           for: 0m
@@ -60,7 +60,7 @@ groups:
                 Elastic Cluster Red status
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchClusterRed
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchClusterRed.md
         - alert: ElasticsearchClusterYellow
           expr: elasticsearch_cluster_health_status{color="yellow"} == 1
           for: 0m
@@ -72,7 +72,7 @@ groups:
                 Elastic Cluster Yellow status
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchClusterYellow
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchClusterYellow.md
         - alert: ElasticsearchHealthyNodes
           expr: elasticsearch_cluster_health_number_of_nodes < 3
           for: 0m
@@ -84,7 +84,7 @@ groups:
                 Missing node in Elasticsearch cluster
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchHealthyNodes
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchHealthyNodes.md
         - alert: ElasticsearchHealthyDataNodes
           expr: elasticsearch_cluster_health_number_of_data_nodes < 3
           for: 0m
@@ -96,7 +96,7 @@ groups:
                 Missing data node in Elasticsearch cluster
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchHealthyDataNodes
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchHealthyDataNodes.md
         - alert: ElasticsearchRelocatingShards
           expr: elasticsearch_cluster_health_relocating_shards > 0
           for: 0m
@@ -108,7 +108,7 @@ groups:
                 Elasticsearch is relocating shards
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchRelocatingShards
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchRelocatingShards.md
         - alert: ElasticsearchRelocatingShardsTooLong
           expr: elasticsearch_cluster_health_relocating_shards > 0
           for: 15m
@@ -120,7 +120,7 @@ groups:
                 Elasticsearch has been relocating shards for 15min
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchRelocatingShardsTooLong
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchRelocatingShardsTooLong.md
         - alert: ElasticsearchInitializingShards
           expr: elasticsearch_cluster_health_initializing_shards > 0
           for: 0m
@@ -132,7 +132,7 @@ groups:
                 Elasticsearch is initializing shards
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchInitializingShards
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchInitializingShards.md
         - alert: ElasticsearchInitializingShardsTooLong
           expr: elasticsearch_cluster_health_initializing_shards > 0
           for: 15m
@@ -144,7 +144,7 @@ groups:
                 Elasticsearch has been initializing shards for 15 min
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchInitializingShardsTooLong
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchInitializingShardsTooLong.md
         - alert: ElasticsearchUnassignedShards
           expr: elasticsearch_cluster_health_unassigned_shards > 0
           for: 0m
@@ -156,7 +156,7 @@ groups:
                 Elasticsearch has unassigned shards
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchUnassignedShards
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchUnassignedShards.md
         - alert: ElasticsearchPendingTasks
           expr: elasticsearch_cluster_health_number_of_pending_tasks > 0
           for: 15m
@@ -168,7 +168,7 @@ groups:
                 Elasticsearch has pending tasks. Cluster works slowly.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchPendingTasks
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchPendingTasks.md
         - alert: ElasticsearchNoNewDocuments
           expr: increase(elasticsearch_indices_indexing_index_total{es_data_node="true"}[10m]) < 1
           for: 0m
@@ -180,7 +180,7 @@ groups:
                 No new documents for 10 min!
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchNoNewDocuments
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchNoNewDocuments.md
         - alert: ElasticsearchHighIndexingLatency
           expr: elasticsearch_indices_indexing_index_time_seconds_total / elasticsearch_indices_indexing_index_total > 0.0005
           for: 10m
@@ -192,7 +192,7 @@ groups:
                 The indexing latency on Elasticsearch cluster is higher than the threshold.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchHighIndexingLatency
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchHighIndexingLatency.md
         - alert: ElasticsearchHighIndexingRate
           expr: sum(rate(elasticsearch_indices_indexing_index_total[1m]))> 10000
           for: 5m
@@ -204,7 +204,7 @@ groups:
                 The indexing rate on Elasticsearch cluster is higher than the threshold.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchHighIndexingRate
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchHighIndexingRate.md
         - alert: ElasticsearchHighQueryRate
           expr: sum(rate(elasticsearch_indices_search_query_total[1m])) > 100
           for: 5m
@@ -216,7 +216,7 @@ groups:
                 The query rate on Elasticsearch cluster is higher than the threshold.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchHighQueryRate
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchHighQueryRate.md
         - alert: ElasticsearchHighQueryLatency
           expr: elasticsearch_indices_search_fetch_time_seconds / elasticsearch_indices_search_fetch_total > 1
           for: 5m
@@ -228,4 +228,4 @@ groups:
                 The query latency on Elasticsearch cluster is higher than the threshold.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchHighQueryLatency
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchHighQueryLatency.md

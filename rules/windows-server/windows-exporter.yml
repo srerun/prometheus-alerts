@@ -12,7 +12,7 @@ groups:
                 Collector {{ $labels.collector }} was not successful
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/WindowsServerCollectorError
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/windows-exporter/WindowsServerCollectorError.md
         - alert: WindowsServerServiceStatus
           expr: windows_service_status{status="ok"} != 1
           for: 1m
@@ -24,7 +24,7 @@ groups:
                 Windows Service state is not OK
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/WindowsServerServiceStatus
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/windows-exporter/WindowsServerServiceStatus.md
         - alert: WindowsServerCpuUsage
           expr: 100 - (avg by (instance) (rate(windows_cpu_time_total{mode="idle"}[2m])) * 100) > 80
           for: 0m
@@ -36,7 +36,7 @@ groups:
                 CPU Usage is more than 80%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/WindowsServerCpuUsage
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/windows-exporter/WindowsServerCpuUsage.md
         - alert: WindowsServerMemoryUsage
           expr: 100 - ((windows_os_physical_memory_free_bytes / windows_cs_physical_memory_bytes) * 100) > 90
           for: 2m
@@ -48,7 +48,7 @@ groups:
                 Memory usage is more than 90%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/WindowsServerMemoryUsage
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/windows-exporter/WindowsServerMemoryUsage.md
         - alert: WindowsServerDiskSpaceUsage
           expr: 100.0 - 100 * ((windows_logical_disk_free_bytes / 1024 / 1024 ) / (windows_logical_disk_size_bytes / 1024 / 1024)) > 80
           for: 2m
@@ -60,4 +60,4 @@ groups:
                 Disk usage is more than 80%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/WindowsServerDiskSpaceUsage
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/windows-exporter/WindowsServerDiskSpaceUsage.md

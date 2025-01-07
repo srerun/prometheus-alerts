@@ -12,7 +12,7 @@ groups:
                 Cassandra Node is unavailable - {{ $labels.cassandra_cluster }} {{ $labels.exported_endpoint }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraNodeIsUnavailable
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/instaclustr-cassandra-exporter/CassandraNodeIsUnavailable.md
         - alert: CassandraManyCompactionTasksArePending
           expr: cassandra_table_estimated_pending_compactions > 100
           for: 0m
@@ -24,7 +24,7 @@ groups:
                 Many Cassandra compaction tasks are pending - {{ $labels.cassandra_cluster }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraManyCompactionTasksArePending
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/instaclustr-cassandra-exporter/CassandraManyCompactionTasksArePending.md
         - alert: CassandraCommitlogPendingTasks
           expr: cassandra_commit_log_pending_tasks > 15
           for: 2m
@@ -36,7 +36,7 @@ groups:
                 Cassandra commitlog pending tasks - {{ $labels.cassandra_cluster }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraCommitlogPendingTasks
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/instaclustr-cassandra-exporter/CassandraCommitlogPendingTasks.md
         - alert: CassandraCompactionExecutorBlockedTasks
           expr: cassandra_thread_pool_blocked_tasks{pool="CompactionExecutor"} > 15
           for: 2m
@@ -48,7 +48,7 @@ groups:
                 Some Cassandra compaction executor tasks are blocked - {{ $labels.cassandra_cluster }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraCompactionExecutorBlockedTasks
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/instaclustr-cassandra-exporter/CassandraCompactionExecutorBlockedTasks.md
         - alert: CassandraFlushWriterBlockedTasks
           expr: cassandra_thread_pool_blocked_tasks{pool="MemtableFlushWriter"} > 15
           for: 2m
@@ -60,7 +60,7 @@ groups:
                 Some Cassandra flush writer tasks are blocked - {{ $labels.cassandra_cluster }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraFlushWriterBlockedTasks
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/instaclustr-cassandra-exporter/CassandraFlushWriterBlockedTasks.md
         - alert: CassandraConnectionTimeoutsTotal
           expr: avg(cassandra_client_request_timeouts_total) by (cassandra_cluster,instance) > 5
           for: 2m
@@ -72,7 +72,7 @@ groups:
                 Some connection between nodes are ending in timeout - {{ $labels.cassandra_cluster }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraConnectionTimeoutsTotal
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/instaclustr-cassandra-exporter/CassandraConnectionTimeoutsTotal.md
         - alert: CassandraStorageExceptions
           expr: changes(cassandra_storage_exceptions_total[1m]) > 1
           for: 0m
@@ -84,7 +84,7 @@ groups:
                 Something is going wrong with cassandra storage - {{ $labels.cassandra_cluster }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraStorageExceptions
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/instaclustr-cassandra-exporter/CassandraStorageExceptions.md
         - alert: CassandraTombstoneDump
           expr: avg(cassandra_table_tombstones_scanned{quantile="0.99"}) by (instance,cassandra_cluster,keyspace) > 100
           for: 2m
@@ -96,7 +96,7 @@ groups:
                 Cassandra tombstone dump - {{ $labels.cassandra_cluster }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraTombstoneDump
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/instaclustr-cassandra-exporter/CassandraTombstoneDump.md
         - alert: CassandraClientRequestUnavailableWrite
           expr: changes(cassandra_client_request_unavailable_exceptions_total{operation="write"}[1m]) > 0
           for: 2m
@@ -108,7 +108,7 @@ groups:
                 Some Cassandra client requests are unavailable to write - {{ $labels.cassandra_cluster }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraClientRequestUnavailableWrite
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/instaclustr-cassandra-exporter/CassandraClientRequestUnavailableWrite.md
         - alert: CassandraClientRequestUnavailableRead
           expr: changes(cassandra_client_request_unavailable_exceptions_total{operation="read"}[1m]) > 0
           for: 2m
@@ -120,7 +120,7 @@ groups:
                 Some Cassandra client requests are unavailable to read - {{ $labels.cassandra_cluster }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraClientRequestUnavailableRead
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/instaclustr-cassandra-exporter/CassandraClientRequestUnavailableRead.md
         - alert: CassandraClientRequestWriteFailure
           expr: increase(cassandra_client_request_failures_total{operation="write"}[1m]) > 0
           for: 2m
@@ -132,7 +132,7 @@ groups:
                 Read failures have occurred, ensure there are not too many unavailable nodes - {{ $labels.cassandra_cluster }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraClientRequestWriteFailure
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/instaclustr-cassandra-exporter/CassandraClientRequestWriteFailure.md
         - alert: CassandraClientRequestReadFailure
           expr: increase(cassandra_client_request_failures_total{operation="read"}[1m]) > 0
           for: 2m
@@ -144,4 +144,4 @@ groups:
                 Read failures have occurred, ensure there are not too many unavailable nodes - {{ $labels.cassandra_cluster }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraClientRequestReadFailure
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/instaclustr-cassandra-exporter/CassandraClientRequestReadFailure.md

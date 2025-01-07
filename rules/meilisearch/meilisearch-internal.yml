@@ -12,7 +12,7 @@ groups:
                 Meilisearch instance is down
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MeilisearchIndexIsEmpty
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/meilisearch-internal/MeilisearchIndexIsEmpty.md
         - alert: MeilisearchHttpResponseTime
           expr: meilisearch_http_response_time_seconds > 0.5
           for: 0m
@@ -24,4 +24,4 @@ groups:
                 Meilisearch http response time is too high
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MeilisearchHttpResponseTime
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/meilisearch-internal/MeilisearchHttpResponseTime.md

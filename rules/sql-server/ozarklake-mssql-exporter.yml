@@ -12,7 +12,7 @@ groups:
                 SQL server instance is down
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SqlServerDown
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/ozarklake-mssql-exporter/SqlServerDown.md
         - alert: SqlServerDeadlock
           expr: increase(mssql_deadlocks[1m]) > 5
           for: 0m
@@ -24,4 +24,4 @@ groups:
                 SQL Server is having some deadlock.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SqlServerDeadlock
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/ozarklake-mssql-exporter/SqlServerDeadlock.md

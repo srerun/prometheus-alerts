@@ -12,7 +12,7 @@ groups:
                 Internet download speed is currently {{humanize $value}} Mbps.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SpeedtestSlowInternetDownload
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nlamirault-speedtest-exporter/SpeedtestSlowInternetDownload.md
         - alert: SpeedtestSlowInternetUpload
           expr: avg_over_time(speedtest_upload[10m]) < 20
           for: 0m
@@ -24,4 +24,4 @@ groups:
                 Internet upload speed is currently {{humanize $value}} Mbps.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SpeedtestSlowInternetUpload
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nlamirault-speedtest-exporter/SpeedtestSlowInternetUpload.md

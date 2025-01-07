@@ -12,7 +12,7 @@ groups:
                 Thanos Store {{$labels.job}} is failing to handle {{$value | humanize}}% of requests.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosStoreGrpcErrorRate
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-store/ThanosStoreGrpcErrorRate.md
         - alert: ThanosStoreSeriesGateLatencyHigh
           expr: (histogram_quantile(0.99, sum by (job, le) (rate(thanos_bucket_store_series_gate_duration_seconds_bucket{job=~".*thanos-store.*"}[5m]))) > 2 and sum by (job) (rate(thanos_bucket_store_series_gate_duration_seconds_count{job=~".*thanos-store.*"}[5m])) > 0)
           for: 10m
@@ -24,7 +24,7 @@ groups:
                 Thanos Store {{$labels.job}} has a 99th percentile latency of {{$value}} seconds for store series gate requests.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosStoreSeriesGateLatencyHigh
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-store/ThanosStoreSeriesGateLatencyHigh.md
         - alert: ThanosStoreBucketHighOperationFailures
           expr: (sum by (job) (rate(thanos_objstore_bucket_operation_failures_total{job=~".*thanos-store.*"}[5m])) / sum by (job) (rate(thanos_objstore_bucket_operations_total{job=~".*thanos-store.*"}[5m])) * 100 > 5)
           for: 15m
@@ -36,7 +36,7 @@ groups:
                 Thanos Store {{$labels.job}} Bucket is failing to execute {{$value | humanize}}% of operations.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosStoreBucketHighOperationFailures
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-store/ThanosStoreBucketHighOperationFailures.md
         - alert: ThanosStoreObjstoreOperationLatencyHigh
           expr: (histogram_quantile(0.99, sum by (job, le) (rate(thanos_objstore_bucket_operation_duration_seconds_bucket{job=~".*thanos-store.*"}[5m]))) > 2 and  sum by (job) (rate(thanos_objstore_bucket_operation_duration_seconds_count{job=~".*thanos-store.*"}[5m])) > 0)
           for: 10m
@@ -48,4 +48,4 @@ groups:
                 Thanos Store {{$labels.job}} Bucket has a 99th percentile latency of {{$value}} seconds for the bucket operations.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosStoreObjstoreOperationLatencyHigh
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-store/ThanosStoreObjstoreOperationLatencyHigh.md

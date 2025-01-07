@@ -12,7 +12,7 @@ groups:
                 No more than one Thanos Compact instance should be running at once. There are {{$value}} instances running.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosCompactorMultipleRunning
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-compactor/ThanosCompactorMultipleRunning.md
         - alert: ThanosCompactorHalted
           expr: thanos_compact_halted{job=~".*thanos-compact.*"} == 1
           for: 5m
@@ -24,7 +24,7 @@ groups:
                 Thanos Compact {{$labels.job}} has failed to run and now is halted.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosCompactorHalted
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-compactor/ThanosCompactorHalted.md
         - alert: ThanosCompactorHighCompactionFailures
           expr: (sum by (job) (rate(thanos_compact_group_compactions_failures_total{job=~".*thanos-compact.*"}[5m])) / sum by (job) (rate(thanos_compact_group_compactions_total{job=~".*thanos-compact.*"}[5m])) * 100 > 5)
           for: 15m
@@ -36,7 +36,7 @@ groups:
                 Thanos Compact {{$labels.job}} is failing to execute {{$value | humanize}}% of compactions.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosCompactorHighCompactionFailures
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-compactor/ThanosCompactorHighCompactionFailures.md
         - alert: ThanosCompactBucketHighOperationFailures
           expr: (sum by (job) (rate(thanos_objstore_bucket_operation_failures_total{job=~".*thanos-compact.*"}[5m])) / sum by (job) (rate(thanos_objstore_bucket_operations_total{job=~".*thanos-compact.*"}[5m])) * 100 > 5)
           for: 15m
@@ -48,7 +48,7 @@ groups:
                 Thanos Compact {{$labels.job}} Bucket is failing to execute {{$value | humanize}}% of operations.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosCompactBucketHighOperationFailures
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-compactor/ThanosCompactBucketHighOperationFailures.md
         - alert: ThanosCompactHasNotRun
           expr: (time() - max by (job) (max_over_time(thanos_objstore_bucket_last_successful_upload_time{job=~".*thanos-compact.*"}[24h]))) / 60 / 60 > 24
           for: 0m
@@ -60,4 +60,4 @@ groups:
                 Thanos Compact {{$labels.job}} has not uploaded anything for 24 hours.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosCompactHasNotRun
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-compactor/ThanosCompactHasNotRun.md

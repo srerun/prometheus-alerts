@@ -12,7 +12,7 @@ groups:
                 Cortex ruler configuration reload failure (instance {{ $labels.instance }})
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CortexRulerConfigurationReloadFailure
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/cortex-internal/CortexRulerConfigurationReloadFailure.md
         - alert: CortexNotConnectedToAlertmanager
           expr: cortex_prometheus_notifications_alertmanagers_discovered < 1
           for: 0m
@@ -24,7 +24,7 @@ groups:
                 Cortex not connected to Alertmanager (instance {{ $labels.instance }})
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CortexNotConnectedToAlertmanager
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/cortex-internal/CortexNotConnectedToAlertmanager.md
         - alert: CortexNotificationAreBeingDropped
           expr: rate(cortex_prometheus_notifications_dropped_total[5m]) > 0
           for: 0m
@@ -36,7 +36,7 @@ groups:
                 Cortex notification are being dropped due to errors (instance {{ $labels.instance }})
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CortexNotificationAreBeingDropped
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/cortex-internal/CortexNotificationAreBeingDropped.md
         - alert: CortexNotificationError
           expr: rate(cortex_prometheus_notifications_errors_total[5m]) > 0
           for: 0m
@@ -48,7 +48,7 @@ groups:
                 Cortex is failing when sending alert notifications (instance {{ $labels.instance }})
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CortexNotificationError
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/cortex-internal/CortexNotificationError.md
         - alert: CortexIngesterUnhealthy
           expr: cortex_ring_members{state="Unhealthy", name="ingester"} > 0
           for: 0m
@@ -60,7 +60,7 @@ groups:
                 Cortex has an unhealthy ingester
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CortexIngesterUnhealthy
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/cortex-internal/CortexIngesterUnhealthy.md
         - alert: CortexFrontendQueriesStuck
           expr: sum by (job) (cortex_query_frontend_queue_length) > 0
           for: 5m
@@ -72,4 +72,4 @@ groups:
                 There are queued up queries in query-frontend.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CortexFrontendQueriesStuck
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/cortex-internal/CortexFrontendQueriesStuck.md

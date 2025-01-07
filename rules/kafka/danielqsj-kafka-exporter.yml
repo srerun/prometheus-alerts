@@ -12,7 +12,7 @@ groups:
                 Kafka topic in-sync partition
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KafkaTopicsReplicas
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/danielqsj-kafka-exporter/KafkaTopicsReplicas.md
         - alert: KafkaConsumersGroup
           expr: sum(kafka_consumergroup_lag) by (consumergroup) > 50
           for: 1m
@@ -24,4 +24,4 @@ groups:
                 Kafka consumers group
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KafkaConsumersGroup
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/danielqsj-kafka-exporter/KafkaConsumersGroup.md

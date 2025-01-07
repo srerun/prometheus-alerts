@@ -12,7 +12,7 @@ groups:
                 The Hadoop NameNode service is unavailable.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HadoopNameNodeDown
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/jmx_exporter/HadoopNameNodeDown.md
         - alert: HadoopResourceManagerDown
           expr: up{job="hadoop-resourcemanager"} == 0
           for: 5m
@@ -24,7 +24,7 @@ groups:
                 The Hadoop ResourceManager service is unavailable.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HadoopResourceManagerDown
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/jmx_exporter/HadoopResourceManagerDown.md
         - alert: HadoopDataNodeOutOfService
           expr: hadoop_datanode_last_heartbeat == 0
           for: 10m
@@ -36,7 +36,7 @@ groups:
                 The Hadoop DataNode is not sending heartbeats.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HadoopDataNodeOutOfService
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/jmx_exporter/HadoopDataNodeOutOfService.md
         - alert: HadoopHdfsDiskSpaceLow
           expr: (hadoop_hdfs_bytes_total - hadoop_hdfs_bytes_used) / hadoop_hdfs_bytes_total < 0.1
           for: 15m
@@ -48,7 +48,7 @@ groups:
                 Available HDFS disk space is running low.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HadoopHdfsDiskSpaceLow
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/jmx_exporter/HadoopHdfsDiskSpaceLow.md
         - alert: HadoopMapReduceTaskFailures
           expr: hadoop_mapreduce_task_failures_total > 100
           for: 10m
@@ -60,7 +60,7 @@ groups:
                 There is an unusually high number of MapReduce task failures.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HadoopMapReduceTaskFailures
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/jmx_exporter/HadoopMapReduceTaskFailures.md
         - alert: HadoopResourceManagerMemoryHigh
           expr: hadoop_resourcemanager_memory_bytes / hadoop_resourcemanager_memory_max_bytes > 0.8
           for: 15m
@@ -72,7 +72,7 @@ groups:
                 The Hadoop ResourceManager is approaching its memory limit.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HadoopResourceManagerMemoryHigh
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/jmx_exporter/HadoopResourceManagerMemoryHigh.md
         - alert: HadoopYarnContainerAllocationFailures
           expr: hadoop_yarn_container_allocation_failures_total > 10
           for: 10m
@@ -84,7 +84,7 @@ groups:
                 There is a significant number of YARN container allocation failures.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HadoopYarnContainerAllocationFailures
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/jmx_exporter/HadoopYarnContainerAllocationFailures.md
         - alert: HadoopHbaseRegionCountHigh
           expr: hadoop_hbase_region_count > 5000
           for: 15m
@@ -96,7 +96,7 @@ groups:
                 The HBase cluster has an unusually high number of regions.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HadoopHbaseRegionCountHigh
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/jmx_exporter/HadoopHbaseRegionCountHigh.md
         - alert: HadoopHbaseRegionServerHeapLow
           expr: hadoop_hbase_region_server_heap_bytes / hadoop_hbase_region_server_max_heap_bytes < 0.2
           for: 10m
@@ -108,7 +108,7 @@ groups:
                 HBase Region Servers are running low on heap space.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HadoopHbaseRegionServerHeapLow
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/jmx_exporter/HadoopHbaseRegionServerHeapLow.md
         - alert: HadoopHbaseWriteRequestsLatencyHigh
           expr: hadoop_hbase_write_requests_latency_seconds > 0.5
           for: 10m
@@ -120,4 +120,4 @@ groups:
                 HBase Write Requests are experiencing high latency.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HadoopHbaseWriteRequestsLatencyHigh
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/jmx_exporter/HadoopHbaseWriteRequestsLatencyHigh.md

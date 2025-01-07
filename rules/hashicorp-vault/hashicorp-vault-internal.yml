@@ -12,7 +12,7 @@ groups:
                 Vault instance is sealed on {{ $labels.instance }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/VaultSealed
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/hashicorp-vault-internal/VaultSealed.md
         - alert: VaultTooManyPendingTokens
           expr: avg(vault_token_create_count - vault_token_store_count) > 0
           for: 5m
@@ -24,7 +24,7 @@ groups:
                 Too many pending tokens {{ $labels.instance }}: {{ $value | printf "%.2f"}}%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/VaultTooManyPendingTokens
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/hashicorp-vault-internal/VaultTooManyPendingTokens.md
         - alert: VaultTooManyInfinityTokens
           expr: vault_token_count_by_ttl{creation_ttl="+Inf"} > 3
           for: 5m
@@ -36,7 +36,7 @@ groups:
                 Too many infinity tokens {{ $labels.instance }}: {{ $value | printf "%.2f"}}%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/VaultTooManyInfinityTokens
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/hashicorp-vault-internal/VaultTooManyInfinityTokens.md
         - alert: VaultClusterHealth
           expr: sum(vault_core_active) / count(vault_core_active) <= 0.5
           for: 0m
@@ -48,4 +48,4 @@ groups:
                 Vault cluster is not healthy {{ $labels.instance }}: {{ $value | printf "%.2f"}}%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/VaultClusterHealth
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/hashicorp-vault-internal/VaultClusterHealth.md

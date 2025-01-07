@@ -12,7 +12,7 @@ groups:
                 RabbitMQ node down
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqDown
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kbudde-rabbitmq-exporter/RabbitmqDown.md
         - alert: RabbitmqClusterDown
           expr: sum(rabbitmq_running) < 3
           for: 0m
@@ -24,7 +24,7 @@ groups:
                 Less than 3 nodes running in RabbitMQ cluster
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqClusterDown
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kbudde-rabbitmq-exporter/RabbitmqClusterDown.md
         - alert: RabbitmqClusterPartition
           expr: rabbitmq_partitions > 0
           for: 0m
@@ -36,7 +36,7 @@ groups:
                 Cluster partition
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqClusterPartition
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kbudde-rabbitmq-exporter/RabbitmqClusterPartition.md
         - alert: RabbitmqOutOfMemory
           expr: rabbitmq_node_mem_used / rabbitmq_node_mem_limit * 100 > 90
           for: 2m
@@ -48,7 +48,7 @@ groups:
                 Memory available for RabbmitMQ is low (< 10%)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqOutOfMemory
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kbudde-rabbitmq-exporter/RabbitmqOutOfMemory.md
         - alert: RabbitmqTooManyConnections
           expr: rabbitmq_connectionsTotal > 1000
           for: 2m
@@ -60,7 +60,7 @@ groups:
                 RabbitMQ instance has too many connections (> 1000)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqTooManyConnections
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kbudde-rabbitmq-exporter/RabbitmqTooManyConnections.md
         - alert: RabbitmqDeadLetterQueueFillingUp
           expr: rabbitmq_queue_messages{queue="my-dead-letter-queue"} > 10
           for: 1m
@@ -72,7 +72,7 @@ groups:
                 Dead letter queue is filling up (> 10 msgs)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqDeadLetterQueueFillingUp
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kbudde-rabbitmq-exporter/RabbitmqDeadLetterQueueFillingUp.md
         - alert: RabbitmqTooManyMessagesInQueue
           expr: rabbitmq_queue_messages_ready{queue="my-queue"} > 1000
           for: 2m
@@ -84,7 +84,7 @@ groups:
                 Queue is filling up (> 1000 msgs)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqTooManyMessagesInQueue
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kbudde-rabbitmq-exporter/RabbitmqTooManyMessagesInQueue.md
         - alert: RabbitmqSlowQueueConsuming
           expr: time() - rabbitmq_queue_head_message_timestamp{queue="my-queue"} > 60
           for: 2m
@@ -96,7 +96,7 @@ groups:
                 Queue messages are consumed slowly (> 60s)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqSlowQueueConsuming
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kbudde-rabbitmq-exporter/RabbitmqSlowQueueConsuming.md
         - alert: RabbitmqNoConsumer
           expr: rabbitmq_queue_consumers == 0
           for: 1m
@@ -108,7 +108,7 @@ groups:
                 Queue has no consumer
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqNoConsumer
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kbudde-rabbitmq-exporter/RabbitmqNoConsumer.md
         - alert: RabbitmqTooManyConsumers
           expr: rabbitmq_queue_consumers{queue="my-queue"} > 1
           for: 0m
@@ -120,7 +120,7 @@ groups:
                 Queue should have only 1 consumer
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqTooManyConsumers
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kbudde-rabbitmq-exporter/RabbitmqTooManyConsumers.md
         - alert: RabbitmqUnactiveExchange
           expr: rate(rabbitmq_exchange_messages_published_in_total{exchange="my-exchange"}[1m]) < 5
           for: 2m
@@ -132,4 +132,4 @@ groups:
                 Exchange receive less than 5 msgs per second
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqUnactiveExchange
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kbudde-rabbitmq-exporter/RabbitmqUnactiveExchange.md

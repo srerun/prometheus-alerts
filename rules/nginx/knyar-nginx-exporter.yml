@@ -12,7 +12,7 @@ groups:
                 Too many HTTP requests with status 4xx (> 5%)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NginxHighHttp4xxErrorRate
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/knyar-nginx-exporter/NginxHighHttp4xxErrorRate.md
         - alert: NginxHighHttp5xxErrorRate
           expr: sum(rate(nginx_http_requests_total{status=~"^5.."}[1m])) / sum(rate(nginx_http_requests_total[1m])) * 100 > 5
           for: 1m
@@ -24,7 +24,7 @@ groups:
                 Too many HTTP requests with status 5xx (> 5%)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NginxHighHttp5xxErrorRate
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/knyar-nginx-exporter/NginxHighHttp5xxErrorRate.md
         - alert: NginxLatencyHigh
           expr: histogram_quantile(0.99, sum(rate(nginx_http_request_duration_seconds_bucket[2m])) by (host, node, le)) > 3
           for: 2m
@@ -36,4 +36,4 @@ groups:
                 Nginx p99 latency is higher than 3 seconds
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NginxLatencyHigh
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/knyar-nginx-exporter/NginxLatencyHigh.md

@@ -12,7 +12,7 @@ groups:
                 Solr collection {{ $labels.collection }} has failed updates for replica {{ $labels.replica }} on {{ $labels.base_url }}.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SolrUpdateErrors
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/solr-internal/SolrUpdateErrors.md
         - alert: SolrQueryErrors
           expr: increase(solr_metrics_core_errors_total{category="QUERY"}[1m]) > 1
           for: 5m
@@ -24,7 +24,7 @@ groups:
                 Solr has increased query errors in collection {{ $labels.collection }} for replica {{ $labels.replica }} on {{ $labels.base_url }}.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SolrQueryErrors
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/solr-internal/SolrQueryErrors.md
         - alert: SolrReplicationErrors
           expr: increase(solr_metrics_core_errors_total{category="REPLICATION"}[1m]) > 1
           for: 0m
@@ -36,7 +36,7 @@ groups:
                 Solr collection {{ $labels.collection }} has failed updates for replica {{ $labels.replica }} on {{ $labels.base_url }}.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SolrReplicationErrors
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/solr-internal/SolrReplicationErrors.md
         - alert: SolrLowLiveNodeCount
           expr: solr_collections_live_nodes < 2
           for: 0m
@@ -48,4 +48,4 @@ groups:
                 Solr collection {{ $labels.collection }} has less than two live nodes for replica {{ $labels.replica }} on {{ $labels.base_url }}.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SolrLowLiveNodeCount
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/solr-internal/SolrLowLiveNodeCount.md

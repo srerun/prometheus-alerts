@@ -12,7 +12,7 @@ groups:
                 A container has disappeared
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ContainerKilled
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/google-cadvisor/ContainerKilled.md
         - alert: ContainerAbsent
           expr: absent(container_last_seen)
           for: 5m
@@ -24,7 +24,7 @@ groups:
                 A container is absent for 5 min
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ContainerAbsent
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/google-cadvisor/ContainerAbsent.md
         - alert: ContainerHighCpuUtilization
           expr: (sum(rate(container_cpu_usage_seconds_total{container!=""}[5m])) by (pod, container) / sum(container_spec_cpu_quota{container!=""}/container_spec_cpu_period{container!=""}) by (pod, container) * 100) > 80
           for: 2m
@@ -36,7 +36,7 @@ groups:
                 Container CPU utilization is above 80%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ContainerHighCpuUtilization
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/google-cadvisor/ContainerHighCpuUtilization.md
         - alert: ContainerHighMemoryUsage
           expr: (sum(container_memory_working_set_bytes{name!=""}) BY (instance, name) / sum(container_spec_memory_limit_bytes > 0) BY (instance, name) * 100) > 80
           for: 2m
@@ -48,7 +48,7 @@ groups:
                 Container Memory usage is above 80%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ContainerHighMemoryUsage
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/google-cadvisor/ContainerHighMemoryUsage.md
         - alert: ContainerVolumeUsage
           expr: (1 - (sum(container_fs_inodes_free{name!=""}) BY (instance) / sum(container_fs_inodes_total) BY (instance))) * 100 > 80
           for: 2m
@@ -60,7 +60,7 @@ groups:
                 Container Volume usage is above 80%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ContainerVolumeUsage
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/google-cadvisor/ContainerVolumeUsage.md
         - alert: ContainerHighThrottleRate
           expr: sum(increase(container_cpu_cfs_throttled_periods_total{container!=""}[5m])) by (container, pod, namespace) / sum(increase(container_cpu_cfs_periods_total[5m])) by (container, pod, namespace) > ( 25 / 100 )
           for: 5m
@@ -72,7 +72,7 @@ groups:
                 Container is being throttled
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ContainerHighThrottleRate
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/google-cadvisor/ContainerHighThrottleRate.md
         - alert: ContainerLowCpuUtilization
           expr: (sum(rate(container_cpu_usage_seconds_total{container!=""}[5m])) by (pod, container) / sum(container_spec_cpu_quota{container!=""}/container_spec_cpu_period{container!=""}) by (pod, container) * 100) < 20
           for: 7d
@@ -84,7 +84,7 @@ groups:
                 Container CPU utilization is under 20% for 1 week. Consider reducing the allocated CPU.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ContainerLowCpuUtilization
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/google-cadvisor/ContainerLowCpuUtilization.md
         - alert: ContainerLowMemoryUsage
           expr: (sum(container_memory_working_set_bytes{name!=""}) BY (instance, name) / sum(container_spec_memory_limit_bytes > 0) BY (instance, name) * 100) < 20
           for: 7d
@@ -96,4 +96,4 @@ groups:
                 Container Memory usage is under 20% for 1 week. Consider reducing the allocated memory.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ContainerLowMemoryUsage
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/google-cadvisor/ContainerLowMemoryUsage.md

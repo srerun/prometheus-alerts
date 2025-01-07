@@ -12,7 +12,7 @@ groups:
                 Failed net_version for Provider `{{$labels.provider}}` in Graph node `{{$labels.instance}}`
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ProviderFailedBecauseNet_versionFailed
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/graph-node-internal/ProviderFailedBecauseNet_versionFailed.md
         - alert: ProviderFailedBecauseGetGenesisFailed
           expr: eth_rpc_status == 2
           for: 0m
@@ -24,7 +24,7 @@ groups:
                 Failed to get genesis for Provider `{{$labels.provider}}` in Graph node `{{$labels.instance}}`
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ProviderFailedBecauseGetGenesisFailed
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/graph-node-internal/ProviderFailedBecauseGetGenesisFailed.md
         - alert: ProviderFailedBecauseNet_versionTimeout
           expr: eth_rpc_status == 3
           for: 0m
@@ -36,7 +36,7 @@ groups:
                 net_version timeout for Provider `{{$labels.provider}}` in Graph node `{{$labels.instance}}`
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ProviderFailedBecauseNet_versionTimeout
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/graph-node-internal/ProviderFailedBecauseNet_versionTimeout.md
         - alert: ProviderFailedBecauseGetGenesisTimeout
           expr: eth_rpc_status == 4
           for: 0m
@@ -48,7 +48,7 @@ groups:
                 Timeout to get genesis for Provider `{{$labels.provider}}` in Graph node `{{$labels.instance}}`
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ProviderFailedBecauseGetGenesisTimeout
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/graph-node-internal/ProviderFailedBecauseGetGenesisTimeout.md
         - alert: StoreConnectionIsTooSlow
           expr: store_connection_wait_time_ms > 10
           for: 0m
@@ -60,7 +60,7 @@ groups:
                 Store connection is too slow to `{{$labels.pool}}` pool, `{{$labels.shard}}` shard in Graph node `{{$labels.instance}}`
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/StoreConnectionIsTooSlow
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/graph-node-internal/StoreConnectionIsTooSlow.md
         - alert: StoreConnectionIsTooSlow
           expr: store_connection_wait_time_ms > 20
           for: 0m
@@ -72,4 +72,4 @@ groups:
                 Store connection is too slow to `{{$labels.pool}}` pool, `{{$labels.shard}}` shard in Graph node `{{$labels.instance}}`
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/StoreConnectionIsTooSlow
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/graph-node-internal/StoreConnectionIsTooSlow.md

@@ -12,7 +12,7 @@ groups:
                 ThanosCompact has disappeared. Prometheus target for the component cannot be discovered.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosCompactIsDown
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-component-absent/ThanosCompactIsDown.md
         - alert: ThanosQueryIsDown
           expr: absent(up{job=~".*thanos-query.*"} == 1)
           for: 5m
@@ -24,7 +24,7 @@ groups:
                 ThanosQuery has disappeared. Prometheus target for the component cannot be discovered.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosQueryIsDown
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-component-absent/ThanosQueryIsDown.md
         - alert: ThanosReceiveIsDown
           expr: absent(up{job=~".*thanos-receive.*"} == 1)
           for: 5m
@@ -36,7 +36,7 @@ groups:
                 ThanosReceive has disappeared. Prometheus target for the component cannot be discovered.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosReceiveIsDown
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-component-absent/ThanosReceiveIsDown.md
         - alert: ThanosRuleIsDown
           expr: absent(up{job=~".*thanos-rule.*"} == 1)
           for: 5m
@@ -48,7 +48,7 @@ groups:
                 ThanosRule has disappeared. Prometheus target for the component cannot be discovered.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosRuleIsDown
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-component-absent/ThanosRuleIsDown.md
         - alert: ThanosSidecarIsDown
           expr: absent(up{job=~".*thanos-sidecar.*"} == 1)
           for: 5m
@@ -60,7 +60,7 @@ groups:
                 ThanosSidecar has disappeared. Prometheus target for the component cannot be discovered.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosSidecarIsDown
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-component-absent/ThanosSidecarIsDown.md
         - alert: ThanosStoreIsDown
           expr: absent(up{job=~".*thanos-store.*"} == 1)
           for: 5m
@@ -72,4 +72,4 @@ groups:
                 ThanosStore has disappeared. Prometheus target for the component cannot be discovered.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosStoreIsDown
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-component-absent/ThanosStoreIsDown.md

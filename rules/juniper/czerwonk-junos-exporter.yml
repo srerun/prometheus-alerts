@@ -12,7 +12,7 @@ groups:
                 The switch appears to be down
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/JuniperSwitchDown
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/czerwonk-junos-exporter/JuniperSwitchDown.md
         - alert: JuniperHighBandwidthUsage1gib
           expr: rate(junos_interface_transmit_bytes[1m]) * 8 > 1e+9 * 0.90
           for: 1m
@@ -24,7 +24,7 @@ groups:
                 Interface is highly saturated. (> 0.90GiB/s)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/JuniperHighBandwidthUsage1gib
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/czerwonk-junos-exporter/JuniperHighBandwidthUsage1gib.md
         - alert: JuniperHighBandwidthUsage1gib
           expr: rate(junos_interface_transmit_bytes[1m]) * 8 > 1e+9 * 0.80
           for: 1m
@@ -36,4 +36,4 @@ groups:
                 Interface is getting saturated. (> 0.80GiB/s)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/JuniperHighBandwidthUsage1gib
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/czerwonk-junos-exporter/JuniperHighBandwidthUsage1gib.md

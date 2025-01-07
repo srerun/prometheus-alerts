@@ -12,7 +12,7 @@ groups:
                 Thanos Sidecar {{$labels.instance}} bucket operations are failing
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosSidecarBucketOperationsFailed
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-sidecar/ThanosSidecarBucketOperationsFailed.md
         - alert: ThanosSidecarNoConnectionToStartedPrometheus
           expr: thanos_sidecar_prometheus_up{job=~".*thanos-sidecar.*"} == 0 and on (namespace, pod)prometheus_tsdb_data_replay_duration_seconds != 0
           for: 5m
@@ -24,4 +24,4 @@ groups:
                 Thanos Sidecar {{$labels.instance}} is unhealthy.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosSidecarNoConnectionToStartedPrometheus
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-sidecar/ThanosSidecarNoConnectionToStartedPrometheus.md

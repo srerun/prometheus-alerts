@@ -12,7 +12,7 @@ groups:
                 Zookeeper down on instance {{ $labels.instance }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ZookeeperDown
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dabealu-zookeeper-exporter/ZookeeperDown.md
         - alert: ZookeeperMissingLeader
           expr: sum(zk_server_leader) == 0
           for: 0m
@@ -24,7 +24,7 @@ groups:
                 Zookeeper cluster has no node marked as leader
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ZookeeperMissingLeader
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dabealu-zookeeper-exporter/ZookeeperMissingLeader.md
         - alert: ZookeeperTooManyLeaders
           expr: sum(zk_server_leader) > 1
           for: 0m
@@ -36,7 +36,7 @@ groups:
                 Zookeeper cluster has too many nodes marked as leader
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ZookeeperTooManyLeaders
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dabealu-zookeeper-exporter/ZookeeperTooManyLeaders.md
         - alert: ZookeeperNotOk
           expr: zk_ruok == 0
           for: 3m
@@ -48,4 +48,4 @@ groups:
                 Zookeeper instance is not ok
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ZookeeperNotOk
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dabealu-zookeeper-exporter/ZookeeperNotOk.md

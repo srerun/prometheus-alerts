@@ -12,7 +12,7 @@ groups:
                 MongoDB instance is down
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MongodbDown
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/percona-mongodb-exporter/MongodbDown.md
         - alert: MongodbReplicaMemberUnhealthy
           expr: mongodb_rs_members_health == 0
           for: 0m
@@ -24,7 +24,7 @@ groups:
                 MongoDB replica member is not healthy
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MongodbReplicaMemberUnhealthy
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/percona-mongodb-exporter/MongodbReplicaMemberUnhealthy.md
         - alert: MongodbReplicationLag
           expr: (mongodb_rs_members_optimeDate{member_state="PRIMARY"} - on (set) group_right mongodb_rs_members_optimeDate{member_state="SECONDARY"}) / 1000 > 10
           for: 0m
@@ -36,7 +36,7 @@ groups:
                 Mongodb replication lag is more than 10s
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MongodbReplicationLag
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/percona-mongodb-exporter/MongodbReplicationLag.md
         - alert: MongodbReplicationHeadroom
           expr: sum(avg(mongodb_mongod_replset_oplog_head_timestamp - mongodb_mongod_replset_oplog_tail_timestamp)) - sum(avg(mongodb_rs_members_optimeDate{member_state="PRIMARY"} - on (set) group_right mongodb_rs_members_optimeDate{member_state="SECONDARY"})) <= 0
           for: 0m
@@ -48,7 +48,7 @@ groups:
                 MongoDB replication headroom is <= 0
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MongodbReplicationHeadroom
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/percona-mongodb-exporter/MongodbReplicationHeadroom.md
         - alert: MongodbNumberCursorsOpen
           expr: mongodb_ss_metrics_cursor_open{csr_type="total"} > 10 * 1000
           for: 2m
@@ -60,7 +60,7 @@ groups:
                 Too many cursors opened by MongoDB for clients (> 10k)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MongodbNumberCursorsOpen
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/percona-mongodb-exporter/MongodbNumberCursorsOpen.md
         - alert: MongodbCursorsTimeouts
           expr: increase(mongodb_ss_metrics_cursor_timedOut[1m]) > 100
           for: 2m
@@ -72,7 +72,7 @@ groups:
                 Too many cursors are timing out
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MongodbCursorsTimeouts
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/percona-mongodb-exporter/MongodbCursorsTimeouts.md
         - alert: MongodbTooManyConnections
           expr: avg by(instance) (rate(mongodb_ss_connections{conn_type="current"}[1m])) / avg by(instance) (sum (mongodb_ss_connections) by (instance)) * 100 > 80
           for: 2m
@@ -84,4 +84,4 @@ groups:
                 Too many connections (> 80%)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MongodbTooManyConnections
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/percona-mongodb-exporter/MongodbTooManyConnections.md

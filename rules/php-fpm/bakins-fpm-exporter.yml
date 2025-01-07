@@ -12,4 +12,4 @@ groups:
                 PHP-FPM reached max children - {{ $labels.instance }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/Php-fpmMax-childrenReached
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/bakins-fpm-exporter/Php-fpmMax-childrenReached.md

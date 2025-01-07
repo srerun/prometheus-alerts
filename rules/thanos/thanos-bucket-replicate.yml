@@ -12,7 +12,7 @@ groups:
                 Thanos Replicate is failing to run, {{$value | humanize}}% of attempts failed.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosBucketReplicateErrorRate
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-bucket-replicate/ThanosBucketReplicateErrorRate.md
         - alert: ThanosBucketReplicateRunLatency
           expr: (histogram_quantile(0.99, sum by (job) (rate(thanos_replicate_replication_run_duration_seconds_bucket{job=~".*thanos-bucket-replicate.*"}[5m]))) > 20 and  sum by (job) (rate(thanos_replicate_replication_run_duration_seconds_bucket{job=~".*thanos-bucket-replicate.*"}[5m])) > 0)
           for: 5m
@@ -24,4 +24,4 @@ groups:
                 Thanos Replicate {{$labels.job}} has a 99th percentile latency of {{$value}} seconds for the replicate operations.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosBucketReplicateRunLatency
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-bucket-replicate/ThanosBucketReplicateRunLatency.md

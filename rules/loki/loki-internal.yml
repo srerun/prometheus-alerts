@@ -12,7 +12,7 @@ groups:
                 A loki process had too many restarts (target {{ $labels.instance }})
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/LokiProcessTooManyRestarts
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/loki-internal/LokiProcessTooManyRestarts.md
         - alert: LokiRequestErrors
           expr: 100 * sum(rate(loki_request_duration_seconds_count{status_code=~"5.."}[1m])) by (namespace, job, route) / sum(rate(loki_request_duration_seconds_count[1m])) by (namespace, job, route) > 10
           for: 15m
@@ -24,7 +24,7 @@ groups:
                 The {{ $labels.job }} and {{ $labels.route }} are experiencing errors
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/LokiRequestErrors
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/loki-internal/LokiRequestErrors.md
         - alert: LokiRequestPanic
           expr: sum(increase(loki_panic_total[10m])) by (namespace, job) > 0
           for: 5m
@@ -36,7 +36,7 @@ groups:
                 The {{ $labels.job }} is experiencing {{ printf "%.2f" $value }}% increase of panics
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/LokiRequestPanic
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/loki-internal/LokiRequestPanic.md
         - alert: LokiRequestLatency
           expr: (histogram_quantile(0.99, sum(rate(loki_request_duration_seconds_bucket{route!~"(?i).*tail.*"}[5m])) by (le)))  > 1
           for: 5m
@@ -48,4 +48,4 @@ groups:
                 The {{ $labels.job }} {{ $labels.route }} is experiencing {{ printf "%.2f" $value }}s 99th percentile latency
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/LokiRequestLatency
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/loki-internal/LokiRequestLatency.md

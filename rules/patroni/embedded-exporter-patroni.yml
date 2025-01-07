@@ -12,4 +12,4 @@ groups:
                 A leader node (neither primary nor standby) cannot be found inside the cluster {{ $labels.scope }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PatroniHasNoLeader
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/embedded-exporter-patroni/PatroniHasNoLeader.md

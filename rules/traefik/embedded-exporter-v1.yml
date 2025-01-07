@@ -12,7 +12,7 @@ groups:
                 All Traefik backends are down
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/TraefikBackendDown
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/embedded-exporter-v1/TraefikBackendDown.md
         - alert: TraefikHighHttp4xxErrorRateBackend
           expr: sum(rate(traefik_backend_requests_total{code=~"4.*"}[3m])) by (backend) / sum(rate(traefik_backend_requests_total[3m])) by (backend) * 100 > 5
           for: 1m
@@ -24,7 +24,7 @@ groups:
                 Traefik backend 4xx error rate is above 5%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/TraefikHighHttp4xxErrorRateBackend
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/embedded-exporter-v1/TraefikHighHttp4xxErrorRateBackend.md
         - alert: TraefikHighHttp5xxErrorRateBackend
           expr: sum(rate(traefik_backend_requests_total{code=~"5.*"}[3m])) by (backend) / sum(rate(traefik_backend_requests_total[3m])) by (backend) * 100 > 5
           for: 1m
@@ -36,4 +36,4 @@ groups:
                 Traefik backend 5xx error rate is above 5%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/TraefikHighHttp5xxErrorRateBackend
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/embedded-exporter-v1/TraefikHighHttp5xxErrorRateBackend.md

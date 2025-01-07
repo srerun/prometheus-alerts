@@ -12,7 +12,7 @@ groups:
                 Cassandra hints count has changed on {{ $labels.instance }} some nodes may go down
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraHintsCount
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraHintsCount.md
         - alert: CassandraCompactionTaskPending
           expr: avg_over_time(cassandra_stats{name="org:apache:cassandra:metrics:compaction:pendingtasks:value"}[1m]) > 100
           for: 2m
@@ -24,7 +24,7 @@ groups:
                 Many Cassandra compaction tasks are pending. You might need to increase I/O capacity by adding nodes to the cluster.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraCompactionTaskPending
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraCompactionTaskPending.md
         - alert: CassandraViewwriteLatency
           expr: cassandra_stats{name="org:apache:cassandra:metrics:clientrequest:viewwrite:viewwritelatency:99thpercentile",service="cas"} > 100000
           for: 2m
@@ -36,7 +36,7 @@ groups:
                 High viewwrite latency on {{ $labels.instance }} cassandra node
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraViewwriteLatency
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraViewwriteLatency.md
         - alert: CassandraBadHacker
           expr: rate(cassandra_stats{name="org:apache:cassandra:metrics:client:authfailure:count"}[1m]) > 5
           for: 2m
@@ -48,7 +48,7 @@ groups:
                 Increase of Cassandra authentication failures
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraBadHacker
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraBadHacker.md
         - alert: CassandraNodeDown
           expr: sum(cassandra_stats{name="org:apache:cassandra:net:failuredetector:downendpointcount"}) by (service,group,cluster,env) > 0
           for: 0m
@@ -60,7 +60,7 @@ groups:
                 Cassandra node down
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraNodeDown
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraNodeDown.md
         - alert: CassandraCommitlogPendingTasks
           expr: cassandra_stats{name="org:apache:cassandra:metrics:commitlog:pendingtasks:value"} > 15
           for: 2m
@@ -72,7 +72,7 @@ groups:
                 Unexpected number of Cassandra commitlog pending tasks
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraCommitlogPendingTasks
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraCommitlogPendingTasks.md
         - alert: CassandraCompactionExecutorBlockedTasks
           expr: cassandra_stats{name="org:apache:cassandra:metrics:threadpools:internal:compactionexecutor:currentlyblockedtasks:count"} > 0
           for: 2m
@@ -84,7 +84,7 @@ groups:
                 Some Cassandra compaction executor tasks are blocked
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraCompactionExecutorBlockedTasks
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraCompactionExecutorBlockedTasks.md
         - alert: CassandraFlushWriterBlockedTasks
           expr: cassandra_stats{name="org:apache:cassandra:metrics:threadpools:internal:memtableflushwriter:currentlyblockedtasks:count"} > 0
           for: 2m
@@ -96,7 +96,7 @@ groups:
                 Some Cassandra flush writer tasks are blocked
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraFlushWriterBlockedTasks
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraFlushWriterBlockedTasks.md
         - alert: CassandraRepairPendingTasks
           expr: cassandra_stats{name="org:apache:cassandra:metrics:threadpools:internal:antientropystage:pendingtasks:value"} > 2
           for: 2m
@@ -108,7 +108,7 @@ groups:
                 Some Cassandra repair tasks are pending
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraRepairPendingTasks
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraRepairPendingTasks.md
         - alert: CassandraRepairBlockedTasks
           expr: cassandra_stats{name="org:apache:cassandra:metrics:threadpools:internal:antientropystage:currentlyblockedtasks:count"} > 0
           for: 2m
@@ -120,7 +120,7 @@ groups:
                 Some Cassandra repair tasks are blocked
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraRepairBlockedTasks
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraRepairBlockedTasks.md
         - alert: CassandraConnectionTimeoutsTotal
           expr: rate(cassandra_stats{name="org:apache:cassandra:metrics:connection:totaltimeouts:count"}[1m]) > 5
           for: 2m
@@ -132,7 +132,7 @@ groups:
                 Some connection between nodes are ending in timeout
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraConnectionTimeoutsTotal
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraConnectionTimeoutsTotal.md
         - alert: CassandraStorageExceptions
           expr: changes(cassandra_stats{name="org:apache:cassandra:metrics:storage:exceptions:count"}[1m]) > 1
           for: 0m
@@ -144,7 +144,7 @@ groups:
                 Something is going wrong with cassandra storage
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraStorageExceptions
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraStorageExceptions.md
         - alert: CassandraTombstoneDump
           expr: cassandra_stats{name="org:apache:cassandra:metrics:table:tombstonescannedhistogram:99thpercentile"} > 1000
           for: 0m
@@ -156,7 +156,7 @@ groups:
                 Too much tombstones scanned in queries
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraTombstoneDump
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraTombstoneDump.md
         - alert: CassandraClientRequestUnavailableWrite
           expr: changes(cassandra_stats{name="org:apache:cassandra:metrics:clientrequest:write:unavailables:count"}[1m]) > 0
           for: 0m
@@ -168,7 +168,7 @@ groups:
                 Write failures have occurred because too many nodes are unavailable
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraClientRequestUnavailableWrite
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraClientRequestUnavailableWrite.md
         - alert: CassandraClientRequestUnavailableRead
           expr: changes(cassandra_stats{name="org:apache:cassandra:metrics:clientrequest:read:unavailables:count"}[1m]) > 0
           for: 0m
@@ -180,7 +180,7 @@ groups:
                 Read failures have occurred because too many nodes are unavailable
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraClientRequestUnavailableRead
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraClientRequestUnavailableRead.md
         - alert: CassandraClientRequestWriteFailure
           expr: increase(cassandra_stats{name="org:apache:cassandra:metrics:clientrequest:write:failures:oneminuterate"}[1m]) > 0
           for: 0m
@@ -192,7 +192,7 @@ groups:
                 A lot of write failures encountered. A write failure is a non-timeout exception encountered during a write request. Examine the reason map to find to the root cause. The most common cause for this type of error is when batch sizes are too large.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraClientRequestWriteFailure
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraClientRequestWriteFailure.md
         - alert: CassandraClientRequestReadFailure
           expr: increase(cassandra_stats{name="org:apache:cassandra:metrics:clientrequest:read:failures:oneminuterate"}[1m]) > 0
           for: 0m
@@ -204,7 +204,7 @@ groups:
                 A lot of read failures encountered. A read failure is a non-timeout exception encountered during a read request. Examine the reason map to find to the root cause. The most common cause for this type of error is when batch sizes are too large.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraClientRequestReadFailure
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraClientRequestReadFailure.md
         - alert: CassandraCacheHitRateKeyCache
           expr: cassandra_stats{name="org:apache:cassandra:metrics:cache:keycache:hitrate:value"} < .85
           for: 2m
@@ -216,4 +216,4 @@ groups:
                 Key cache hit rate is below 85%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraCacheHitRateKeyCache
+            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraCacheHitRateKeyCache.md
