@@ -3,7 +3,9 @@ title: NatsHighMemoryUsage
 description: Troubleshooting for alert NatsHighMemoryUsage
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ NATS server memory usage is above 200MB for {{ $labels.instance }}
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "nats/nats-exporter.yml" "NatsHighMemoryUsage" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: NatsHighMemoryUsage
 expr: gnatsd_varz_mem > 200 * 1024 * 1024
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         NATS server memory usage is above 200MB for {{ $labels.instance }}
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NatsHighMemoryUsage
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighMemoryUsage.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

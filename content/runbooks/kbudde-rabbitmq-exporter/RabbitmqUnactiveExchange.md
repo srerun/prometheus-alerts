@@ -3,7 +3,9 @@ title: RabbitmqUnactiveExchange
 description: Troubleshooting for alert RabbitmqUnactiveExchange
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Exchange receive less than 5 msgs per second
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "rabbitmq/kbudde-rabbitmq-exporter.yml" "RabbitmqUnactiveExchange" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RabbitmqUnactiveExchange
 expr: rate(rabbitmq_exchange_messages_published_in_total{exchange="my-exchange"}[1m]) < 5
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Exchange receive less than 5 msgs per second
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqUnactiveExchange
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kbudde-rabbitmq-exporter/RabbitmqUnactiveExchange.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

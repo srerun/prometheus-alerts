@@ -3,7 +3,9 @@ title: HostMemoryUnderMemoryPressure
 description: Troubleshooting for alert HostMemoryUnderMemoryPressure
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ The node is under heavy memory pressure. High rate of major page faults
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostMemoryUnderMemoryPressure" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostMemoryUnderMemoryPressure
 expr: (rate(node_vmstat_pgmajfault[1m]) > 1000) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         The node is under heavy memory pressure. High rate of major page faults
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostMemoryUnderMemoryPressure
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostMemoryUnderMemoryPressure.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

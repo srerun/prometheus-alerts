@@ -3,7 +3,9 @@ title: KubernetesJobFailed
 description: Troubleshooting for alert KubernetesJobFailed
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Job {{ $labels.namespace }}/{{ $labels.job_name }} failed to complete
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesJobFailed" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesJobFailed
 expr: kube_job_status_failed > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Job {{ $labels.namespace }}/{{ $labels.job_name }} failed to complete
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesJobFailed
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesJobFailed.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

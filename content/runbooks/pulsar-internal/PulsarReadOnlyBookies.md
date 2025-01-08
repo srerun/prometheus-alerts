@@ -3,7 +3,9 @@ title: PulsarReadOnlyBookies
 description: Troubleshooting for alert PulsarReadOnlyBookies
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Observing Readonly Bookies
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "pulsar/pulsar-internal.yml" "PulsarReadOnlyBookies" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PulsarReadOnlyBookies
 expr: count(bookie_SERVER_STATUS{} == 0) by (pod)
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Observing Readonly Bookies
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PulsarReadOnlyBookies
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pulsar-internal/PulsarReadOnlyBookies.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

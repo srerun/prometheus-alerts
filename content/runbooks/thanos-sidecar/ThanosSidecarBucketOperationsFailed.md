@@ -3,7 +3,9 @@ title: ThanosSidecarBucketOperationsFailed
 description: Troubleshooting for alert ThanosSidecarBucketOperationsFailed
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Thanos Sidecar {{$labels.instance}} bucket operations are failing
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "thanos/thanos-sidecar.yml" "ThanosSidecarBucketOperationsFailed" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ThanosSidecarBucketOperationsFailed
 expr: sum by (job, instance) (rate(thanos_objstore_bucket_operation_failures_total{job=~".*thanos-sidecar.*"}[5m])) > 0
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Thanos Sidecar {{$labels.instance}} bucket operations are failing
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosSidecarBucketOperationsFailed
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-sidecar/ThanosSidecarBucketOperationsFailed.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

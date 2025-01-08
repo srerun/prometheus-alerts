@@ -3,7 +3,9 @@ title: PrometheusNotConnectedToAlertmanager
 description: Troubleshooting for alert PrometheusNotConnectedToAlertmanager
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Prometheus cannot connect the alertmanager
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusNotConnectedToAlertmanager" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PrometheusNotConnectedToAlertmanager
 expr: prometheus_notifications_alertmanagers_discovered < 1
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Prometheus cannot connect the alertmanager
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PrometheusNotConnectedToAlertmanager
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-self-monitoring-internal/PrometheusNotConnectedToAlertmanager.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: HadoopHbaseWriteRequestsLatencyHigh
 description: Troubleshooting for alert HadoopHbaseWriteRequestsLatencyHigh
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ HBase Write Requests are experiencing high latency.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "hadoop/jmx_exporter.yml" "HadoopHbaseWriteRequestsLatencyHigh" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HadoopHbaseWriteRequestsLatencyHigh
 expr: hadoop_hbase_write_requests_latency_seconds > 0.5
 for: 10m
@@ -29,9 +35,12 @@ annotations:
         HBase Write Requests are experiencing high latency.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HadoopHbaseWriteRequestsLatencyHigh
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/jmx_exporter/HadoopHbaseWriteRequestsLatencyHigh.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

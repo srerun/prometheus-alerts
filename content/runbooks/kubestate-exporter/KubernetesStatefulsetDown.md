@@ -3,7 +3,9 @@ title: KubernetesStatefulsetDown
 description: Troubleshooting for alert KubernetesStatefulsetDown
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} went down
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesStatefulsetDown" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesStatefulsetDown
 expr: kube_statefulset_replicas != kube_statefulset_status_replicas_ready > 0
 for: 1m
@@ -29,9 +35,12 @@ annotations:
         StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} went down
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesStatefulsetDown
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesStatefulsetDown.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

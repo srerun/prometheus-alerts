@@ -3,7 +3,9 @@ title: KubernetesDaemonsetRolloutStuck
 description: Troubleshooting for alert KubernetesDaemonsetRolloutStuck
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Some Pods of DaemonSet {{ $labels.namespace }}/{{ $labels.daemonset }} are not s
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesDaemonsetRolloutStuck" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesDaemonsetRolloutStuck
 expr: kube_daemonset_status_number_ready / kube_daemonset_status_desired_number_scheduled * 100 < 100 or kube_daemonset_status_desired_number_scheduled - kube_daemonset_status_current_number_scheduled > 0
 for: 10m
@@ -29,9 +35,12 @@ annotations:
         Some Pods of DaemonSet {{ $labels.namespace }}/{{ $labels.daemonset }} are not scheduled or not ready
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesDaemonsetRolloutStuck
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesDaemonsetRolloutStuck.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

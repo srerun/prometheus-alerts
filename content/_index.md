@@ -8,6 +8,13 @@ type: docs
 Welcome to the site hosting runbooks for alerts shipped with
 [kube-prometheus](https://github.com/prometheus-operator/kube-prometheus) project.
 
+
+<details>
+  <summary>Alert Rule</summary>
+
+{{% rule "blackbox/blackbox-exporter.yml" "BlackboxSlowProbe" %}}
+</details>
+
 ## Reason
 
 Kube-prometheus was always meant to provide the complete monitoring solution for kubernetes environments. The project

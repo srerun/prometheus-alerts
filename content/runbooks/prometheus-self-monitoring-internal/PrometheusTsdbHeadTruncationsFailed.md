@@ -3,7 +3,9 @@ title: PrometheusTsdbHeadTruncationsFailed
 description: Troubleshooting for alert PrometheusTsdbHeadTruncationsFailed
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Prometheus encountered {{ $value }} TSDB head truncation failures
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusTsdbHeadTruncationsFailed" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PrometheusTsdbHeadTruncationsFailed
 expr: increase(prometheus_tsdb_head_truncations_failed_total[1m]) > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Prometheus encountered {{ $value }} TSDB head truncation failures
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PrometheusTsdbHeadTruncationsFailed
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-self-monitoring-internal/PrometheusTsdbHeadTruncationsFailed.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

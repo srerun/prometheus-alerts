@@ -3,7 +3,9 @@ title: ElasticsearchNoNewDocuments
 description: Troubleshooting for alert ElasticsearchNoNewDocuments
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ No new documents for 10 min!
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "elasticsearch/prometheus-community-elasticsearch-exporter.yml" "ElasticsearchNoNewDocuments" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ElasticsearchNoNewDocuments
 expr: increase(elasticsearch_indices_indexing_index_total{es_data_node="true"}[10m]) < 1
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         No new documents for 10 min!
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchNoNewDocuments
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchNoNewDocuments.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

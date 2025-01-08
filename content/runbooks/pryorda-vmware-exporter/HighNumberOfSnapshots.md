@@ -3,7 +3,9 @@ title: HighNumberOfSnapshots
 description: Troubleshooting for alert HighNumberOfSnapshots
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ High snapshots number on {{ $labels.instance }}: {{ $value }}
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "vmware/pryorda-vmware-exporter.yml" "HighNumberOfSnapshots" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HighNumberOfSnapshots
 expr: vmware_vm_snapshots > 3
 for: 30m
@@ -29,9 +35,12 @@ annotations:
         High snapshots number on {{ $labels.instance }}: {{ $value }}
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HighNumberOfSnapshots
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pryorda-vmware-exporter/HighNumberOfSnapshots.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

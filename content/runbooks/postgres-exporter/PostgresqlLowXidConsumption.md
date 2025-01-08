@@ -3,7 +3,9 @@ title: PostgresqlLowXidConsumption
 description: Troubleshooting for alert PostgresqlLowXidConsumption
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Postgresql seems to be consuming transaction IDs very slowly
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "postgresql/postgres-exporter.yml" "PostgresqlLowXidConsumption" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PostgresqlLowXidConsumption
 expr: rate(pg_txid_current[1m]) < 5
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Postgresql seems to be consuming transaction IDs very slowly
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PostgresqlLowXidConsumption
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlLowXidConsumption.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

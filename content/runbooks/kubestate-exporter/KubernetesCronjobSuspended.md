@@ -3,7 +3,9 @@ title: KubernetesCronjobSuspended
 description: Troubleshooting for alert KubernetesCronjobSuspended
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ CronJob {{ $labels.namespace }}/{{ $labels.cronjob }} is suspended
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesCronjobSuspended" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesCronjobSuspended
 expr: kube_cronjob_spec_suspend != 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         CronJob {{ $labels.namespace }}/{{ $labels.cronjob }} is suspended
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesCronjobSuspended
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesCronjobSuspended.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

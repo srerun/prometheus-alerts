@@ -3,7 +3,9 @@ title: ThanosReceiveConfigReloadFailure
 description: Troubleshooting for alert ThanosReceiveConfigReloadFailure
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Thanos Receive {{$labels.job}} has not been able to reload hashring configuratio
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "thanos/thanos-receiver.yml" "ThanosReceiveConfigReloadFailure" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ThanosReceiveConfigReloadFailure
 expr: avg by (job) (thanos_receive_config_last_reload_successful{job=~".*thanos-receive.*"}) != 1
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Thanos Receive {{$labels.job}} has not been able to reload hashring configurations.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosReceiveConfigReloadFailure
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-receiver/ThanosReceiveConfigReloadFailure.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

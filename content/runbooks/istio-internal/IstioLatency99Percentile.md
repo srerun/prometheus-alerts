@@ -3,7 +3,9 @@ title: IstioLatency99Percentile
 description: Troubleshooting for alert IstioLatency99Percentile
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Istio 1% slowest requests are longer than 1000ms.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "istio/istio-internal.yml" "IstioLatency99Percentile" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: IstioLatency99Percentile
 expr: histogram_quantile(0.99, sum(rate(istio_request_duration_milliseconds_bucket[1m])) by (destination_canonical_service, destination_workload_namespace, source_canonical_service, source_workload_namespace, le)) > 1000
 for: 1m
@@ -29,9 +35,12 @@ annotations:
         Istio 1% slowest requests are longer than 1000ms.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/IstioLatency99Percentile
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/istio-internal/IstioLatency99Percentile.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

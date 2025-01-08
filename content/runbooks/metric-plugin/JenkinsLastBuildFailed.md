@@ -3,7 +3,9 @@ title: JenkinsLastBuildFailed
 description: Troubleshooting for alert JenkinsLastBuildFailed
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Last build failed: {{$labels.jenkins_job}}. Failed build for job `{{$labels.jenk
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "jenkins/metric-plugin.yml" "JenkinsLastBuildFailed" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: JenkinsLastBuildFailed
 expr: default_jenkins_builds_last_build_result_ordinal == 2
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Last build failed: {{$labels.jenkins_job}}. Failed build for job `{{$labels.jenkins_job}}` on {{$labels.instance}}/{{$labels.env}} ({{$labels.region}})
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/JenkinsLastBuildFailed
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/metric-plugin/JenkinsLastBuildFailed.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

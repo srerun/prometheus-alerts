@@ -3,7 +3,9 @@ title: MysqlHighThreadsRunning
 description: Troubleshooting for alert MysqlHighThreadsRunning
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ More than 60% of MySQL connections are in running state on {{ $labels.instance }
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "mysql/mysqld-exporter.yml" "MysqlHighThreadsRunning" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: MysqlHighThreadsRunning
 expr: max_over_time(mysql_global_status_threads_running[1m]) / mysql_global_variables_max_connections * 100 > 60
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         More than 60% of MySQL connections are in running state on {{ $labels.instance }}
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MysqlHighThreadsRunning
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/mysqld-exporter/MysqlHighThreadsRunning.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

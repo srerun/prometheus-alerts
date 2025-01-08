@@ -3,7 +3,9 @@ title: ProviderFailedBecauseNet_versionTimeout
 description: Troubleshooting for alert ProviderFailedBecauseNet_versionTimeout
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ net_version timeout for Provider `{{$labels.provider}}` in Graph node `{{$labels
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "graph-node/graph-node-internal.yml" "ProviderFailedBecauseNet_versionTimeout" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ProviderFailedBecauseNet_versionTimeout
 expr: eth_rpc_status == 3
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         net_version timeout for Provider `{{$labels.provider}}` in Graph node `{{$labels.instance}}`
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ProviderFailedBecauseNet_versionTimeout
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/graph-node-internal/ProviderFailedBecauseNet_versionTimeout.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

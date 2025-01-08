@@ -3,7 +3,9 @@ title: KubernetesDeploymentGenerationMismatch
 description: Troubleshooting for alert KubernetesDeploymentGenerationMismatch
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Deployment {{ $labels.namespace }}/{{ $labels.deployment }} has failed but has n
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesDeploymentGenerationMismatch" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesDeploymentGenerationMismatch
 expr: kube_deployment_status_observed_generation != kube_deployment_metadata_generation
 for: 10m
@@ -29,9 +35,12 @@ annotations:
         Deployment {{ $labels.namespace }}/{{ $labels.deployment }} has failed but has not been rolled back.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesDeploymentGenerationMismatch
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesDeploymentGenerationMismatch.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: ThanosCompactHasNotRun
 description: Troubleshooting for alert ThanosCompactHasNotRun
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Thanos Compact {{$labels.job}} has not uploaded anything for 24 hours.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "thanos/thanos-compactor.yml" "ThanosCompactHasNotRun" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ThanosCompactHasNotRun
 expr: (time() - max by (job) (max_over_time(thanos_objstore_bucket_last_successful_upload_time{job=~".*thanos-compact.*"}[24h]))) / 60 / 60 > 24
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Thanos Compact {{$labels.job}} has not uploaded anything for 24 hours.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosCompactHasNotRun
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-compactor/ThanosCompactHasNotRun.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: KubernetesPersistentvolumeclaimPending
 description: Troubleshooting for alert KubernetesPersistentvolumeclaimPending
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ PersistentVolumeClaim {{ $labels.namespace }}/{{ $labels.persistentvolumeclaim }
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesPersistentvolumeclaimPending" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesPersistentvolumeclaimPending
 expr: kube_persistentvolumeclaim_status_phase{phase="Pending"} == 1
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         PersistentVolumeClaim {{ $labels.namespace }}/{{ $labels.persistentvolumeclaim }} is pending
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesPersistentvolumeclaimPending
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesPersistentvolumeclaimPending.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

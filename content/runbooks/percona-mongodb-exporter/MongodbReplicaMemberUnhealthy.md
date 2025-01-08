@@ -3,7 +3,9 @@ title: MongodbReplicaMemberUnhealthy
 description: Troubleshooting for alert MongodbReplicaMemberUnhealthy
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ MongoDB replica member is not healthy
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "mongodb/percona-mongodb-exporter.yml" "MongodbReplicaMemberUnhealthy" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: MongodbReplicaMemberUnhealthy
 expr: mongodb_rs_members_health == 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         MongoDB replica member is not healthy
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MongodbReplicaMemberUnhealthy
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/percona-mongodb-exporter/MongodbReplicaMemberUnhealthy.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

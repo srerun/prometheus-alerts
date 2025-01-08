@@ -3,7 +3,9 @@ title: CortexNotificationError
 description: Troubleshooting for alert CortexNotificationError
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Cortex is failing when sending alert notifications (instance {{ $labels.instance
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "cortex/coretex-internal.yml" "CortexNotificationError" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CortexNotificationError
 expr: rate(cortex_prometheus_notifications_errors_total[5m]) > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Cortex is failing when sending alert notifications (instance {{ $labels.instance }})
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CortexNotificationError
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/coretex-internal/CortexNotificationError.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

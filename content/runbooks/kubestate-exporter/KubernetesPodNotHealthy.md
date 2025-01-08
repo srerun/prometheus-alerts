@@ -3,7 +3,9 @@ title: KubernetesPodNotHealthy
 description: Troubleshooting for alert KubernetesPodNotHealthy
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Pod {{ $labels.namespace }}/{{ $labels.pod }} has been in a non-running state fo
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesPodNotHealthy" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesPodNotHealthy
 expr: sum by (namespace, pod) (kube_pod_status_phase{phase=~"Pending|Unknown|Failed"}) > 0
 for: 15m
@@ -29,9 +35,12 @@ annotations:
         Pod {{ $labels.namespace }}/{{ $labels.pod }} has been in a non-running state for longer than 15 minutes.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesPodNotHealthy
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesPodNotHealthy.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: WindowsServerCollectorError
 description: Troubleshooting for alert WindowsServerCollectorError
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Collector {{ $labels.collector }} was not successful
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "windows-server/windows-exporter.yml" "WindowsServerCollectorError" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: WindowsServerCollectorError
 expr: windows_exporter_collector_success == 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Collector {{ $labels.collector }} was not successful
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/WindowsServerCollectorError
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/windows-exporter/WindowsServerCollectorError.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

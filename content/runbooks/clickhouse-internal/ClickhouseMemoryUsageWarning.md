@@ -3,7 +3,9 @@ title: ClickhouseMemoryUsageWarning
 description: Troubleshooting for alert ClickhouseMemoryUsageWarning
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Memory usage is over 80%.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseMemoryUsageWarning" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ClickhouseMemoryUsageWarning
 expr: ClickHouseAsyncMetrics_CGroupMemoryUsed / ClickHouseAsyncMetrics_CGroupMemoryTotal * 100 > 80
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Memory usage is over 80%.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ClickhouseMemoryUsageWarning
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseMemoryUsageWarning.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

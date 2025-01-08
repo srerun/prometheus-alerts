@@ -3,7 +3,9 @@ title: NatsJetstreamConsumersExceeded
 description: Troubleshooting for alert NatsJetstreamConsumersExceeded
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ JetStream has more than 100 active consumers
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "nats/nats-exporter.yml" "NatsJetstreamConsumersExceeded" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: NatsJetstreamConsumersExceeded
 expr: sum(gnatsd_varz_jetstream_stats_accounts) > 100
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         JetStream has more than 100 active consumers
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NatsJetstreamConsumersExceeded
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsJetstreamConsumersExceeded.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: RabbitmqDeadLetterQueueFillingUp
 description: Troubleshooting for alert RabbitmqDeadLetterQueueFillingUp
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Dead letter queue is filling up (> 10 msgs)
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "rabbitmq/kbudde-rabbitmq-exporter.yml" "RabbitmqDeadLetterQueueFillingUp" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RabbitmqDeadLetterQueueFillingUp
 expr: rabbitmq_queue_messages{queue="my-dead-letter-queue"} > 10
 for: 1m
@@ -29,9 +35,12 @@ annotations:
         Dead letter queue is filling up (> 10 msgs)
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqDeadLetterQueueFillingUp
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kbudde-rabbitmq-exporter/RabbitmqDeadLetterQueueFillingUp.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

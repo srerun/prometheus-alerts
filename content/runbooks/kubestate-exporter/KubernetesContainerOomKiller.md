@@ -3,7 +3,9 @@ title: KubernetesContainerOomKiller
 description: Troubleshooting for alert KubernetesContainerOomKiller
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Container {{ $labels.container }} in pod {{ $labels.namespace }}/{{ $labels.pod 
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesContainerOomKiller" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesContainerOomKiller
 expr: (kube_pod_container_status_restarts_total - kube_pod_container_status_restarts_total offset 10m >= 1) and ignoring (reason) min_over_time(kube_pod_container_status_last_terminated_reason{reason="OOMKilled"}[10m]) == 1
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Container {{ $labels.container }} in pod {{ $labels.namespace }}/{{ $labels.pod }} has been OOMKilled {{ $value }} times in the last 10 minutes.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesContainerOomKiller
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesContainerOomKiller.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

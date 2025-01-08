@@ -3,7 +3,9 @@ title: HaproxyServerResponseErrors
 description: Troubleshooting for alert HaproxyServerResponseErrors
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Too many response errors to {{ $labels.server }} server (> 5%).
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "haproxy/haproxy-exporter-v1.yml" "HaproxyServerResponseErrors" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HaproxyServerResponseErrors
 expr: sum by (server) (rate(haproxy_server_response_errors_total[1m]) * 100) / sum by (server) (rate(haproxy_server_http_responses_total[1m])) > 5
 for: 1m
@@ -29,9 +35,12 @@ annotations:
         Too many response errors to {{ $labels.server }} server (> 5%).
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HaproxyServerResponseErrors
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/haproxy-exporter-v1/HaproxyServerResponseErrors.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

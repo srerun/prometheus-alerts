@@ -3,7 +3,9 @@ title: HostRequiresReboot
 description: Troubleshooting for alert HostRequiresReboot
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ dateCreated: 2020-04-10T18:32:27.079Z
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostRequiresReboot" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostRequiresReboot
 expr: (node_reboot_required > 0) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 4h
@@ -29,9 +35,12 @@ annotations:
         {{ $labels.instance }} requires a reboot.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostRequiresReboot
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostRequiresReboot.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

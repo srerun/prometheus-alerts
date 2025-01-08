@@ -3,7 +3,9 @@ title: RabbitmqNodeDown
 description: Troubleshooting for alert RabbitmqNodeDown
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Less than 3 nodes running in RabbitMQ cluster
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "rabbitmq/rabbitmq-exporter.yml" "RabbitmqNodeDown" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RabbitmqNodeDown
 expr: sum(rabbitmq_build_info) < 3
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Less than 3 nodes running in RabbitMQ cluster
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqNodeDown
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/rabbitmq-exporter/RabbitmqNodeDown.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

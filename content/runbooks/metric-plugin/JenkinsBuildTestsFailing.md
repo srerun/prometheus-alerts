@@ -3,7 +3,9 @@ title: JenkinsBuildTestsFailing
 description: Troubleshooting for alert JenkinsBuildTestsFailing
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Last build tests failed: {{$labels.jenkins_job}}. Failed build Tests for job `{{
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "jenkins/metric-plugin.yml" "JenkinsBuildTestsFailing" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: JenkinsBuildTestsFailing
 expr: default_jenkins_builds_last_build_tests_failing > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Last build tests failed: {{$labels.jenkins_job}}. Failed build Tests for job `{{$labels.jenkins_job}}` on {{$labels.instance}}/{{$labels.env}} ({{$labels.region}})
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/JenkinsBuildTestsFailing
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/metric-plugin/JenkinsBuildTestsFailing.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

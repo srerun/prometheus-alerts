@@ -3,7 +3,9 @@ title: HostClockNotSynchronising
 description: Troubleshooting for alert HostClockNotSynchronising
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Clock not synchronising. Ensure NTP is configured on this host.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostClockNotSynchronising" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostClockNotSynchronising
 expr: (min_over_time(node_timex_sync_status[1m]) == 0 and node_timex_maxerror_seconds >= 16) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Clock not synchronising. Ensure NTP is configured on this host.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostClockNotSynchronising
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostClockNotSynchronising.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

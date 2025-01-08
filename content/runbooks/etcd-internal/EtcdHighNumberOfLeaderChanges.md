@@ -3,7 +3,9 @@ title: EtcdHighNumberOfLeaderChanges
 description: Troubleshooting for alert EtcdHighNumberOfLeaderChanges
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Etcd leader changed more than 2 times during 10 minutes
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "etcd/etcd-internal.yml" "EtcdHighNumberOfLeaderChanges" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: EtcdHighNumberOfLeaderChanges
 expr: increase(etcd_server_leader_changes_seen_total[10m]) > 2
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Etcd leader changed more than 2 times during 10 minutes
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/EtcdHighNumberOfLeaderChanges
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdHighNumberOfLeaderChanges.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

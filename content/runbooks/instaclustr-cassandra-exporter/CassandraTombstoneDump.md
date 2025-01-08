@@ -3,7 +3,9 @@ title: CassandraTombstoneDump
 description: Troubleshooting for alert CassandraTombstoneDump
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Cassandra tombstone dump - {{ $labels.cassandra_cluster }}
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "cassandra/instaclustr-cassandra-exporter.yml" "CassandraTombstoneDump" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CassandraTombstoneDump
 expr: avg(cassandra_table_tombstones_scanned{quantile="0.99"}) by (instance,cassandra_cluster,keyspace) > 100
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Cassandra tombstone dump - {{ $labels.cassandra_cluster }}
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraTombstoneDump
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/instaclustr-cassandra-exporter/CassandraTombstoneDump.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

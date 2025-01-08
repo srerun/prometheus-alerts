@@ -3,7 +3,9 @@ title: RabbitmqTooManyMessagesInQueue
 description: Troubleshooting for alert RabbitmqTooManyMessagesInQueue
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Queue is filling up (> 1000 msgs)
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "rabbitmq/kbudde-rabbitmq-exporter.yml" "RabbitmqTooManyMessagesInQueue" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RabbitmqTooManyMessagesInQueue
 expr: rabbitmq_queue_messages_ready{queue="my-queue"} > 1000
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Queue is filling up (> 1000 msgs)
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqTooManyMessagesInQueue
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kbudde-rabbitmq-exporter/RabbitmqTooManyMessagesInQueue.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

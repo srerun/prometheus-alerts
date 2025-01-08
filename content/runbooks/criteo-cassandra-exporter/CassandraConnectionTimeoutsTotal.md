@@ -3,7 +3,9 @@ title: CassandraConnectionTimeoutsTotal
 description: Troubleshooting for alert CassandraConnectionTimeoutsTotal
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Some connection between nodes are ending in timeout
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraConnectionTimeoutsTotal" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CassandraConnectionTimeoutsTotal
 expr: rate(cassandra_stats{name="org:apache:cassandra:metrics:connection:totaltimeouts:count"}[1m]) > 5
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Some connection between nodes are ending in timeout
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraConnectionTimeoutsTotal
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraConnectionTimeoutsTotal.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

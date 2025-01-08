@@ -3,7 +3,9 @@ title: HostRaidDiskFailure
 description: Troubleshooting for alert HostRaidDiskFailure
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ At least one device in RAID array on {{ $labels.instance }} failed. Array {{ $la
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostRaidDiskFailure" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostRaidDiskFailure
 expr: (node_md_disks{state="failed"} > 0) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         At least one device in RAID array on {{ $labels.instance }} failed. Array {{ $labels.md_device }} needs attention and possibly a disk swap
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostRaidDiskFailure
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostRaidDiskFailure.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

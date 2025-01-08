@@ -3,7 +3,9 @@ title: CassandraCommitlogPendingTasks
 description: Troubleshooting for alert CassandraCommitlogPendingTasks
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Unexpected number of Cassandra commitlog pending tasks
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraCommitlogPendingTasks" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CassandraCommitlogPendingTasks
 expr: cassandra_stats{name="org:apache:cassandra:metrics:commitlog:pendingtasks:value"} > 15
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Unexpected number of Cassandra commitlog pending tasks
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraCommitlogPendingTasks
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraCommitlogPendingTasks.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

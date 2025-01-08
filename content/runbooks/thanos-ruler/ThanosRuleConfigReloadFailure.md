@@ -3,7 +3,9 @@ title: ThanosRuleConfigReloadFailure
 description: Troubleshooting for alert ThanosRuleConfigReloadFailure
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Thanos Rule {{$labels.job}} has not been able to reload its configuration.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "thanos/thanos-ruler.yml" "ThanosRuleConfigReloadFailure" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ThanosRuleConfigReloadFailure
 expr: avg by (job, instance) (thanos_rule_config_last_reload_successful{job=~".*thanos-rule.*"}) != 1
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Thanos Rule {{$labels.job}} has not been able to reload its configuration.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosRuleConfigReloadFailure
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosRuleConfigReloadFailure.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

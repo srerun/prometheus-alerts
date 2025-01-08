@@ -3,7 +3,9 @@ title: HaproxyFrontendSecurityBlockedRequests
 description: Troubleshooting for alert HaproxyFrontendSecurityBlockedRequests
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ HAProxy is blocking requests for security reason
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "haproxy/haproxy-exporter-v1.yml" "HaproxyFrontendSecurityBlockedRequests" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HaproxyFrontendSecurityBlockedRequests
 expr: sum by (frontend) (rate(haproxy_frontend_requests_denied_total[2m])) > 10
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         HAProxy is blocking requests for security reason
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HaproxyFrontendSecurityBlockedRequests
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/haproxy-exporter-v1/HaproxyFrontendSecurityBlockedRequests.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

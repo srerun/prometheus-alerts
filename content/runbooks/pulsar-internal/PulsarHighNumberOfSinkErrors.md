@@ -3,7 +3,9 @@ title: PulsarHighNumberOfSinkErrors
 description: Troubleshooting for alert PulsarHighNumberOfSinkErrors
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Observing more than 10 Sink errors per minute
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "pulsar/pulsar-internal.yml" "PulsarHighNumberOfSinkErrors" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PulsarHighNumberOfSinkErrors
 expr: sum(rate(pulsar_sink_sink_exceptions_total{}[1m]) > 10) by (name)
 for: 1m
@@ -29,9 +35,12 @@ annotations:
         Observing more than 10 Sink errors per minute
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PulsarHighNumberOfSinkErrors
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pulsar-internal/PulsarHighNumberOfSinkErrors.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

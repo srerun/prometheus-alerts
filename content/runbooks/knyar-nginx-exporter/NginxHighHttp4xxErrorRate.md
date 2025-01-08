@@ -3,7 +3,9 @@ title: NginxHighHttp4xxErrorRate
 description: Troubleshooting for alert NginxHighHttp4xxErrorRate
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Too many HTTP requests with status 4xx (> 5%)
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "nginx/knyar-nginx-exporter.yml" "NginxHighHttp4xxErrorRate" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: NginxHighHttp4xxErrorRate
 expr: sum(rate(nginx_http_requests_total{status=~"^4.."}[1m])) / sum(rate(nginx_http_requests_total[1m])) * 100 > 5
 for: 1m
@@ -29,9 +35,12 @@ annotations:
         Too many HTTP requests with status 4xx (> 5%)
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NginxHighHttp4xxErrorRate
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/knyar-nginx-exporter/NginxHighHttp4xxErrorRate.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

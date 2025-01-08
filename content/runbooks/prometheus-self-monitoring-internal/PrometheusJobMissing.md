@@ -3,7 +3,9 @@ title: PrometheusJobMissing
 description: Troubleshooting for alert PrometheusJobMissing
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ A Prometheus job has disappeared
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusJobMissing" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PrometheusJobMissing
 expr: absent(up{job="prometheus"})
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         A Prometheus job has disappeared
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PrometheusJobMissing
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-self-monitoring-internal/PrometheusJobMissing.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

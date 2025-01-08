@@ -3,7 +3,9 @@ title: PostgresqlHighRollbackRate
 description: Troubleshooting for alert PostgresqlHighRollbackRate
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Ratio of transactions being aborted compared to committed is > 2 %
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "postgresql/postgres-exporter.yml" "PostgresqlHighRollbackRate" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PostgresqlHighRollbackRate
 expr: sum by (namespace,datname) ((rate(pg_stat_database_xact_rollback{datname!~"template.*|postgres",datid!="0"}[3m])) / ((rate(pg_stat_database_xact_rollback{datname!~"template.*|postgres",datid!="0"}[3m])) + (rate(pg_stat_database_xact_commit{datname!~"template.*|postgres",datid!="0"}[3m])))) > 0.02
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Ratio of transactions being aborted compared to committed is > 2 %
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PostgresqlHighRollbackRate
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlHighRollbackRate.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

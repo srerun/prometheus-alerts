@@ -3,7 +3,9 @@ title: KubernetesCronjobTooLong
 description: Troubleshooting for alert KubernetesCronjobTooLong
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ CronJob {{ $labels.namespace }}/{{ $labels.cronjob }} is taking more than 1h to 
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesCronjobTooLong" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesCronjobTooLong
 expr: time() - kube_cronjob_next_schedule_time > 3600
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         CronJob {{ $labels.namespace }}/{{ $labels.cronjob }} is taking more than 1h to complete.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesCronjobTooLong
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesCronjobTooLong.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

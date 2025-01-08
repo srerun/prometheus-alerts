@@ -3,7 +3,9 @@ title: NatsHighRoutesCount
 description: Troubleshooting for alert NatsHighRoutesCount
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ High number of NATS routes ({{ $value }}) for {{ $labels.instance }}
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "nats/nats-exporter.yml" "NatsHighRoutesCount" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: NatsHighRoutesCount
 expr: gnatsd_varz_routes > 10
 for: 3m
@@ -29,9 +35,12 @@ annotations:
         High number of NATS routes ({{ $value }}) for {{ $labels.instance }}
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NatsHighRoutesCount
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighRoutesCount.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

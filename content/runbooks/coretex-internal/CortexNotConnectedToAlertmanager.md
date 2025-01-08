@@ -3,7 +3,9 @@ title: CortexNotConnectedToAlertmanager
 description: Troubleshooting for alert CortexNotConnectedToAlertmanager
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Cortex not connected to Alertmanager (instance {{ $labels.instance }})
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "cortex/coretex-internal.yml" "CortexNotConnectedToAlertmanager" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CortexNotConnectedToAlertmanager
 expr: cortex_prometheus_notifications_alertmanagers_discovered < 1
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Cortex not connected to Alertmanager (instance {{ $labels.instance }})
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CortexNotConnectedToAlertmanager
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/coretex-internal/CortexNotConnectedToAlertmanager.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: RabbitmqClusterPartition
 description: Troubleshooting for alert RabbitmqClusterPartition
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Cluster partition
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "rabbitmq/kbudde-rabbitmq-exporter.yml" "RabbitmqClusterPartition" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RabbitmqClusterPartition
 expr: rabbitmq_partitions > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Cluster partition
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqClusterPartition
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kbudde-rabbitmq-exporter/RabbitmqClusterPartition.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: SolrQueryErrors
 description: Troubleshooting for alert SolrQueryErrors
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Solr has increased query errors in collection {{ $labels.collection }} for repli
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "solr/solr-internal.yml" "SolrQueryErrors" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: SolrQueryErrors
 expr: increase(solr_metrics_core_errors_total{category="QUERY"}[1m]) > 1
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Solr has increased query errors in collection {{ $labels.collection }} for replica {{ $labels.replica }} on {{ $labels.base_url }}.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SolrQueryErrors
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/solr-internal/SolrQueryErrors.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

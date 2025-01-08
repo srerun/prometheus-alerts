@@ -3,7 +3,9 @@ title: EtcdInsufficientMembers
 description: Troubleshooting for alert EtcdInsufficientMembers
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Etcd cluster should have an odd number of members
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "etcd/etcd-internal.yml" "EtcdInsufficientMembers" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: EtcdInsufficientMembers
 expr: count(etcd_server_id) % 2 == 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Etcd cluster should have an odd number of members
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/EtcdInsufficientMembers
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdInsufficientMembers.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

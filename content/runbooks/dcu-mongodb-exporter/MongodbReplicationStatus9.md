@@ -3,7 +3,9 @@ title: MongodbReplicationStatus9
 description: Troubleshooting for alert MongodbReplicationStatus9
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ MongoDB Replication set member is actively performing a rollback. Data is not av
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "mongodb/dcu-mongodb-exporter.yml" "MongodbReplicationStatus9" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: MongodbReplicationStatus9
 expr: mongodb_replset_member_state == 9
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         MongoDB Replication set member is actively performing a rollback. Data is not available for reads
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MongodbReplicationStatus9
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dcu-mongodb-exporter/MongodbReplicationStatus9.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

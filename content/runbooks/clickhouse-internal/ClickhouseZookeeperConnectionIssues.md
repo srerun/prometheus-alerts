@@ -3,7 +3,9 @@ title: ClickhouseZookeeperConnectionIssues
 description: Troubleshooting for alert ClickhouseZookeeperConnectionIssues
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ ClickHouse is experiencing issues with ZooKeeper connections, which may affect c
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseZookeeperConnectionIssues" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ClickhouseZookeeperConnectionIssues
 expr: avg(ClickHouseMetrics_ZooKeeperSession) != 1
 for: 3m
@@ -29,9 +35,12 @@ annotations:
         ClickHouse is experiencing issues with ZooKeeper connections, which may affect cluster state and coordination.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ClickhouseZookeeperConnectionIssues
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseZookeeperConnectionIssues.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: VirtualMachineMemoryCritical
 description: Troubleshooting for alert VirtualMachineMemoryCritical
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ High memory usage on {{ $labels.instance }}: {{ $value | printf "%.2f"}}%
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "vmware/pryorda-vmware-exporter.yml" "VirtualMachineMemoryCritical" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: VirtualMachineMemoryCritical
 expr: vmware_vm_mem_usage_average / 100 >= 90
 for: 1m
@@ -29,9 +35,12 @@ annotations:
         High memory usage on {{ $labels.instance }}: {{ $value | printf "%.2f"}}%
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/VirtualMachineMemoryCritical
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pryorda-vmware-exporter/VirtualMachineMemoryCritical.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

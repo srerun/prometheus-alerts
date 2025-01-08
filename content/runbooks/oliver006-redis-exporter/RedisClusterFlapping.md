@@ -3,7 +3,9 @@ title: RedisClusterFlapping
 description: Troubleshooting for alert RedisClusterFlapping
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Changes have been detected in Redis replica connection. This can occur when repl
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "redis/oliver006-redis-exporter.yml" "RedisClusterFlapping" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RedisClusterFlapping
 expr: changes(redis_connected_slaves[1m]) > 1
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Changes have been detected in Redis replica connection. This can occur when replica nodes lose connection to the master and reconnect (a.k.a flapping).
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisClusterFlapping
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisClusterFlapping.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

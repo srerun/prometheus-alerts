@@ -3,7 +3,9 @@ title: HadoopYarnContainerAllocationFailures
 description: Troubleshooting for alert HadoopYarnContainerAllocationFailures
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ There is a significant number of YARN container allocation failures.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "hadoop/jmx_exporter.yml" "HadoopYarnContainerAllocationFailures" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HadoopYarnContainerAllocationFailures
 expr: hadoop_yarn_container_allocation_failures_total > 10
 for: 10m
@@ -29,9 +35,12 @@ annotations:
         There is a significant number of YARN container allocation failures.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HadoopYarnContainerAllocationFailures
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/jmx_exporter/HadoopYarnContainerAllocationFailures.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

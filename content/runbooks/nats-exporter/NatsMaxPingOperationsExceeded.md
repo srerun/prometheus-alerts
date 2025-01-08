@@ -3,7 +3,9 @@ title: NatsMaxPingOperationsExceeded
 description: Troubleshooting for alert NatsMaxPingOperationsExceeded
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ The maximum number of ping operations in NATS has exceeded 50
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "nats/nats-exporter.yml" "NatsMaxPingOperationsExceeded" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: NatsMaxPingOperationsExceeded
 expr: gnatsd_varz_ping_max > 50
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         The maximum number of ping operations in NATS has exceeded 50
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NatsMaxPingOperationsExceeded
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsMaxPingOperationsExceeded.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

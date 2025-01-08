@@ -3,7 +3,9 @@ title: ElasticsearchInitializingShards
 description: Troubleshooting for alert ElasticsearchInitializingShards
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Elasticsearch is initializing shards
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "elasticsearch/prometheus-community-elasticsearch-exporter.yml" "ElasticsearchInitializingShards" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ElasticsearchInitializingShards
 expr: elasticsearch_cluster_health_initializing_shards > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Elasticsearch is initializing shards
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchInitializingShards
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchInitializingShards.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

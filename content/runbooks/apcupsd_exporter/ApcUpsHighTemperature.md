@@ -3,7 +3,9 @@ title: ApcUpsHighTemperature
 description: Troubleshooting for alert ApcUpsHighTemperature
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Internal temperature is high ({{$value}}°C)
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "apc-ups/apcupsd_exporter.yml" "ApcUpsHighTemperature" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ApcUpsHighTemperature
 expr: apcupsd_internal_temperature_celsius >= 40
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Internal temperature is high ({{$value}}°C)
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ApcUpsHighTemperature
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/apcupsd_exporter/ApcUpsHighTemperature.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

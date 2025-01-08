@@ -3,7 +3,9 @@ title: OutdatedSnapshots
 description: Troubleshooting for alert OutdatedSnapshots
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Outdated snapshots on {{ $labels.instance }}: {{ $value | printf "%.0f"}} days
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "vmware/pryorda-vmware-exporter.yml" "OutdatedSnapshots" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: OutdatedSnapshots
 expr: (time() - vmware_vm_snapshot_timestamp_seconds) / (60 * 60 * 24) >= 3
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Outdated snapshots on {{ $labels.instance }}: {{ $value | printf "%.0f"}} days
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/OutdatedSnapshots
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pryorda-vmware-exporter/OutdatedSnapshots.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

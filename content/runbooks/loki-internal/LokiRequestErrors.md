@@ -3,7 +3,9 @@ title: LokiRequestErrors
 description: Troubleshooting for alert LokiRequestErrors
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ The {{ $labels.job }} and {{ $labels.route }} are experiencing errors
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "loki/loki-internal.yml" "LokiRequestErrors" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: LokiRequestErrors
 expr: 100 * sum(rate(loki_request_duration_seconds_count{status_code=~"5.."}[1m])) by (namespace, job, route) / sum(rate(loki_request_duration_seconds_count[1m])) by (namespace, job, route) > 10
 for: 15m
@@ -29,9 +35,12 @@ annotations:
         The {{ $labels.job }} and {{ $labels.route }} are experiencing errors
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/LokiRequestErrors
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/loki-internal/LokiRequestErrors.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

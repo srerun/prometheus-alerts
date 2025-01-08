@@ -3,7 +3,9 @@ title: ApacheDown
 description: Troubleshooting for alert ApacheDown
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Apache down
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "apache/lusitaniae-apache-exporter.yml" "ApacheDown" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ApacheDown
 expr: apache_up == 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Apache down
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ApacheDown
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/lusitaniae-apache-exporter/ApacheDown.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

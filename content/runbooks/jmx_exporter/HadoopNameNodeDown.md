@@ -3,7 +3,9 @@ title: HadoopNameNodeDown
 description: Troubleshooting for alert HadoopNameNodeDown
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ The Hadoop NameNode service is unavailable.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "hadoop/jmx_exporter.yml" "HadoopNameNodeDown" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HadoopNameNodeDown
 expr: up{job="hadoop-namenode"} == 0
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         The Hadoop NameNode service is unavailable.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HadoopNameNodeDown
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/jmx_exporter/HadoopNameNodeDown.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: NetdataLowDiskSpace
 description: Troubleshooting for alert NetdataLowDiskSpace
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Netdata low disk space (> 80%)
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "netdata/netdata-internal.yml" "NetdataLowDiskSpace" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: NetdataLowDiskSpace
 expr: 100 / netdata_disk_space_GB_average * netdata_disk_space_GB_average{dimension=~"avail|cached"} < 20
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Netdata low disk space (> 80%)
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NetdataLowDiskSpace
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/netdata-internal/NetdataLowDiskSpace.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

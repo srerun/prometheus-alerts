@@ -3,7 +3,9 @@ title: ThanosRuleSenderIsFailingAlerts
 description: Troubleshooting for alert ThanosRuleSenderIsFailingAlerts
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Thanos Rule {{$labels.instance}} is failing to send alerts to alertmanager.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "thanos/thanos-ruler.yml" "ThanosRuleSenderIsFailingAlerts" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ThanosRuleSenderIsFailingAlerts
 expr: sum by (job, instance) (rate(thanos_alert_sender_alerts_dropped_total{job=~".*thanos-rule.*"}[5m])) > 0
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Thanos Rule {{$labels.instance}} is failing to send alerts to alertmanager.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosRuleSenderIsFailingAlerts
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosRuleSenderIsFailingAlerts.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

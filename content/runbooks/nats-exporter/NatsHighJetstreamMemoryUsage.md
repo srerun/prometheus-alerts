@@ -3,7 +3,9 @@ title: NatsHighJetstreamMemoryUsage
 description: Troubleshooting for alert NatsHighJetstreamMemoryUsage
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ JetStream memory usage is over 80%
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "nats/nats-exporter.yml" "NatsHighJetstreamMemoryUsage" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: NatsHighJetstreamMemoryUsage
 expr: gnatsd_varz_jetstream_stats_memory / gnatsd_varz_jetstream_config_max_memory > 0.8
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         JetStream memory usage is over 80%
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NatsHighJetstreamMemoryUsage
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighJetstreamMemoryUsage.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

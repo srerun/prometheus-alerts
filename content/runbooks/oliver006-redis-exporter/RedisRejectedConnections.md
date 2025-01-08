@@ -3,7 +3,9 @@ title: RedisRejectedConnections
 description: Troubleshooting for alert RedisRejectedConnections
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Some connections to Redis has been rejected
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "redis/oliver006-redis-exporter.yml" "RedisRejectedConnections" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RedisRejectedConnections
 expr: increase(redis_rejected_connections_total[1m]) > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Some connections to Redis has been rejected
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisRejectedConnections
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisRejectedConnections.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

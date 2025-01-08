@@ -3,7 +3,9 @@ title: CassandraClientRequestUnavailableWrite
 description: Troubleshooting for alert CassandraClientRequestUnavailableWrite
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Write failures have occurred because too many nodes are unavailable
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraClientRequestUnavailableWrite" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CassandraClientRequestUnavailableWrite
 expr: changes(cassandra_stats{name="org:apache:cassandra:metrics:clientrequest:write:unavailables:count"}[1m]) > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Write failures have occurred because too many nodes are unavailable
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraClientRequestUnavailableWrite
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraClientRequestUnavailableWrite.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

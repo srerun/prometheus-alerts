@@ -3,7 +3,9 @@ title: PostgresqlSslCompressionActive
 description: Troubleshooting for alert PostgresqlSslCompressionActive
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Database connections with SSL compression enabled. This may add significant jitt
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "postgresql/postgres-exporter.yml" "PostgresqlSslCompressionActive" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PostgresqlSslCompressionActive
 expr: sum(pg_stat_ssl_compression) > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Database connections with SSL compression enabled. This may add significant jitter in replication delay. Replicas should turn off SSL compression via `sslcompression=0` in `recovery.conf`.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PostgresqlSslCompressionActive
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlSslCompressionActive.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

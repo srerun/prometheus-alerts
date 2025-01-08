@@ -3,7 +3,9 @@ title: PgbouncerMaxConnections
 description: Troubleshooting for alert PgbouncerMaxConnections
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ The number of PGBouncer client connections has reached max_client_conn.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "pgbouncer/spreaker-pgbouncer-exporter.yml" "PgbouncerMaxConnections" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PgbouncerMaxConnections
 expr: increase(pgbouncer_errors_count{errmsg="no more connections allowed (max_client_conn)"}[30s]) > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         The number of PGBouncer client connections has reached max_client_conn.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PgbouncerMaxConnections
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/spreaker-pgbouncer-exporter/PgbouncerMaxConnections.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

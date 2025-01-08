@@ -3,7 +3,9 @@ title: TraefikServiceDown
 description: Troubleshooting for alert TraefikServiceDown
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ All Traefik services are down
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "traefik/embedded-exporter-v2.yml" "TraefikServiceDown" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: TraefikServiceDown
 expr: count(traefik_service_server_up) by (service) == 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         All Traefik services are down
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/TraefikServiceDown
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/embedded-exporter-v2/TraefikServiceDown.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

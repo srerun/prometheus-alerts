@@ -3,7 +3,9 @@ title: PostgresqlCommitRateLow
 description: Troubleshooting for alert PostgresqlCommitRateLow
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Postgresql seems to be processing very few transactions
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "postgresql/postgres-exporter.yml" "PostgresqlCommitRateLow" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PostgresqlCommitRateLow
 expr: rate(pg_stat_database_xact_commit[1m]) < 10
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Postgresql seems to be processing very few transactions
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PostgresqlCommitRateLow
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlCommitRateLow.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

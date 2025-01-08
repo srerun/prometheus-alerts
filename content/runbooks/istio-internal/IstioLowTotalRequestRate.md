@@ -3,7 +3,9 @@ title: IstioLowTotalRequestRate
 description: Troubleshooting for alert IstioLowTotalRequestRate
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Global request rate in the service mesh is unusually low.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "istio/istio-internal.yml" "IstioLowTotalRequestRate" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: IstioLowTotalRequestRate
 expr: sum(rate(istio_requests_total{reporter="destination"}[5m])) < 100
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Global request rate in the service mesh is unusually low.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/IstioLowTotalRequestRate
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/istio-internal/IstioLowTotalRequestRate.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

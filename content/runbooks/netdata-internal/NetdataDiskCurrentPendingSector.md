@@ -3,7 +3,9 @@ title: NetdataDiskCurrentPendingSector
 description: Troubleshooting for alert NetdataDiskCurrentPendingSector
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Disk current pending sector
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "netdata/netdata-internal.yml" "NetdataDiskCurrentPendingSector" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: NetdataDiskCurrentPendingSector
 expr: netdata_smartd_log_current_pending_sector_count_sectors_average > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Disk current pending sector
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NetdataDiskCurrentPendingSector
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/netdata-internal/NetdataDiskCurrentPendingSector.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: ZookeeperDown
 description: Troubleshooting for alert ZookeeperDown
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Zookeeper down on instance {{ $labels.instance }}
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "zookeeper/dabealu-zookeeper-exporter.yml" "ZookeeperDown" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ZookeeperDown
 expr: zk_up == 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Zookeeper down on instance {{ $labels.instance }}
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ZookeeperDown
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dabealu-zookeeper-exporter/ZookeeperDown.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

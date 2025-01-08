@@ -3,7 +3,9 @@ title: HaproxyServerHealthcheckFailure
 description: Troubleshooting for alert HaproxyServerHealthcheckFailure
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Some server healthcheck are failing on {{ $labels.server }}
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "haproxy/embedded-exporter-v2.yml" "HaproxyServerHealthcheckFailure" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HaproxyServerHealthcheckFailure
 expr: increase(haproxy_server_check_failures_total[1m]) > 0
 for: 1m
@@ -29,9 +35,12 @@ annotations:
         Some server healthcheck are failing on {{ $labels.server }}
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HaproxyServerHealthcheckFailure
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/embedded-exporter-v2/HaproxyServerHealthcheckFailure.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

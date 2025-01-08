@@ -3,7 +3,9 @@ title: JenkinsOutdatedPlugins
 description: Troubleshooting for alert JenkinsOutdatedPlugins
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ dateCreated: 2020-04-10T18:32:27.079Z
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "jenkins/metric-plugin.yml" "JenkinsOutdatedPlugins" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: JenkinsOutdatedPlugins
 expr: sum(jenkins_plugins_withUpdate) by (instance) > 3
 for: 1d
@@ -29,9 +35,12 @@ annotations:
         {{ $value }} plugins need update
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/JenkinsOutdatedPlugins
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/metric-plugin/JenkinsOutdatedPlugins.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

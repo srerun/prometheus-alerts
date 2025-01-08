@@ -3,7 +3,9 @@ title: KubernetesClientCertificateExpiresNextWeek
 description: Troubleshooting for alert KubernetesClientCertificateExpiresNextWeek
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ A client certificate used to authenticate to the apiserver is expiring next week
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesClientCertificateExpiresNextWeek" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesClientCertificateExpiresNextWeek
 expr: apiserver_client_certificate_expiration_seconds_count{job="apiserver"} > 0 and histogram_quantile(0.01, sum by (job, le) (rate(apiserver_client_certificate_expiration_seconds_bucket{job="apiserver"}[5m]))) < 7*24*60*60
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         A client certificate used to authenticate to the apiserver is expiring next week.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesClientCertificateExpiresNextWeek
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesClientCertificateExpiresNextWeek.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

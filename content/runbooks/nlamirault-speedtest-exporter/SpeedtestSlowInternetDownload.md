@@ -3,7 +3,9 @@ title: SpeedtestSlowInternetDownload
 description: Troubleshooting for alert SpeedtestSlowInternetDownload
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Internet download speed is currently {{humanize $value}} Mbps.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "speedtest/nlamirault-speedtest-exporter.yml" "SpeedtestSlowInternetDownload" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: SpeedtestSlowInternetDownload
 expr: avg_over_time(speedtest_download[10m]) < 100
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Internet download speed is currently {{humanize $value}} Mbps.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SpeedtestSlowInternetDownload
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nlamirault-speedtest-exporter/SpeedtestSlowInternetDownload.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

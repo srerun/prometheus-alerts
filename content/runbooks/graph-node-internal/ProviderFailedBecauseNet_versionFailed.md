@@ -3,7 +3,9 @@ title: ProviderFailedBecauseNet_versionFailed
 description: Troubleshooting for alert ProviderFailedBecauseNet_versionFailed
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Failed net_version for Provider `{{$labels.provider}}` in Graph node `{{$labels.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "graph-node/graph-node-internal.yml" "ProviderFailedBecauseNet_versionFailed" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ProviderFailedBecauseNet_versionFailed
 expr: eth_rpc_status == 1
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Failed net_version for Provider `{{$labels.provider}}` in Graph node `{{$labels.instance}}`
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ProviderFailedBecauseNet_versionFailed
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/graph-node-internal/ProviderFailedBecauseNet_versionFailed.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

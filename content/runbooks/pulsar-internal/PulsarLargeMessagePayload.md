@@ -3,7 +3,9 @@ title: PulsarLargeMessagePayload
 description: Troubleshooting for alert PulsarLargeMessagePayload
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Observing large message payload (> 1MB)
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "pulsar/pulsar-internal.yml" "PulsarLargeMessagePayload" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PulsarLargeMessagePayload
 expr: sum(pulsar_entry_size_overflow > 0) by (topic)
 for: 1h
@@ -29,9 +35,12 @@ annotations:
         Observing large message payload (> 1MB)
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PulsarLargeMessagePayload
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pulsar-internal/PulsarLargeMessagePayload.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

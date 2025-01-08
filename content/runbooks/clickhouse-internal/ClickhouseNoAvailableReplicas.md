@@ -3,7 +3,9 @@ title: ClickhouseNoAvailableReplicas
 description: Troubleshooting for alert ClickhouseNoAvailableReplicas
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ No available replicas in ClickHouse.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseNoAvailableReplicas" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ClickhouseNoAvailableReplicas
 expr: ClickHouseErrorMetric_NO_AVAILABLE_REPLICA == 1
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         No available replicas in ClickHouse.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ClickhouseNoAvailableReplicas
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseNoAvailableReplicas.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

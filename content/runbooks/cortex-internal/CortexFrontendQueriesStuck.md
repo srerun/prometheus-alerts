@@ -3,7 +3,9 @@ title: CortexFrontendQueriesStuck
 description: Troubleshooting for alert CortexFrontendQueriesStuck
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ There are queued up queries in query-frontend.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "cortex/cortex-internal.yml" "CortexFrontendQueriesStuck" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CortexFrontendQueriesStuck
 expr: sum by (job) (cortex_query_frontend_queue_length) > 0
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         There are queued up queries in query-frontend.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CortexFrontendQueriesStuck
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/cortex-internal/CortexFrontendQueriesStuck.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

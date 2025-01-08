@@ -3,7 +3,9 @@ title: ContainerHighThrottleRate
 description: Troubleshooting for alert ContainerHighThrottleRate
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Container is being throttled
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "docker-containers/google-cadvisor.yml" "ContainerHighThrottleRate" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ContainerHighThrottleRate
 expr: sum(increase(container_cpu_cfs_throttled_periods_total{container!=""}[5m])) by (container, pod, namespace) / sum(increase(container_cpu_cfs_periods_total[5m])) by (container, pod, namespace) > ( 25 / 100 )
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Container is being throttled
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ContainerHighThrottleRate
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/google-cadvisor/ContainerHighThrottleRate.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

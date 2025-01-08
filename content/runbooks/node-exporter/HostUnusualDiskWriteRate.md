@@ -3,7 +3,9 @@ title: HostUnusualDiskWriteRate
 description: Troubleshooting for alert HostUnusualDiskWriteRate
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Disk is probably writing too much data (> 50 MB/s)
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostUnusualDiskWriteRate" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostUnusualDiskWriteRate
 expr: (sum by (instance) (rate(node_disk_written_bytes_total[2m])) / 1024 / 1024 > 50) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Disk is probably writing too much data (> 50 MB/s)
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostUnusualDiskWriteRate
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostUnusualDiskWriteRate.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

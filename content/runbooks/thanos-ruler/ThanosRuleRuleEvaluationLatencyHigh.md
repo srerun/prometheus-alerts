@@ -3,7 +3,9 @@ title: ThanosRuleRuleEvaluationLatencyHigh
 description: Troubleshooting for alert ThanosRuleRuleEvaluationLatencyHigh
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Thanos Rule {{$labels.instance}} has higher evaluation latency than interval for
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "thanos/thanos-ruler.yml" "ThanosRuleRuleEvaluationLatencyHigh" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ThanosRuleRuleEvaluationLatencyHigh
 expr: (sum by (job, instance, rule_group) (prometheus_rule_group_last_duration_seconds{job=~".*thanos-rule.*"}) > sum by (job, instance, rule_group) (prometheus_rule_group_interval_seconds{job=~".*thanos-rule.*"}))
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Thanos Rule {{$labels.instance}} has higher evaluation latency than interval for {{$labels.rule_group}}.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosRuleRuleEvaluationLatencyHigh
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosRuleRuleEvaluationLatencyHigh.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

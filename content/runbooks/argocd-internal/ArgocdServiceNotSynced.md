@@ -3,7 +3,9 @@ title: ArgocdServiceNotSynced
 description: Troubleshooting for alert ArgocdServiceNotSynced
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Service {{ $labels.name }} run by argo is currently not in sync.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "argocd/argocd-internal.yml" "ArgocdServiceNotSynced" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ArgocdServiceNotSynced
 expr: argocd_app_info{sync_status!="Synced"} != 0
 for: 15m
@@ -29,9 +35,12 @@ annotations:
         Service {{ $labels.name }} run by argo is currently not in sync.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ArgocdServiceNotSynced
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/argocd-internal/ArgocdServiceNotSynced.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

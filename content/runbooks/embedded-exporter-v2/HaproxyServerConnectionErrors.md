@@ -3,7 +3,9 @@ title: HaproxyServerConnectionErrors
 description: Troubleshooting for alert HaproxyServerConnectionErrors
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Too many connection errors to {{ $labels.server }} server (> 100 req/s). Request
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "haproxy/embedded-exporter-v2.yml" "HaproxyServerConnectionErrors" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HaproxyServerConnectionErrors
 expr: (sum by (proxy) (rate(haproxy_server_connection_errors_total[1m]))) > 100
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Too many connection errors to {{ $labels.server }} server (> 100 req/s). Request throughput may be too high.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HaproxyServerConnectionErrors
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/embedded-exporter-v2/HaproxyServerConnectionErrors.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

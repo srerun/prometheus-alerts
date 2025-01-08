@@ -3,7 +3,9 @@ title: NginxLatencyHigh
 description: Troubleshooting for alert NginxLatencyHigh
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Nginx p99 latency is higher than 3 seconds
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "nginx/knyar-nginx-exporter.yml" "NginxLatencyHigh" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: NginxLatencyHigh
 expr: histogram_quantile(0.99, sum(rate(nginx_http_request_duration_seconds_bucket[2m])) by (host, node, le)) > 3
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Nginx p99 latency is higher than 3 seconds
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NginxLatencyHigh
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/knyar-nginx-exporter/NginxLatencyHigh.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

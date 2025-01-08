@@ -3,7 +3,9 @@ title: JenkinsRunFailureTotal
 description: Troubleshooting for alert JenkinsRunFailureTotal
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Job run failures: ({{$value}}) {{$labels.jenkins_job}}. Healthcheck failure for 
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "jenkins/metric-plugin.yml" "JenkinsRunFailureTotal" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: JenkinsRunFailureTotal
 expr: delta(jenkins_runs_failure_total[1h]) > 100
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Job run failures: ({{$value}}) {{$labels.jenkins_job}}. Healthcheck failure for `{{$labels.instance}}` in realm {{$labels.realm}}/{{$labels.env}} ({{$labels.region}})
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/JenkinsRunFailureTotal
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/metric-plugin/JenkinsRunFailureTotal.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: PrometheusAlertmanagerE2eDeadManSwitch
 description: Troubleshooting for alert PrometheusAlertmanagerE2eDeadManSwitch
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Prometheus DeadManSwitch is an always-firing alert. It's used as an end-to-end t
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusAlertmanagerE2eDeadManSwitch" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PrometheusAlertmanagerE2eDeadManSwitch
 expr: vector(1)
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Prometheus DeadManSwitch is an always-firing alert. It's used as an end-to-end test of Prometheus through the Alertmanager.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PrometheusAlertmanagerE2eDeadManSwitch
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-self-monitoring-internal/PrometheusAlertmanagerE2eDeadManSwitch.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

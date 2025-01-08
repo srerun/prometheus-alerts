@@ -3,7 +3,9 @@ title: ZookeeperTooManyLeaders
 description: Troubleshooting for alert ZookeeperTooManyLeaders
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Zookeeper cluster has too many nodes marked as leader
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "zookeeper/dabealu-zookeeper-exporter.yml" "ZookeeperTooManyLeaders" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ZookeeperTooManyLeaders
 expr: sum(zk_server_leader) > 1
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Zookeeper cluster has too many nodes marked as leader
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ZookeeperTooManyLeaders
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dabealu-zookeeper-exporter/ZookeeperTooManyLeaders.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

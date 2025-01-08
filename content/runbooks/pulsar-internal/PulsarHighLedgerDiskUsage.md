@@ -3,7 +3,9 @@ title: PulsarHighLedgerDiskUsage
 description: Troubleshooting for alert PulsarHighLedgerDiskUsage
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Observing Ledger Disk Usage (> 75%)
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "pulsar/pulsar-internal.yml" "PulsarHighLedgerDiskUsage" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PulsarHighLedgerDiskUsage
 expr: sum(bookie_ledger_dir__pulsar_data_bookkeeper_ledgers_usage) by (kubernetes_pod_name) > 75
 for: 1h
@@ -29,9 +35,12 @@ annotations:
         Observing Ledger Disk Usage (> 75%)
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PulsarHighLedgerDiskUsage
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pulsar-internal/PulsarHighLedgerDiskUsage.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: NatsLeafNodeConnectionIssue
 description: Troubleshooting for alert NatsLeafNodeConnectionIssue
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ No leaf node connections have been established in the last 5 minutes
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "nats/nats-exporter.yml" "NatsLeafNodeConnectionIssue" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: NatsLeafNodeConnectionIssue
 expr: increase(gnatsd_varz_leafnodes[5m]) == 0
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         No leaf node connections have been established in the last 5 minutes
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NatsLeafNodeConnectionIssue
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsLeafNodeConnectionIssue.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

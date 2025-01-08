@@ -3,7 +3,9 @@ title: PrometheusTargetScrapingSlow
 description: Troubleshooting for alert PrometheusTargetScrapingSlow
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Prometheus is scraping exporters slowly since it exceeded the requested interval
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusTargetScrapingSlow" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PrometheusTargetScrapingSlow
 expr: prometheus_target_interval_length_seconds{quantile="0.9"} / on (interval, instance, job) prometheus_target_interval_length_seconds{quantile="0.5"} > 1.05
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Prometheus is scraping exporters slowly since it exceeded the requested interval time. Your Prometheus server is under-provisioned.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PrometheusTargetScrapingSlow
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-self-monitoring-internal/PrometheusTargetScrapingSlow.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: HaproxyHasNoAliveBackends
 description: Troubleshooting for alert HaproxyHasNoAliveBackends
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ HAProxy has no alive active or backup backends for {{ $labels.proxy }}
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "haproxy/embedded-exporter-v2.yml" "HaproxyHasNoAliveBackends" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HaproxyHasNoAliveBackends
 expr: haproxy_backend_active_servers + haproxy_backend_backup_servers == 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         HAProxy has no alive active or backup backends for {{ $labels.proxy }}
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HaproxyHasNoAliveBackends
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/embedded-exporter-v2/HaproxyHasNoAliveBackends.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

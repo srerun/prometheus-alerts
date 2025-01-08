@@ -3,7 +3,9 @@ title: ConsulMissingMasterNode
 description: Troubleshooting for alert ConsulMissingMasterNode
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Numbers of consul raft peers should be 3, in order to preserve quorum.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "consul/consul-exporter.yml" "ConsulMissingMasterNode" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ConsulMissingMasterNode
 expr: consul_raft_peers < 3
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Numbers of consul raft peers should be 3, in order to preserve quorum.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ConsulMissingMasterNode
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/consul-exporter/ConsulMissingMasterNode.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

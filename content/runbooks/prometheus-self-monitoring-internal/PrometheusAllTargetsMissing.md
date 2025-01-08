@@ -3,7 +3,9 @@ title: PrometheusAllTargetsMissing
 description: Troubleshooting for alert PrometheusAllTargetsMissing
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ A Prometheus job does not have living target anymore.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusAllTargetsMissing" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PrometheusAllTargetsMissing
 expr: sum by (job) (up) == 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         A Prometheus job does not have living target anymore.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PrometheusAllTargetsMissing
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-self-monitoring-internal/PrometheusAllTargetsMissing.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

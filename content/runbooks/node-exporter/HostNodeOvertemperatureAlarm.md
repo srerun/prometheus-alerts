@@ -3,7 +3,9 @@ title: HostNodeOvertemperatureAlarm
 description: Troubleshooting for alert HostNodeOvertemperatureAlarm
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Physical node temperature alarm triggered
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostNodeOvertemperatureAlarm" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostNodeOvertemperatureAlarm
 expr: ((node_hwmon_temp_crit_alarm_celsius == 1) or (node_hwmon_temp_alarm == 1)) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Physical node temperature alarm triggered
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostNodeOvertemperatureAlarm
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostNodeOvertemperatureAlarm.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

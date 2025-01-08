@@ -3,7 +3,9 @@ title: NatsHighNumberOfConnections
 description: Troubleshooting for alert NatsHighNumberOfConnections
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ NATS server has more than 1000 active connections
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "nats/nats-exporter.yml" "NatsHighNumberOfConnections" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: NatsHighNumberOfConnections
 expr: gnatsd_connz_num_connections > 1000
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         NATS server has more than 1000 active connections
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NatsHighNumberOfConnections
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighNumberOfConnections.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

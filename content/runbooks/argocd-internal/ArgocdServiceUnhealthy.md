@@ -3,7 +3,9 @@ title: ArgocdServiceUnhealthy
 description: Troubleshooting for alert ArgocdServiceUnhealthy
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Service {{ $labels.name }} run by argo is currently not healthy.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "argocd/argocd-internal.yml" "ArgocdServiceUnhealthy" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ArgocdServiceUnhealthy
 expr: argocd_app_info{health_status!="Healthy"} != 0
 for: 15m
@@ -29,9 +35,12 @@ annotations:
         Service {{ $labels.name }} run by argo is currently not healthy.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ArgocdServiceUnhealthy
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/argocd-internal/ArgocdServiceUnhealthy.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

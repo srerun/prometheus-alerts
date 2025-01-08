@@ -3,7 +3,9 @@ title: KubernetesPersistentvolumeError
 description: Troubleshooting for alert KubernetesPersistentvolumeError
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Persistent volume {{ $labels.persistentvolume }} is in bad state
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesPersistentvolumeError" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesPersistentvolumeError
 expr: kube_persistentvolume_status_phase{phase=~"Failed|Pending", job="kube-state-metrics"} > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Persistent volume {{ $labels.persistentvolume }} is in bad state
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesPersistentvolumeError
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesPersistentvolumeError.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

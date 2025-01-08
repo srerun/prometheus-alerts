@@ -3,7 +3,9 @@ title: HostUnusualDiskIo
 description: Troubleshooting for alert HostUnusualDiskIo
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Time spent in IO is too high on {{ $labels.instance }}. Check storage for issues
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostUnusualDiskIo" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostUnusualDiskIo
 expr: (rate(node_disk_io_time_seconds_total[1m]) > 0.5) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Time spent in IO is too high on {{ $labels.instance }}. Check storage for issues.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostUnusualDiskIo
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostUnusualDiskIo.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

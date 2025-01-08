@@ -3,7 +3,9 @@ title: ThanosRuleNoEvaluationFor10Intervals
 description: Troubleshooting for alert ThanosRuleNoEvaluationFor10Intervals
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Thanos Rule {{$labels.job}} has rule groups that did not evaluate for at least 1
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "thanos/thanos-ruler.yml" "ThanosRuleNoEvaluationFor10Intervals" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ThanosRuleNoEvaluationFor10Intervals
 expr: time() -  max by (job, instance, group) (prometheus_rule_group_last_evaluation_timestamp_seconds{job=~".*thanos-rule.*"})>10 * max by (job, instance, group) (prometheus_rule_group_interval_seconds{job=~".*thanos-rule.*"})
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Thanos Rule {{$labels.job}} has rule groups that did not evaluate for at least 10x of their expected interval.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosRuleNoEvaluationFor10Intervals
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosRuleNoEvaluationFor10Intervals.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

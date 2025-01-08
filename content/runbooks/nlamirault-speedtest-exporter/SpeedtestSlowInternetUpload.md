@@ -3,7 +3,9 @@ title: SpeedtestSlowInternetUpload
 description: Troubleshooting for alert SpeedtestSlowInternetUpload
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Internet upload speed is currently {{humanize $value}} Mbps.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "speedtest/nlamirault-speedtest-exporter.yml" "SpeedtestSlowInternetUpload" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: SpeedtestSlowInternetUpload
 expr: avg_over_time(speedtest_upload[10m]) < 20
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Internet upload speed is currently {{humanize $value}} Mbps.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SpeedtestSlowInternetUpload
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nlamirault-speedtest-exporter/SpeedtestSlowInternetUpload.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: PrometheusTsdbCompactionsFailed
 description: Troubleshooting for alert PrometheusTsdbCompactionsFailed
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Prometheus encountered {{ $value }} TSDB compactions failures
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusTsdbCompactionsFailed" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PrometheusTsdbCompactionsFailed
 expr: increase(prometheus_tsdb_compactions_failed_total[1m]) > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Prometheus encountered {{ $value }} TSDB compactions failures
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PrometheusTsdbCompactionsFailed
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-self-monitoring-internal/PrometheusTsdbCompactionsFailed.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

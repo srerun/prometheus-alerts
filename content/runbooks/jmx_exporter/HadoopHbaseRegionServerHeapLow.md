@@ -3,7 +3,9 @@ title: HadoopHbaseRegionServerHeapLow
 description: Troubleshooting for alert HadoopHbaseRegionServerHeapLow
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ HBase Region Servers are running low on heap space.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "hadoop/jmx_exporter.yml" "HadoopHbaseRegionServerHeapLow" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HadoopHbaseRegionServerHeapLow
 expr: hadoop_hbase_region_server_heap_bytes / hadoop_hbase_region_server_max_heap_bytes < 0.2
 for: 10m
@@ -29,9 +35,12 @@ annotations:
         HBase Region Servers are running low on heap space.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HadoopHbaseRegionServerHeapLow
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/jmx_exporter/HadoopHbaseRegionServerHeapLow.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: ClickhouseDiskSpaceCriticalOnDefault
 description: Troubleshooting for alert ClickhouseDiskSpaceCriticalOnDefault
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Disk space on default disk is critically low, below 10%.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseDiskSpaceCriticalOnDefault" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ClickhouseDiskSpaceCriticalOnDefault
 expr: ClickHouseAsyncMetrics_DiskAvailable_default / (ClickHouseAsyncMetrics_DiskAvailable_default + ClickHouseAsyncMetrics_DiskUsed_default) * 100 < 10
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Disk space on default disk is critically low, below 10%.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ClickhouseDiskSpaceCriticalOnDefault
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseDiskSpaceCriticalOnDefault.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: CephPgUnavailable
 description: Troubleshooting for alert CephPgUnavailable
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Some Ceph placement groups are unavailable.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "ceph/ceph-internal.yml" "CephPgUnavailable" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CephPgUnavailable
 expr: ceph_pg_total - ceph_pg_active > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Some Ceph placement groups are unavailable.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CephPgUnavailable
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/ceph-internal/CephPgUnavailable.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

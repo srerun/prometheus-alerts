@@ -3,7 +3,9 @@ title: VaultSealed
 description: Troubleshooting for alert VaultSealed
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Vault instance is sealed on {{ $labels.instance }}
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "hashicorp-vault/hashicorp-vault-internal.yml" "VaultSealed" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: VaultSealed
 expr: vault_core_unsealed == 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Vault instance is sealed on {{ $labels.instance }}
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/VaultSealed
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/hashicorp-vault-internal/VaultSealed.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

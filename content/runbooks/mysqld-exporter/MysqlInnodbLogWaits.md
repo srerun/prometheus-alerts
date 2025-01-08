@@ -3,7 +3,9 @@ title: MysqlInnodbLogWaits
 description: Troubleshooting for alert MysqlInnodbLogWaits
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ MySQL innodb log writes stalling
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "mysql/mysqld-exporter.yml" "MysqlInnodbLogWaits" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: MysqlInnodbLogWaits
 expr: rate(mysql_global_status_innodb_log_waits[15m]) > 10
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         MySQL innodb log writes stalling
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MysqlInnodbLogWaits
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/mysqld-exporter/MysqlInnodbLogWaits.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

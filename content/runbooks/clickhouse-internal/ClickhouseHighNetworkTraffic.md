@@ -3,7 +3,9 @@ title: ClickhouseHighNetworkTraffic
 description: Troubleshooting for alert ClickhouseHighNetworkTraffic
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Network traffic is unusually high, may affect cluster performance.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseHighNetworkTraffic" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ClickhouseHighNetworkTraffic
 expr: ClickHouseMetrics_NetworkSend > 250 or ClickHouseMetrics_NetworkReceive > 250
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Network traffic is unusually high, may affect cluster performance.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ClickhouseHighNetworkTraffic
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseHighNetworkTraffic.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

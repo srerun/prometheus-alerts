@@ -3,7 +3,9 @@ title: HostUnusualNetworkThroughputIn
 description: Troubleshooting for alert HostUnusualNetworkThroughputIn
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Host network interfaces are probably receiving too much data (> 100 MB/s)
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostUnusualNetworkThroughputIn" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostUnusualNetworkThroughputIn
 expr: (sum by (instance) (rate(node_network_receive_bytes_total[2m])) / 1024 / 1024 > 100) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Host network interfaces are probably receiving too much data (> 100 MB/s)
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostUnusualNetworkThroughputIn
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostUnusualNetworkThroughputIn.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

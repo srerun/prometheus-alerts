@@ -3,7 +3,9 @@ title: SolrLowLiveNodeCount
 description: Troubleshooting for alert SolrLowLiveNodeCount
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Solr collection {{ $labels.collection }} has less than two live nodes for replic
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "solr/solr-internal.yml" "SolrLowLiveNodeCount" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: SolrLowLiveNodeCount
 expr: solr_collections_live_nodes < 2
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Solr collection {{ $labels.collection }} has less than two live nodes for replica {{ $labels.replica }} on {{ $labels.base_url }}.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SolrLowLiveNodeCount
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/solr-internal/SolrLowLiveNodeCount.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

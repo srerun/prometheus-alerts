@@ -3,7 +3,9 @@ title: CassandraCacheHitRateKeyCache
 description: Troubleshooting for alert CassandraCacheHitRateKeyCache
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Key cache hit rate is below 85%
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraCacheHitRateKeyCache" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CassandraCacheHitRateKeyCache
 expr: cassandra_stats{name="org:apache:cassandra:metrics:cache:keycache:hitrate:value"} < .85
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Key cache hit rate is below 85%
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraCacheHitRateKeyCache
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraCacheHitRateKeyCache.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

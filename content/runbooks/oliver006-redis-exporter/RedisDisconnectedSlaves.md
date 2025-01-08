@@ -3,7 +3,9 @@ title: RedisDisconnectedSlaves
 description: Troubleshooting for alert RedisDisconnectedSlaves
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Redis not replicating for all slaves. Consider reviewing the redis replication s
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "redis/oliver006-redis-exporter.yml" "RedisDisconnectedSlaves" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RedisDisconnectedSlaves
 expr: count without (instance, job) (redis_connected_slaves) - sum without (instance, job) (redis_connected_slaves) - 1 > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Redis not replicating for all slaves. Consider reviewing the redis replication status.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisDisconnectedSlaves
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisDisconnectedSlaves.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

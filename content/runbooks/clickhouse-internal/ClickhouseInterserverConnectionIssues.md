@@ -3,7 +3,9 @@ title: ClickhouseInterserverConnectionIssues
 description: Troubleshooting for alert ClickhouseInterserverConnectionIssues
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ An increase in interserver connections may indicate replication or distributed q
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseInterserverConnectionIssues" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ClickhouseInterserverConnectionIssues
 expr: increase(ClickHouseMetrics_InterserverConnection[5m]) > 0
 for: 1m
@@ -29,9 +35,12 @@ annotations:
         An increase in interserver connections may indicate replication or distributed query handling issues.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ClickhouseInterserverConnectionIssues
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseInterserverConnectionIssues.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

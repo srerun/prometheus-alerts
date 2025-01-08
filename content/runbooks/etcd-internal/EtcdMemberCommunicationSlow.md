@@ -3,7 +3,9 @@ title: EtcdMemberCommunicationSlow
 description: Troubleshooting for alert EtcdMemberCommunicationSlow
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Etcd member communication slowing down, 99th percentile is over 0.15s
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "etcd/etcd-internal.yml" "EtcdMemberCommunicationSlow" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: EtcdMemberCommunicationSlow
 expr: histogram_quantile(0.99, rate(etcd_network_peer_round_trip_time_seconds_bucket[1m])) > 0.15
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Etcd member communication slowing down, 99th percentile is over 0.15s
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/EtcdMemberCommunicationSlow
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdMemberCommunicationSlow.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

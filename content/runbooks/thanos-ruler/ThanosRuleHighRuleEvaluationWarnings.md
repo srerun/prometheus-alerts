@@ -3,7 +3,9 @@ title: ThanosRuleHighRuleEvaluationWarnings
 description: Troubleshooting for alert ThanosRuleHighRuleEvaluationWarnings
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Thanos Rule {{$labels.instance}} has high number of evaluation warnings.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "thanos/thanos-ruler.yml" "ThanosRuleHighRuleEvaluationWarnings" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ThanosRuleHighRuleEvaluationWarnings
 expr: sum by (job, instance) (rate(thanos_rule_evaluation_with_warnings_total{job=~".*thanos-rule.*"}[5m])) > 0
 for: 15m
@@ -29,9 +35,12 @@ annotations:
         Thanos Rule {{$labels.instance}} has high number of evaluation warnings.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosRuleHighRuleEvaluationWarnings
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosRuleHighRuleEvaluationWarnings.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

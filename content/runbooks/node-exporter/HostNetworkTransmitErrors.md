@@ -3,7 +3,9 @@ title: HostNetworkTransmitErrors
 description: Troubleshooting for alert HostNetworkTransmitErrors
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Host {{ $labels.instance }} interface {{ $labels.device }} has encountered {{ pr
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostNetworkTransmitErrors" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostNetworkTransmitErrors
 expr: (rate(node_network_transmit_errs_total[2m]) / rate(node_network_transmit_packets_total[2m]) > 0.01) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Host {{ $labels.instance }} interface {{ $labels.device }} has encountered {{ printf "%.0f" $value }} transmit errors in the last two minutes.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostNetworkTransmitErrors
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostNetworkTransmitErrors.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

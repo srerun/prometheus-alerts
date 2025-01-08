@@ -3,7 +3,9 @@ title: MysqlSlowQueries
 description: Troubleshooting for alert MysqlSlowQueries
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ MySQL server mysql has some new slow query.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "mysql/mysqld-exporter.yml" "MysqlSlowQueries" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: MysqlSlowQueries
 expr: increase(mysql_global_status_slow_queries[1m]) > 0
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         MySQL server mysql has some new slow query.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MysqlSlowQueries
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/mysqld-exporter/MysqlSlowQueries.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

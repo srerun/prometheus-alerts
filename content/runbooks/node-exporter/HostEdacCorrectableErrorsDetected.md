@@ -3,7 +3,9 @@ title: HostEdacCorrectableErrorsDetected
 description: Troubleshooting for alert HostEdacCorrectableErrorsDetected
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Host {{ $labels.instance }} has had {{ printf "%.0f" $value }} correctable memor
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostEdacCorrectableErrorsDetected" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostEdacCorrectableErrorsDetected
 expr: (increase(node_edac_correctable_errors_total[1m]) > 0) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Host {{ $labels.instance }} has had {{ printf "%.0f" $value }} correctable memory errors reported by EDAC in the last 5 minutes.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostEdacCorrectableErrorsDetected
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostEdacCorrectableErrorsDetected.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

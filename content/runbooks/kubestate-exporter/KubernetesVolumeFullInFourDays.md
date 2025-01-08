@@ -3,7 +3,9 @@ title: KubernetesVolumeFullInFourDays
 description: Troubleshooting for alert KubernetesVolumeFullInFourDays
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Volume under {{ $labels.namespace }}/{{ $labels.persistentvolumeclaim }} is expe
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesVolumeFullInFourDays" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesVolumeFullInFourDays
 expr: predict_linear(kubelet_volume_stats_available_bytes[6h:5m], 4 * 24 * 3600) < 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Volume under {{ $labels.namespace }}/{{ $labels.persistentvolumeclaim }} is expected to fill up within four days. Currently {{ $value | humanize }}% is available.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesVolumeFullInFourDays
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesVolumeFullInFourDays.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

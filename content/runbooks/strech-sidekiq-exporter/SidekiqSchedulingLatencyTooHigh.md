@@ -3,7 +3,9 @@ title: SidekiqSchedulingLatencyTooHigh
 description: Troubleshooting for alert SidekiqSchedulingLatencyTooHigh
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Sidekiq jobs are taking more than 1min to be picked up. Users may be seeing dela
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "sidekiq/strech-sidekiq-exporter.yml" "SidekiqSchedulingLatencyTooHigh" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: SidekiqSchedulingLatencyTooHigh
 expr: max(sidekiq_queue_latency) > 60
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Sidekiq jobs are taking more than 1min to be picked up. Users may be seeing delays in background processing.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SidekiqSchedulingLatencyTooHigh
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/strech-sidekiq-exporter/SidekiqSchedulingLatencyTooHigh.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

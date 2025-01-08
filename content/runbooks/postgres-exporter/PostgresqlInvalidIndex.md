@@ -3,7 +3,9 @@ title: PostgresqlInvalidIndex
 description: Troubleshooting for alert PostgresqlInvalidIndex
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ The table {{ $labels.relname }} has an invalid index: {{ $labels.indexrelname }}
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "postgresql/postgres-exporter.yml" "PostgresqlInvalidIndex" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PostgresqlInvalidIndex
 expr: pg_general_index_info_pg_relation_size{indexrelname=~".*ccnew.*"}
 for: 6h
@@ -29,9 +35,12 @@ annotations:
         The table {{ $labels.relname }} has an invalid index: {{ $labels.indexrelname }}. You should execute `DROP INDEX {{ $labels.indexrelname }};`
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PostgresqlInvalidIndex
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlInvalidIndex.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

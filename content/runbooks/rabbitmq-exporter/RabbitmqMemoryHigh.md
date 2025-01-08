@@ -3,7 +3,9 @@ title: RabbitmqMemoryHigh
 description: Troubleshooting for alert RabbitmqMemoryHigh
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ A node use more than 90% of allocated RAM
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "rabbitmq/rabbitmq-exporter.yml" "RabbitmqMemoryHigh" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RabbitmqMemoryHigh
 expr: rabbitmq_process_resident_memory_bytes / rabbitmq_resident_memory_limit_bytes * 100 > 90
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         A node use more than 90% of allocated RAM
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqMemoryHigh
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/rabbitmq-exporter/RabbitmqMemoryHigh.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

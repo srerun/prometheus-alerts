@@ -3,7 +3,9 @@ title: HadoopDataNodeOutOfService
 description: Troubleshooting for alert HadoopDataNodeOutOfService
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ The Hadoop DataNode is not sending heartbeats.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "hadoop/jmx_exporter.yml" "HadoopDataNodeOutOfService" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HadoopDataNodeOutOfService
 expr: hadoop_datanode_last_heartbeat == 0
 for: 10m
@@ -29,9 +35,12 @@ annotations:
         The Hadoop DataNode is not sending heartbeats.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HadoopDataNodeOutOfService
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/jmx_exporter/HadoopDataNodeOutOfService.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

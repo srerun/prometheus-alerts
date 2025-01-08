@@ -3,7 +3,9 @@ title: FreeswitchDown
 description: Troubleshooting for alert FreeswitchDown
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Freeswitch is unresponsive
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "freeswitch/znerol-freeswitch-exporter.yml" "FreeswitchDown" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: FreeswitchDown
 expr: freeswitch_up == 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Freeswitch is unresponsive
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/FreeswitchDown
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/znerol-freeswitch-exporter/FreeswitchDown.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

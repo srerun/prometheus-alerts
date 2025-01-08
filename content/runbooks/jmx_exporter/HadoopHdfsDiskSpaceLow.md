@@ -3,7 +3,9 @@ title: HadoopHdfsDiskSpaceLow
 description: Troubleshooting for alert HadoopHdfsDiskSpaceLow
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Available HDFS disk space is running low.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "hadoop/jmx_exporter.yml" "HadoopHdfsDiskSpaceLow" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HadoopHdfsDiskSpaceLow
 expr: (hadoop_hdfs_bytes_total - hadoop_hdfs_bytes_used) / hadoop_hdfs_bytes_total < 0.1
 for: 15m
@@ -29,9 +35,12 @@ annotations:
         Available HDFS disk space is running low.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HadoopHdfsDiskSpaceLow
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/jmx_exporter/HadoopHdfsDiskSpaceLow.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: CassandraCommitlogPendingTasks
 description: Troubleshooting for alert CassandraCommitlogPendingTasks
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Cassandra commitlog pending tasks - {{ $labels.cassandra_cluster }}
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "cassandra/instaclustr-cassandra-exporter.yml" "CassandraCommitlogPendingTasks" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CassandraCommitlogPendingTasks
 expr: cassandra_commit_log_pending_tasks > 15
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Cassandra commitlog pending tasks - {{ $labels.cassandra_cluster }}
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraCommitlogPendingTasks
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/instaclustr-cassandra-exporter/CassandraCommitlogPendingTasks.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

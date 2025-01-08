@@ -3,7 +3,9 @@ title: NatsHighCpuUsage
 description: Troubleshooting for alert NatsHighCpuUsage
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ NATS server is using more than 80% CPU for the last 5 minutes
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "nats/nats-exporter.yml" "NatsHighCpuUsage" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: NatsHighCpuUsage
 expr: rate(gnatsd_varz_cpu[5m]) > 0.8
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         NATS server is using more than 80% CPU for the last 5 minutes
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NatsHighCpuUsage
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighCpuUsage.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

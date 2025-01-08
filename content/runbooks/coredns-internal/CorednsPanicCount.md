@@ -3,7 +3,9 @@ title: CorednsPanicCount
 description: Troubleshooting for alert CorednsPanicCount
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Number of CoreDNS panics encountered
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "coredns/coredns-internal.yml" "CorednsPanicCount" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CorednsPanicCount
 expr: increase(coredns_panics_total[1m]) > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Number of CoreDNS panics encountered
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CorednsPanicCount
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/coredns-internal/CorednsPanicCount.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

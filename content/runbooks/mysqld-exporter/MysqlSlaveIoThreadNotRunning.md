@@ -3,7 +3,9 @@ title: MysqlSlaveIoThreadNotRunning
 description: Troubleshooting for alert MysqlSlaveIoThreadNotRunning
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ MySQL Slave IO thread not running on {{ $labels.instance }}
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "mysql/mysqld-exporter.yml" "MysqlSlaveIoThreadNotRunning" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: MysqlSlaveIoThreadNotRunning
 expr: ( mysql_slave_status_slave_io_running and ON (instance) mysql_slave_status_master_server_id > 0 ) == 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         MySQL Slave IO thread not running on {{ $labels.instance }}
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MysqlSlaveIoThreadNotRunning
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/mysqld-exporter/MysqlSlaveIoThreadNotRunning.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

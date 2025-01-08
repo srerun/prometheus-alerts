@@ -3,7 +3,9 @@ title: CassandraClientRequestUnavailableWrite
 description: Troubleshooting for alert CassandraClientRequestUnavailableWrite
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Some Cassandra client requests are unavailable to write - {{ $labels.cassandra_c
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "cassandra/instaclustr-cassandra-exporter.yml" "CassandraClientRequestUnavailableWrite" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CassandraClientRequestUnavailableWrite
 expr: changes(cassandra_client_request_unavailable_exceptions_total{operation="write"}[1m]) > 0
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Some Cassandra client requests are unavailable to write - {{ $labels.cassandra_cluster }}
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraClientRequestUnavailableWrite
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/instaclustr-cassandra-exporter/CassandraClientRequestUnavailableWrite.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: PostgresqlNotEnoughConnections
 description: Troubleshooting for alert PostgresqlNotEnoughConnections
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ PostgreSQL instance should have more connections (> 5)
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "postgresql/postgres-exporter.yml" "PostgresqlNotEnoughConnections" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PostgresqlNotEnoughConnections
 expr: sum by (datname) (pg_stat_activity_count{datname!~"template.*|postgres"}) < 5
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         PostgreSQL instance should have more connections (> 5)
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PostgresqlNotEnoughConnections
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlNotEnoughConnections.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

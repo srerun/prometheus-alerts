@@ -3,7 +3,9 @@ title: HostConntrackLimit
 description: Troubleshooting for alert HostConntrackLimit
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ The number of conntrack is approaching limit
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostConntrackLimit" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostConntrackLimit
 expr: (node_nf_conntrack_entries / node_nf_conntrack_entries_limit > 0.8) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         The number of conntrack is approaching limit
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostConntrackLimit
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostConntrackLimit.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

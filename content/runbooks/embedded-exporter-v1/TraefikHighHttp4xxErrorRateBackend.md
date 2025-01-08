@@ -3,7 +3,9 @@ title: TraefikHighHttp4xxErrorRateBackend
 description: Troubleshooting for alert TraefikHighHttp4xxErrorRateBackend
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Traefik backend 4xx error rate is above 5%
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "traefik/embedded-exporter-v1.yml" "TraefikHighHttp4xxErrorRateBackend" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: TraefikHighHttp4xxErrorRateBackend
 expr: sum(rate(traefik_backend_requests_total{code=~"4.*"}[3m])) by (backend) / sum(rate(traefik_backend_requests_total[3m])) by (backend) * 100 > 5
 for: 1m
@@ -29,9 +35,12 @@ annotations:
         Traefik backend 4xx error rate is above 5%
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/TraefikHighHttp4xxErrorRateBackend
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/embedded-exporter-v1/TraefikHighHttp4xxErrorRateBackend.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

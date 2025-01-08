@@ -3,7 +3,9 @@ title: KubernetesStatefulsetUpdateNotRolledOut
 description: Troubleshooting for alert KubernetesStatefulsetUpdateNotRolledOut
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} update has not bee
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesStatefulsetUpdateNotRolledOut" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesStatefulsetUpdateNotRolledOut
 expr: max without (revision) (kube_statefulset_status_current_revision unless kube_statefulset_status_update_revision) * (kube_statefulset_replicas != kube_statefulset_status_replicas_updated)
 for: 10m
@@ -29,9 +35,12 @@ annotations:
         StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} update has not been rolled out.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesStatefulsetUpdateNotRolledOut
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesStatefulsetUpdateNotRolledOut.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

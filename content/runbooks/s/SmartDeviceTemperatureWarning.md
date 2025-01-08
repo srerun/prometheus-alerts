@@ -3,7 +3,9 @@ title: SmartDeviceTemperatureWarning
 description: Troubleshooting for alert SmartDeviceTemperatureWarning
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Device temperature  warning (instance {{ $labels.instance }})
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "s/smartctl-exporter.yml" "SmartDeviceTemperatureWarning" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: SmartDeviceTemperatureWarning
 expr: smartctl_device_temperature > 60
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Device temperature  warning (instance {{ $labels.instance }})
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SmartDeviceTemperatureWarning
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/s/SmartDeviceTemperatureWarning.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

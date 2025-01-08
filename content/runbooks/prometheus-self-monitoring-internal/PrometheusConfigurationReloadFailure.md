@@ -3,7 +3,9 @@ title: PrometheusConfigurationReloadFailure
 description: Troubleshooting for alert PrometheusConfigurationReloadFailure
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Prometheus configuration reload error
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusConfigurationReloadFailure" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PrometheusConfigurationReloadFailure
 expr: prometheus_config_last_reload_successful != 1
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Prometheus configuration reload error
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PrometheusConfigurationReloadFailure
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-self-monitoring-internal/PrometheusConfigurationReloadFailure.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

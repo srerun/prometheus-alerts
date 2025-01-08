@@ -3,7 +3,9 @@ title: HostFilesystemDeviceError
 description: Troubleshooting for alert HostFilesystemDeviceError
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ dateCreated: 2020-04-10T18:32:27.079Z
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostFilesystemDeviceError" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostFilesystemDeviceError
 expr: node_filesystem_device_error == 1
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         {{ $labels.instance }}: Device error with the {{ $labels.mountpoint }} filesystem
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostFilesystemDeviceError
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostFilesystemDeviceError.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

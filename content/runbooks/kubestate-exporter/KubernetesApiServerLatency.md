@@ -3,7 +3,9 @@ title: KubernetesApiServerLatency
 description: Troubleshooting for alert KubernetesApiServerLatency
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Kubernetes API server has a 99th percentile latency of {{ $value }} seconds for 
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesApiServerLatency" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesApiServerLatency
 expr: histogram_quantile(0.99, sum(rate(apiserver_request_duration_seconds_bucket{verb!~"(?:CONNECT|WATCHLIST|WATCH|PROXY)"} [10m])) WITHOUT (subresource)) > 1
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Kubernetes API server has a 99th percentile latency of {{ $value }} seconds for {{ $labels.verb }} {{ $labels.resource }}.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesApiServerLatency
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesApiServerLatency.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

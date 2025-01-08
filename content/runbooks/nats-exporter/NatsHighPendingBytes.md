@@ -3,7 +3,9 @@ title: NatsHighPendingBytes
 description: Troubleshooting for alert NatsHighPendingBytes
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ High number of NATS pending bytes ({{ $value }}) for {{ $labels.instance }}
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "nats/nats-exporter.yml" "NatsHighPendingBytes" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: NatsHighPendingBytes
 expr: gnatsd_connz_pending_bytes > 100000
 for: 3m
@@ -29,9 +35,12 @@ annotations:
         High number of NATS pending bytes ({{ $value }}) for {{ $labels.instance }}
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NatsHighPendingBytes
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighPendingBytes.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

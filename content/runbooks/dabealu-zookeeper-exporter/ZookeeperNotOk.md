@@ -3,7 +3,9 @@ title: ZookeeperNotOk
 description: Troubleshooting for alert ZookeeperNotOk
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Zookeeper instance is not ok
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "zookeeper/dabealu-zookeeper-exporter.yml" "ZookeeperNotOk" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ZookeeperNotOk
 expr: zk_ruok == 0
 for: 3m
@@ -29,9 +35,12 @@ annotations:
         Zookeeper instance is not ok
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ZookeeperNotOk
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dabealu-zookeeper-exporter/ZookeeperNotOk.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

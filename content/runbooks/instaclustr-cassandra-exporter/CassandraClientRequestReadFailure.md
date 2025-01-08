@@ -3,7 +3,9 @@ title: CassandraClientRequestReadFailure
 description: Troubleshooting for alert CassandraClientRequestReadFailure
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Read failures have occurred, ensure there are not too many unavailable nodes - {
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "cassandra/instaclustr-cassandra-exporter.yml" "CassandraClientRequestReadFailure" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CassandraClientRequestReadFailure
 expr: increase(cassandra_client_request_failures_total{operation="read"}[1m]) > 0
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Read failures have occurred, ensure there are not too many unavailable nodes - {{ $labels.cassandra_cluster }}
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraClientRequestReadFailure
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/instaclustr-cassandra-exporter/CassandraClientRequestReadFailure.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

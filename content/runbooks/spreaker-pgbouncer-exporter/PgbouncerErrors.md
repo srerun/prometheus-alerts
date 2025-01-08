@@ -3,7 +3,9 @@ title: PgbouncerErrors
 description: Troubleshooting for alert PgbouncerErrors
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ PGBouncer is logging errors. This may be due to a a server restart or an admin t
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "pgbouncer/spreaker-pgbouncer-exporter.yml" "PgbouncerErrors" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PgbouncerErrors
 expr: increase(pgbouncer_errors_count{errmsg!="server conn crashed?"}[1m]) > 10
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         PGBouncer is logging errors. This may be due to a a server restart or an admin typing commands at the pgbouncer console.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PgbouncerErrors
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/spreaker-pgbouncer-exporter/PgbouncerErrors.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

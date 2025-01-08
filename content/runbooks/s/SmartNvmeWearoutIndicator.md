@@ -3,7 +3,9 @@ title: SmartNvmeWearoutIndicator
 description: Troubleshooting for alert SmartNvmeWearoutIndicator
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ NVMe device is wearing out (instance {{ $labels.instance }})
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "s/smartctl-exporter.yml" "SmartNvmeWearoutIndicator" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: SmartNvmeWearoutIndicator
 expr: smartctl_device_available_spare{device=~"nvme.*"} < smartctl_device_available_spare_threshold{device=~"nvme.*"}
 for: 15m
@@ -29,9 +35,12 @@ annotations:
         NVMe device is wearing out (instance {{ $labels.instance }})
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SmartNvmeWearoutIndicator
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/s/SmartNvmeWearoutIndicator.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

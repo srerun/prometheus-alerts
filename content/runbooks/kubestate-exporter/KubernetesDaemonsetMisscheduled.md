@@ -3,7 +3,9 @@ title: KubernetesDaemonsetMisscheduled
 description: Troubleshooting for alert KubernetesDaemonsetMisscheduled
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Some Pods of DaemonSet {{ $labels.namespace }}/{{ $labels.daemonset }} are runni
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesDaemonsetMisscheduled" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesDaemonsetMisscheduled
 expr: kube_daemonset_status_number_misscheduled > 0
 for: 1m
@@ -29,9 +35,12 @@ annotations:
         Some Pods of DaemonSet {{ $labels.namespace }}/{{ $labels.daemonset }} are running where they are not supposed to run
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesDaemonsetMisscheduled
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesDaemonsetMisscheduled.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

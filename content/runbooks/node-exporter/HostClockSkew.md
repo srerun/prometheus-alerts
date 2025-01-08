@@ -3,7 +3,9 @@ title: HostClockSkew
 description: Troubleshooting for alert HostClockSkew
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Clock skew detected. Clock is out of sync. Ensure NTP is configured correctly on
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostClockSkew" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostClockSkew
 expr: ((node_timex_offset_seconds > 0.05 and deriv(node_timex_offset_seconds[5m]) >= 0) or (node_timex_offset_seconds < -0.05 and deriv(node_timex_offset_seconds[5m]) <= 0)) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 10m
@@ -29,9 +35,12 @@ annotations:
         Clock skew detected. Clock is out of sync. Ensure NTP is configured correctly on this host.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostClockSkew
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostClockSkew.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

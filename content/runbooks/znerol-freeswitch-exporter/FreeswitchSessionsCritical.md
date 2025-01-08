@@ -3,7 +3,9 @@ title: FreeswitchSessionsCritical
 description: Troubleshooting for alert FreeswitchSessionsCritical
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ High sessions usage on {{ $labels.instance }}: {{ $value | printf "%.2f"}}%
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "freeswitch/znerol-freeswitch-exporter.yml" "FreeswitchSessionsCritical" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: FreeswitchSessionsCritical
 expr: (freeswitch_session_active * 100 / freeswitch_session_limit) > 90
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         High sessions usage on {{ $labels.instance }}: {{ $value | printf "%.2f"}}%
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/FreeswitchSessionsCritical
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/znerol-freeswitch-exporter/FreeswitchSessionsCritical.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

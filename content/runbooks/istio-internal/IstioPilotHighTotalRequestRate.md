@@ -3,7 +3,9 @@ title: IstioPilotHighTotalRequestRate
 description: Troubleshooting for alert IstioPilotHighTotalRequestRate
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Number of Istio Pilot push errors is too high (> 5%). Envoy sidecars might have 
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "istio/istio-internal.yml" "IstioPilotHighTotalRequestRate" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: IstioPilotHighTotalRequestRate
 expr: sum(rate(pilot_xds_push_errors[1m])) / sum(rate(pilot_xds_pushes[1m])) * 100 > 5
 for: 1m
@@ -29,9 +35,12 @@ annotations:
         Number of Istio Pilot push errors is too high (> 5%). Envoy sidecars might have outdated configuration.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/IstioPilotHighTotalRequestRate
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/istio-internal/IstioPilotHighTotalRequestRate.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

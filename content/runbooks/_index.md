@@ -1,3 +1,0 @@
----
-bookHidden: false
----

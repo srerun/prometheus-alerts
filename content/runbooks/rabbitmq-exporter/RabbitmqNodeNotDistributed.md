@@ -3,7 +3,9 @@ title: RabbitmqNodeNotDistributed
 description: Troubleshooting for alert RabbitmqNodeNotDistributed
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Distribution link state is not 'up'
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "rabbitmq/rabbitmq-exporter.yml" "RabbitmqNodeNotDistributed" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RabbitmqNodeNotDistributed
 expr: erlang_vm_dist_node_state < 3
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Distribution link state is not 'up'
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqNodeNotDistributed
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/rabbitmq-exporter/RabbitmqNodeNotDistributed.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

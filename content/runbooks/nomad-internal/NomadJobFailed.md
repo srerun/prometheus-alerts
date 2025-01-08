@@ -3,7 +3,9 @@ title: NomadJobFailed
 description: Troubleshooting for alert NomadJobFailed
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Nomad job failed
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "nomad/nomad-internal.yml" "NomadJobFailed" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: NomadJobFailed
 expr: nomad_nomad_job_summary_failed > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Nomad job failed
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NomadJobFailed
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nomad-internal/NomadJobFailed.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

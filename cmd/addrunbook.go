@@ -22,6 +22,7 @@ type Rules struct {
 }
 
 type Rule struct {
+	Source string `yaml:"-"`
 	Alert  string `yaml:"alert"`
 	Expr   string `yaml:"expr"`
 	For    string `yaml:"for"`
@@ -33,6 +34,11 @@ type Rule struct {
 		Description string `yaml:"description"`
 		Runbook     string `yaml:"runbook,omitempty"`
 	} `yaml:"annotations"`
+}
+
+type Data struct {
+	Path string
+	Rule Rule
 }
 
 // const filename = "blackbox.yaml"
@@ -72,6 +78,8 @@ func main() {
 		path := buildPathname(filename)
 		for _, group := range rules.Groups {
 			for _, rule := range group.Rules {
+				rulePath := filepath.Dir(filename)
+				rule.Source = fmt.Sprintf("%s/%s", buildPathname(rulePath), filepath.Base(filename))
 				fmt.Printf("Adding runbook for %s\n", rule.Alert)
 				rule.Annotations.Runbook = fmt.Sprintf("%s/%s/%s.md", runbook_url, path, rule.Alert)
 				createRunbook(path, tmpl, rule)
@@ -111,7 +119,7 @@ func createRunbook(path string, t *template.Template, rule Rule) {
 		return
 	}
 	defer out.Close()
-	if err = t.Execute(out, rule); err != nil {
+	if err = t.Execute(out, Data{path, rule}); err != nil {
 		slog.Error("error rendering template", "filename", filename, "error", err)
 	}
 }

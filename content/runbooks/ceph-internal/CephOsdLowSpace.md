@@ -3,7 +3,9 @@ title: CephOsdLowSpace
 description: Troubleshooting for alert CephOsdLowSpace
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Ceph Object Storage Daemon is going out of space. Please add more disks.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "ceph/ceph-internal.yml" "CephOsdLowSpace" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CephOsdLowSpace
 expr: ceph_osd_utilization > 90
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Ceph Object Storage Daemon is going out of space. Please add more disks.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CephOsdLowSpace
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/ceph-internal/CephOsdLowSpace.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

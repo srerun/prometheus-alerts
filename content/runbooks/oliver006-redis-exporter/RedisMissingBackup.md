@@ -3,7 +3,9 @@ title: RedisMissingBackup
 description: Troubleshooting for alert RedisMissingBackup
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Redis has not been backuped for 24 hours
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "redis/oliver006-redis-exporter.yml" "RedisMissingBackup" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RedisMissingBackup
 expr: time() - redis_rdb_last_save_timestamp_seconds > 60 * 60 * 24
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Redis has not been backuped for 24 hours
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisMissingBackup
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisMissingBackup.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: ElasticsearchClusterYellow
 description: Troubleshooting for alert ElasticsearchClusterYellow
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Elastic Cluster Yellow status
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "elasticsearch/prometheus-community-elasticsearch-exporter.yml" "ElasticsearchClusterYellow" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ElasticsearchClusterYellow
 expr: elasticsearch_cluster_health_status{color="yellow"} == 1
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Elastic Cluster Yellow status
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchClusterYellow
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchClusterYellow.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

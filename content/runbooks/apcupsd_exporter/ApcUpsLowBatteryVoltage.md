@@ -3,7 +3,9 @@ title: ApcUpsLowBatteryVoltage
 description: Troubleshooting for alert ApcUpsLowBatteryVoltage
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Battery voltage is lower than nominal (< 95%)
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "apc-ups/apcupsd_exporter.yml" "ApcUpsLowBatteryVoltage" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ApcUpsLowBatteryVoltage
 expr: (apcupsd_battery_volts / apcupsd_battery_nominal_volts) < 0.95
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Battery voltage is lower than nominal (< 95%)
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ApcUpsLowBatteryVoltage
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/apcupsd_exporter/ApcUpsLowBatteryVoltage.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

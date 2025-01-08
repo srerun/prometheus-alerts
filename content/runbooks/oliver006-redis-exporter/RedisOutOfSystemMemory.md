@@ -3,7 +3,9 @@ title: RedisOutOfSystemMemory
 description: Troubleshooting for alert RedisOutOfSystemMemory
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Redis is running out of system memory (> 90%)
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "redis/oliver006-redis-exporter.yml" "RedisOutOfSystemMemory" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RedisOutOfSystemMemory
 expr: redis_memory_used_bytes / redis_total_system_memory_bytes * 100 > 90
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Redis is running out of system memory (> 90%)
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisOutOfSystemMemory
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisOutOfSystemMemory.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

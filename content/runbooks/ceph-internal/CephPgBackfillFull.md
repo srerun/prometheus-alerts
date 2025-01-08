@@ -3,7 +3,9 @@ title: CephPgBackfillFull
 description: Troubleshooting for alert CephPgBackfillFull
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Some Ceph placement groups are located on full Object Storage Daemon on cluster.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "ceph/ceph-internal.yml" "CephPgBackfillFull" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CephPgBackfillFull
 expr: ceph_pg_backfill_toofull > 0
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Some Ceph placement groups are located on full Object Storage Daemon on cluster. Those PGs can be unavailable shortly. Please check OSDs, change weight or reconfigure CRUSH rules.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CephPgBackfillFull
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/ceph-internal/CephPgBackfillFull.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

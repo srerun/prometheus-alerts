@@ -3,7 +3,9 @@ title: ZfsOfflinePool
 description: Troubleshooting for alert ZfsOfflinePool
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ A ZFS zpool is in a unexpected state: {{ $labels.state }}.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "zfs/node-exporter.yml" "ZfsOfflinePool" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ZfsOfflinePool
 expr: node_zfs_zpool_state{state!="online"} > 0
 for: 1m
@@ -29,9 +35,12 @@ annotations:
         A ZFS zpool is in a unexpected state: {{ $labels.state }}.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ZfsOfflinePool
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/ZfsOfflinePool.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: EtcdHighCommitDurations
 description: Troubleshooting for alert EtcdHighCommitDurations
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Etcd commit duration increasing, 99th percentile is over 0.25s
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "etcd/etcd-internal.yml" "EtcdHighCommitDurations" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: EtcdHighCommitDurations
 expr: histogram_quantile(0.99, rate(etcd_disk_backend_commit_duration_seconds_bucket[1m])) > 0.25
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Etcd commit duration increasing, 99th percentile is over 0.25s
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/EtcdHighCommitDurations
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdHighCommitDurations.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

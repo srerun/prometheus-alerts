@@ -3,7 +3,9 @@ title: IstioHighRequestLatency
 description: Troubleshooting for alert IstioHighRequestLatency
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Istio average requests execution is longer than 100ms.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "istio/istio-internal.yml" "IstioHighRequestLatency" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: IstioHighRequestLatency
 expr: rate(istio_request_duration_milliseconds_sum{reporter="destination"}[1m]) / rate(istio_request_duration_milliseconds_count{reporter="destination"}[1m]) > 100
 for: 1m
@@ -29,9 +35,12 @@ annotations:
         Istio average requests execution is longer than 100ms.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/IstioHighRequestLatency
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/istio-internal/IstioHighRequestLatency.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

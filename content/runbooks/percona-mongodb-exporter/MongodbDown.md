@@ -3,7 +3,9 @@ title: MongodbDown
 description: Troubleshooting for alert MongodbDown
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ MongoDB instance is down
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "mongodb/percona-mongodb-exporter.yml" "MongodbDown" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: MongodbDown
 expr: mongodb_up == 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         MongoDB instance is down
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MongodbDown
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/percona-mongodb-exporter/MongodbDown.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

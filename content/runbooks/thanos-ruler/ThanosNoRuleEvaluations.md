@@ -3,7 +3,9 @@ title: ThanosNoRuleEvaluations
 description: Troubleshooting for alert ThanosNoRuleEvaluations
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Thanos Rule {{$labels.instance}} did not perform any rule evaluations in the pas
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "thanos/thanos-ruler.yml" "ThanosNoRuleEvaluations" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ThanosNoRuleEvaluations
 expr: sum by (job, instance) (rate(prometheus_rule_evaluations_total{job=~".*thanos-rule.*"}[5m])) <= 0  and sum by (job, instance) (thanos_rule_loaded_rules{job=~".*thanos-rule.*"}) > 0
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Thanos Rule {{$labels.instance}} did not perform any rule evaluations in the past 10 minutes.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosNoRuleEvaluations
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosNoRuleEvaluations.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: IstioPilotDuplicateEntry
 description: Troubleshooting for alert IstioPilotDuplicateEntry
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Istio pilot duplicate entry error.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "istio/istio-internal.yml" "IstioPilotDuplicateEntry" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: IstioPilotDuplicateEntry
 expr: sum(rate(pilot_duplicate_envoy_clusters{}[5m])) > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Istio pilot duplicate entry error.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/IstioPilotDuplicateEntry
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/istio-internal/IstioPilotDuplicateEntry.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

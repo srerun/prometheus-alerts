@@ -3,7 +3,9 @@ title: NomadBlockedEvaluation
 description: Troubleshooting for alert NomadBlockedEvaluation
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Nomad blocked evaluation
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "nomad/nomad-internal.yml" "NomadBlockedEvaluation" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: NomadBlockedEvaluation
 expr: nomad_nomad_blocked_evals_total_blocked > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Nomad blocked evaluation
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NomadBlockedEvaluation
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nomad-internal/NomadBlockedEvaluation.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

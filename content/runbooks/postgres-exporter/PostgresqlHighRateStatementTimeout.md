@@ -3,7 +3,9 @@ title: PostgresqlHighRateStatementTimeout
 description: Troubleshooting for alert PostgresqlHighRateStatementTimeout
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Postgres transactions showing high rate of statement timeouts
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "postgresql/postgres-exporter.yml" "PostgresqlHighRateStatementTimeout" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PostgresqlHighRateStatementTimeout
 expr: rate(postgresql_errors_total{type="statement_timeout"}[1m]) > 3
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Postgres transactions showing high rate of statement timeouts
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PostgresqlHighRateStatementTimeout
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlHighRateStatementTimeout.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

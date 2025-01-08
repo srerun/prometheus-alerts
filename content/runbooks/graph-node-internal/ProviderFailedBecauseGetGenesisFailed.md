@@ -3,7 +3,9 @@ title: ProviderFailedBecauseGetGenesisFailed
 description: Troubleshooting for alert ProviderFailedBecauseGetGenesisFailed
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Failed to get genesis for Provider `{{$labels.provider}}` in Graph node `{{$labe
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "graph-node/graph-node-internal.yml" "ProviderFailedBecauseGetGenesisFailed" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ProviderFailedBecauseGetGenesisFailed
 expr: eth_rpc_status == 2
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Failed to get genesis for Provider `{{$labels.provider}}` in Graph node `{{$labels.instance}}`
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ProviderFailedBecauseGetGenesisFailed
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/graph-node-internal/ProviderFailedBecauseGetGenesisFailed.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: KafkaConsumerLag
 description: Troubleshooting for alert KafkaConsumerLag
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Kafka consumer has a 30 minutes and increasing lag
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kafka/linkedin-kafka-exporter.yml" "KafkaConsumerLag" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KafkaConsumerLag
 expr: kafka_burrow_topic_partition_offset - on(partition, cluster, topic) group_right() kafka_burrow_partition_current_offset >= (kafka_burrow_topic_partition_offset offset 15m - on(partition, cluster, topic) group_right() kafka_burrow_partition_current_offset offset 15m) AND kafka_burrow_topic_partition_offset - on(partition, cluster, topic) group_right() kafka_burrow_partition_current_offset > 0
 for: 15m
@@ -29,9 +35,12 @@ annotations:
         Kafka consumer has a 30 minutes and increasing lag
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KafkaConsumerLag
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/linkedin-kafka-exporter/KafkaConsumerLag.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

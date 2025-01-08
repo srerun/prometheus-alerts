@@ -3,7 +3,9 @@ title: CephState
 description: Troubleshooting for alert CephState
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Ceph instance unhealthy
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "ceph/ceph-internal.yml" "CephState" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CephState
 expr: ceph_health_status != 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Ceph instance unhealthy
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CephState
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/ceph-internal/CephState.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

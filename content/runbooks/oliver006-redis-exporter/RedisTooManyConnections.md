@@ -3,7 +3,9 @@ title: RedisTooManyConnections
 description: Troubleshooting for alert RedisTooManyConnections
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Redis is running out of connections (> 90% used)
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "redis/oliver006-redis-exporter.yml" "RedisTooManyConnections" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RedisTooManyConnections
 expr: redis_connected_clients / redis_config_maxclients * 100 > 90
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Redis is running out of connections (> 90% used)
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisTooManyConnections
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisTooManyConnections.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

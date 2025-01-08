@@ -3,7 +3,9 @@ title: ThanosReceiveHighReplicationFailures
 description: Troubleshooting for alert ThanosReceiveHighReplicationFailures
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Thanos Receive {{$labels.job}} is failing to replicate {{$value | humanize}}% of
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "thanos/thanos-receiver.yml" "ThanosReceiveHighReplicationFailures" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ThanosReceiveHighReplicationFailures
 expr: thanos_receive_replication_factor > 1 and ((sum by (job) (rate(thanos_receive_replications_total{result="error", job=~".*thanos-receive.*"}[5m])) / sum by (job) (rate(thanos_receive_replications_total{job=~".*thanos-receive.*"}[5m]))) > (max by (job) (floor((thanos_receive_replication_factor{job=~".*thanos-receive.*"}+1)/ 2)) / max by (job) (thanos_receive_hashring_nodes{job=~".*thanos-receive.*"}))) * 100
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Thanos Receive {{$labels.job}} is failing to replicate {{$value | humanize}}% of requests.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosReceiveHighReplicationFailures
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-receiver/ThanosReceiveHighReplicationFailures.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

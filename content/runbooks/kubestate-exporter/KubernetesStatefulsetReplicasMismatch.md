@@ -3,7 +3,9 @@ title: KubernetesStatefulsetReplicasMismatch
 description: Troubleshooting for alert KubernetesStatefulsetReplicasMismatch
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ StatefulSet does not match the expected number of replicas.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesStatefulsetReplicasMismatch" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesStatefulsetReplicasMismatch
 expr: kube_statefulset_status_replicas_ready != kube_statefulset_status_replicas
 for: 10m
@@ -29,9 +35,12 @@ annotations:
         StatefulSet does not match the expected number of replicas.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesStatefulsetReplicasMismatch
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesStatefulsetReplicasMismatch.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: HostRaidArrayGotInactive
 description: Troubleshooting for alert HostRaidArrayGotInactive
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ RAID array {{ $labels.device }} is in a degraded state due to one or more disk f
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostRaidArrayGotInactive" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostRaidArrayGotInactive
 expr: (node_md_state{state="inactive"} > 0) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         RAID array {{ $labels.device }} is in a degraded state due to one or more disk failures. The number of spare drives is insufficient to fix the issue automatically.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostRaidArrayGotInactive
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostRaidArrayGotInactive.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

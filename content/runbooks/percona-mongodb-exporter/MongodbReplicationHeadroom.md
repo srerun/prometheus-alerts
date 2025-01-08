@@ -3,7 +3,9 @@ title: MongodbReplicationHeadroom
 description: Troubleshooting for alert MongodbReplicationHeadroom
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ MongoDB replication headroom is <= 0
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "mongodb/percona-mongodb-exporter.yml" "MongodbReplicationHeadroom" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: MongodbReplicationHeadroom
 expr: sum(avg(mongodb_mongod_replset_oplog_head_timestamp - mongodb_mongod_replset_oplog_tail_timestamp)) - sum(avg(mongodb_rs_members_optimeDate{member_state="PRIMARY"} - on (set) group_right mongodb_rs_members_optimeDate{member_state="SECONDARY"})) <= 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         MongoDB replication headroom is <= 0
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MongodbReplicationHeadroom
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/percona-mongodb-exporter/MongodbReplicationHeadroom.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

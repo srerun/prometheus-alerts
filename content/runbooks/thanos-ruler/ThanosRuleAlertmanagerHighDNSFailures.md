@@ -3,7 +3,9 @@ title: ThanosRuleAlertmanagerHighDNSFailures
 description: Troubleshooting for alert ThanosRuleAlertmanagerHighDNSFailures
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Thanos Rule {{$labels.instance}} has {{$value | humanize}}% of failing DNS queri
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "thanos/thanos-ruler.yml" "ThanosRuleAlertmanagerHighDNSFailures" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ThanosRuleAlertmanagerHighDNSFailures
 expr: (sum by (job, instance) (rate(thanos_rule_alertmanagers_dns_failures_total{job=~".*thanos-rule.*"}[5m])) / sum by (job, instance) (rate(thanos_rule_alertmanagers_dns_lookups_total{job=~".*thanos-rule.*"}[5m])) * 100 > 1)
 for: 15m
@@ -29,9 +35,12 @@ annotations:
         Thanos Rule {{$labels.instance}} has {{$value | humanize}}% of failing DNS queries for Alertmanager endpoints.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosRuleAlertmanagerHighDNSFailures
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosRuleAlertmanagerHighDNSFailures.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

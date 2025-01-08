@@ -3,7 +3,9 @@ title: KubernetesJobSlowCompletion
 description: Troubleshooting for alert KubernetesJobSlowCompletion
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Kubernetes Job {{ $labels.namespace }}/{{ $labels.job_name }} did not complete i
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesJobSlowCompletion" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesJobSlowCompletion
 expr: kube_job_spec_completions - kube_job_status_succeeded - kube_job_status_failed > 0
 for: 12h
@@ -29,9 +35,12 @@ annotations:
         Kubernetes Job {{ $labels.namespace }}/{{ $labels.job_name }} did not complete in time.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesJobSlowCompletion
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesJobSlowCompletion.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

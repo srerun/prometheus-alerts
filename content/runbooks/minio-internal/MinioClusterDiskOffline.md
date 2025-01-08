@@ -3,7 +3,9 @@ title: MinioClusterDiskOffline
 description: Troubleshooting for alert MinioClusterDiskOffline
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Minio cluster disk is offline
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "minio/minio-internal.yml" "MinioClusterDiskOffline" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: MinioClusterDiskOffline
 expr: minio_cluster_drive_offline_total > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Minio cluster disk is offline
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MinioClusterDiskOffline
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/minio-internal/MinioClusterDiskOffline.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

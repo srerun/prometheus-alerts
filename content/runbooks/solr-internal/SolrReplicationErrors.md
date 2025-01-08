@@ -3,7 +3,9 @@ title: SolrReplicationErrors
 description: Troubleshooting for alert SolrReplicationErrors
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Solr collection {{ $labels.collection }} has failed updates for replica {{ $labe
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "solr/solr-internal.yml" "SolrReplicationErrors" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: SolrReplicationErrors
 expr: increase(solr_metrics_core_errors_total{category="REPLICATION"}[1m]) > 1
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Solr collection {{ $labels.collection }} has failed updates for replica {{ $labels.replica }} on {{ $labels.base_url }}.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SolrReplicationErrors
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/solr-internal/SolrReplicationErrors.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

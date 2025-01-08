@@ -3,7 +3,9 @@ title: CortexRulerConfigurationReloadFailure
 description: Troubleshooting for alert CortexRulerConfigurationReloadFailure
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Cortex ruler configuration reload failure (instance {{ $labels.instance }})
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "cortex/cortex-internal.yml" "CortexRulerConfigurationReloadFailure" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CortexRulerConfigurationReloadFailure
 expr: cortex_ruler_config_last_reload_successful != 1
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Cortex ruler configuration reload failure (instance {{ $labels.instance }})
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CortexRulerConfigurationReloadFailure
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/cortex-internal/CortexRulerConfigurationReloadFailure.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

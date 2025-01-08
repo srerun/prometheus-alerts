@@ -3,7 +3,9 @@ title: HostUnusualDiskReadRate
 description: Troubleshooting for alert HostUnusualDiskReadRate
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Disk is probably reading too much data (> 50 MB/s)
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostUnusualDiskReadRate" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostUnusualDiskReadRate
 expr: (sum by (instance) (rate(node_disk_read_bytes_total[2m])) / 1024 / 1024 > 50) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Disk is probably reading too much data (> 50 MB/s)
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostUnusualDiskReadRate
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostUnusualDiskReadRate.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

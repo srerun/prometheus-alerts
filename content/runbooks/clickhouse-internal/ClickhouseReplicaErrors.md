@@ -3,7 +3,9 @@ title: ClickhouseReplicaErrors
 description: Troubleshooting for alert ClickhouseReplicaErrors
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Critical replica errors detected, either all replicas are stale or lost.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseReplicaErrors" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ClickhouseReplicaErrors
 expr: ClickHouseErrorMetric_ALL_REPLICAS_ARE_STALE == 1 or ClickHouseErrorMetric_ALL_REPLICAS_LOST == 1
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Critical replica errors detected, either all replicas are stale or lost.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ClickhouseReplicaErrors
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseReplicaErrors.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

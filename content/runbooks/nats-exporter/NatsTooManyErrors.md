@@ -3,7 +3,9 @@ title: NatsTooManyErrors
 description: Troubleshooting for alert NatsTooManyErrors
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ NATS server has encountered errors in the last 5 minutes
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "nats/nats-exporter.yml" "NatsTooManyErrors" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: NatsTooManyErrors
 expr: increase(gnatsd_varz_jetstream_stats_api_errors[5m]) > 0
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         NATS server has encountered errors in the last 5 minutes
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NatsTooManyErrors
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsTooManyErrors.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

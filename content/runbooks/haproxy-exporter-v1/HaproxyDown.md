@@ -3,7 +3,9 @@ title: HaproxyDown
 description: Troubleshooting for alert HaproxyDown
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ HAProxy down
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "haproxy/haproxy-exporter-v1.yml" "HaproxyDown" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HaproxyDown
 expr: haproxy_up == 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         HAProxy down
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HaproxyDown
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/haproxy-exporter-v1/HaproxyDown.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: CassandraCompactionTaskPending
 description: Troubleshooting for alert CassandraCompactionTaskPending
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Many Cassandra compaction tasks are pending. You might need to increase I/O capa
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraCompactionTaskPending" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CassandraCompactionTaskPending
 expr: avg_over_time(cassandra_stats{name="org:apache:cassandra:metrics:compaction:pendingtasks:value"}[1m]) > 100
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Many Cassandra compaction tasks are pending. You might need to increase I/O capacity by adding nodes to the cluster.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraCompactionTaskPending
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraCompactionTaskPending.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: CephMonitorLowSpace
 description: Troubleshooting for alert CephMonitorLowSpace
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Ceph monitor storage is low.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "ceph/ceph-internal.yml" "CephMonitorLowSpace" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CephMonitorLowSpace
 expr: ceph_monitor_avail_percent < 10
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Ceph monitor storage is low.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CephMonitorLowSpace
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/ceph-internal/CephMonitorLowSpace.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

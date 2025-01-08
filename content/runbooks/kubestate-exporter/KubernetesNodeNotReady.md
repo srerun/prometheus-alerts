@@ -3,7 +3,9 @@ title: KubernetesNodeNotReady
 description: Troubleshooting for alert KubernetesNodeNotReady
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Node {{ $labels.node }} has been unready for a long time
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesNodeNotReady" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesNodeNotReady
 expr: kube_node_status_condition{condition="Ready",status="true"} == 0
 for: 10m
@@ -29,9 +35,12 @@ annotations:
         Node {{ $labels.node }} has been unready for a long time
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesNodeNotReady
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesNodeNotReady.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

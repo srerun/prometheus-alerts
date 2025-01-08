@@ -3,7 +3,9 @@ title: CortexIngesterUnhealthy
 description: Troubleshooting for alert CortexIngesterUnhealthy
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Cortex has an unhealthy ingester
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "cortex/cortex-internal.yml" "CortexIngesterUnhealthy" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CortexIngesterUnhealthy
 expr: cortex_ring_members{state="Unhealthy", name="ingester"} > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Cortex has an unhealthy ingester
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CortexIngesterUnhealthy
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/cortex-internal/CortexIngesterUnhealthy.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

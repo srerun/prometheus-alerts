@@ -3,7 +3,9 @@ title: NatsFrequentAuthenticationTimeouts
 description: Troubleshooting for alert NatsFrequentAuthenticationTimeouts
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ There have been more than 5 authentication timeouts in the last 5 minutes
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "nats/nats-exporter.yml" "NatsFrequentAuthenticationTimeouts" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: NatsFrequentAuthenticationTimeouts
 expr: increase(gnatsd_varz_auth_timeout[5m]) > 5
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         There have been more than 5 authentication timeouts in the last 5 minutes
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NatsFrequentAuthenticationTimeouts
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsFrequentAuthenticationTimeouts.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

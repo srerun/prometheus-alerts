@@ -3,7 +3,9 @@ title: PrometheusAlertmanagerNotificationFailing
 description: Troubleshooting for alert PrometheusAlertmanagerNotificationFailing
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Alertmanager is failing sending notifications
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusAlertmanagerNotificationFailing" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PrometheusAlertmanagerNotificationFailing
 expr: rate(alertmanager_notifications_failed_total[1m]) > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Alertmanager is failing sending notifications
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PrometheusAlertmanagerNotificationFailing
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-self-monitoring-internal/PrometheusAlertmanagerNotificationFailing.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

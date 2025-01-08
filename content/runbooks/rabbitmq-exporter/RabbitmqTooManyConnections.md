@@ -3,7 +3,9 @@ title: RabbitmqTooManyConnections
 description: Troubleshooting for alert RabbitmqTooManyConnections
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ The total connections of a node is too high
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "rabbitmq/rabbitmq-exporter.yml" "RabbitmqTooManyConnections" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RabbitmqTooManyConnections
 expr: rabbitmq_connections > 1000
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         The total connections of a node is too high
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqTooManyConnections
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/rabbitmq-exporter/RabbitmqTooManyConnections.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: MongodbVirtualMemoryUsage
 description: Troubleshooting for alert MongodbVirtualMemoryUsage
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ High memory usage
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "mongodb/dcu-mongodb-exporter.yml" "MongodbVirtualMemoryUsage" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: MongodbVirtualMemoryUsage
 expr: (sum(mongodb_memory{type="virtual"}) BY (instance) / sum(mongodb_memory{type="mapped"}) BY (instance)) > 3
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         High memory usage
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MongodbVirtualMemoryUsage
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dcu-mongodb-exporter/MongodbVirtualMemoryUsage.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: RedisTooManyMasters
 description: Troubleshooting for alert RedisTooManyMasters
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Redis cluster has too many nodes marked as master.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "redis/oliver006-redis-exporter.yml" "RedisTooManyMasters" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RedisTooManyMasters
 expr: count(redis_instance_info{role="master"}) > 1
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Redis cluster has too many nodes marked as master.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisTooManyMasters
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisTooManyMasters.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

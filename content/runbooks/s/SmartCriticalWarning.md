@@ -3,7 +3,9 @@ title: SmartCriticalWarning
 description: Troubleshooting for alert SmartCriticalWarning
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ device has critical warning (instance {{ $labels.instance }})
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "s/smartctl-exporter.yml" "SmartCriticalWarning" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: SmartCriticalWarning
 expr: smartctl_device_critical_warning > 0
 for: 15m
@@ -29,9 +35,12 @@ annotations:
         device has critical warning (instance {{ $labels.instance }})
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SmartCriticalWarning
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/s/SmartCriticalWarning.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

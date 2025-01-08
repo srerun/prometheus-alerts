@@ -3,7 +3,9 @@ title: ContainerKilled
 description: Troubleshooting for alert ContainerKilled
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ A container has disappeared
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "docker-containers/google-cadvisor.yml" "ContainerKilled" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ContainerKilled
 expr: time() - container_last_seen > 60
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         A container has disappeared
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ContainerKilled
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/google-cadvisor/ContainerKilled.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

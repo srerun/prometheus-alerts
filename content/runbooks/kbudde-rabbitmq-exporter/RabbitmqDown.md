@@ -3,7 +3,9 @@ title: RabbitmqDown
 description: Troubleshooting for alert RabbitmqDown
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ RabbitMQ node down
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "rabbitmq/kbudde-rabbitmq-exporter.yml" "RabbitmqDown" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RabbitmqDown
 expr: rabbitmq_up == 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         RabbitMQ node down
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqDown
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kbudde-rabbitmq-exporter/RabbitmqDown.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

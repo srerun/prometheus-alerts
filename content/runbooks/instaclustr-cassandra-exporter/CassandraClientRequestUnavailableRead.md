@@ -3,7 +3,9 @@ title: CassandraClientRequestUnavailableRead
 description: Troubleshooting for alert CassandraClientRequestUnavailableRead
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Some Cassandra client requests are unavailable to read - {{ $labels.cassandra_cl
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "cassandra/instaclustr-cassandra-exporter.yml" "CassandraClientRequestUnavailableRead" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CassandraClientRequestUnavailableRead
 expr: changes(cassandra_client_request_unavailable_exceptions_total{operation="read"}[1m]) > 0
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Some Cassandra client requests are unavailable to read - {{ $labels.cassandra_cluster }}
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraClientRequestUnavailableRead
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/instaclustr-cassandra-exporter/CassandraClientRequestUnavailableRead.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

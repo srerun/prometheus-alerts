@@ -3,7 +3,9 @@ title: KubernetesStatefulsetGenerationMismatch
 description: Troubleshooting for alert KubernetesStatefulsetGenerationMismatch
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} has failed but has
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesStatefulsetGenerationMismatch" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesStatefulsetGenerationMismatch
 expr: kube_statefulset_status_observed_generation != kube_statefulset_metadata_generation
 for: 10m
@@ -29,9 +35,12 @@ annotations:
         StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} has failed but has not been rolled back.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesStatefulsetGenerationMismatch
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesStatefulsetGenerationMismatch.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: PromtailRequestLatency
 description: Troubleshooting for alert PromtailRequestLatency
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ The {{ $labels.job }} {{ $labels.route }} is experiencing {{ printf "%.2f" $valu
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "promtail/promtail-internal.yml" "PromtailRequestLatency" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PromtailRequestLatency
 expr: histogram_quantile(0.99, sum(rate(promtail_request_duration_seconds_bucket[5m])) by (le)) > 1
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         The {{ $labels.job }} {{ $labels.route }} is experiencing {{ printf "%.2f" $value }}s 99th percentile latency.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PromtailRequestLatency
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/promtail-internal/PromtailRequestLatency.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

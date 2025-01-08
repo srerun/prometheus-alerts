@@ -3,7 +3,9 @@ title: HaproxyBackendMaxActiveSession>80%
 description: Troubleshooting for alert HaproxyBackendMaxActiveSession>80%
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Session limit from backend {{ $labels.proxy }} to server {{ $labels.server }} re
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "haproxy/embedded-exporter-v2.yml" "HaproxyBackendMaxActiveSession>80%" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HaproxyBackendMaxActiveSession>80%
 expr: ((haproxy_server_max_sessions >0) * 100) / (haproxy_server_limit_sessions > 0) > 80
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Session limit from backend {{ $labels.proxy }} to server {{ $labels.server }} reached 80% of limit - {{ $value | printf "%.2f"}}%
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HaproxyBackendMaxActiveSession>80%
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/embedded-exporter-v2/HaproxyBackendMaxActiveSession>80%.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

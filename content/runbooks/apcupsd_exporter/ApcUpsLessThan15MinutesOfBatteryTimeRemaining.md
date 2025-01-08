@@ -3,7 +3,9 @@ title: ApcUpsLessThan15MinutesOfBatteryTimeRemaining
 description: Troubleshooting for alert ApcUpsLessThan15MinutesOfBatteryTimeRemaining
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Battery is almost empty (< 15 Minutes remaining)
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "apc-ups/apcupsd_exporter.yml" "ApcUpsLessThan15MinutesOfBatteryTimeRemaining" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ApcUpsLessThan15MinutesOfBatteryTimeRemaining
 expr: apcupsd_battery_time_left_seconds < 900
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Battery is almost empty (< 15 Minutes remaining)
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ApcUpsLessThan15MinutesOfBatteryTimeRemaining
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/apcupsd_exporter/ApcUpsLessThan15MinutesOfBatteryTimeRemaining.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

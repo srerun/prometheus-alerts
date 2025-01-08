@@ -3,7 +3,9 @@ title: RabbitmqTooManyConsumers
 description: Troubleshooting for alert RabbitmqTooManyConsumers
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Queue should have only 1 consumer
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "rabbitmq/kbudde-rabbitmq-exporter.yml" "RabbitmqTooManyConsumers" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RabbitmqTooManyConsumers
 expr: rabbitmq_queue_consumers{queue="my-queue"} > 1
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Queue should have only 1 consumer
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqTooManyConsumers
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kbudde-rabbitmq-exporter/RabbitmqTooManyConsumers.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

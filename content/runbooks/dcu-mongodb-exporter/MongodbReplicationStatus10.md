@@ -3,7 +3,9 @@ title: MongodbReplicationStatus10
 description: Troubleshooting for alert MongodbReplicationStatus10
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ MongoDB Replication set member was once in a replica set but was subsequently re
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "mongodb/dcu-mongodb-exporter.yml" "MongodbReplicationStatus10" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: MongodbReplicationStatus10
 expr: mongodb_replset_member_state == 10
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         MongoDB Replication set member was once in a replica set but was subsequently removed
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MongodbReplicationStatus10
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dcu-mongodb-exporter/MongodbReplicationStatus10.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

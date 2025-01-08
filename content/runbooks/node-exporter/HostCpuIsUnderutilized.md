@@ -3,7 +3,9 @@ title: HostCpuIsUnderutilized
 description: Troubleshooting for alert HostCpuIsUnderutilized
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ CPU load is < 20% for 1 week. Consider reducing the number of CPUs.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostCpuIsUnderutilized" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostCpuIsUnderutilized
 expr: (100 - (rate(node_cpu_seconds_total{mode="idle"}[30m]) * 100) < 20) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 1w
@@ -29,9 +35,12 @@ annotations:
         CPU load is < 20% for 1 week. Consider reducing the number of CPUs.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostCpuIsUnderutilized
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostCpuIsUnderutilized.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

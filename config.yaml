@@ -1,6 +1,8 @@
 baseURL: "https://sre.run/"
 languageCode: "en-us"
 title: "Prometheus Alerts"
+dataDir: rules
+assetDir: rules
 
 theme: book
 

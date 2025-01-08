@@ -3,7 +3,9 @@ title: HaproxyRetryHigh
 description: Troubleshooting for alert HaproxyRetryHigh
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ High rate of retry on {{ $labels.fqdn }}/{{ $labels.backend }} backend
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "haproxy/haproxy-exporter-v1.yml" "HaproxyRetryHigh" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HaproxyRetryHigh
 expr: sum by (backend) (rate(haproxy_backend_retry_warnings_total[1m])) > 10
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         High rate of retry on {{ $labels.fqdn }}/{{ $labels.backend }} backend
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HaproxyRetryHigh
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/haproxy-exporter-v1/HaproxyRetryHigh.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

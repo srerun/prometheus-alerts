@@ -3,7 +3,9 @@ title: ElasticsearchHeapUsageTooHigh
 description: Troubleshooting for alert ElasticsearchHeapUsageTooHigh
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ The heap usage is over 90%
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "elasticsearch/prometheus-community-elasticsearch-exporter.yml" "ElasticsearchHeapUsageTooHigh" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ElasticsearchHeapUsageTooHigh
 expr: (elasticsearch_jvm_memory_used_bytes{area="heap"} / elasticsearch_jvm_memory_max_bytes{area="heap"}) * 100 > 90
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         The heap usage is over 90%
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchHeapUsageTooHigh
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchHeapUsageTooHigh.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

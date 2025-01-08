@@ -3,7 +3,9 @@ title: PrometheusRuleEvaluationFailures
 description: Troubleshooting for alert PrometheusRuleEvaluationFailures
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Prometheus encountered {{ $value }} rule evaluation failures, leading to potenti
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusRuleEvaluationFailures" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PrometheusRuleEvaluationFailures
 expr: increase(prometheus_rule_evaluation_failures_total[3m]) > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Prometheus encountered {{ $value }} rule evaluation failures, leading to potentially ignored alerts.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PrometheusRuleEvaluationFailures
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-self-monitoring-internal/PrometheusRuleEvaluationFailures.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

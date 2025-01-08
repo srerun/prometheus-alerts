@@ -3,7 +3,9 @@ title: KubernetesJobNotStarting
 description: Troubleshooting for alert KubernetesJobNotStarting
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Job {{ $labels.namespace }}/{{ $labels.job_name }} did not start for 10 minutes
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesJobNotStarting" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesJobNotStarting
 expr: kube_job_status_active == 0 and kube_job_status_failed == 0 and kube_job_status_succeeded == 0 and (time() - kube_job_status_start_time) > 600
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Job {{ $labels.namespace }}/{{ $labels.job_name }} did not start for 10 minutes
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesJobNotStarting
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesJobNotStarting.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

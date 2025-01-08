@@ -3,7 +3,9 @@ title: ElasticsearchUnassignedShards
 description: Troubleshooting for alert ElasticsearchUnassignedShards
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Elasticsearch has unassigned shards
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "elasticsearch/prometheus-community-elasticsearch-exporter.yml" "ElasticsearchUnassignedShards" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ElasticsearchUnassignedShards
 expr: elasticsearch_cluster_health_unassigned_shards > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Elasticsearch has unassigned shards
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchUnassignedShards
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchUnassignedShards.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

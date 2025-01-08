@@ -3,7 +3,9 @@ title: NetdataMdMismatchCntUnsynchronizedBlocks
 description: Troubleshooting for alert NetdataMdMismatchCntUnsynchronizedBlocks
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ RAID Array have unsynchronized blocks
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "netdata/netdata-internal.yml" "NetdataMdMismatchCntUnsynchronizedBlocks" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: NetdataMdMismatchCntUnsynchronizedBlocks
 expr: netdata_md_mismatch_cnt_unsynchronized_blocks_average > 1024
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         RAID Array have unsynchronized blocks
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NetdataMdMismatchCntUnsynchronizedBlocks
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/netdata-internal/NetdataMdMismatchCntUnsynchronizedBlocks.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

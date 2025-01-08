@@ -3,7 +3,9 @@ title: PostgresqlUnusedReplicationSlot
 description: Troubleshooting for alert PostgresqlUnusedReplicationSlot
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Unused Replication Slots
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "postgresql/postgres-exporter.yml" "PostgresqlUnusedReplicationSlot" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PostgresqlUnusedReplicationSlot
 expr: pg_replication_slots_active == 0
 for: 1m
@@ -29,9 +35,12 @@ annotations:
         Unused Replication Slots
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PostgresqlUnusedReplicationSlot
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlUnusedReplicationSlot.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

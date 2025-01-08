@@ -3,7 +3,9 @@ title: StoreConnectionIsTooSlow
 description: Troubleshooting for alert StoreConnectionIsTooSlow
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Store connection is too slow to `{{$labels.pool}}` pool, `{{$labels.shard}}` sha
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "graph-node/graph-node-internal.yml" "StoreConnectionIsTooSlow" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: StoreConnectionIsTooSlow
 expr: store_connection_wait_time_ms > 10
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Store connection is too slow to `{{$labels.pool}}` pool, `{{$labels.shard}}` shard in Graph node `{{$labels.instance}}`
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/StoreConnectionIsTooSlow
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/graph-node-internal/StoreConnectionIsTooSlow.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: PostgresqlDown
 description: Troubleshooting for alert PostgresqlDown
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Postgresql instance is down
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "postgresql/postgres-exporter.yml" "PostgresqlDown" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PostgresqlDown
 expr: pg_up == 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Postgresql instance is down
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PostgresqlDown
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlDown.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

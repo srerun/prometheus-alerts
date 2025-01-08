@@ -3,7 +3,9 @@ title: ApcUpsBatteryNearlyEmpty
 description: Troubleshooting for alert ApcUpsBatteryNearlyEmpty
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Battery is almost empty (< 10% left)
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "apc-ups/apcupsd_exporter.yml" "ApcUpsBatteryNearlyEmpty" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ApcUpsBatteryNearlyEmpty
 expr: apcupsd_battery_charge_percent < 10
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Battery is almost empty (< 10% left)
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ApcUpsBatteryNearlyEmpty
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/apcupsd_exporter/ApcUpsBatteryNearlyEmpty.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -1,0 +1,17 @@
+{{ $rule := .Get 1 }}
+{{ with $file := .Get 0 }}
+  {{ with resources.Get $file }}
+  {{ with . | transform.Unmarshal }}
+    {{ range .groups }}
+        {{ range where .rules "alert" $rule }}
+```yaml
+{{ transform.Remarshal "yaml" . }}
+```
+        {{ end }}
+    {{ end }}
+    {{ end }}
+  {{ else }}
+      {{ errorf "Unable to get page resource %q" $file }}
+  {{ end }}
+{{ end }}
+

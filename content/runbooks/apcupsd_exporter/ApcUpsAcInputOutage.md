@@ -3,7 +3,9 @@ title: ApcUpsAcInputOutage
 description: Troubleshooting for alert ApcUpsAcInputOutage
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ UPS now running on battery (since {{$value | humanizeDuration}})
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "apc-ups/apcupsd_exporter.yml" "ApcUpsAcInputOutage" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ApcUpsAcInputOutage
 expr: apcupsd_battery_time_on_seconds > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         UPS now running on battery (since {{$value | humanizeDuration}})
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ApcUpsAcInputOutage
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/apcupsd_exporter/ApcUpsAcInputOutage.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

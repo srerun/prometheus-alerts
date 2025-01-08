@@ -3,7 +3,9 @@ title: MongodbNumberCursorsOpen
 description: Troubleshooting for alert MongodbNumberCursorsOpen
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Too many cursors opened by MongoDB for clients (> 10k)
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "mongodb/dcu-mongodb-exporter.yml" "MongodbNumberCursorsOpen" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: MongodbNumberCursorsOpen
 expr: mongodb_metrics_cursor_open{state="total_open"} > 10000
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Too many cursors opened by MongoDB for clients (> 10k)
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MongodbNumberCursorsOpen
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dcu-mongodb-exporter/MongodbNumberCursorsOpen.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: BlackboxConfigurationReloadFailure
 description: Troubleshooting for alert BlackboxConfigurationReloadFailure
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Blackbox configuration reload failure
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "blackbox/blackbox-exporter.yml" "BlackboxConfigurationReloadFailure" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: BlackboxConfigurationReloadFailure
 expr: blackbox_exporter_config_last_reload_successful != 1
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Blackbox configuration reload failure
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/BlackboxConfigurationReloadFailure
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/blackbox-exporter/BlackboxConfigurationReloadFailure.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

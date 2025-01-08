@@ -3,7 +3,9 @@ title: KubernetesHpaMetricsUnavailability
 description: Troubleshooting for alert KubernetesHpaMetricsUnavailability
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ HPA {{ $labels.namespace }}/{{ $labels.horizontalpodautoscaler }} is unable to c
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesHpaMetricsUnavailability" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesHpaMetricsUnavailability
 expr: kube_horizontalpodautoscaler_status_condition{status="false", condition="ScalingActive"} == 1
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         HPA {{ $labels.namespace }}/{{ $labels.horizontalpodautoscaler }} is unable to collect metrics
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesHpaMetricsUnavailability
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesHpaMetricsUnavailability.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

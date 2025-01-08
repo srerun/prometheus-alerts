@@ -3,7 +3,9 @@ title: ZfsPoolUnhealthy
 description: Troubleshooting for alert ZfsPoolUnhealthy
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ ZFS pool state is {{ $value }}. See comments for more information.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "zfs/zfs_exporter.yml" "ZfsPoolUnhealthy" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ZfsPoolUnhealthy
 expr: zfs_pool_health > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         ZFS pool state is {{ $value }}. See comments for more information.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ZfsPoolUnhealthy
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/zfs_exporter/ZfsPoolUnhealthy.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: ClickhouseNoLiveReplicas
 description: Troubleshooting for alert ClickhouseNoLiveReplicas
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ There are too few live replicas available, risking data loss and service disrupt
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseNoLiveReplicas" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ClickhouseNoLiveReplicas
 expr: ClickHouseErrorMetric_TOO_FEW_LIVE_REPLICAS == 1
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         There are too few live replicas available, risking data loss and service disruption.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ClickhouseNoLiveReplicas
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseNoLiveReplicas.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

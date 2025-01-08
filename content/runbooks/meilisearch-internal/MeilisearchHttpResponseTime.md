@@ -3,7 +3,9 @@ title: MeilisearchHttpResponseTime
 description: Troubleshooting for alert MeilisearchHttpResponseTime
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Meilisearch http response time is too high
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "meilisearch/meilisearch-internal.yml" "MeilisearchHttpResponseTime" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: MeilisearchHttpResponseTime
 expr: meilisearch_http_response_time_seconds > 0.5
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Meilisearch http response time is too high
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MeilisearchHttpResponseTime
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/meilisearch-internal/MeilisearchHttpResponseTime.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

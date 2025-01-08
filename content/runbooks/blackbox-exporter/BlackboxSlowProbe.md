@@ -3,7 +3,9 @@ title: BlackboxSlowProbe
 description: Troubleshooting for alert BlackboxSlowProbe
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Blackbox probe took more than 1s to complete
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "blackbox/blackbox-exporter.yml" "BlackboxSlowProbe" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: BlackboxSlowProbe
 expr: avg_over_time(probe_duration_seconds[1m]) > 1
 for: 1m
@@ -29,9 +35,12 @@ annotations:
         Blackbox probe took more than 1s to complete
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/BlackboxSlowProbe
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/blackbox-exporter/BlackboxSlowProbe.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

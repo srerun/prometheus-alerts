@@ -3,7 +3,9 @@ title: GrafanaAlloyServiceDown
 description: Troubleshooting for alert GrafanaAlloyServiceDown
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Alloy on (instance {{ $labels.instance }}) is not responding or has stopped runn
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "grafana-alloy/grafana-alloy-internal.yml" "GrafanaAlloyServiceDown" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: GrafanaAlloyServiceDown
 expr: 'count by (instance) (alloy_build_info) unless count by (instance) (alloy_build_info offset 2m)  '
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Alloy on (instance {{ $labels.instance }}) is not responding or has stopped running.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/GrafanaAlloyServiceDown
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/grafana-alloy-internal/GrafanaAlloyServiceDown.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

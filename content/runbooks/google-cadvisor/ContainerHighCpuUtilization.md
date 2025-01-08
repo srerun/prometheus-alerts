@@ -3,7 +3,9 @@ title: ContainerHighCpuUtilization
 description: Troubleshooting for alert ContainerHighCpuUtilization
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Container CPU utilization is above 80%
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "docker-containers/google-cadvisor.yml" "ContainerHighCpuUtilization" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ContainerHighCpuUtilization
 expr: (sum(rate(container_cpu_usage_seconds_total{container!=""}[5m])) by (pod, container) / sum(container_spec_cpu_quota{container!=""}/container_spec_cpu_period{container!=""}) by (pod, container) * 100) > 80
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Container CPU utilization is above 80%
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ContainerHighCpuUtilization
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/google-cadvisor/ContainerHighCpuUtilization.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

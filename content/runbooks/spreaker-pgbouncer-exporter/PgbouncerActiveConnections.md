@@ -3,7 +3,9 @@ title: PgbouncerActiveConnections
 description: Troubleshooting for alert PgbouncerActiveConnections
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ PGBouncer pools are filling up
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "pgbouncer/spreaker-pgbouncer-exporter.yml" "PgbouncerActiveConnections" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PgbouncerActiveConnections
 expr: pgbouncer_pools_server_active_connections > 200
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         PGBouncer pools are filling up
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PgbouncerActiveConnections
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/spreaker-pgbouncer-exporter/PgbouncerActiveConnections.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

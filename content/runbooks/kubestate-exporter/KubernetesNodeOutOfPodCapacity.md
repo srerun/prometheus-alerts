@@ -3,7 +3,9 @@ title: KubernetesNodeOutOfPodCapacity
 description: Troubleshooting for alert KubernetesNodeOutOfPodCapacity
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Node {{ $labels.node }} is out of pod capacity
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesNodeOutOfPodCapacity" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesNodeOutOfPodCapacity
 expr: sum by (node) ((kube_pod_status_phase{phase="Running"} == 1) + on(uid, instance) group_left(node) (0 * kube_pod_info{pod_template_hash=""})) / sum by (node) (kube_node_status_allocatable{resource="pods"}) * 100 > 90
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Node {{ $labels.node }} is out of pod capacity
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesNodeOutOfPodCapacity
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesNodeOutOfPodCapacity.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

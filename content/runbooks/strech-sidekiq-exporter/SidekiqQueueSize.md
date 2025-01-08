@@ -3,7 +3,9 @@ title: SidekiqQueueSize
 description: Troubleshooting for alert SidekiqQueueSize
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Sidekiq queue {{ $labels.name }} is growing
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "sidekiq/strech-sidekiq-exporter.yml" "SidekiqQueueSize" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: SidekiqQueueSize
 expr: sidekiq_queue_size > 100
 for: 1m
@@ -29,9 +35,12 @@ annotations:
         Sidekiq queue {{ $labels.name }} is growing
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/SidekiqQueueSize
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/strech-sidekiq-exporter/SidekiqQueueSize.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

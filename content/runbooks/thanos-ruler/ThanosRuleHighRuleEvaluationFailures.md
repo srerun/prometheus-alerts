@@ -3,7 +3,9 @@ title: ThanosRuleHighRuleEvaluationFailures
 description: Troubleshooting for alert ThanosRuleHighRuleEvaluationFailures
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Thanos Rule {{$labels.instance}} is failing to evaluate rules.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "thanos/thanos-ruler.yml" "ThanosRuleHighRuleEvaluationFailures" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ThanosRuleHighRuleEvaluationFailures
 expr: (sum by (job, instance) (rate(prometheus_rule_evaluation_failures_total{job=~".*thanos-rule.*"}[5m])) / sum by (job, instance) (rate(prometheus_rule_evaluations_total{job=~".*thanos-rule.*"}[5m])) * 100 > 5)
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Thanos Rule {{$labels.instance}} is failing to evaluate rules.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosRuleHighRuleEvaluationFailures
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosRuleHighRuleEvaluationFailures.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

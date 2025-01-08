@@ -3,7 +3,9 @@ title: PostgresqlBloatIndexHigh(>80%)
 description: Troubleshooting for alert PostgresqlBloatIndexHigh(>80%)
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ The index {{ $labels.idxname }} is bloated. You should execute `REINDEX INDEX CO
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "postgresql/postgres-exporter.yml" "PostgresqlBloatIndexHigh(>80%)" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PostgresqlBloatIndexHigh(>80%)
 expr: pg_bloat_btree_bloat_pct > 80 and on (idxname) (pg_bloat_btree_real_size > 100000000)
 for: 1h
@@ -29,9 +35,12 @@ annotations:
         The index {{ $labels.idxname }} is bloated. You should execute `REINDEX INDEX CONCURRENTLY {{ $labels.idxname }};`
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PostgresqlBloatIndexHigh(>80%)
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlBloatIndexHigh(>80%).md
 
-  ```
+```
+
+-->
+
 </details>
 
 

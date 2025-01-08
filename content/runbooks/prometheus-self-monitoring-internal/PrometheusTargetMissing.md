@@ -3,7 +3,9 @@ title: PrometheusTargetMissing
 description: Troubleshooting for alert PrometheusTargetMissing
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ A Prometheus target has disappeared. An exporter might be crashed.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusTargetMissing" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PrometheusTargetMissing
 expr: up == 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         A Prometheus target has disappeared. An exporter might be crashed.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PrometheusTargetMissing
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-self-monitoring-internal/PrometheusTargetMissing.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

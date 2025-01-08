@@ -3,7 +3,9 @@ title: ThanosQueryInstantLatencyHigh
 description: Troubleshooting for alert ThanosQueryInstantLatencyHigh
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Thanos Query {{$labels.job}} has a 99th percentile latency of {{$value}} seconds
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "thanos/thanos-query.yml" "ThanosQueryInstantLatencyHigh" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ThanosQueryInstantLatencyHigh
 expr: (histogram_quantile(0.99, sum by (job, le) (rate(http_request_duration_seconds_bucket{job=~".*thanos-query.*", handler="query"}[5m]))) > 40 and sum by (job) (rate(http_request_duration_seconds_bucket{job=~".*thanos-query.*", handler="query"}[5m])) > 0)
 for: 10m
@@ -29,9 +35,12 @@ annotations:
         Thanos Query {{$labels.job}} has a 99th percentile latency of {{$value}} seconds for instant queries.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosQueryInstantLatencyHigh
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-query/ThanosQueryInstantLatencyHigh.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

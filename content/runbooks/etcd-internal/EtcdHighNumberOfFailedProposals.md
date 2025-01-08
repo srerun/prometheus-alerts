@@ -3,7 +3,9 @@ title: EtcdHighNumberOfFailedProposals
 description: Troubleshooting for alert EtcdHighNumberOfFailedProposals
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Etcd server got more than 5 failed proposals past hour
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "etcd/etcd-internal.yml" "EtcdHighNumberOfFailedProposals" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: EtcdHighNumberOfFailedProposals
 expr: increase(etcd_server_proposals_failed_total[1h]) > 5
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Etcd server got more than 5 failed proposals past hour
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/EtcdHighNumberOfFailedProposals
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdHighNumberOfFailedProposals.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

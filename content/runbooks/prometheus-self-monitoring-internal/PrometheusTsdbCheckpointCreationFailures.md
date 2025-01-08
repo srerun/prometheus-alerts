@@ -3,7 +3,9 @@ title: PrometheusTsdbCheckpointCreationFailures
 description: Troubleshooting for alert PrometheusTsdbCheckpointCreationFailures
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Prometheus encountered {{ $value }} checkpoint creation failures
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusTsdbCheckpointCreationFailures" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PrometheusTsdbCheckpointCreationFailures
 expr: increase(prometheus_tsdb_checkpoint_creations_failed_total[1m]) > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Prometheus encountered {{ $value }} checkpoint creation failures
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PrometheusTsdbCheckpointCreationFailures
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-self-monitoring-internal/PrometheusTsdbCheckpointCreationFailures.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

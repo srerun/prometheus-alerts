@@ -3,7 +3,9 @@ title: ThanosSidecarNoConnectionToStartedPrometheus
 description: Troubleshooting for alert ThanosSidecarNoConnectionToStartedPrometheus
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Thanos Sidecar {{$labels.instance}} is unhealthy.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "thanos/thanos-sidecar.yml" "ThanosSidecarNoConnectionToStartedPrometheus" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ThanosSidecarNoConnectionToStartedPrometheus
 expr: thanos_sidecar_prometheus_up{job=~".*thanos-sidecar.*"} == 0 and on (namespace, pod)prometheus_tsdb_data_replay_duration_seconds != 0
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Thanos Sidecar {{$labels.instance}} is unhealthy.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosSidecarNoConnectionToStartedPrometheus
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-sidecar/ThanosSidecarNoConnectionToStartedPrometheus.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

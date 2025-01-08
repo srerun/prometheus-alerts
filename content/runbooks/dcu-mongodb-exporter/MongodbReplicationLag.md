@@ -3,7 +3,9 @@ title: MongodbReplicationLag
 description: Troubleshooting for alert MongodbReplicationLag
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Mongodb replication lag is more than 10s
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "mongodb/dcu-mongodb-exporter.yml" "MongodbReplicationLag" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: MongodbReplicationLag
 expr: avg(mongodb_replset_member_optime_date{state="PRIMARY"}) - avg(mongodb_replset_member_optime_date{state="SECONDARY"}) > 10
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Mongodb replication lag is more than 10s
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MongodbReplicationLag
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dcu-mongodb-exporter/MongodbReplicationLag.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

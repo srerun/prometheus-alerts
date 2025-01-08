@@ -3,7 +3,9 @@ title: EtcdHighNumberOfFailedHttpRequests
 description: Troubleshooting for alert EtcdHighNumberOfFailedHttpRequests
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ More than 1% HTTP failure detected in Etcd
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "etcd/etcd-internal.yml" "EtcdHighNumberOfFailedHttpRequests" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: EtcdHighNumberOfFailedHttpRequests
 expr: sum(rate(etcd_http_failed_total[1m])) BY (method) / sum(rate(etcd_http_received_total[1m])) BY (method) > 0.01
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         More than 1% HTTP failure detected in Etcd
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/EtcdHighNumberOfFailedHttpRequests
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdHighNumberOfFailedHttpRequests.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

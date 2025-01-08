@@ -3,7 +3,9 @@ title: NetdataPredictedDiskFull
 description: Troubleshooting for alert NetdataPredictedDiskFull
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Netdata predicted disk full in 24 hours
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "netdata/netdata-internal.yml" "NetdataPredictedDiskFull" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: NetdataPredictedDiskFull
 expr: predict_linear(netdata_disk_space_GB_average{dimension=~"avail|cached"}[3h], 24 * 3600) < 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Netdata predicted disk full in 24 hours
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/NetdataPredictedDiskFull
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/netdata-internal/NetdataPredictedDiskFull.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

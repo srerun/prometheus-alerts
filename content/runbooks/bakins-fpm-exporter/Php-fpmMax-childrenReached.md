@@ -3,7 +3,9 @@ title: Php-fpmMax-childrenReached
 description: Troubleshooting for alert Php-fpmMax-childrenReached
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ PHP-FPM reached max children - {{ $labels.instance }}
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "php-fpm/bakins-fpm-exporter.yml" "Php-fpmMax-childrenReached" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: Php-fpmMax-childrenReached
 expr: sum(phpfpm_max_children_reached_total) by (instance) > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         PHP-FPM reached max children - {{ $labels.instance }}
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/Php-fpmMax-childrenReached
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/bakins-fpm-exporter/Php-fpmMax-childrenReached.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

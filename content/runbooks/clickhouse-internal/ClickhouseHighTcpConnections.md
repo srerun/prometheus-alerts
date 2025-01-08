@@ -3,7 +3,9 @@ title: ClickhouseHighTcpConnections
 description: Troubleshooting for alert ClickhouseHighTcpConnections
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ High number of TCP connections, indicating heavy client or inter-cluster communi
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseHighTcpConnections" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ClickhouseHighTcpConnections
 expr: ClickHouseMetrics_TCPConnection > 400
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         High number of TCP connections, indicating heavy client or inter-cluster communication.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ClickhouseHighTcpConnections
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseHighTcpConnections.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

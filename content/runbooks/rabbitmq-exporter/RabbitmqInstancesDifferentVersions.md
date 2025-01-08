@@ -3,7 +3,9 @@ title: RabbitmqInstancesDifferentVersions
 description: Troubleshooting for alert RabbitmqInstancesDifferentVersions
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Running different version of RabbitMQ in the same cluster, can lead to failure.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "rabbitmq/rabbitmq-exporter.yml" "RabbitmqInstancesDifferentVersions" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RabbitmqInstancesDifferentVersions
 expr: count(count(rabbitmq_build_info) by (rabbitmq_version)) > 1
 for: 1h
@@ -29,9 +35,12 @@ annotations:
         Running different version of RabbitMQ in the same cluster, can lead to failure.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RabbitmqInstancesDifferentVersions
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/rabbitmq-exporter/RabbitmqInstancesDifferentVersions.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

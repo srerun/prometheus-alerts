@@ -3,7 +3,9 @@ title: CephOsdReweighted
 description: Troubleshooting for alert CephOsdReweighted
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Ceph Object Storage Daemon takes too much time to resize.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "ceph/ceph-internal.yml" "CephOsdReweighted" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CephOsdReweighted
 expr: ceph_osd_weight < 1
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Ceph Object Storage Daemon takes too much time to resize.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CephOsdReweighted
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/ceph-internal/CephOsdReweighted.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

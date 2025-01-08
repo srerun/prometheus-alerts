@@ -3,7 +3,9 @@ title: TraefikBackendDown
 description: Troubleshooting for alert TraefikBackendDown
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ All Traefik backends are down
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "traefik/embedded-exporter-v1.yml" "TraefikBackendDown" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: TraefikBackendDown
 expr: count(traefik_backend_server_up) by (backend) == 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         All Traefik backends are down
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/TraefikBackendDown
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/embedded-exporter-v1/TraefikBackendDown.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: PostgresqlRestarted
 description: Troubleshooting for alert PostgresqlRestarted
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Postgresql restarted
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "postgresql/postgres-exporter.yml" "PostgresqlRestarted" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PostgresqlRestarted
 expr: time() - pg_postmaster_start_time_seconds < 60
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Postgresql restarted
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PostgresqlRestarted
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlRestarted.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

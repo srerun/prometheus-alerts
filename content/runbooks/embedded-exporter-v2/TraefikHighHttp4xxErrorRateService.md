@@ -3,7 +3,9 @@ title: TraefikHighHttp4xxErrorRateService
 description: Troubleshooting for alert TraefikHighHttp4xxErrorRateService
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Traefik service 4xx error rate is above 5%
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "traefik/embedded-exporter-v2.yml" "TraefikHighHttp4xxErrorRateService" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: TraefikHighHttp4xxErrorRateService
 expr: sum(rate(traefik_service_requests_total{code=~"4.*"}[3m])) by (service) / sum(rate(traefik_service_requests_total[3m])) by (service) * 100 > 5
 for: 1m
@@ -29,9 +35,12 @@ annotations:
         Traefik service 4xx error rate is above 5%
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/TraefikHighHttp4xxErrorRateService
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/embedded-exporter-v2/TraefikHighHttp4xxErrorRateService.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

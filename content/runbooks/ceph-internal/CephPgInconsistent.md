@@ -3,7 +3,9 @@ title: CephPgInconsistent
 description: Troubleshooting for alert CephPgInconsistent
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Some Ceph placement groups are inconsistent. Data is available but inconsistent 
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "ceph/ceph-internal.yml" "CephPgInconsistent" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CephPgInconsistent
 expr: ceph_pg_inconsistent > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Some Ceph placement groups are inconsistent. Data is available but inconsistent across nodes.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CephPgInconsistent
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/ceph-internal/CephPgInconsistent.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

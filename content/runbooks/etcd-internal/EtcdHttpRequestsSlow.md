@@ -3,7 +3,9 @@ title: EtcdHttpRequestsSlow
 description: Troubleshooting for alert EtcdHttpRequestsSlow
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ HTTP requests slowing down, 99th percentile is over 0.15s
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "etcd/etcd-internal.yml" "EtcdHttpRequestsSlow" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: EtcdHttpRequestsSlow
 expr: histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[1m])) > 0.15
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         HTTP requests slowing down, 99th percentile is over 0.15s
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/EtcdHttpRequestsSlow
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdHttpRequestsSlow.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

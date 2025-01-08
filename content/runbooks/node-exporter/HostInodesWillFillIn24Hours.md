@@ -3,7 +3,9 @@ title: HostInodesWillFillIn24Hours
 description: Troubleshooting for alert HostInodesWillFillIn24Hours
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Filesystem is predicted to run out of inodes within the next 24 hours at current
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostInodesWillFillIn24Hours" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostInodesWillFillIn24Hours
 expr: (node_filesystem_files_free{fstype!="msdosfs"} / node_filesystem_files{fstype!="msdosfs"} * 100 < 10 and predict_linear(node_filesystem_files_free{fstype!="msdosfs"}[1h], 24 * 3600) < 0 and ON (instance, device, mountpoint) node_filesystem_readonly{fstype!="msdosfs"} == 0) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Filesystem is predicted to run out of inodes within the next 24 hours at current write rate
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostInodesWillFillIn24Hours
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostInodesWillFillIn24Hours.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

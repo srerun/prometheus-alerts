@@ -3,7 +3,9 @@ title: PulsarTopicLargeBacklogStorageSize
 description: Troubleshooting for alert PulsarTopicLargeBacklogStorageSize
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ The topic backlog storage size is over 5 GB
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "pulsar/pulsar-internal.yml" "PulsarTopicLargeBacklogStorageSize" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PulsarTopicLargeBacklogStorageSize
 expr: sum(pulsar_storage_size > 5*1024*1024*1024) by (topic)
 for: 1h
@@ -29,9 +35,12 @@ annotations:
         The topic backlog storage size is over 5 GB
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PulsarTopicLargeBacklogStorageSize
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pulsar-internal/PulsarTopicLargeBacklogStorageSize.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

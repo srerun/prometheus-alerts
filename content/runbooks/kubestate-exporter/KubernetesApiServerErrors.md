@@ -3,7 +3,9 @@ title: KubernetesApiServerErrors
 description: Troubleshooting for alert KubernetesApiServerErrors
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Kubernetes API server is experiencing high error rate
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesApiServerErrors" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesApiServerErrors
 expr: sum(rate(apiserver_request_total{job="apiserver",code=~"(?:5..)"}[1m])) by (instance, job) / sum(rate(apiserver_request_total{job="apiserver"}[1m])) by (instance, job) * 100 > 3
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Kubernetes API server is experiencing high error rate
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesApiServerErrors
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesApiServerErrors.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

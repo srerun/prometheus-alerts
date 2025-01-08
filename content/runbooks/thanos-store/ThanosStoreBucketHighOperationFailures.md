@@ -3,7 +3,9 @@ title: ThanosStoreBucketHighOperationFailures
 description: Troubleshooting for alert ThanosStoreBucketHighOperationFailures
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Thanos Store {{$labels.job}} Bucket is failing to execute {{$value | humanize}}%
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "thanos/thanos-store.yml" "ThanosStoreBucketHighOperationFailures" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ThanosStoreBucketHighOperationFailures
 expr: (sum by (job) (rate(thanos_objstore_bucket_operation_failures_total{job=~".*thanos-store.*"}[5m])) / sum by (job) (rate(thanos_objstore_bucket_operations_total{job=~".*thanos-store.*"}[5m])) * 100 > 5)
 for: 15m
@@ -29,9 +35,12 @@ annotations:
         Thanos Store {{$labels.job}} Bucket is failing to execute {{$value | humanize}}% of operations.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosStoreBucketHighOperationFailures
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-store/ThanosStoreBucketHighOperationFailures.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

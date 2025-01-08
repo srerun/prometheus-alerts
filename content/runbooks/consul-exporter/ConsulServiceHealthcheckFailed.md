@@ -3,7 +3,9 @@ title: ConsulServiceHealthcheckFailed
 description: Troubleshooting for alert ConsulServiceHealthcheckFailed
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Service: `{{ $labels.service_name }}` Healthcheck: `{{ $labels.service_id }}`
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "consul/consul-exporter.yml" "ConsulServiceHealthcheckFailed" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ConsulServiceHealthcheckFailed
 expr: consul_catalog_service_node_healthy == 0
 for: 1m
@@ -29,9 +35,12 @@ annotations:
         Service: `{{ $labels.service_name }}` Healthcheck: `{{ $labels.service_id }}`
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ConsulServiceHealthcheckFailed
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/consul-exporter/ConsulServiceHealthcheckFailed.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

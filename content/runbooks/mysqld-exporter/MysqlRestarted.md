@@ -3,7 +3,9 @@ title: MysqlRestarted
 description: Troubleshooting for alert MysqlRestarted
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ MySQL has just been restarted, less than one minute ago on {{ $labels.instance }
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "mysql/mysqld-exporter.yml" "MysqlRestarted" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: MysqlRestarted
 expr: mysql_global_status_uptime < 60
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         MySQL has just been restarted, less than one minute ago on {{ $labels.instance }}.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MysqlRestarted
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/mysqld-exporter/MysqlRestarted.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

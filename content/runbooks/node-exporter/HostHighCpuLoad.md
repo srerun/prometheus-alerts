@@ -3,7 +3,9 @@ title: HostHighCpuLoad
 description: Troubleshooting for alert HostHighCpuLoad
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ CPU load is > 80%
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostHighCpuLoad" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostHighCpuLoad
 expr: (sum by (instance) (avg by (mode, instance) (rate(node_cpu_seconds_total{mode!="idle"}[2m]))) > 0.8) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 10m
@@ -29,9 +35,12 @@ annotations:
         CPU load is > 80%
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostHighCpuLoad
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostHighCpuLoad.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

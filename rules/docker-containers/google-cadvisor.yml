@@ -13,18 +13,6 @@ groups:
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
             runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/google-cadvisor/ContainerKilled.md
-        # - alert: ContainerAbsent
-        #   expr: absent(container_last_seen)
-        #   for: 5m
-        #   labels:
-        #     severity: warning
-        #   annotations:
-        #     summary: Container absent (instance {{ $labels.instance }})
-        #     description: |-
-        #         A container is absent for 5 min
-        #           VALUE = {{ $value }}
-        #           LABELS = {{ $labels }}
-        #     runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/google-cadvisor/ContainerAbsent.md
         - alert: ContainerHighCpuUtilization
           expr: (sum(rate(container_cpu_usage_seconds_total{container!=""}[5m])) by (pod, container) / sum(container_spec_cpu_quota{container!=""}/container_spec_cpu_period{container!=""}) by (pod, container) * 100) > 80
           for: 2m

@@ -3,7 +3,9 @@ title: VaultClusterHealth
 description: Troubleshooting for alert VaultClusterHealth
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Vault cluster is not healthy {{ $labels.instance }}: {{ $value | printf "%.2f"}}
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "hashicorp-vault/hashicorp-vault-internal.yml" "VaultClusterHealth" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: VaultClusterHealth
 expr: sum(vault_core_active) / count(vault_core_active) <= 0.5
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Vault cluster is not healthy {{ $labels.instance }}: {{ $value | printf "%.2f"}}%
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/VaultClusterHealth
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/hashicorp-vault-internal/VaultClusterHealth.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: CephPgActivationLong
 description: Troubleshooting for alert CephPgActivationLong
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Some Ceph placement groups are too long to activate.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "ceph/ceph-internal.yml" "CephPgActivationLong" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CephPgActivationLong
 expr: ceph_pg_activating > 0
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Some Ceph placement groups are too long to activate.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CephPgActivationLong
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/ceph-internal/CephPgActivationLong.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

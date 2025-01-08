@@ -3,7 +3,9 @@ title: HostSystemdServiceCrashed
 description: Troubleshooting for alert HostSystemdServiceCrashed
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ systemd service crashed
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostSystemdServiceCrashed" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostSystemdServiceCrashed
 expr: (node_systemd_unit_state{state="failed"} == 1) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         systemd service crashed
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostSystemdServiceCrashed
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostSystemdServiceCrashed.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

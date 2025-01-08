@@ -3,7 +3,9 @@ title: LokiRequestPanic
 description: Troubleshooting for alert LokiRequestPanic
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ The {{ $labels.job }} is experiencing {{ printf "%.2f" $value }}% increase of pa
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "loki/loki-internal.yml" "LokiRequestPanic" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: LokiRequestPanic
 expr: sum(increase(loki_panic_total[10m])) by (namespace, job) > 0
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         The {{ $labels.job }} is experiencing {{ printf "%.2f" $value }}% increase of panics
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/LokiRequestPanic
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/loki-internal/LokiRequestPanic.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

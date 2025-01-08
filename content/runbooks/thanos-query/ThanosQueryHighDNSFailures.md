@@ -3,7 +3,9 @@ title: ThanosQueryHighDNSFailures
 description: Troubleshooting for alert ThanosQueryHighDNSFailures
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Thanos Query {{$labels.job}} have {{$value | humanize}}% of failing DNS queries 
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "thanos/thanos-query.yml" "ThanosQueryHighDNSFailures" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ThanosQueryHighDNSFailures
 expr: (sum by (job) (rate(thanos_query_store_apis_dns_failures_total{job=~".*thanos-query.*"}[5m])) / sum by (job) (rate(thanos_query_store_apis_dns_lookups_total{job=~".*thanos-query.*"}[5m]))) * 100 > 1
 for: 15m
@@ -29,9 +35,12 @@ annotations:
         Thanos Query {{$labels.job}} have {{$value | humanize}}% of failing DNS queries for store endpoints.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosQueryHighDNSFailures
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-query/ThanosQueryHighDNSFailures.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

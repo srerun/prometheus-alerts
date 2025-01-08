@@ -3,7 +3,9 @@ title: RedisNotEnoughConnections
 description: Troubleshooting for alert RedisNotEnoughConnections
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Redis instance should have more connections (> 5)
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "redis/oliver006-redis-exporter.yml" "RedisNotEnoughConnections" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RedisNotEnoughConnections
 expr: redis_connected_clients < 5
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Redis instance should have more connections (> 5)
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisNotEnoughConnections
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisNotEnoughConnections.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

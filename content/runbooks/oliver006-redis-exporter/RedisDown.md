@@ -3,7 +3,9 @@ title: RedisDown
 description: Troubleshooting for alert RedisDown
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Redis instance is down
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "redis/oliver006-redis-exporter.yml" "RedisDown" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: RedisDown
 expr: redis_up == 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Redis instance is down
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/RedisDown
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/oliver006-redis-exporter/RedisDown.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

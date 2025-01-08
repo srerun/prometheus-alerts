@@ -3,7 +3,9 @@ title: KubernetesVolumeOutOfDiskSpace
 description: Troubleshooting for alert KubernetesVolumeOutOfDiskSpace
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Volume is almost full (< 10% left)
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kubernetes/kubestate-exporter.yml" "KubernetesVolumeOutOfDiskSpace" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KubernetesVolumeOutOfDiskSpace
 expr: kubelet_volume_stats_available_bytes / kubelet_volume_stats_capacity_bytes * 100 < 10
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Volume is almost full (< 10% left)
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KubernetesVolumeOutOfDiskSpace
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesVolumeOutOfDiskSpace.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

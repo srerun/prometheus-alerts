@@ -3,7 +3,9 @@ title: HadoopHbaseRegionCountHigh
 description: Troubleshooting for alert HadoopHbaseRegionCountHigh
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ The HBase cluster has an unusually high number of regions.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "hadoop/jmx_exporter.yml" "HadoopHbaseRegionCountHigh" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HadoopHbaseRegionCountHigh
 expr: hadoop_hbase_region_count > 5000
 for: 15m
@@ -29,9 +35,12 @@ annotations:
         The HBase cluster has an unusually high number of regions.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HadoopHbaseRegionCountHigh
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/jmx_exporter/HadoopHbaseRegionCountHigh.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

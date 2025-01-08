@@ -3,7 +3,9 @@ title: ElasticsearchInitializingShardsTooLong
 description: Troubleshooting for alert ElasticsearchInitializingShardsTooLong
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Elasticsearch has been initializing shards for 15 min
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "elasticsearch/prometheus-community-elasticsearch-exporter.yml" "ElasticsearchInitializingShardsTooLong" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ElasticsearchInitializingShardsTooLong
 expr: elasticsearch_cluster_health_initializing_shards > 0
 for: 15m
@@ -29,9 +35,12 @@ annotations:
         Elasticsearch has been initializing shards for 15 min
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ElasticsearchInitializingShardsTooLong
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/prometheus-community-elasticsearch-exporter/ElasticsearchInitializingShardsTooLong.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

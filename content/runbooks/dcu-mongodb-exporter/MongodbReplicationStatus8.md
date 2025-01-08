@@ -3,7 +3,9 @@ title: MongodbReplicationStatus8
 description: Troubleshooting for alert MongodbReplicationStatus8
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ MongoDB Replication set member as seen from another member of the set, is unreac
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "mongodb/dcu-mongodb-exporter.yml" "MongodbReplicationStatus8" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: MongodbReplicationStatus8
 expr: mongodb_replset_member_state == 8
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         MongoDB Replication set member as seen from another member of the set, is unreachable
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/MongodbReplicationStatus8
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dcu-mongodb-exporter/MongodbReplicationStatus8.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

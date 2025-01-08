@@ -3,7 +3,9 @@ title: CassandraClientRequestWriteFailure
 description: Troubleshooting for alert CassandraClientRequestWriteFailure
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ A lot of write failures encountered. A write failure is a non-timeout exception 
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraClientRequestWriteFailure" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CassandraClientRequestWriteFailure
 expr: increase(cassandra_stats{name="org:apache:cassandra:metrics:clientrequest:write:failures:oneminuterate"}[1m]) > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         A lot of write failures encountered. A write failure is a non-timeout exception encountered during a write request. Examine the reason map to find to the root cause. The most common cause for this type of error is when batch sizes are too large.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraClientRequestWriteFailure
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraClientRequestWriteFailure.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

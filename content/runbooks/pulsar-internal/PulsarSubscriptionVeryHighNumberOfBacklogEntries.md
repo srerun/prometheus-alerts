@@ -3,7 +3,9 @@ title: PulsarSubscriptionVeryHighNumberOfBacklogEntries
 description: Troubleshooting for alert PulsarSubscriptionVeryHighNumberOfBacklogEntries
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ The number of subscription backlog entries is over 100k
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "pulsar/pulsar-internal.yml" "PulsarSubscriptionVeryHighNumberOfBacklogEntries" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: PulsarSubscriptionVeryHighNumberOfBacklogEntries
 expr: sum(pulsar_subscription_back_log) by (subscription) > 100000
 for: 1h
@@ -29,9 +35,12 @@ annotations:
         The number of subscription backlog entries is over 100k
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/PulsarSubscriptionVeryHighNumberOfBacklogEntries
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pulsar-internal/PulsarSubscriptionVeryHighNumberOfBacklogEntries.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

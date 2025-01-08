@@ -3,7 +3,9 @@ title: CephOsdDown
 description: Troubleshooting for alert CephOsdDown
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Ceph Object Storage Daemon Down
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "ceph/ceph-internal.yml" "CephOsdDown" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CephOsdDown
 expr: ceph_osd_up == 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Ceph Object Storage Daemon Down
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CephOsdDown
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/ceph-internal/CephOsdDown.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: CassandraRepairPendingTasks
 description: Troubleshooting for alert CassandraRepairPendingTasks
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Some Cassandra repair tasks are pending
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraRepairPendingTasks" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CassandraRepairPendingTasks
 expr: cassandra_stats{name="org:apache:cassandra:metrics:threadpools:internal:antientropystage:pendingtasks:value"} > 2
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Some Cassandra repair tasks are pending
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CassandraRepairPendingTasks
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/criteo-cassandra-exporter/CassandraRepairPendingTasks.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: ThanosRuleQueueIsDroppingAlerts
 description: Troubleshooting for alert ThanosRuleQueueIsDroppingAlerts
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Thanos Rule {{$labels.instance}} is failing to queue alerts.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "thanos/thanos-ruler.yml" "ThanosRuleQueueIsDroppingAlerts" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ThanosRuleQueueIsDroppingAlerts
 expr: sum by (job, instance) (rate(thanos_alert_queue_alerts_dropped_total{job=~".*thanos-rule.*"}[5m])) > 0
 for: 5m
@@ -29,9 +35,12 @@ annotations:
         Thanos Rule {{$labels.instance}} is failing to queue alerts.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosRuleQueueIsDroppingAlerts
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosRuleQueueIsDroppingAlerts.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

@@ -3,7 +3,9 @@ title: CephPgIncomplete
 description: Troubleshooting for alert CephPgIncomplete
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Some Ceph placement groups are incomplete. Please ensure that all the data are a
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "ceph/ceph-internal.yml" "CephPgIncomplete" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: CephPgIncomplete
 expr: ceph_pg_incomplete > 0
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Some Ceph placement groups are incomplete. Please ensure that all the data are available.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/CephPgIncomplete
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/ceph-internal/CephPgIncomplete.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

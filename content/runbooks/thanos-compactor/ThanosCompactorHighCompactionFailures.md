@@ -3,7 +3,9 @@ title: ThanosCompactorHighCompactionFailures
 description: Troubleshooting for alert ThanosCompactorHighCompactionFailures
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Thanos Compact {{$labels.job}} is failing to execute {{$value | humanize}}% of c
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "thanos/thanos-compactor.yml" "ThanosCompactorHighCompactionFailures" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ThanosCompactorHighCompactionFailures
 expr: (sum by (job) (rate(thanos_compact_group_compactions_failures_total{job=~".*thanos-compact.*"}[5m])) / sum by (job) (rate(thanos_compact_group_compactions_total{job=~".*thanos-compact.*"}[5m])) * 100 > 5)
 for: 15m
@@ -29,9 +35,12 @@ annotations:
         Thanos Compact {{$labels.job}} is failing to execute {{$value | humanize}}% of compactions.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ThanosCompactorHighCompactionFailures
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-compactor/ThanosCompactorHighCompactionFailures.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

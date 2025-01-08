@@ -3,7 +3,9 @@ title: ConsulAgentUnhealthy
 description: Troubleshooting for alert ConsulAgentUnhealthy
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ A Consul agent is down
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "consul/consul-exporter.yml" "ConsulAgentUnhealthy" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: ConsulAgentUnhealthy
 expr: consul_health_node_status{status="critical"} == 1
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         A Consul agent is down
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/ConsulAgentUnhealthy
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/consul-exporter/ConsulAgentUnhealthy.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

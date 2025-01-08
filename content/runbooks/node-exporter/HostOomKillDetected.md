@@ -3,7 +3,9 @@ title: HostOomKillDetected
 description: Troubleshooting for alert HostOomKillDetected
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ OOM kill detected
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostOomKillDetected" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostOomKillDetected
 expr: (increase(node_vmstat_oom_kill[1m]) > 0) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         OOM kill detected
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostOomKillDetected
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostOomKillDetected.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

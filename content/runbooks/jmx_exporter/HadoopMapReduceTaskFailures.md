@@ -3,7 +3,9 @@ title: HadoopMapReduceTaskFailures
 description: Troubleshooting for alert HadoopMapReduceTaskFailures
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ There is an unusually high number of MapReduce task failures.
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "hadoop/jmx_exporter.yml" "HadoopMapReduceTaskFailures" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HadoopMapReduceTaskFailures
 expr: hadoop_mapreduce_task_failures_total > 100
 for: 10m
@@ -29,9 +35,12 @@ annotations:
         There is an unusually high number of MapReduce task failures.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HadoopMapReduceTaskFailures
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/jmx_exporter/HadoopMapReduceTaskFailures.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

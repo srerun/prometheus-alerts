@@ -3,7 +3,9 @@ title: KafkaTopicsReplicas
 description: Troubleshooting for alert KafkaTopicsReplicas
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Kafka topic in-sync partition
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "kafka/danielqsj-kafka-exporter.yml" "KafkaTopicsReplicas" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: KafkaTopicsReplicas
 expr: sum(kafka_topic_partition_in_sync_replica) by (topic) < 3
 for: 0m
@@ -29,9 +35,12 @@ annotations:
         Kafka topic in-sync partition
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/KafkaTopicsReplicas
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/danielqsj-kafka-exporter/KafkaTopicsReplicas.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

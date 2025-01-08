@@ -3,7 +3,9 @@ title: OpenebsUsedPoolCapacity
 description: Troubleshooting for alert OpenebsUsedPoolCapacity
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ OpenEBS Pool use more than 80% of his capacity
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "openebs/openebs-internal.yml" "OpenebsUsedPoolCapacity" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: OpenebsUsedPoolCapacity
 expr: openebs_used_pool_capacity_percent > 80
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         OpenEBS Pool use more than 80% of his capacity
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/OpenebsUsedPoolCapacity
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/openebs-internal/OpenebsUsedPoolCapacity.md
 
-  ```
+```
+
+-->
+
 </details>
 
 

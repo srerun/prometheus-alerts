@@ -3,7 +3,9 @@ title: HostNetworkReceiveErrors
 description: Troubleshooting for alert HostNetworkReceiveErrors
 #published: true
 date: 2023-12-12T21:12:32.022Z
-tags: LGTM
+tags: 
+  - LGTM
+  - generated
 editor: markdown
 dateCreated: 2020-04-10T18:32:27.079Z
 ---
@@ -17,7 +19,11 @@ Host {{ $labels.instance }} interface {{ $labels.device }} has encountered {{ pr
 <details>
   <summary>Alert Rule</summary>
 
-  ```yaml
+{{% rule "host-and-hardware/node-exporter.yml" "HostNetworkReceiveErrors" %}}
+
+<!-- Rule when generated
+
+```yaml
 alert: HostNetworkReceiveErrors
 expr: (rate(node_network_receive_errs_total[2m]) / rate(node_network_receive_packets_total[2m]) > 0.01) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
 for: 2m
@@ -29,9 +35,12 @@ annotations:
         Host {{ $labels.instance }} interface {{ $labels.device }} has encountered {{ printf "%.0f" $value }} receive errors in the last two minutes.
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/content/runbooks/HostNetworkReceiveErrors
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/node-exporter/HostNetworkReceiveErrors.md
 
-  ```
+```
+
+-->
+
 </details>
 
 
