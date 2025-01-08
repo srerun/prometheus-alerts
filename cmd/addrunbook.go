@@ -107,6 +107,8 @@ func createRunbook(path string, t *template.Template, rule Rule) {
 			slog.Error("could not create diretory", "path", filepath, "error", err)
 			return
 		}
+	}
+	if _, err := os.Stat(fmt.Sprintf("%s/_index.md", filepath)); os.IsNotExist(err) {
 		createIndex(filepath, path)
 	}
 	filename := fmt.Sprintf("%s/%s.md", filepath, rule.Alert)
