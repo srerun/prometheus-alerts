@@ -21,7 +21,7 @@ Postgresql exporter is showing errors. A query may be buggy in query.yaml
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlExporterError" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlExporterError
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

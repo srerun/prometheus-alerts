@@ -21,7 +21,7 @@ High memory usage
 
 {{% rule "mongodb/dcu-mongodb-exporter.yml" "MongodbVirtualMemoryUsage" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MongodbVirtualMemoryUsage
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

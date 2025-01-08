@@ -21,7 +21,7 @@ Thanos Rule {{$labels.job}} has not been able to reload its configuration.
 
 {{% rule "thanos/thanos-ruler.yml" "ThanosRuleConfigReloadFailure" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosRuleConfigReloadFailure
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

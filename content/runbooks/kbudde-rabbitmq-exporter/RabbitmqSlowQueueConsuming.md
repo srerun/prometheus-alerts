@@ -21,7 +21,7 @@ Queue messages are consumed slowly (> 60s)
 
 {{% rule "rabbitmq/kbudde-rabbitmq-exporter.yml" "RabbitmqSlowQueueConsuming" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqSlowQueueConsuming
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

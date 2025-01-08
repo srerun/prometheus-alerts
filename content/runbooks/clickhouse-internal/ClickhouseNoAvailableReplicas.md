@@ -21,7 +21,7 @@ No available replicas in ClickHouse.
 
 {{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseNoAvailableReplicas" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ClickhouseNoAvailableReplicas
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

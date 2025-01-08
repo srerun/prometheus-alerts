@@ -21,7 +21,7 @@ Memory usage is more than 90%
 
 {{% rule "windows-server/windows-exporter.yml" "WindowsServerMemoryUsage" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: WindowsServerMemoryUsage
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

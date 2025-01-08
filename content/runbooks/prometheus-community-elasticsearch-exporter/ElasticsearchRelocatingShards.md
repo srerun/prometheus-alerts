@@ -21,7 +21,7 @@ Elasticsearch is relocating shards
 
 {{% rule "elasticsearch/prometheus-community-elasticsearch-exporter.yml" "ElasticsearchRelocatingShards" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ElasticsearchRelocatingShards
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

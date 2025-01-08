@@ -21,7 +21,7 @@ Thanos Query {{$labels.job}} has a 99th percentile latency of {{$value}} seconds
 
 {{% rule "thanos/thanos-query.yml" "ThanosQueryInstantLatencyHigh" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosQueryInstantLatencyHigh
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

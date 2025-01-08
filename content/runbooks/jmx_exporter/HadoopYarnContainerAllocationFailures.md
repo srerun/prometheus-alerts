@@ -21,7 +21,7 @@ There is a significant number of YARN container allocation failures.
 
 {{% rule "hadoop/jmx_exporter.yml" "HadoopYarnContainerAllocationFailures" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HadoopYarnContainerAllocationFailures
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

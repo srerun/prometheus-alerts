@@ -21,7 +21,7 @@ A Consul agent is down
 
 {{% rule "consul/consul-exporter.yml" "ConsulAgentUnhealthy" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ConsulAgentUnhealthy
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

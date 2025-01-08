@@ -21,7 +21,7 @@ MongoDB replication headroom is <= 0
 
 {{% rule "mongodb/percona-mongodb-exporter.yml" "MongodbReplicationHeadroom" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MongodbReplicationHeadroom
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

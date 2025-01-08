@@ -21,7 +21,7 @@ The table {{ $labels.relname }} is bloated. You should execute `VACUUM {{ $label
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlBloatTableHigh(>80%)" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlBloatTableHigh(>80%)
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

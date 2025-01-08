@@ -21,7 +21,7 @@ Container is being throttled
 
 {{% rule "docker-containers/google-cadvisor.yml" "ContainerHighThrottleRate" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ContainerHighThrottleRate
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Observing large message payload (> 1MB)
 
 {{% rule "pulsar/pulsar-internal.yml" "PulsarLargeMessagePayload" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PulsarLargeMessagePayload
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

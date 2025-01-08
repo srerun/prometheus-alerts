@@ -21,7 +21,7 @@ High number of TCP connections, indicating heavy client or inter-cluster communi
 
 {{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseHighTcpConnections" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ClickhouseHighTcpConnections
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

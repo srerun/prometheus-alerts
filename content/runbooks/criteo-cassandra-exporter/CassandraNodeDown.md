@@ -21,7 +21,7 @@ Cassandra node down
 
 {{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraNodeDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraNodeDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

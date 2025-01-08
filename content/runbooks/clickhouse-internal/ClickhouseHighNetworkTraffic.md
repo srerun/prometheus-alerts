@@ -21,7 +21,7 @@ Network traffic is unusually high, may affect cluster performance.
 
 {{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseHighNetworkTraffic" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ClickhouseHighNetworkTraffic
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Ceph Object Storage Daemon Down
 
 {{% rule "ceph/ceph-internal.yml" "CephOsdDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CephOsdDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

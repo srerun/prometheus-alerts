@@ -21,7 +21,7 @@ A lot of read failures encountered. A read failure is a non-timeout exception en
 
 {{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraClientRequestReadFailure" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraClientRequestReadFailure
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

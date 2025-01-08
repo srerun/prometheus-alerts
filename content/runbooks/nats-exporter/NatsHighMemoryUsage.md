@@ -21,7 +21,7 @@ NATS server memory usage is above 200MB for {{ $labels.instance }}
 
 {{% rule "nats/nats-exporter.yml" "NatsHighMemoryUsage" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NatsHighMemoryUsage
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

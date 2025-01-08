@@ -21,7 +21,7 @@ Thanos Compact {{$labels.job}} is failing to execute {{$value | humanize}}% of c
 
 {{% rule "thanos/thanos-compactor.yml" "ThanosCompactorHighCompactionFailures" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosCompactorHighCompactionFailures
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

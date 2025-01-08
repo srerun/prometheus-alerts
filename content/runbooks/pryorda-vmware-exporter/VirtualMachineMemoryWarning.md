@@ -21,7 +21,7 @@ High memory usage on {{ $labels.instance }}: {{ $value | printf "%.2f"}}%
 
 {{% rule "vmware/pryorda-vmware-exporter.yml" "VirtualMachineMemoryWarning" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: VirtualMachineMemoryWarning
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

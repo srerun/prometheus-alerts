@@ -21,7 +21,7 @@ HTTP request took more than 1s
 
 {{% rule "blackbox/blackbox-exporter.yml" "BlackboxProbeSlowHttp" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: BlackboxProbeSlowHttp
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

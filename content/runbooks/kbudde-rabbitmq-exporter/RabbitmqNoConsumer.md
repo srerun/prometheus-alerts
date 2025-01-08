@@ -21,7 +21,7 @@ Queue has no consumer
 
 {{% rule "rabbitmq/kbudde-rabbitmq-exporter.yml" "RabbitmqNoConsumer" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqNoConsumer
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

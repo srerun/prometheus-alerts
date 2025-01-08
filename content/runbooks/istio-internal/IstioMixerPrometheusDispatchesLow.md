@@ -21,7 +21,7 @@ Number of Mixer dispatches to Prometheus is too low. Istio metrics might not be 
 
 {{% rule "istio/istio-internal.yml" "IstioMixerPrometheusDispatchesLow" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: IstioMixerPrometheusDispatchesLow
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

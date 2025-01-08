@@ -21,7 +21,7 @@ CPU Usage is more than 80%
 
 {{% rule "windows-server/windows-exporter.yml" "WindowsServerCpuUsage" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: WindowsServerCpuUsage
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

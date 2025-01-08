@@ -21,7 +21,7 @@ Access denied errors have been logged, which could indicate permission issues or
 
 {{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseAccessDeniedErrors" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ClickhouseAccessDeniedErrors
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

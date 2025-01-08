@@ -21,7 +21,7 @@ Apache down
 
 {{% rule "apache/lusitaniae-apache-exporter.yml" "ApacheDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ApacheDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

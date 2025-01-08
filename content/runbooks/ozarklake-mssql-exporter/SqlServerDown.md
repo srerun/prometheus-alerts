@@ -21,7 +21,7 @@ SQL server instance is down
 
 {{% rule "sql-server/ozarklake-mssql-exporter.yml" "SqlServerDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: SqlServerDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

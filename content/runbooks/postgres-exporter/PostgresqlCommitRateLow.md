@@ -21,7 +21,7 @@ Postgresql seems to be processing very few transactions
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlCommitRateLow" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlCommitRateLow
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

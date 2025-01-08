@@ -21,7 +21,7 @@ Zookeeper cluster has too many nodes marked as leader
 
 {{% rule "zookeeper/dabealu-zookeeper-exporter.yml" "ZookeeperTooManyLeaders" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ZookeeperTooManyLeaders
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

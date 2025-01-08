@@ -21,7 +21,7 @@ Too many cursors opened by MongoDB for clients (> 10k)
 
 {{% rule "mongodb/dcu-mongodb-exporter.yml" "MongodbNumberCursorsOpen" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MongodbNumberCursorsOpen
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

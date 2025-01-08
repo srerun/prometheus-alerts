@@ -21,7 +21,7 @@ Container CPU utilization is under 20% for 1 week. Consider reducing the allocat
 
 {{% rule "docker-containers/google-cadvisor.yml" "ContainerLowCpuUtilization" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ContainerLowCpuUtilization
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

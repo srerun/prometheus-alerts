@@ -21,7 +21,7 @@ PGBouncer is logging errors. This may be due to a a server restart or an admin t
 
 {{% rule "pgbouncer/spreaker-pgbouncer-exporter.yml" "PgbouncerErrors" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PgbouncerErrors
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

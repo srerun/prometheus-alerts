@@ -21,7 +21,7 @@ Thanos Rule {{$labels.job}} is failing to handle {{$value | humanize}}% of reque
 
 {{% rule "thanos/thanos-ruler.yml" "ThanosRuleGrpcErrorRate" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosRuleGrpcErrorRate
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

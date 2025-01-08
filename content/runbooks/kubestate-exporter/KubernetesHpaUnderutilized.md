@@ -21,7 +21,7 @@ HPA {{ $labels.namespace }}/{{ $labels.horizontalpodautoscaler }} is constantly 
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesHpaUnderutilized" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesHpaUnderutilized
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

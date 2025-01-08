@@ -21,7 +21,7 @@ High utilization of prepared statements (>80%) on {{ $labels.instance }}
 
 {{% rule "mysql/mysqld-exporter.yml" "MysqlHighPreparedStatementsUtilization(>80%)" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MysqlHighPreparedStatementsUtilization(>80%)
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

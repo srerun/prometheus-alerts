@@ -21,7 +21,7 @@ HAProxy backend is down
 
 {{% rule "haproxy/haproxy-exporter-v1.yml" "HaproxyBackendDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HaproxyBackendDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

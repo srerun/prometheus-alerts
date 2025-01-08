@@ -21,7 +21,7 @@ Redis has not been backuped for 24 hours
 
 {{% rule "redis/oliver006-redis-exporter.yml" "RedisMissingBackup" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RedisMissingBackup
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

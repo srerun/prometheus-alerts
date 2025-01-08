@@ -21,7 +21,7 @@ The {{ $labels.job }} and {{ $labels.route }} are experiencing errors
 
 {{% rule "loki/loki-internal.yml" "LokiRequestErrors" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: LokiRequestErrors
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

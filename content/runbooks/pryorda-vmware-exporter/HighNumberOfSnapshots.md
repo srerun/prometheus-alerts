@@ -21,7 +21,7 @@ High snapshots number on {{ $labels.instance }}: {{ $value }}
 
 {{% rule "vmware/pryorda-vmware-exporter.yml" "HighNumberOfSnapshots" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HighNumberOfSnapshots
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

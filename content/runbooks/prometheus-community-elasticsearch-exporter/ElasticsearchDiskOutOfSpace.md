@@ -21,7 +21,7 @@ The disk usage is over 90%
 
 {{% rule "elasticsearch/prometheus-community-elasticsearch-exporter.yml" "ElasticsearchDiskOutOfSpace" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ElasticsearchDiskOutOfSpace
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

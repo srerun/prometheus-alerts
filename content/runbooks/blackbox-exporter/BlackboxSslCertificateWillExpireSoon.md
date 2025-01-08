@@ -21,7 +21,7 @@ SSL certificate expires in less than 20 days
 
 {{% rule "blackbox/blackbox-exporter.yml" "BlackboxSslCertificateWillExpireSoon" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: BlackboxSslCertificateWillExpireSoon
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Prometheus encountered {{ $value }} rule evaluation failures, leading to potenti
 
 {{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusRuleEvaluationFailures" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PrometheusRuleEvaluationFailures
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

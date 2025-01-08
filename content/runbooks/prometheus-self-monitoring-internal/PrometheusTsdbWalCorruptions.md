@@ -21,7 +21,7 @@ Prometheus encountered {{ $value }} TSDB WAL corruptions
 
 {{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusTsdbWalCorruptions" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PrometheusTsdbWalCorruptions
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

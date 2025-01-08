@@ -21,7 +21,7 @@ MongoDB replica member is not healthy
 
 {{% rule "mongodb/percona-mongodb-exporter.yml" "MongodbReplicaMemberUnhealthy" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MongodbReplicaMemberUnhealthy
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

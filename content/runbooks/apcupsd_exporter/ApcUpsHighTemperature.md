@@ -21,7 +21,7 @@ Internal temperature is high ({{$value}}°C)
 
 {{% rule "apc-ups/apcupsd_exporter.yml" "ApcUpsHighTemperature" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ApcUpsHighTemperature
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

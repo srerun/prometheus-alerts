@@ -21,7 +21,7 @@ Thanos Query {{$labels.job}} has been overloaded for more than 15 minutes. This 
 
 {{% rule "thanos/thanos-query.yml" "ThanosQueryOverload" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosQueryOverload
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

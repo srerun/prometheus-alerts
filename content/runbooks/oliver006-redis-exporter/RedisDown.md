@@ -21,7 +21,7 @@ Redis instance is down
 
 {{% rule "redis/oliver006-redis-exporter.yml" "RedisDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RedisDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Alloy on (instance {{ $labels.instance }}) is not responding or has stopped runn
 
 {{% rule "grafana-alloy/grafana-alloy-internal.yml" "GrafanaAlloyServiceDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: GrafanaAlloyServiceDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

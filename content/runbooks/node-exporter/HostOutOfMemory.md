@@ -21,7 +21,7 @@ Node memory is filling up (< 10% left)
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostOutOfMemory" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostOutOfMemory
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

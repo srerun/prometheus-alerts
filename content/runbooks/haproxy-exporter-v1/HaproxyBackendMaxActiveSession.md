@@ -21,7 +21,7 @@ HAproxy backend {{ $labels.fqdn }}/{{ $labels.backend }} is reaching session lim
 
 {{% rule "haproxy/haproxy-exporter-v1.yml" "HaproxyBackendMaxActiveSession" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HaproxyBackendMaxActiveSession
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

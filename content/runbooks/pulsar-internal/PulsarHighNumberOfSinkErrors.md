@@ -21,7 +21,7 @@ Observing more than 10 Sink errors per minute
 
 {{% rule "pulsar/pulsar-internal.yml" "PulsarHighNumberOfSinkErrors" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PulsarHighNumberOfSinkErrors
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

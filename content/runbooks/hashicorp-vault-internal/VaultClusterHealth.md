@@ -21,7 +21,7 @@ Vault cluster is not healthy {{ $labels.instance }}: {{ $value | printf "%.2f"}}
 
 {{% rule "hashicorp-vault/hashicorp-vault-internal.yml" "VaultClusterHealth" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: VaultClusterHealth
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

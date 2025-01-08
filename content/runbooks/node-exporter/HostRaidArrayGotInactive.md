@@ -21,7 +21,7 @@ RAID array {{ $labels.device }} is in a degraded state due to one or more disk f
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostRaidArrayGotInactive" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostRaidArrayGotInactive
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

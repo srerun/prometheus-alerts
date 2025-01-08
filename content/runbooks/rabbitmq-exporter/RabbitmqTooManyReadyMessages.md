@@ -21,7 +21,7 @@ RabbitMQ too many ready messages on {{ $labels.instace }}
 
 {{% rule "rabbitmq/rabbitmq-exporter.yml" "RabbitmqTooManyReadyMessages" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqTooManyReadyMessages
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

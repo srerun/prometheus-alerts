@@ -21,7 +21,7 @@ No leaf node connections have been established in the last 5 minutes
 
 {{% rule "nats/nats-exporter.yml" "NatsLeafNodeConnectionIssue" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NatsLeafNodeConnectionIssue
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

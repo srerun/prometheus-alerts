@@ -21,7 +21,7 @@ The Hadoop NameNode service is unavailable.
 
 {{% rule "hadoop/jmx_exporter.yml" "HadoopNameNodeDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HadoopNameNodeDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

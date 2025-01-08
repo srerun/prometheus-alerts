@@ -21,7 +21,7 @@ GRPC requests slowing down, 99th percentile is over 0.15s
 
 {{% rule "etcd/etcd-internal.yml" "EtcdGrpcRequestsSlow" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: EtcdGrpcRequestsSlow
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

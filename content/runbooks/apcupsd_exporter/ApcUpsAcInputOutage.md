@@ -21,7 +21,7 @@ UPS now running on battery (since {{$value | humanizeDuration}})
 
 {{% rule "apc-ups/apcupsd_exporter.yml" "ApcUpsAcInputOutage" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ApcUpsAcInputOutage
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

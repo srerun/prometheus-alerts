@@ -21,7 +21,7 @@ Memory available for RabbmitMQ is low (< 10%)
 
 {{% rule "rabbitmq/kbudde-rabbitmq-exporter.yml" "RabbitmqOutOfMemory" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqOutOfMemory
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

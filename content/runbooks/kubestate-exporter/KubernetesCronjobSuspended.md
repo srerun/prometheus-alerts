@@ -21,7 +21,7 @@ CronJob {{ $labels.namespace }}/{{ $labels.cronjob }} is suspended
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesCronjobSuspended" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesCronjobSuspended
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

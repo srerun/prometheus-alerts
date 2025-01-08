@@ -21,7 +21,7 @@ Persistent volume {{ $labels.persistentvolume }} is in bad state
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesPersistentvolumeError" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesPersistentvolumeError
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

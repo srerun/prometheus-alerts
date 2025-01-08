@@ -21,7 +21,7 @@ Volume under {{ $labels.namespace }}/{{ $labels.persistentvolumeclaim }} is expe
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesVolumeFullInFourDays" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesVolumeFullInFourDays
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

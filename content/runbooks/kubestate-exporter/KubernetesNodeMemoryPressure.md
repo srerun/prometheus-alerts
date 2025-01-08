@@ -21,7 +21,7 @@ Node {{ $labels.node }} has MemoryPressure condition
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesNodeMemoryPressure" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesNodeMemoryPressure
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

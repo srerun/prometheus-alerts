@@ -21,7 +21,7 @@ Thanos Receive {{$labels.job}} is failing to replicate {{$value | humanize}}% of
 
 {{% rule "thanos/thanos-receiver.yml" "ThanosReceiveHighReplicationFailures" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosReceiveHighReplicationFailures
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

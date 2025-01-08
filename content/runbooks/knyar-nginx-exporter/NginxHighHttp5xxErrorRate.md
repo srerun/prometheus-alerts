@@ -21,7 +21,7 @@ Too many HTTP requests with status 5xx (> 5%)
 
 {{% rule "nginx/knyar-nginx-exporter.yml" "NginxHighHttp5xxErrorRate" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NginxHighHttp5xxErrorRate
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

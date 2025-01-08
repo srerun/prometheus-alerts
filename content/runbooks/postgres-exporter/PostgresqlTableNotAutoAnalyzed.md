@@ -21,7 +21,7 @@ Table {{ $labels.relname }} has not been auto analyzed for 10 days
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlTableNotAutoAnalyzed" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlTableNotAutoAnalyzed
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

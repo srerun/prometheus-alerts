@@ -21,7 +21,7 @@ The network interface "{{ $labels.device }}" on "{{ $labels.instance }}" is gett
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostNetworkInterfaceSaturated" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostNetworkInterfaceSaturated
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

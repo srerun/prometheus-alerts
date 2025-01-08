@@ -21,7 +21,7 @@ Container Memory usage is above 80%
 
 {{% rule "docker-containers/google-cadvisor.yml" "ContainerHighMemoryUsage" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ContainerHighMemoryUsage
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

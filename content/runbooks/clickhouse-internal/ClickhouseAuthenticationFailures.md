@@ -21,7 +21,7 @@ Authentication failures detected, indicating potential security issues or miscon
 
 {{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseAuthenticationFailures" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ClickhouseAuthenticationFailures
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

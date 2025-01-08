@@ -21,7 +21,7 @@ Prometheus has many scrapes that exceed the sample limit
 
 {{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusLargeScrape" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PrometheusLargeScrape
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

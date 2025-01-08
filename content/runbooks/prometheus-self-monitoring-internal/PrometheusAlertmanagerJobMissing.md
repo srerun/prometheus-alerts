@@ -21,7 +21,7 @@ A Prometheus AlertManager job has disappeared
 
 {{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusAlertmanagerJobMissing" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PrometheusAlertmanagerJobMissing
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

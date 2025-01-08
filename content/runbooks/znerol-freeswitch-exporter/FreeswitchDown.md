@@ -21,7 +21,7 @@ Freeswitch is unresponsive
 
 {{% rule "freeswitch/znerol-freeswitch-exporter.yml" "FreeswitchDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: FreeswitchDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

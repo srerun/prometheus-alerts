@@ -21,7 +21,7 @@ Prometheus encountered {{ $value }} checkpoint creation failures
 
 {{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusTsdbCheckpointCreationFailures" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PrometheusTsdbCheckpointCreationFailures
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

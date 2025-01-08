@@ -21,7 +21,7 @@ MongoDB backup has failed
 
 {{% rule "mongodb/stefanprodan-mgob-exporter.yml" "MgobBackupFailed" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MgobBackupFailed
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

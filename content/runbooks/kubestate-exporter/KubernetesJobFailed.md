@@ -21,7 +21,7 @@ Job {{ $labels.namespace }}/{{ $labels.job_name }} failed to complete
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesJobFailed" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesJobFailed
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

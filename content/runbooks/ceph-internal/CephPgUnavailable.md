@@ -21,7 +21,7 @@ Some Ceph placement groups are unavailable.
 
 {{% rule "ceph/ceph-internal.yml" "CephPgUnavailable" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CephPgUnavailable
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

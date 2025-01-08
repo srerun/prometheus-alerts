@@ -21,7 +21,7 @@ Disk space on default is below 20%.
 
 {{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseDiskSpaceLowOnDefault" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ClickhouseDiskSpaceLowOnDefault
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

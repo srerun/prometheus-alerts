@@ -21,7 +21,7 @@ Some Cassandra client requests are unavailable to write - {{ $labels.cassandra_c
 
 {{% rule "cassandra/instaclustr-cassandra-exporter.yml" "CassandraClientRequestUnavailableWrite" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraClientRequestUnavailableWrite
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

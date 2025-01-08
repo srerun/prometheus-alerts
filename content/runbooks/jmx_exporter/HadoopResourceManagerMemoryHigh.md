@@ -21,7 +21,7 @@ The Hadoop ResourceManager is approaching its memory limit.
 
 {{% rule "hadoop/jmx_exporter.yml" "HadoopResourceManagerMemoryHigh" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HadoopResourceManagerMemoryHigh
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

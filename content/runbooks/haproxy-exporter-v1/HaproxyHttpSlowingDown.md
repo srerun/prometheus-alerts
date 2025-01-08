@@ -21,7 +21,7 @@ Average request time is increasing
 
 {{% rule "haproxy/haproxy-exporter-v1.yml" "HaproxyHttpSlowingDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HaproxyHttpSlowingDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

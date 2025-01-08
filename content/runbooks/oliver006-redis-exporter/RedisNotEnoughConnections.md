@@ -21,7 +21,7 @@ Redis instance should have more connections (> 5)
 
 {{% rule "redis/oliver006-redis-exporter.yml" "RedisNotEnoughConnections" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RedisNotEnoughConnections
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

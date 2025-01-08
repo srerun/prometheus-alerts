@@ -21,7 +21,7 @@ Memory usage is critically high, over 90%.
 
 {{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseMemoryUsageCritical" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ClickhouseMemoryUsageCritical
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

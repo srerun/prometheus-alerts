@@ -21,7 +21,7 @@ Table {{ $labels.relname }} has not been auto vacuumed for 10 days
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlTableNotAutoVacuumed" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlTableNotAutoVacuumed
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

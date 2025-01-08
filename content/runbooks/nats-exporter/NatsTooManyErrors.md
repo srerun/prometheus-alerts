@@ -21,7 +21,7 @@ NATS server has encountered errors in the last 5 minutes
 
 {{% rule "nats/nats-exporter.yml" "NatsTooManyErrors" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NatsTooManyErrors
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

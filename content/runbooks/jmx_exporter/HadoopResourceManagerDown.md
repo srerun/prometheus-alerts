@@ -21,7 +21,7 @@ The Hadoop ResourceManager service is unavailable.
 
 {{% rule "hadoop/jmx_exporter.yml" "HadoopResourceManagerDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HadoopResourceManagerDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

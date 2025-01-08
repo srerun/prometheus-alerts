@@ -21,7 +21,7 @@ Vault instance is sealed on {{ $labels.instance }}
 
 {{% rule "hashicorp-vault/hashicorp-vault-internal.yml" "VaultSealed" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: VaultSealed
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

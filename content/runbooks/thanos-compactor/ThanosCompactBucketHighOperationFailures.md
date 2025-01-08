@@ -21,7 +21,7 @@ Thanos Compact {{$labels.job}} Bucket is failing to execute {{$value | humanize}
 
 {{% rule "thanos/thanos-compactor.yml" "ThanosCompactBucketHighOperationFailures" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosCompactBucketHighOperationFailures
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

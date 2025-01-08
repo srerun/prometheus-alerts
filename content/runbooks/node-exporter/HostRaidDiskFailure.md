@@ -21,7 +21,7 @@ At least one device in RAID array on {{ $labels.instance }} failed. Array {{ $la
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostRaidDiskFailure" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostRaidDiskFailure
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Traefik service 5xx error rate is above 5%
 
 {{% rule "traefik/embedded-exporter-v2.yml" "TraefikHighHttp5xxErrorRateService" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: TraefikHighHttp5xxErrorRateService
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

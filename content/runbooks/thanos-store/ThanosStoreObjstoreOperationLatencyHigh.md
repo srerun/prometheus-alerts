@@ -21,7 +21,7 @@ Thanos Store {{$labels.job}} Bucket has a 99th percentile latency of {{$value}} 
 
 {{% rule "thanos/thanos-store.yml" "ThanosStoreObjstoreOperationLatencyHigh" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosStoreObjstoreOperationLatencyHigh
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

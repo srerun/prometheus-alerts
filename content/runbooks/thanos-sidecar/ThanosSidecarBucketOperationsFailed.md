@@ -21,7 +21,7 @@ Thanos Sidecar {{$labels.instance}} bucket operations are failing
 
 {{% rule "thanos/thanos-sidecar.yml" "ThanosSidecarBucketOperationsFailed" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosSidecarBucketOperationsFailed
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

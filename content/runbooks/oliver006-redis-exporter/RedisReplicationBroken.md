@@ -21,7 +21,7 @@ Redis instance lost a slave
 
 {{% rule "redis/oliver006-redis-exporter.yml" "RedisReplicationBroken" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RedisReplicationBroken
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

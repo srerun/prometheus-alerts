@@ -21,7 +21,7 @@ Solr has increased query errors in collection {{ $labels.collection }} for repli
 
 {{% rule "solr/solr-internal.yml" "SolrQueryErrors" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: SolrQueryErrors
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

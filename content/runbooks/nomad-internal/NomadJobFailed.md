@@ -21,7 +21,7 @@ Nomad job failed
 
 {{% rule "nomad/nomad-internal.yml" "NomadJobFailed" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NomadJobFailed
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

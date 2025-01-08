@@ -21,7 +21,7 @@ Numbers of consul raft peers should be 3, in order to preserve quorum.
 
 {{% rule "consul/consul-exporter.yml" "ConsulMissingMasterNode" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ConsulMissingMasterNode
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

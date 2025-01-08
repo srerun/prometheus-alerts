@@ -21,7 +21,7 @@ Nomad blocked evaluation
 
 {{% rule "nomad/nomad-internal.yml" "NomadBlockedEvaluation" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NomadBlockedEvaluation
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

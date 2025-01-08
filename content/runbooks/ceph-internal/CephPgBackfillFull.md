@@ -21,7 +21,7 @@ Some Ceph placement groups are located on full Object Storage Daemon on cluster.
 
 {{% rule "ceph/ceph-internal.yml" "CephPgBackfillFull" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CephPgBackfillFull
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

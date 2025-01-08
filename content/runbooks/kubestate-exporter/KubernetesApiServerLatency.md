@@ -21,7 +21,7 @@ Kubernetes API server has a 99th percentile latency of {{ $value }} seconds for 
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesApiServerLatency" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesApiServerLatency
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Database connections with SSL compression enabled. This may add significant jitt
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlSslCompressionActive" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlSslCompressionActive
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

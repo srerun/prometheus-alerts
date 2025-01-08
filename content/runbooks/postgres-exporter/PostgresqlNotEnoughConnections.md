@@ -21,7 +21,7 @@ PostgreSQL instance should have more connections (> 5)
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlNotEnoughConnections" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlNotEnoughConnections
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

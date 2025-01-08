@@ -21,7 +21,7 @@ MySQL server mysql has some new slow query.
 
 {{% rule "mysql/mysqld-exporter.yml" "MysqlSlowQueries" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MysqlSlowQueries
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

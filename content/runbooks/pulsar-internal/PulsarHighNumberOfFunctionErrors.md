@@ -21,7 +21,7 @@ Observing more than 10 Function errors per minute
 
 {{% rule "pulsar/pulsar-internal.yml" "PulsarHighNumberOfFunctionErrors" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PulsarHighNumberOfFunctionErrors
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

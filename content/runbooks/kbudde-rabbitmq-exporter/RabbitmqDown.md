@@ -21,7 +21,7 @@ RabbitMQ node down
 
 {{% rule "rabbitmq/kbudde-rabbitmq-exporter.yml" "RabbitmqDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

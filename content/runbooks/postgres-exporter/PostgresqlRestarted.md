@@ -21,7 +21,7 @@ Postgresql restarted
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlRestarted" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlRestarted
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

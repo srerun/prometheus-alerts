@@ -21,7 +21,7 @@ Time spent in IO is too high on {{ $labels.instance }}. Check storage for issues
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostUnusualDiskIo" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostUnusualDiskIo
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

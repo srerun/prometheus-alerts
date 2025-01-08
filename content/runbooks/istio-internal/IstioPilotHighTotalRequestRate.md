@@ -21,7 +21,7 @@ Number of Istio Pilot push errors is too high (> 5%). Envoy sidecars might have 
 
 {{% rule "istio/istio-internal.yml" "IstioPilotHighTotalRequestRate" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: IstioPilotHighTotalRequestRate
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

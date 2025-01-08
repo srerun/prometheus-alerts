@@ -21,7 +21,7 @@ StatefulSet does not match the expected number of replicas.
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesStatefulsetReplicasMismatch" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesStatefulsetReplicasMismatch
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

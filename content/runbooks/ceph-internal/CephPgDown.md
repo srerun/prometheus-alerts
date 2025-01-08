@@ -21,7 +21,7 @@ Some Ceph placement groups are down. Please ensure that all the data are availab
 
 {{% rule "ceph/ceph-internal.yml" "CephPgDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CephPgDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Queue is filling up (> 1000 msgs)
 
 {{% rule "rabbitmq/kbudde-rabbitmq-exporter.yml" "RabbitmqTooManyMessagesInQueue" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqTooManyMessagesInQueue
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

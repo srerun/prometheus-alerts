@@ -21,7 +21,7 @@ The HBase cluster has an unusually high number of regions.
 
 {{% rule "hadoop/jmx_exporter.yml" "HadoopHbaseRegionCountHigh" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HadoopHbaseRegionCountHigh
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

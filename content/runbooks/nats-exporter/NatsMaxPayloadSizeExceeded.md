@@ -21,7 +21,7 @@ The max payload size allowed by NATS has been exceeded (1MB)
 
 {{% rule "nats/nats-exporter.yml" "NatsMaxPayloadSizeExceeded" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NatsMaxPayloadSizeExceeded
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

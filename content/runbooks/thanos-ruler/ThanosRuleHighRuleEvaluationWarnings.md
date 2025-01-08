@@ -21,7 +21,7 @@ Thanos Rule {{$labels.instance}} has high number of evaluation warnings.
 
 {{% rule "thanos/thanos-ruler.yml" "ThanosRuleHighRuleEvaluationWarnings" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosRuleHighRuleEvaluationWarnings
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

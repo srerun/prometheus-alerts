@@ -21,7 +21,7 @@ The {{ $labels.job }} {{ $labels.route }} is experiencing {{ printf "%.2f" $valu
 
 {{% rule "loki/loki-internal.yml" "LokiRequestLatency" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: LokiRequestLatency
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

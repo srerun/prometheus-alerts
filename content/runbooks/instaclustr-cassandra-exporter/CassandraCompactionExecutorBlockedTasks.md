@@ -21,7 +21,7 @@ Some Cassandra compaction executor tasks are blocked - {{ $labels.cassandra_clus
 
 {{% rule "cassandra/instaclustr-cassandra-exporter.yml" "CassandraCompactionExecutorBlockedTasks" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraCompactionExecutorBlockedTasks
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Etcd WAL fsync duration increasing, 99th percentile is over 0.5s
 
 {{% rule "etcd/etcd-internal.yml" "EtcdHighFsyncDurations" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: EtcdHighFsyncDurations
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

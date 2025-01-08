@@ -21,7 +21,7 @@ Internet download speed is currently {{humanize $value}} Mbps.
 
 {{% rule "speedtest/nlamirault-speedtest-exporter.yml" "SpeedtestSlowInternetDownload" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: SpeedtestSlowInternetDownload
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

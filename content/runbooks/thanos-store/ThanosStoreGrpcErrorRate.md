@@ -21,7 +21,7 @@ Thanos Store {{$labels.job}} is failing to handle {{$value | humanize}}% of requ
 
 {{% rule "thanos/thanos-store.yml" "ThanosStoreGrpcErrorRate" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosStoreGrpcErrorRate
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Too many connection errors to {{ $labels.server }} server (> 100 req/s). Request
 
 {{% rule "haproxy/haproxy-exporter-v1.yml" "HaproxyServerConnectionErrors" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HaproxyServerConnectionErrors
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

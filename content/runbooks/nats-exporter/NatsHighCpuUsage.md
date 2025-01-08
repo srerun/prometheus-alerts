@@ -21,7 +21,7 @@ NATS server is using more than 80% CPU for the last 5 minutes
 
 {{% rule "nats/nats-exporter.yml" "NatsHighCpuUsage" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NatsHighCpuUsage
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

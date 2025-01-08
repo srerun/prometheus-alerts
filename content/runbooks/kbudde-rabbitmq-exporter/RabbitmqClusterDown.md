@@ -21,7 +21,7 @@ Less than 3 nodes running in RabbitMQ cluster
 
 {{% rule "rabbitmq/kbudde-rabbitmq-exporter.yml" "RabbitmqClusterDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqClusterDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ HAProxy is blocking requests for security reason
 
 {{% rule "haproxy/embedded-exporter-v2.yml" "HaproxyFrontendSecurityBlockedRequests" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HaproxyFrontendSecurityBlockedRequests
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

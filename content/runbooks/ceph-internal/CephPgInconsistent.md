@@ -21,7 +21,7 @@ Some Ceph placement groups are inconsistent. Data is available but inconsistent 
 
 {{% rule "ceph/ceph-internal.yml" "CephPgInconsistent" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CephPgInconsistent
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Failed net_version for Provider `{{$labels.provider}}` in Graph node `{{$labels.
 
 {{% rule "graph-node/graph-node-internal.yml" "ProviderFailedBecauseNet_versionFailed" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ProviderFailedBecauseNet_versionFailed
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

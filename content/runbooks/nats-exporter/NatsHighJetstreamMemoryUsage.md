@@ -21,7 +21,7 @@ JetStream memory usage is over 80%
 
 {{% rule "nats/nats-exporter.yml" "NatsHighJetstreamMemoryUsage" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NatsHighJetstreamMemoryUsage
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

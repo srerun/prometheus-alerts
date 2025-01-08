@@ -21,7 +21,7 @@ Number of CoreDNS panics encountered
 
 {{% rule "coredns/coredns-internal.yml" "CorednsPanicCount" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CorednsPanicCount
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

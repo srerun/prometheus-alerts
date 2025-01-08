@@ -21,7 +21,7 @@ PostgreSQL dead tuples is too large
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlTooManyDeadTuples" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlTooManyDeadTuples
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

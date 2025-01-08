@@ -21,7 +21,7 @@ Dead letter queue is filling up (> 10 msgs)
 
 {{% rule "rabbitmq/kbudde-rabbitmq-exporter.yml" "RabbitmqDeadLetterQueueFillingUp" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqDeadLetterQueueFillingUp
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

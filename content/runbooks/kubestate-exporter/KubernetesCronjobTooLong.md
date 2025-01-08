@@ -21,7 +21,7 @@ CronJob {{ $labels.namespace }}/{{ $labels.cronjob }} is taking more than 1h to 
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesCronjobTooLong" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesCronjobTooLong
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

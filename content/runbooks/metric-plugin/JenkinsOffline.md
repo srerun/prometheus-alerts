@@ -21,7 +21,7 @@ Jenkins offline: `{{$labels.instance}}` in realm {{$labels.realm}}/{{$labels.env
 
 {{% rule "jenkins/metric-plugin.yml" "JenkinsOffline" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: JenkinsOffline
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Blackbox configuration reload failure
 
 {{% rule "blackbox/blackbox-exporter.yml" "BlackboxConfigurationReloadFailure" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: BlackboxConfigurationReloadFailure
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

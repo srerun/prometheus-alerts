@@ -21,7 +21,7 @@ Redis is running out of connections (> 90% used)
 
 {{% rule "redis/oliver006-redis-exporter.yml" "RedisTooManyConnections" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RedisTooManyConnections
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

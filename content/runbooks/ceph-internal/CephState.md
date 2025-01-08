@@ -21,7 +21,7 @@ Ceph instance unhealthy
 
 {{% rule "ceph/ceph-internal.yml" "CephState" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CephState
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

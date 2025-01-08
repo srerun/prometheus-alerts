@@ -21,7 +21,7 @@ The number of PGBouncer client connections has reached max_client_conn.
 
 {{% rule "pgbouncer/spreaker-pgbouncer-exporter.yml" "PgbouncerMaxConnections" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PgbouncerMaxConnections
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

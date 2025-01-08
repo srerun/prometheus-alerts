@@ -21,7 +21,7 @@ Redis cluster has too many nodes marked as master.
 
 {{% rule "redis/oliver006-redis-exporter.yml" "RedisTooManyMasters" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RedisTooManyMasters
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

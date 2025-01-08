@@ -1,5 +1,5 @@
 ---
-title: s
+title: smartctl-exporter
 
 bookCollapseSection: true
 bookFlatSection: true

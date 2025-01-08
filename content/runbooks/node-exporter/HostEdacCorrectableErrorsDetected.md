@@ -21,7 +21,7 @@ Host {{ $labels.instance }} has had {{ printf "%.0f" $value }} correctable memor
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostEdacCorrectableErrorsDetected" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostEdacCorrectableErrorsDetected
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

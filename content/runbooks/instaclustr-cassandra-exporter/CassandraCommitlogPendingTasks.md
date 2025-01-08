@@ -21,7 +21,7 @@ Cassandra commitlog pending tasks - {{ $labels.cassandra_cluster }}
 
 {{% rule "cassandra/instaclustr-cassandra-exporter.yml" "CassandraCommitlogPendingTasks" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraCommitlogPendingTasks
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

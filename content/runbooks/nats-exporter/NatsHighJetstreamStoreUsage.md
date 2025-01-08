@@ -21,7 +21,7 @@ JetStream store usage is over 80%
 
 {{% rule "nats/nats-exporter.yml" "NatsHighJetstreamStoreUsage" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NatsHighJetstreamStoreUsage
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

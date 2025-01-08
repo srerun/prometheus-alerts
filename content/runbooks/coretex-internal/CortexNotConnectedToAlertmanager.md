@@ -21,7 +21,7 @@ Cortex not connected to Alertmanager (instance {{ $labels.instance }})
 
 {{% rule "cortex/coretex-internal.yml" "CortexNotConnectedToAlertmanager" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CortexNotConnectedToAlertmanager
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

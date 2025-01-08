@@ -21,7 +21,7 @@ The maximum number of ping operations in NATS has exceeded 50
 
 {{% rule "nats/nats-exporter.yml" "NatsMaxPingOperationsExceeded" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NatsMaxPingOperationsExceeded
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

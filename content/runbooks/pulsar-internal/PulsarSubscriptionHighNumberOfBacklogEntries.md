@@ -21,7 +21,7 @@ The number of subscription backlog entries is over 5k
 
 {{% rule "pulsar/pulsar-internal.yml" "PulsarSubscriptionHighNumberOfBacklogEntries" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PulsarSubscriptionHighNumberOfBacklogEntries
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Thanos Rule {{$labels.job}} has {{$value | humanize}}% of failing DNS queries fo
 
 {{% rule "thanos/thanos-ruler.yml" "ThanosRuleQueryHighDNSFailures" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosRuleQueryHighDNSFailures
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

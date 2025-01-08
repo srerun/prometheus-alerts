@@ -21,7 +21,7 @@ SSL certificate has expired already
 
 {{% rule "blackbox/blackbox-exporter.yml" "BlackboxSslCertificateExpired" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: BlackboxSslCertificateExpired
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Interface is highly saturated. (> 0.90GiB/s)
 
 {{% rule "juniper/czerwonk-junos-exporter.yml" "JuniperHighBandwidthUsage1gib" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: JuniperHighBandwidthUsage1gib
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ A node use more than 90% of allocated RAM
 
 {{% rule "rabbitmq/rabbitmq-exporter.yml" "RabbitmqMemoryHigh" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqMemoryHigh
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

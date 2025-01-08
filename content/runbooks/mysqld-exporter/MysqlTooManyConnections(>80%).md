@@ -21,7 +21,7 @@ More than 80% of MySQL connections are in use on {{ $labels.instance }}
 
 {{% rule "mysql/mysqld-exporter.yml" "MysqlTooManyConnections(>80%)" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MysqlTooManyConnections(>80%)
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Container Volume usage is above 80%
 
 {{% rule "docker-containers/google-cadvisor.yml" "ContainerVolumeUsage" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ContainerVolumeUsage
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

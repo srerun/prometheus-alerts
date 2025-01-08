@@ -21,7 +21,7 @@ Traefik backend 4xx error rate is above 5%
 
 {{% rule "traefik/embedded-exporter-v1.yml" "TraefikHighHttp4xxErrorRateBackend" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: TraefikHighHttp4xxErrorRateBackend
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

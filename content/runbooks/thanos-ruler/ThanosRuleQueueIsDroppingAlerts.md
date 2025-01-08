@@ -21,7 +21,7 @@ Thanos Rule {{$labels.instance}} is failing to queue alerts.
 
 {{% rule "thanos/thanos-ruler.yml" "ThanosRuleQueueIsDroppingAlerts" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosRuleQueueIsDroppingAlerts
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

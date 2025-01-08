@@ -21,7 +21,7 @@ Some server healthcheck are failing on {{ $labels.server }}
 
 {{% rule "haproxy/haproxy-exporter-v1.yml" "HaproxyServerHealthcheckFailure" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HaproxyServerHealthcheckFailure
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

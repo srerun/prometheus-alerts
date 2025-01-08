@@ -21,7 +21,7 @@ Minio available free space is low (< 10%)
 
 {{% rule "minio/minio-internal.yml" "MinioDiskSpaceUsage" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MinioDiskSpaceUsage
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ HPA {{ $labels.namespace }}/{{ $labels.horizontalpodautoscaler }} has hit maximu
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesHpaScaleMaximum" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesHpaScaleMaximum
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

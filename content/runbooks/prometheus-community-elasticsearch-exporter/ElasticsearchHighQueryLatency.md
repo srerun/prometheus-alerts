@@ -21,7 +21,7 @@ The query latency on Elasticsearch cluster is higher than the threshold.
 
 {{% rule "elasticsearch/prometheus-community-elasticsearch-exporter.yml" "ElasticsearchHighQueryLatency" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ElasticsearchHighQueryLatency
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

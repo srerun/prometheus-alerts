@@ -21,7 +21,7 @@ There are queued up queries in query-frontend.
 
 {{% rule "cortex/coretex-internal.yml" "CortexFrontendQueriesStuck" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CortexFrontendQueriesStuck
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

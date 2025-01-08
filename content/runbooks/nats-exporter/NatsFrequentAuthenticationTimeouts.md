@@ -21,7 +21,7 @@ There have been more than 5 authentication timeouts in the last 5 minutes
 
 {{% rule "nats/nats-exporter.yml" "NatsFrequentAuthenticationTimeouts" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NatsFrequentAuthenticationTimeouts
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

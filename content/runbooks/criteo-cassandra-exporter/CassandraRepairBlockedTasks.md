@@ -21,7 +21,7 @@ Some Cassandra repair tasks are blocked
 
 {{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraRepairBlockedTasks" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraRepairBlockedTasks
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

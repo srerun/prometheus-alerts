@@ -21,7 +21,7 @@ High number of NATS connections ({{ $value }}) for {{ $labels.instance }}
 
 {{% rule "nats/nats-exporter.yml" "NatsHighConnectionCount" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NatsHighConnectionCount
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

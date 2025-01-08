@@ -21,7 +21,7 @@ Thanos Rule {{$labels.instance}} has higher evaluation latency than interval for
 
 {{% rule "thanos/thanos-ruler.yml" "ThanosRuleRuleEvaluationLatencyHigh" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosRuleRuleEvaluationLatencyHigh
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

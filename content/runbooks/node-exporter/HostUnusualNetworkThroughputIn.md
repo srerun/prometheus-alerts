@@ -21,7 +21,7 @@ Host network interfaces are probably receiving too much data (> 100 MB/s)
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostUnusualNetworkThroughputIn" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostUnusualNetworkThroughputIn
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Ceph Object Storage Daemon takes too much time to resize.
 
 {{% rule "ceph/ceph-internal.yml" "CephOsdReweighted" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CephOsdReweighted
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

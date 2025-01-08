@@ -21,7 +21,7 @@ Exchange receive less than 5 msgs per second
 
 {{% rule "rabbitmq/kbudde-rabbitmq-exporter.yml" "RabbitmqUnactiveExchange" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqUnactiveExchange
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

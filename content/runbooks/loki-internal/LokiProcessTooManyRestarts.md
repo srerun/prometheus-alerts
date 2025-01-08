@@ -21,7 +21,7 @@ A loki process had too many restarts (target {{ $labels.instance }})
 
 {{% rule "loki/loki-internal.yml" "LokiProcessTooManyRestarts" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: LokiProcessTooManyRestarts
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

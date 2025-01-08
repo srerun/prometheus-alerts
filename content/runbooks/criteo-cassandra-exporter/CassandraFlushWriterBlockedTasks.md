@@ -21,7 +21,7 @@ Some Cassandra flush writer tasks are blocked
 
 {{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraFlushWriterBlockedTasks" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraFlushWriterBlockedTasks
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

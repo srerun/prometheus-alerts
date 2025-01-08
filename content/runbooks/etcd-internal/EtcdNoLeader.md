@@ -21,7 +21,7 @@ Etcd cluster have no leader
 
 {{% rule "etcd/etcd-internal.yml" "EtcdNoLeader" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: EtcdNoLeader
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

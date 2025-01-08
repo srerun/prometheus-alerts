@@ -21,7 +21,7 @@ Memory usage is over 80%.
 
 {{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseMemoryUsageWarning" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ClickhouseMemoryUsageWarning
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

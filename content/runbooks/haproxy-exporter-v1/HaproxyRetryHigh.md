@@ -21,7 +21,7 @@ High rate of retry on {{ $labels.fqdn }}/{{ $labels.backend }} backend
 
 {{% rule "haproxy/haproxy-exporter-v1.yml" "HaproxyRetryHigh" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HaproxyRetryHigh
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

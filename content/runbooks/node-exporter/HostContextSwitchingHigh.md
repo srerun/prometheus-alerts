@@ -21,7 +21,7 @@ Context switching is growing on the node (twice the daily average during the las
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostContextSwitchingHigh" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostContextSwitchingHigh
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

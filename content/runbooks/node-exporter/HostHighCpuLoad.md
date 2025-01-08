@@ -21,7 +21,7 @@ CPU load is > 80%
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostHighCpuLoad" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostHighCpuLoad
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

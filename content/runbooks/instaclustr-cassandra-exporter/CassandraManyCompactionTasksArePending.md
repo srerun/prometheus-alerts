@@ -21,7 +21,7 @@ Many Cassandra compaction tasks are pending - {{ $labels.cassandra_cluster }}
 
 {{% rule "cassandra/instaclustr-cassandra-exporter.yml" "CassandraManyCompactionTasksArePending" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraManyCompactionTasksArePending
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Meilisearch instance is down
 
 {{% rule "meilisearch/meilisearch-internal.yml" "MeilisearchIndexIsEmpty" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MeilisearchIndexIsEmpty
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

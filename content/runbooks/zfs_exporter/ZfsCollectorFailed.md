@@ -21,7 +21,7 @@ ZFS collector for {{ $labels.instance }} has failed to collect information
 
 {{% rule "zfs/zfs_exporter.yml" "ZfsCollectorFailed" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ZfsCollectorFailed
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

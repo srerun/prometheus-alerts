@@ -21,7 +21,7 @@ HBase Region Servers are running low on heap space.
 
 {{% rule "hadoop/jmx_exporter.yml" "HadoopHbaseRegionServerHeapLow" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HadoopHbaseRegionServerHeapLow
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

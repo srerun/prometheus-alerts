@@ -21,7 +21,7 @@ There are too few live replicas available, risking data loss and service disrupt
 
 {{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseNoLiveReplicas" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ClickhouseNoLiveReplicas
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

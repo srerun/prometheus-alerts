@@ -21,7 +21,7 @@ Elasticsearch is initializing shards
 
 {{% rule "elasticsearch/prometheus-community-elasticsearch-exporter.yml" "ElasticsearchInitializingShards" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ElasticsearchInitializingShards
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

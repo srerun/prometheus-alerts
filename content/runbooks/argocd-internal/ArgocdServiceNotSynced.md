@@ -21,7 +21,7 @@ Service {{ $labels.name }} run by argo is currently not in sync.
 
 {{% rule "argocd/argocd-internal.yml" "ArgocdServiceNotSynced" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ArgocdServiceNotSynced
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

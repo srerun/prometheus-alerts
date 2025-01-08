@@ -21,7 +21,7 @@ MongoDB instance is down
 
 {{% rule "mongodb/percona-mongodb-exporter.yml" "MongodbDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MongodbDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

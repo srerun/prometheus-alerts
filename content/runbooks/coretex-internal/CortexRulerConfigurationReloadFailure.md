@@ -21,7 +21,7 @@ Cortex ruler configuration reload failure (instance {{ $labels.instance }})
 
 {{% rule "cortex/coretex-internal.yml" "CortexRulerConfigurationReloadFailure" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CortexRulerConfigurationReloadFailure
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

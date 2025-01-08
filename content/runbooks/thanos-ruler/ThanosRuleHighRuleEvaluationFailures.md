@@ -21,7 +21,7 @@ Thanos Rule {{$labels.instance}} is failing to evaluate rules.
 
 {{% rule "thanos/thanos-ruler.yml" "ThanosRuleHighRuleEvaluationFailures" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosRuleHighRuleEvaluationFailures
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

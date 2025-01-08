@@ -21,7 +21,7 @@ Clock skew detected. Clock is out of sync. Ensure NTP is configured correctly on
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostClockSkew" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostClockSkew
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

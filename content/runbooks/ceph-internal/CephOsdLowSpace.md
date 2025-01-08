@@ -21,7 +21,7 @@ Ceph Object Storage Daemon is going out of space. Please add more disks.
 
 {{% rule "ceph/ceph-internal.yml" "CephOsdLowSpace" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CephOsdLowSpace
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

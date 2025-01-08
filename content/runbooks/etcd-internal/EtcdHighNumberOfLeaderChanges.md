@@ -21,7 +21,7 @@ Etcd leader changed more than 2 times during 10 minutes
 
 {{% rule "etcd/etcd-internal.yml" "EtcdHighNumberOfLeaderChanges" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: EtcdHighNumberOfLeaderChanges
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

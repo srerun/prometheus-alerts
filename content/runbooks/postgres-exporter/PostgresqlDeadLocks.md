@@ -21,7 +21,7 @@ PostgreSQL has dead-locks
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlDeadLocks" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlDeadLocks
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

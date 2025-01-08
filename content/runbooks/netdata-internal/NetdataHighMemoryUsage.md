@@ -21,7 +21,7 @@ Netdata high memory usage (> 80%)
 
 {{% rule "netdata/netdata-internal.yml" "NetdataHighMemoryUsage" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NetdataHighMemoryUsage
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

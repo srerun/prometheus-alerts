@@ -21,7 +21,7 @@ Ceph Object Storage Daemon latency is high. Please check if it doesn't stuck in 
 
 {{% rule "ceph/ceph-internal.yml" "CephHighOsdLatency" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CephHighOsdLatency
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

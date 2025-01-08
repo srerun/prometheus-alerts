@@ -21,7 +21,7 @@ ZFS pool state is {{ $value }}. See comments for more information.
 
 {{% rule "zfs/zfs_exporter.yml" "ZfsPoolUnhealthy" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ZfsPoolUnhealthy
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ A node use more than 90% of file descriptors
 
 {{% rule "rabbitmq/rabbitmq-exporter.yml" "RabbitmqFileDescriptorsUsage" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqFileDescriptorsUsage
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

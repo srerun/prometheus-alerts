@@ -21,7 +21,7 @@ Thanos Rule {{$labels.instance}} did not perform any rule evaluations in the pas
 
 {{% rule "thanos/thanos-ruler.yml" "ThanosNoRuleEvaluations" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosNoRuleEvaluations
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

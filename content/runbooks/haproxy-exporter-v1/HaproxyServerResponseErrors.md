@@ -21,7 +21,7 @@ Too many response errors to {{ $labels.server }} server (> 5%).
 
 {{% rule "haproxy/haproxy-exporter-v1.yml" "HaproxyServerResponseErrors" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HaproxyServerResponseErrors
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

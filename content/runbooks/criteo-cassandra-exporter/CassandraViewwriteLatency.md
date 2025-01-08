@@ -21,7 +21,7 @@ High viewwrite latency on {{ $labels.instance }} cassandra node
 
 {{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraViewwriteLatency" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraViewwriteLatency
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

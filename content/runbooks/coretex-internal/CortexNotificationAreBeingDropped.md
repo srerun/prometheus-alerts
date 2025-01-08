@@ -21,7 +21,7 @@ Cortex notification are being dropped due to errors (instance {{ $labels.instanc
 
 {{% rule "cortex/coretex-internal.yml" "CortexNotificationAreBeingDropped" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CortexNotificationAreBeingDropped
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

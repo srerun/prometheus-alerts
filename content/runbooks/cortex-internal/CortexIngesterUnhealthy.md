@@ -21,7 +21,7 @@ Cortex has an unhealthy ingester
 
 {{% rule "cortex/cortex-internal.yml" "CortexIngesterUnhealthy" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CortexIngesterUnhealthy
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

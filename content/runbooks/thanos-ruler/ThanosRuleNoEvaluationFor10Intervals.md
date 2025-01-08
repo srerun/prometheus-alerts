@@ -21,7 +21,7 @@ Thanos Rule {{$labels.job}} has rule groups that did not evaluate for at least 1
 
 {{% rule "thanos/thanos-ruler.yml" "ThanosRuleNoEvaluationFor10Intervals" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosRuleNoEvaluationFor10Intervals
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

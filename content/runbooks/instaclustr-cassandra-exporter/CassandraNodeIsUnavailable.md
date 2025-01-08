@@ -21,7 +21,7 @@ Cassandra Node is unavailable - {{ $labels.cassandra_cluster }} {{ $labels.expor
 
 {{% rule "cassandra/instaclustr-cassandra-exporter.yml" "CassandraNodeIsUnavailable" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraNodeIsUnavailable
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

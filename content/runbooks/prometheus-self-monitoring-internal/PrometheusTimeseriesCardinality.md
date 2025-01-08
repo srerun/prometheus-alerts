@@ -21,7 +21,7 @@ The "{{ $labels.name }}" timeseries cardinality is getting very high: {{ $value 
 
 {{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusTimeseriesCardinality" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PrometheusTimeseriesCardinality
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Some Cassandra repair tasks are pending
 
 {{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraRepairPendingTasks" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraRepairPendingTasks
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

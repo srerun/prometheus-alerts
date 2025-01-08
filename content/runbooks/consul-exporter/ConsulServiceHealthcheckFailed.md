@@ -21,7 +21,7 @@ Service: `{{ $labels.service_name }}` Healthcheck: `{{ $labels.service_id }}`
 
 {{% rule "consul/consul-exporter.yml" "ConsulServiceHealthcheckFailed" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ConsulServiceHealthcheckFailed
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

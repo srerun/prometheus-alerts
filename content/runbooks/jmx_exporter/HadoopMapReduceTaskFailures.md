@@ -21,7 +21,7 @@ There is an unusually high number of MapReduce task failures.
 
 {{% rule "hadoop/jmx_exporter.yml" "HadoopMapReduceTaskFailures" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HadoopMapReduceTaskFailures
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

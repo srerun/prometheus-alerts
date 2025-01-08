@@ -21,7 +21,7 @@ Something is going wrong with cassandra storage - {{ $labels.cassandra_cluster }
 
 {{% rule "cassandra/instaclustr-cassandra-exporter.yml" "CassandraStorageExceptions" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraStorageExceptions
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

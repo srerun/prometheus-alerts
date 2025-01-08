@@ -21,7 +21,7 @@ Battery voltage is lower than nominal (< 95%)
 
 {{% rule "apc-ups/apcupsd_exporter.yml" "ApcUpsLowBatteryVoltage" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ApcUpsLowBatteryVoltage
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

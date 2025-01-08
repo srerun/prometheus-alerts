@@ -21,7 +21,7 @@ The topic backlog storage size is over 5 GB
 
 {{% rule "pulsar/pulsar-internal.yml" "PulsarTopicLargeBacklogStorageSize" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PulsarTopicLargeBacklogStorageSize
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

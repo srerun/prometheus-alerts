@@ -21,7 +21,7 @@ Istio 1% slowest requests are longer than 1000ms.
 
 {{% rule "istio/istio-internal.yml" "IstioLatency99Percentile" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: IstioLatency99Percentile
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

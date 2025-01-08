@@ -21,7 +21,7 @@ Jenkins healthcheck score: {{$value}}. Healthcheck failure for `{{$labels.instan
 
 {{% rule "jenkins/metric-plugin.yml" "JenkinsHealthcheck" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: JenkinsHealthcheck
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

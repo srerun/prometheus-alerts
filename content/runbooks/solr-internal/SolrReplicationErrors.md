@@ -21,7 +21,7 @@ Solr collection {{ $labels.collection }} has failed updates for replica {{ $labe
 
 {{% rule "solr/solr-internal.yml" "SolrReplicationErrors" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: SolrReplicationErrors
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ SQL Server is having some deadlock.
 
 {{% rule "sql-server/ozarklake-mssql-exporter.yml" "SqlServerDeadlock" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: SqlServerDeadlock
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

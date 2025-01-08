@@ -21,7 +21,7 @@ JetStream has more than 100 active consumers
 
 {{% rule "nats/nats-exporter.yml" "NatsJetstreamConsumersExceeded" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NatsJetstreamConsumersExceeded
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

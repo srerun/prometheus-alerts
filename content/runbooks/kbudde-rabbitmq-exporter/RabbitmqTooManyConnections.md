@@ -21,7 +21,7 @@ RabbitMQ instance has too many connections (> 1000)
 
 {{% rule "rabbitmq/kbudde-rabbitmq-exporter.yml" "RabbitmqTooManyConnections" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqTooManyConnections
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

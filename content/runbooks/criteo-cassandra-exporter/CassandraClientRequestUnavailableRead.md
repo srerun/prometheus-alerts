@@ -21,7 +21,7 @@ Read failures have occurred because too many nodes are unavailable
 
 {{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraClientRequestUnavailableRead" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraClientRequestUnavailableRead
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

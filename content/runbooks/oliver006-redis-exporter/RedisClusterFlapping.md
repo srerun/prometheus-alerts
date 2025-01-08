@@ -21,7 +21,7 @@ Changes have been detected in Redis replica connection. This can occur when repl
 
 {{% rule "redis/oliver006-redis-exporter.yml" "RedisClusterFlapping" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RedisClusterFlapping
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

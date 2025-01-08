@@ -21,7 +21,7 @@ Too many pending tokens {{ $labels.instance }}: {{ $value | printf "%.2f"}}%
 
 {{% rule "hashicorp-vault/hashicorp-vault-internal.yml" "VaultTooManyPendingTokens" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: VaultTooManyPendingTokens
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

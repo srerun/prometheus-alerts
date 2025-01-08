@@ -21,7 +21,7 @@ Thanos Compact {{$labels.job}} has not uploaded anything for 24 hours.
 
 {{% rule "thanos/thanos-compactor.yml" "ThanosCompactHasNotRun" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosCompactHasNotRun
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

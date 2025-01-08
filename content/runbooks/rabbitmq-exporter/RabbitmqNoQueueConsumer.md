@@ -21,7 +21,7 @@ A queue has less than 1 consumer
 
 {{% rule "rabbitmq/rabbitmq-exporter.yml" "RabbitmqNoQueueConsumer" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqNoQueueConsumer
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

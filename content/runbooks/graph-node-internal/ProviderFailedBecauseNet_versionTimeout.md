@@ -21,7 +21,7 @@ net_version timeout for Provider `{{$labels.provider}}` in Graph node `{{$labels
 
 {{% rule "graph-node/graph-node-internal.yml" "ProviderFailedBecauseNet_versionTimeout" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ProviderFailedBecauseNet_versionTimeout
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

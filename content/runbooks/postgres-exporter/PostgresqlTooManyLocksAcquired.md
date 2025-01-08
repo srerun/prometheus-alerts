@@ -21,7 +21,7 @@ Too many locks acquired on the database. If this alert happens frequently, we ma
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlTooManyLocksAcquired" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlTooManyLocksAcquired
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

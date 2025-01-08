@@ -21,7 +21,7 @@ Observing Ledger Disk Usage (> 75%)
 
 {{% rule "pulsar/pulsar-internal.yml" "PulsarHighLedgerDiskUsage" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PulsarHighLedgerDiskUsage
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

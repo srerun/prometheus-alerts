@@ -21,7 +21,7 @@ Node {{ $labels.node }} has been unready for a long time
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesNodeNotReady" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesNodeNotReady
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

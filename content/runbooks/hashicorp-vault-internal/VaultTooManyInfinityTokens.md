@@ -21,7 +21,7 @@ Too many infinity tokens {{ $labels.instance }}: {{ $value | printf "%.2f"}}%
 
 {{% rule "hashicorp-vault/hashicorp-vault-internal.yml" "VaultTooManyInfinityTokens" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: VaultTooManyInfinityTokens
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

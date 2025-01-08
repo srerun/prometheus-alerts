@@ -21,7 +21,7 @@ Postgresql instance is down
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

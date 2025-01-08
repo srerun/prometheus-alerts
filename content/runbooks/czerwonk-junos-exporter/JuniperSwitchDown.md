@@ -21,7 +21,7 @@ The switch appears to be down
 
 {{% rule "juniper/czerwonk-junos-exporter.yml" "JuniperSwitchDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: JuniperSwitchDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

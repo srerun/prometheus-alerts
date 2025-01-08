@@ -21,7 +21,7 @@ Thanos Receive {{$labels.job}} is failing to handle {{$value | humanize}}% of re
 
 {{% rule "thanos/thanos-receiver.yml" "ThanosReceiveHttpRequestErrorRateHigh" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosReceiveHttpRequestErrorRateHigh
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

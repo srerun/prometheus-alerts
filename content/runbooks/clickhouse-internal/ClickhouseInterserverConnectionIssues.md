@@ -21,7 +21,7 @@ An increase in interserver connections may indicate replication or distributed q
 
 {{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseInterserverConnectionIssues" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ClickhouseInterserverConnectionIssues
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Queue should have only 1 consumer
 
 {{% rule "rabbitmq/kbudde-rabbitmq-exporter.yml" "RabbitmqTooManyConsumers" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqTooManyConsumers
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

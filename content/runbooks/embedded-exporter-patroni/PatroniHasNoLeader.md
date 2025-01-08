@@ -21,7 +21,7 @@ A leader node (neither primary nor standby) cannot be found inside the cluster {
 
 {{% rule "patroni/embedded-exporter-patroni.yml" "PatroniHasNoLeader" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PatroniHasNoLeader
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

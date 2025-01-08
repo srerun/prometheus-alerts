@@ -21,7 +21,7 @@ The write deadline has been exceeded in NATS, indicating potential message deliv
 
 {{% rule "nats/nats-exporter.yml" "NatsWriteDeadlineExceeded" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NatsWriteDeadlineExceeded
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Nomad job queued
 
 {{% rule "nomad/nomad-internal.yml" "NomadJobQueued" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NomadJobQueued
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

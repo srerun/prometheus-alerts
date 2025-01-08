@@ -21,7 +21,7 @@ Blackbox probe took more than 1s to complete
 
 {{% rule "blackbox/blackbox-exporter.yml" "BlackboxSlowProbe" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: BlackboxSlowProbe
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

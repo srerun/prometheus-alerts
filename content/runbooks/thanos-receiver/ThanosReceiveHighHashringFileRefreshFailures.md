@@ -21,7 +21,7 @@ Thanos Receive {{$labels.job}} is failing to refresh hashring file, {{$value | h
 
 {{% rule "thanos/thanos-receiver.yml" "ThanosReceiveHighHashringFileRefreshFailures" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosReceiveHighHashringFileRefreshFailures
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

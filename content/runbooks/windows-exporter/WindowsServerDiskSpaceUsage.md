@@ -21,7 +21,7 @@ Disk usage is more than 80%
 
 {{% rule "windows-server/windows-exporter.yml" "WindowsServerDiskSpaceUsage" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: WindowsServerDiskSpaceUsage
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

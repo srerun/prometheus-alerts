@@ -21,7 +21,7 @@ Too many cursors are timing out
 
 {{% rule "mongodb/dcu-mongodb-exporter.yml" "MongodbCursorsTimeouts" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MongodbCursorsTimeouts
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

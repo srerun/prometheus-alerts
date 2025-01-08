@@ -21,7 +21,7 @@ Nomad job lost
 
 {{% rule "nomad/nomad-internal.yml" "NomadJobLost" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NomadJobLost
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

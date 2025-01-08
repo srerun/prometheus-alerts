@@ -21,7 +21,7 @@ Netdata predicted disk full in 24 hours
 
 {{% rule "netdata/netdata-internal.yml" "NetdataPredictedDiskFull" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NetdataPredictedDiskFull
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

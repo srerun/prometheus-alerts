@@ -21,7 +21,7 @@ MongoDB Replication set member is actively performing a rollback. Data is not av
 
 {{% rule "mongodb/dcu-mongodb-exporter.yml" "MongodbReplicationStatus9" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MongodbReplicationStatus9
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

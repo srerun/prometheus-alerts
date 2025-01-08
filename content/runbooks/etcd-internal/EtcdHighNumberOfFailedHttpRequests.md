@@ -21,7 +21,7 @@ More than 1% HTTP failure detected in Etcd
 
 {{% rule "etcd/etcd-internal.yml" "EtcdHighNumberOfFailedHttpRequests" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: EtcdHighNumberOfFailedHttpRequests
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

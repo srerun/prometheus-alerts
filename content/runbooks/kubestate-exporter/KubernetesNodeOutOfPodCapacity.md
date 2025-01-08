@@ -21,7 +21,7 @@ Node {{ $labels.node }} is out of pod capacity
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesNodeOutOfPodCapacity" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesNodeOutOfPodCapacity
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

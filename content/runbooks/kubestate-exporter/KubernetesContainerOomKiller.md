@@ -21,7 +21,7 @@ Container {{ $labels.container }} in pod {{ $labels.namespace }}/{{ $labels.pod 
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesContainerOomKiller" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesContainerOomKiller
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

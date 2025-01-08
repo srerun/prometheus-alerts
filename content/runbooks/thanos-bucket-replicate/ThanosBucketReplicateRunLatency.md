@@ -21,7 +21,7 @@ Thanos Replicate {{$labels.job}} has a 99th percentile latency of {{$value}} sec
 
 {{% rule "thanos/thanos-bucket-replicate.yml" "ThanosBucketReplicateRunLatency" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosBucketReplicateRunLatency
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

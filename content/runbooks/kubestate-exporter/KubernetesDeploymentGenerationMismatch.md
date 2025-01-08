@@ -21,7 +21,7 @@ Deployment {{ $labels.namespace }}/{{ $labels.deployment }} has failed but has n
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesDeploymentGenerationMismatch" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesDeploymentGenerationMismatch
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Cortex is failing when sending alert notifications (instance {{ $labels.instance
 
 {{% rule "cortex/coretex-internal.yml" "CortexNotificationError" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CortexNotificationError
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

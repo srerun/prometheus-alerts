@@ -21,7 +21,7 @@ Volume is almost full (< 10% left)
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesVolumeOutOfDiskSpace" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesVolumeOutOfDiskSpace
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

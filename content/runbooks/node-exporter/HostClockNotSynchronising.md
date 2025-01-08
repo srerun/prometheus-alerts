@@ -21,7 +21,7 @@ Clock not synchronising. Ensure NTP is configured on this host.
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostClockNotSynchronising" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostClockNotSynchronising
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

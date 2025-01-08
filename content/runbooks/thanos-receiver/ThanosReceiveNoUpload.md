@@ -21,7 +21,7 @@ Thanos Receive {{$labels.instance}} has not uploaded latest data to object stora
 
 {{% rule "thanos/thanos-receiver.yml" "ThanosReceiveNoUpload" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosReceiveNoUpload
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

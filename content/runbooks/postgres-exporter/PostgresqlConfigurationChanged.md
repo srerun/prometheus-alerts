@@ -21,7 +21,7 @@ Postgres Database configuration change has occurred
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlConfigurationChanged" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlConfigurationChanged
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

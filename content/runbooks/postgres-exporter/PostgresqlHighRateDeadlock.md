@@ -21,7 +21,7 @@ Postgres detected deadlocks
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlHighRateDeadlock" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlHighRateDeadlock
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

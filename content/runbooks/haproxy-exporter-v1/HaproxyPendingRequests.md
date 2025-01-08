@@ -21,7 +21,7 @@ Some HAProxy requests are pending on {{ $labels.fqdn }}/{{ $labels.backend }} ba
 
 {{% rule "haproxy/haproxy-exporter-v1.yml" "HaproxyPendingRequests" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HaproxyPendingRequests
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

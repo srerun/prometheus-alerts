@@ -21,7 +21,7 @@ PHP-FPM reached max children - {{ $labels.instance }}
 
 {{% rule "php-fpm/bakins-fpm-exporter.yml" "Php-fpmMax-childrenReached" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: Php-fpmMax-childrenReached
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

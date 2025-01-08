@@ -21,7 +21,7 @@ Messages cannot be written in a timely fashion
 
 {{% rule "pulsar/pulsar-internal.yml" "PulsarHighWriteLatency" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PulsarHighWriteLatency
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

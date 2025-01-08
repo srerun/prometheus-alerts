@@ -21,7 +21,7 @@ High number of NATS pending bytes ({{ $value }}) for {{ $labels.instance }}
 
 {{% rule "nats/nats-exporter.yml" "NatsHighPendingBytes" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NatsHighPendingBytes
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

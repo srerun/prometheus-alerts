@@ -21,7 +21,7 @@ Healthcheck failure for `{{$labels.instance}}` in realm {{$labels.realm}}/{{$lab
 
 {{% rule "jenkins/metric-plugin.yml" "JenkinsBuildsHealthScore" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: JenkinsBuildsHealthScore
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

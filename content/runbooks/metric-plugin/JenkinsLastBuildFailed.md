@@ -21,7 +21,7 @@ Last build failed: {{$labels.jenkins_job}}. Failed build for job `{{$labels.jenk
 
 {{% rule "jenkins/metric-plugin.yml" "JenkinsLastBuildFailed" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: JenkinsLastBuildFailed
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

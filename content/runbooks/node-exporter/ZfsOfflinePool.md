@@ -21,7 +21,7 @@ A ZFS zpool is in a unexpected state: {{ $labels.state }}.
 
 {{% rule "zfs/node-exporter.yml" "ZfsOfflinePool" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ZfsOfflinePool
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

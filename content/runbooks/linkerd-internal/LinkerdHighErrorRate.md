@@ -21,7 +21,7 @@ Linkerd error rate for {{ $labels.deployment | $labels.statefulset | $labels.dae
 
 {{% rule "linkerd/linkerd-internal.yml" "LinkerdHighErrorRate" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: LinkerdHighErrorRate
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Zookeeper down on instance {{ $labels.instance }}
 
 {{% rule "zookeeper/dabealu-zookeeper-exporter.yml" "ZookeeperDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ZookeeperDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Redis not replicating for all slaves. Consider reviewing the redis replication s
 
 {{% rule "redis/oliver006-redis-exporter.yml" "RedisDisconnectedSlaves" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RedisDisconnectedSlaves
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

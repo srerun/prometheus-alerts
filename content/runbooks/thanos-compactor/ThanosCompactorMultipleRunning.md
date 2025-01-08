@@ -21,7 +21,7 @@ No more than one Thanos Compact instance should be running at once. There are {{
 
 {{% rule "thanos/thanos-compactor.yml" "ThanosCompactorMultipleRunning" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosCompactorMultipleRunning
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

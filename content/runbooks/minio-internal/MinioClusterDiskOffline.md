@@ -21,7 +21,7 @@ Minio cluster disk is offline
 
 {{% rule "minio/minio-internal.yml" "MinioClusterDiskOffline" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MinioClusterDiskOffline
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

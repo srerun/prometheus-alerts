@@ -21,7 +21,7 @@ Meilisearch http response time is too high
 
 {{% rule "meilisearch/meilisearch-internal.yml" "MeilisearchHttpResponseTime" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MeilisearchHttpResponseTime
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

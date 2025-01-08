@@ -21,7 +21,7 @@ CPU iowait > 10%. A high iowait means that you are disk or network bound.
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostCpuHighIowait" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostCpuHighIowait
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

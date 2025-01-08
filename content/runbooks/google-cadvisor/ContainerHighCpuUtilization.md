@@ -21,7 +21,7 @@ Container CPU utilization is above 80%
 
 {{% rule "docker-containers/google-cadvisor.yml" "ContainerHighCpuUtilization" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ContainerHighCpuUtilization
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

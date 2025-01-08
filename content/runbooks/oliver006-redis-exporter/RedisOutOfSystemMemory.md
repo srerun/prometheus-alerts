@@ -21,7 +21,7 @@ Redis is running out of system memory (> 90%)
 
 {{% rule "redis/oliver006-redis-exporter.yml" "RedisOutOfSystemMemory" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RedisOutOfSystemMemory
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

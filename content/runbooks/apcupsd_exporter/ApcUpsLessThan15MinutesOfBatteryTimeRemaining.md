@@ -21,7 +21,7 @@ Battery is almost empty (< 15 Minutes remaining)
 
 {{% rule "apc-ups/apcupsd_exporter.yml" "ApcUpsLessThan15MinutesOfBatteryTimeRemaining" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ApcUpsLessThan15MinutesOfBatteryTimeRemaining
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

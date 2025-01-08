@@ -21,7 +21,7 @@ Mongodb replication lag is more than 10s
 
 {{% rule "mongodb/percona-mongodb-exporter.yml" "MongodbReplicationLag" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MongodbReplicationLag
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

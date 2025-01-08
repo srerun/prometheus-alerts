@@ -21,7 +21,7 @@ Last build tests failed: {{$labels.jenkins_job}}. Failed build Tests for job `{{
 
 {{% rule "jenkins/metric-plugin.yml" "JenkinsBuildTestsFailing" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: JenkinsBuildTestsFailing
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

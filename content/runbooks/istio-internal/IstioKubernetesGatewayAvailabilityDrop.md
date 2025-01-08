@@ -21,7 +21,7 @@ Gateway pods have dropped. Inbound traffic will likely be affected.
 
 {{% rule "istio/istio-internal.yml" "IstioKubernetesGatewayAvailabilityDrop" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: IstioKubernetesGatewayAvailabilityDrop
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

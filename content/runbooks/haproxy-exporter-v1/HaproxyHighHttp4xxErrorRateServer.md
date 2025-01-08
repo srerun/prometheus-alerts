@@ -21,7 +21,7 @@ Too many HTTP requests with status 4xx (> 5%) on server {{ $labels.server }}
 
 {{% rule "haproxy/haproxy-exporter-v1.yml" "HaproxyHighHttp4xxErrorRateServer" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HaproxyHighHttp4xxErrorRateServer
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

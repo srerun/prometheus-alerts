@@ -21,7 +21,7 @@ Critical replica errors detected, either all replicas are stale or lost.
 
 {{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseReplicaErrors" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ClickhouseReplicaErrors
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

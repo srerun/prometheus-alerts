@@ -21,7 +21,7 @@ Bond "{{ $labels.device }}" degraded on "{{ $labels.instance }}".
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostNetworkBondDegraded" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostNetworkBondDegraded
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

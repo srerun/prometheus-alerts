@@ -21,7 +21,7 @@ Etcd server got more than 5 failed proposals past hour
 
 {{% rule "etcd/etcd-internal.yml" "EtcdHighNumberOfFailedProposals" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: EtcdHighNumberOfFailedProposals
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Global request rate in the service mesh is unusually high.
 
 {{% rule "istio/istio-internal.yml" "IstioHighTotalRequestRate" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: IstioHighTotalRequestRate
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

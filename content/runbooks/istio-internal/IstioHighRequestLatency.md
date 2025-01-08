@@ -21,7 +21,7 @@ Istio average requests execution is longer than 100ms.
 
 {{% rule "istio/istio-internal.yml" "IstioHighRequestLatency" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: IstioHighRequestLatency
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ There are slow consumers in NATS for {{ $labels.instance }}
 
 {{% rule "nats/nats-exporter.yml" "NatsSlowConsumers" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NatsSlowConsumers
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

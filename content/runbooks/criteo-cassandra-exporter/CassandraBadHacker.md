@@ -21,7 +21,7 @@ Increase of Cassandra authentication failures
 
 {{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraBadHacker" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraBadHacker
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

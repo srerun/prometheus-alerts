@@ -21,7 +21,7 @@ High number of NATS subscriptions ({{ $value }}) for {{ $labels.instance }}
 
 {{% rule "nats/nats-exporter.yml" "NatsHighSubscriptionsCount" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NatsHighSubscriptionsCount
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

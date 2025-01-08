@@ -21,7 +21,7 @@ Thanos Compact {{$labels.job}} has failed to run and now is halted.
 
 {{% rule "thanos/thanos-compactor.yml" "ThanosCompactorHalted" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosCompactorHalted
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

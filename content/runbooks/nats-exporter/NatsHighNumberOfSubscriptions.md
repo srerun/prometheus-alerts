@@ -21,7 +21,7 @@ NATS server has more than 1000 active subscriptions
 
 {{% rule "nats/nats-exporter.yml" "NatsHighNumberOfSubscriptions" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NatsHighNumberOfSubscriptions
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

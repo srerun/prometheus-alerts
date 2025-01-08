@@ -21,7 +21,7 @@ Allow a job time to start up (10 minutes) before alerting that it's down.
 
 {{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusTargetMissingWithWarmupTime" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PrometheusTargetMissingWithWarmupTime
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

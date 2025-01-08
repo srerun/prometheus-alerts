@@ -21,7 +21,7 @@ Disk is almost full (< 10% left)
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostOutOfDiskSpace" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostOutOfDiskSpace
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

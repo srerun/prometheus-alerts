@@ -21,7 +21,7 @@ ReplicaSet {{ $labels.namespace }}/{{ $labels.replicaset }} replicas mismatch
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesReplicasetReplicasMismatch" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesReplicasetReplicasMismatch
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

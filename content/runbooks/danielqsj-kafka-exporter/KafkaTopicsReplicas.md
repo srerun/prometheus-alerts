@@ -21,7 +21,7 @@ Kafka topic in-sync partition
 
 {{% rule "kafka/danielqsj-kafka-exporter.yml" "KafkaTopicsReplicas" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KafkaTopicsReplicas
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

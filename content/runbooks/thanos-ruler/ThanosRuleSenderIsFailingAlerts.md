@@ -21,7 +21,7 @@ Thanos Rule {{$labels.instance}} is failing to send alerts to alertmanager.
 
 {{% rule "thanos/thanos-ruler.yml" "ThanosRuleSenderIsFailingAlerts" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosRuleSenderIsFailingAlerts
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

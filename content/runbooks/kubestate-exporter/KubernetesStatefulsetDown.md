@@ -21,7 +21,7 @@ StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} went down
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesStatefulsetDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesStatefulsetDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

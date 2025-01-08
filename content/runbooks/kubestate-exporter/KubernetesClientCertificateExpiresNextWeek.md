@@ -21,7 +21,7 @@ A client certificate used to authenticate to the apiserver is expiring next week
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesClientCertificateExpiresNextWeek" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesClientCertificateExpiresNextWeek
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

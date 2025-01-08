@@ -21,7 +21,7 @@ Some Ceph placement groups are incomplete. Please ensure that all the data are a
 
 {{% rule "ceph/ceph-internal.yml" "CephPgIncomplete" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CephPgIncomplete
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

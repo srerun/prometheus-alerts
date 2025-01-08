@@ -21,7 +21,7 @@ JVM memory is filling up (> 80%)
 
 {{% rule "jvm/jvm-exporter.yml" "JvmMemoryFillingUp" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: JvmMemoryFillingUp
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

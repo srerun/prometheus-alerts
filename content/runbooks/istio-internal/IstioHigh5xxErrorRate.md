@@ -21,7 +21,7 @@ High percentage of HTTP 5xx responses in Istio (> 5%).
 
 {{% rule "istio/istio-internal.yml" "IstioHigh5xxErrorRate" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: IstioHigh5xxErrorRate
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

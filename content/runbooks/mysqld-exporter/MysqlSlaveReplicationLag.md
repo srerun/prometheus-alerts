@@ -21,7 +21,7 @@ MySQL replication lag on {{ $labels.instance }}
 
 {{% rule "mysql/mysqld-exporter.yml" "MysqlSlaveReplicationLag" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MysqlSlaveReplicationLag
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Pod {{ $labels.namespace }}/{{ $labels.pod }} has been in a non-running state fo
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesPodNotHealthy" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesPodNotHealthy
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

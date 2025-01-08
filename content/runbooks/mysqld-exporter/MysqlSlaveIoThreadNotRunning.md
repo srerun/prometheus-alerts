@@ -21,7 +21,7 @@ MySQL Slave IO thread not running on {{ $labels.instance }}
 
 {{% rule "mysql/mysqld-exporter.yml" "MysqlSlaveIoThreadNotRunning" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MysqlSlaveIoThreadNotRunning
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

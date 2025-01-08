@@ -21,7 +21,7 @@ Thanos Store {{$labels.job}} has a 99th percentile latency of {{$value}} seconds
 
 {{% rule "thanos/thanos-store.yml" "ThanosStoreSeriesGateLatencyHigh" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosStoreSeriesGateLatencyHigh
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

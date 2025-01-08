@@ -21,7 +21,7 @@ High number of NATS routes ({{ $value }}) for {{ $labels.instance }}
 
 {{% rule "nats/nats-exporter.yml" "NatsHighRoutesCount" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NatsHighRoutesCount
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

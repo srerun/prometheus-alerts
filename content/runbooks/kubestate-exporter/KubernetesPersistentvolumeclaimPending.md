@@ -21,7 +21,7 @@ PersistentVolumeClaim {{ $labels.namespace }}/{{ $labels.persistentvolumeclaim }
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesPersistentvolumeclaimPending" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesPersistentvolumeclaimPending
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

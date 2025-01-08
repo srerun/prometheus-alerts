@@ -21,7 +21,7 @@ Write failures have occurred because too many nodes are unavailable
 
 {{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraClientRequestUnavailableWrite" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraClientRequestUnavailableWrite
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

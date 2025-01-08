@@ -21,7 +21,7 @@ Apache workers in busy state approach the max workers count 80% workers busy on 
 
 {{% rule "apache/lusitaniae-apache-exporter.yml" "ApacheWorkersLoad" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ApacheWorkersLoad
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

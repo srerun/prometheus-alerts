@@ -21,7 +21,7 @@ MongoDB Replication set member was once in a replica set but was subsequently re
 
 {{% rule "mongodb/dcu-mongodb-exporter.yml" "MongodbReplicationStatus10" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MongodbReplicationStatus10
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

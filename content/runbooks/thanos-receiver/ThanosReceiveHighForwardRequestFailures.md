@@ -21,7 +21,7 @@ Thanos Receive {{$labels.job}} is failing to forward {{$value | humanize}}% of r
 
 {{% rule "thanos/thanos-receiver.yml" "ThanosReceiveHighForwardRequestFailures" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosReceiveHighForwardRequestFailures
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

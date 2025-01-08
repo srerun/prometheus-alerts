@@ -21,7 +21,7 @@ Node {{ $labels.node }} has NetworkUnavailable condition
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesNodeNetworkUnavailable" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesNodeNetworkUnavailable
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

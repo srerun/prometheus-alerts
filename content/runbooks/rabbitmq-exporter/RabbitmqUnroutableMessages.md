@@ -21,7 +21,7 @@ A queue has unroutable messages
 
 {{% rule "rabbitmq/rabbitmq-exporter.yml" "RabbitmqUnroutableMessages" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqUnroutableMessages
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

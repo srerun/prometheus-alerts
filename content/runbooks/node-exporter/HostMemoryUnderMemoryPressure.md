@@ -21,7 +21,7 @@ The node is under heavy memory pressure. High rate of major page faults
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostMemoryUnderMemoryPressure" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostMemoryUnderMemoryPressure
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ HPA {{ $labels.namespace }}/{{ $labels.horizontalpodautoscaler }} is unable to c
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesHpaMetricsUnavailability" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesHpaMetricsUnavailability
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

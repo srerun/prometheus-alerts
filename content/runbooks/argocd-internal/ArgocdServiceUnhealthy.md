@@ -21,7 +21,7 @@ Service {{ $labels.name }} run by argo is currently not healthy.
 
 {{% rule "argocd/argocd-internal.yml" "ArgocdServiceUnhealthy" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ArgocdServiceUnhealthy
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

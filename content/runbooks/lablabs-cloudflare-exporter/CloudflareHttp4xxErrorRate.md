@@ -21,7 +21,7 @@ Cloudflare high HTTP 4xx error rate (> 5% for domain {{ $labels.zone }})
 
 {{% rule "cloudflare/lablabs-cloudflare-exporter.yml" "CloudflareHttp4xxErrorRate" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CloudflareHttp4xxErrorRate
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

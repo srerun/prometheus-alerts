@@ -21,7 +21,7 @@ Disk current pending sector
 
 {{% rule "netdata/netdata-internal.yml" "NetdataDiskCurrentPendingSector" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NetdataDiskCurrentPendingSector
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Cluster partition
 
 {{% rule "rabbitmq/kbudde-rabbitmq-exporter.yml" "RabbitmqClusterPartition" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqClusterPartition
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

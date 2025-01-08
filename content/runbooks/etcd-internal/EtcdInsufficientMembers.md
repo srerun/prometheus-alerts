@@ -21,7 +21,7 @@ Etcd cluster should have an odd number of members
 
 {{% rule "etcd/etcd-internal.yml" "EtcdInsufficientMembers" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: EtcdInsufficientMembers
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

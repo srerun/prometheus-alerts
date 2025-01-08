@@ -21,7 +21,7 @@ The number of conntrack is approaching limit
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostConntrackLimit" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostConntrackLimit
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

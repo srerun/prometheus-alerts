@@ -21,7 +21,7 @@ Failed to get genesis for Provider `{{$labels.provider}}` in Graph node `{{$labe
 
 {{% rule "graph-node/graph-node-internal.yml" "ProviderFailedBecauseGetGenesisFailed" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ProviderFailedBecauseGetGenesisFailed
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

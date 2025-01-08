@@ -21,7 +21,7 @@ Some connections to Redis has been rejected
 
 {{% rule "redis/oliver006-redis-exporter.yml" "RedisRejectedConnections" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RedisRejectedConnections
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

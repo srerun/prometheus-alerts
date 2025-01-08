@@ -21,7 +21,7 @@ The table {{ $labels.relname }} has an invalid index: {{ $labels.indexrelname }}
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlInvalidIndex" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlInvalidIndex
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Host {{ $labels.instance }} interface {{ $labels.device }} has encountered {{ pr
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostNetworkReceiveErrors" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostNetworkReceiveErrors
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

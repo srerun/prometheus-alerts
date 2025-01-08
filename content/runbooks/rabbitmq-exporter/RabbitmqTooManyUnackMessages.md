@@ -21,7 +21,7 @@ Too many unacknowledged messages
 
 {{% rule "rabbitmq/rabbitmq-exporter.yml" "RabbitmqTooManyUnackMessages" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqTooManyUnackMessages
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

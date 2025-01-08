@@ -21,7 +21,7 @@ Some Pods of DaemonSet {{ $labels.namespace }}/{{ $labels.daemonset }} are not s
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesDaemonsetRolloutStuck" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesDaemonsetRolloutStuck
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Node memory is < 20% for 1 week. Consider reducing memory space. (instance {{ $l
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostMemoryIsUnderutilized" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostMemoryIsUnderutilized
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

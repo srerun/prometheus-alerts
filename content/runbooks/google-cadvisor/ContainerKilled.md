@@ -21,7 +21,7 @@ A container has disappeared
 
 {{% rule "docker-containers/google-cadvisor.yml" "ContainerKilled" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ContainerKilled
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

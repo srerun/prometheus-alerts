@@ -21,7 +21,7 @@ The {{ $labels.job }} {{ $labels.route }} is experiencing {{ printf "%.2f" $valu
 
 {{% rule "promtail/promtail-internal.yml" "PromtailRequestLatency" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PromtailRequestLatency
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

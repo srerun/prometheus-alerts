@@ -21,7 +21,7 @@ The {{ $labels.job }} is experiencing {{ printf "%.2f" $value }}% increase of pa
 
 {{% rule "loki/loki-internal.yml" "LokiRequestPanic" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: LokiRequestPanic
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

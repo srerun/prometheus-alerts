@@ -21,7 +21,7 @@ Timeout to get genesis for Provider `{{$labels.provider}}` in Graph node `{{$lab
 
 {{% rule "graph-node/graph-node-internal.yml" "ProviderFailedBecauseGetGenesisTimeout" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ProviderFailedBecauseGetGenesisTimeout
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

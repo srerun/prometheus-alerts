@@ -21,7 +21,7 @@ Unexpected number of Cassandra commitlog pending tasks
 
 {{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraCommitlogPendingTasks" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraCommitlogPendingTasks
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

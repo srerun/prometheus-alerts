@@ -21,7 +21,7 @@ Windows Service state is not OK
 
 {{% rule "windows-server/windows-exporter.yml" "WindowsServerServiceStatus" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: WindowsServerServiceStatus
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

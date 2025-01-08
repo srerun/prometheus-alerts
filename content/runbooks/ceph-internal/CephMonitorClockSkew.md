@@ -21,7 +21,7 @@ Ceph monitor clock skew detected. Please check ntp and hardware clock settings
 
 {{% rule "ceph/ceph-internal.yml" "CephMonitorClockSkew" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CephMonitorClockSkew
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

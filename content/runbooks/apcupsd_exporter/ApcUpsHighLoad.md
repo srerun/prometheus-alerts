@@ -21,7 +21,7 @@ UPS load is > 80%
 
 {{% rule "apc-ups/apcupsd_exporter.yml" "ApcUpsHighLoad" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ApcUpsHighLoad
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

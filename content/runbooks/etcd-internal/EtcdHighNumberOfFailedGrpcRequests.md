@@ -21,7 +21,7 @@ More than 1% GRPC request failure detected in Etcd
 
 {{% rule "etcd/etcd-internal.yml" "EtcdHighNumberOfFailedGrpcRequests" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: EtcdHighNumberOfFailedGrpcRequests
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

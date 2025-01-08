@@ -21,7 +21,7 @@ Disk is probably reading too much data (> 50 MB/s)
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostUnusualDiskReadRate" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostUnusualDiskReadRate
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

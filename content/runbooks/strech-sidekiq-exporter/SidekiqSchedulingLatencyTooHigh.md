@@ -21,7 +21,7 @@ Sidekiq jobs are taking more than 1min to be picked up. Users may be seeing dela
 
 {{% rule "sidekiq/strech-sidekiq-exporter.yml" "SidekiqSchedulingLatencyTooHigh" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: SidekiqSchedulingLatencyTooHigh
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

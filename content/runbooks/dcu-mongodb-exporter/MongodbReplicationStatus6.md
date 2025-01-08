@@ -21,7 +21,7 @@ MongoDB Replication set member as seen from another member of the set, is not ye
 
 {{% rule "mongodb/dcu-mongodb-exporter.yml" "MongodbReplicationStatus6" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MongodbReplicationStatus6
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

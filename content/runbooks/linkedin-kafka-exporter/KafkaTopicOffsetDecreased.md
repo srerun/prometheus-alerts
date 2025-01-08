@@ -21,7 +21,7 @@ Kafka topic offset has decreased
 
 {{% rule "kafka/linkedin-kafka-exporter.yml" "KafkaTopicOffsetDecreased" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KafkaTopicOffsetDecreased
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

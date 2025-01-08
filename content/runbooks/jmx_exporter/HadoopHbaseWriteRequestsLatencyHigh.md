@@ -21,7 +21,7 @@ HBase Write Requests are experiencing high latency.
 
 {{% rule "hadoop/jmx_exporter.yml" "HadoopHbaseWriteRequestsLatencyHigh" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HadoopHbaseWriteRequestsLatencyHigh
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ MySQL instance is down on {{ $labels.instance }}
 
 {{% rule "mysql/mysqld-exporter.yml" "MysqlDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MysqlDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

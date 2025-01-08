@@ -21,7 +21,7 @@ Reallocated sectors on disk
 
 {{% rule "netdata/netdata-internal.yml" "NetdataDiskReallocatedSectors" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NetdataDiskReallocatedSectors
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

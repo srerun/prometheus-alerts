@@ -21,7 +21,7 @@ Kafka consumers group
 
 {{% rule "kafka/danielqsj-kafka-exporter.yml" "KafkaConsumersGroup" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KafkaConsumersGroup
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

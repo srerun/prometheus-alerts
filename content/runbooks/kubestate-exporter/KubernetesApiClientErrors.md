@@ -21,7 +21,7 @@ Kubernetes API client is experiencing high error rate
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesApiClientErrors" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesApiClientErrors
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

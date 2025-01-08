@@ -21,7 +21,7 @@ Swap is filling up (>80%)
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostSwapIsFillingUp" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostSwapIsFillingUp
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

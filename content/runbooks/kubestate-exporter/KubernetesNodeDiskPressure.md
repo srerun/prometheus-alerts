@@ -21,7 +21,7 @@ Node {{ $labels.node }} has DiskPressure condition
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesNodeDiskPressure" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesNodeDiskPressure
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

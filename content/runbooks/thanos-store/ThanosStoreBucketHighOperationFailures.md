@@ -21,7 +21,7 @@ Thanos Store {{$labels.job}} Bucket is failing to execute {{$value | humanize}}%
 
 {{% rule "thanos/thanos-store.yml" "ThanosStoreBucketHighOperationFailures" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosStoreBucketHighOperationFailures
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

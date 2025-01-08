@@ -21,7 +21,7 @@ HPA {{ $labels.namespace }}/{{ $labels.horizontalpodautoscaler }} is unable to s
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesHpaScaleInability" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesHpaScaleInability
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Thanos Receive {{$labels.job}} has a 99th percentile latency of {{ $value }} sec
 
 {{% rule "thanos/thanos-receiver.yml" "ThanosReceiveHttpRequestLatencyHigh" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosReceiveHttpRequestLatencyHigh
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

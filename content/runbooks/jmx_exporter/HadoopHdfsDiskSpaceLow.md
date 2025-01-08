@@ -21,7 +21,7 @@ Available HDFS disk space is running low.
 
 {{% rule "hadoop/jmx_exporter.yml" "HadoopHdfsDiskSpaceLow" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HadoopHdfsDiskSpaceLow
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

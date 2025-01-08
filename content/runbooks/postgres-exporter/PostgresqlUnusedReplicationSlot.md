@@ -21,7 +21,7 @@ Unused Replication Slots
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlUnusedReplicationSlot" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlUnusedReplicationSlot
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

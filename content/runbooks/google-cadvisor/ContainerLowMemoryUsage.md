@@ -21,7 +21,7 @@ Container Memory usage is under 20% for 1 week. Consider reducing the allocated 
 
 {{% rule "docker-containers/google-cadvisor.yml" "ContainerLowMemoryUsage" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ContainerLowMemoryUsage
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

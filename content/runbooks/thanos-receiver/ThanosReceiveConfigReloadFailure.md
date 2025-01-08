@@ -21,7 +21,7 @@ Thanos Receive {{$labels.job}} has not been able to reload hashring configuratio
 
 {{% rule "thanos/thanos-receiver.yml" "ThanosReceiveConfigReloadFailure" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosReceiveConfigReloadFailure
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

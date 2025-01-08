@@ -21,7 +21,7 @@ Netdata low disk space (> 80%)
 
 {{% rule "netdata/netdata-internal.yml" "NetdataLowDiskSpace" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NetdataLowDiskSpace
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

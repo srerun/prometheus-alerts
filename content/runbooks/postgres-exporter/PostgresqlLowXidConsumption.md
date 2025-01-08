@@ -21,7 +21,7 @@ Postgresql seems to be consuming transaction IDs very slowly
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlLowXidConsumption" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlLowXidConsumption
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

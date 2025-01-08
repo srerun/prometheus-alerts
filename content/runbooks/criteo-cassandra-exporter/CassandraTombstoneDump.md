@@ -21,7 +21,7 @@ Too much tombstones scanned in queries
 
 {{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraTombstoneDump" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraTombstoneDump
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

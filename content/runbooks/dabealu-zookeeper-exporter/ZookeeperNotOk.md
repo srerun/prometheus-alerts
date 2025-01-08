@@ -21,7 +21,7 @@ Zookeeper instance is not ok
 
 {{% rule "zookeeper/dabealu-zookeeper-exporter.yml" "ZookeeperNotOk" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ZookeeperNotOk
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

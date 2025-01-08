@@ -21,7 +21,7 @@ Thanos Query {{$labels.job}} is failing to handle {{$value | humanize}}% of "que
 
 {{% rule "thanos/thanos-query.yml" "ThanosQueryHttpRequestQueryErrorRateHigh" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosQueryHttpRequestQueryErrorRateHigh
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

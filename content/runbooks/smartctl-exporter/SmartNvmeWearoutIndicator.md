@@ -19,9 +19,9 @@ NVMe device is wearing out (instance {{ $labels.instance }})
 <details>
   <summary>Alert Rule</summary>
 
-{{% rule "s/smartctl-exporter.yml" "SmartNvmeWearoutIndicator" %}}
+{{% rule "smart-device-monitoring/smartctl-exporter.yml" "SmartNvmeWearoutIndicator" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: SmartNvmeWearoutIndicator
@@ -35,11 +35,11 @@ annotations:
         NVMe device is wearing out (instance {{ $labels.instance }})
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/s/SmartNvmeWearoutIndicator.md
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/smartctl-exporter/SmartNvmeWearoutIndicator.md
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

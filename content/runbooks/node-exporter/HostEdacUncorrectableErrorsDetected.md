@@ -21,7 +21,7 @@ Host {{ $labels.instance }} has had {{ printf "%.0f" $value }} uncorrectable mem
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostEdacUncorrectableErrorsDetected" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostEdacUncorrectableErrorsDetected
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

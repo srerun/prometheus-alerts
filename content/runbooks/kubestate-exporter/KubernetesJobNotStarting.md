@@ -21,7 +21,7 @@ Job {{ $labels.namespace }}/{{ $labels.job_name }} did not start for 10 minutes
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesJobNotStarting" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesJobNotStarting
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Too many HTTP requests with status 5xx (> 5%) on backend {{ $labels.fqdn }}/{{ $
 
 {{% rule "haproxy/haproxy-exporter-v1.yml" "HaproxyHighHttp5xxErrorRateBackend" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HaproxyHighHttp5xxErrorRateBackend
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

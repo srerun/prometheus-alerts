@@ -21,7 +21,7 @@ Redis is running out of configured maxmemory (> 90%)
 
 {{% rule "redis/oliver006-redis-exporter.yml" "RedisOutOfConfiguredMaxmemory" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RedisOutOfConfiguredMaxmemory
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

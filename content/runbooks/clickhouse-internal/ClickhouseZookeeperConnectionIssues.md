@@ -21,7 +21,7 @@ ClickHouse is experiencing issues with ZooKeeper connections, which may affect c
 
 {{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseZookeeperConnectionIssues" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ClickhouseZookeeperConnectionIssues
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Battery is almost empty (< 10% left)
 
 {{% rule "apc-ups/apcupsd_exporter.yml" "ApcUpsBatteryNearlyEmpty" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ApcUpsBatteryNearlyEmpty
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

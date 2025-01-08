@@ -21,7 +21,7 @@ HTTP status code is not 200-399
 
 {{% rule "blackbox/blackbox-exporter.yml" "BlackboxProbeHttpFailure" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: BlackboxProbeHttpFailure
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

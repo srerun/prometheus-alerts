@@ -21,7 +21,7 @@ Some Ceph placement groups are too long to activate.
 
 {{% rule "ceph/ceph-internal.yml" "CephPgActivationLong" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CephPgActivationLong
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

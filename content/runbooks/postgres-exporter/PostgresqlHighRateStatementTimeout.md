@@ -21,7 +21,7 @@ Postgres transactions showing high rate of statement timeouts
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlHighRateStatementTimeout" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlHighRateStatementTimeout
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

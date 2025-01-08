@@ -21,7 +21,7 @@ Disk space on backups is below 20%.
 
 {{% rule "clickhouse/clickhouse-internal.yml" "ClickhouseDiskSpaceLowOnBackups" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ClickhouseDiskSpaceLowOnBackups
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

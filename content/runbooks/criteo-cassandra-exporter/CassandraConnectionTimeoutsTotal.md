@@ -21,7 +21,7 @@ Some connection between nodes are ending in timeout
 
 {{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraConnectionTimeoutsTotal" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraConnectionTimeoutsTotal
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

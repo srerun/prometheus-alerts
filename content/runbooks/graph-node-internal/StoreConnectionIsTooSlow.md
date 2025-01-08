@@ -21,7 +21,7 @@ Store connection is too slow to `{{$labels.pool}}` pool, `{{$labels.shard}}` sha
 
 {{% rule "graph-node/graph-node-internal.yml" "StoreConnectionIsTooSlow" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: StoreConnectionIsTooSlow
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Some Pods of DaemonSet {{ $labels.namespace }}/{{ $labels.daemonset }} are runni
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesDaemonsetMisscheduled" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesDaemonsetMisscheduled
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

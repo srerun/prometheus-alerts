@@ -21,7 +21,7 @@ MongoDB Replication set member either perform startup self-checks, or transition
 
 {{% rule "mongodb/dcu-mongodb-exporter.yml" "MongodbReplicationStatus3" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MongodbReplicationStatus3
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

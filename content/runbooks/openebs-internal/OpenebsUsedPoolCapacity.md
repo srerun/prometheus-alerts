@@ -21,7 +21,7 @@ OpenEBS Pool use more than 80% of his capacity
 
 {{% rule "openebs/openebs-internal.yml" "OpenebsUsedPoolCapacity" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: OpenebsUsedPoolCapacity
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Ratio of transactions being aborted compared to committed is > 2 %
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlHighRollbackRate" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlHighRollbackRate
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

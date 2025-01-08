@@ -21,7 +21,7 @@ PostgreSQL instance has too many connections (> 80%).
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlTooManyConnections" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlTooManyConnections
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Kubernetes API server is experiencing high error rate
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesApiServerErrors" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesApiServerErrors
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

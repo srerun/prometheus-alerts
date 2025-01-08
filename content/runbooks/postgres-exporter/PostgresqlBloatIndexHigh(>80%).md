@@ -21,7 +21,7 @@ The index {{ $labels.idxname }} is bloated. You should execute `REINDEX INDEX CO
 
 {{% rule "postgresql/postgres-exporter.yml" "PostgresqlBloatIndexHigh(>80%)" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PostgresqlBloatIndexHigh(>80%)
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Solr collection {{ $labels.collection }} has less than two live nodes for replic
 
 {{% rule "solr/solr-internal.yml" "SolrLowLiveNodeCount" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: SolrLowLiveNodeCount
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

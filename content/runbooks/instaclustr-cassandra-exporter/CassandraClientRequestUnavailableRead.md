@@ -21,7 +21,7 @@ Some Cassandra client requests are unavailable to read - {{ $labels.cassandra_cl
 
 {{% rule "cassandra/instaclustr-cassandra-exporter.yml" "CassandraClientRequestUnavailableRead" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraClientRequestUnavailableRead
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

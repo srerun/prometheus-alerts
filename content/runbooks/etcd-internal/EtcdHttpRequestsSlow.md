@@ -21,7 +21,7 @@ HTTP requests slowing down, 99th percentile is over 0.15s
 
 {{% rule "etcd/etcd-internal.yml" "EtcdHttpRequestsSlow" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: EtcdHttpRequestsSlow
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

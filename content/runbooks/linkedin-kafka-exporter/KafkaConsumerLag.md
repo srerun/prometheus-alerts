@@ -21,7 +21,7 @@ Kafka consumer has a 30 minutes and increasing lag
 
 {{% rule "kafka/linkedin-kafka-exporter.yml" "KafkaConsumerLag" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KafkaConsumerLag
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

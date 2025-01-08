@@ -21,7 +21,7 @@ Netdata high CPU usage (> 80%)
 
 {{% rule "netdata/netdata-internal.yml" "NetdataHighCpuUsage" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NetdataHighCpuUsage
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

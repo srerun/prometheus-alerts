@@ -21,7 +21,7 @@ The total connections of a node is too high
 
 {{% rule "rabbitmq/rabbitmq-exporter.yml" "RabbitmqTooManyConnections" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqTooManyConnections
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

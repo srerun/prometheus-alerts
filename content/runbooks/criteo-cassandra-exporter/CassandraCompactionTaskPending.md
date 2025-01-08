@@ -21,7 +21,7 @@ Many Cassandra compaction tasks are pending. You might need to increase I/O capa
 
 {{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraCompactionTaskPending" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraCompactionTaskPending
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

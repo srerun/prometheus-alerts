@@ -21,7 +21,7 @@ Key cache hit rate is below 85%
 
 {{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraCacheHitRateKeyCache" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraCacheHitRateKeyCache
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

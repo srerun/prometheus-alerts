@@ -21,7 +21,7 @@ Job run failures: ({{$value}}) {{$labels.jenkins_job}}. Healthcheck failure for 
 
 {{% rule "jenkins/metric-plugin.yml" "JenkinsRunFailureTotal" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: JenkinsRunFailureTotal
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

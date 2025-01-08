@@ -21,7 +21,7 @@ Prometheus DeadManSwitch is an always-firing alert. It's used as an end-to-end t
 
 {{% rule "prometheus-self-monitoring/prometheus-self-monitoring-internal.yml" "PrometheusAlertmanagerE2eDeadManSwitch" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PrometheusAlertmanagerE2eDeadManSwitch
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

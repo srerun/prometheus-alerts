@@ -19,9 +19,9 @@ Device temperature critical  (instance {{ $labels.instance }})
 <details>
   <summary>Alert Rule</summary>
 
-{{% rule "s/smartctl-exporter.yml" "SmartDeviceTemperatureCritical" %}}
+{{% rule "smart-device-monitoring/smartctl-exporter.yml" "SmartDeviceTemperatureCritical" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: SmartDeviceTemperatureCritical
@@ -35,11 +35,11 @@ annotations:
         Device temperature critical  (instance {{ $labels.instance }})
           VALUE = {{ $value }}
           LABELS = {{ $labels }}
-    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/s/SmartDeviceTemperatureCritical.md
+    runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/smartctl-exporter/SmartDeviceTemperatureCritical.md
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

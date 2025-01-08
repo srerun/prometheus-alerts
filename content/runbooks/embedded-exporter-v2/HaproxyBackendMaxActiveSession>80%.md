@@ -21,7 +21,7 @@ Session limit from backend {{ $labels.proxy }} to server {{ $labels.server }} re
 
 {{% rule "haproxy/embedded-exporter-v2.yml" "HaproxyBackendMaxActiveSession>80%" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HaproxyBackendMaxActiveSession>80%
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

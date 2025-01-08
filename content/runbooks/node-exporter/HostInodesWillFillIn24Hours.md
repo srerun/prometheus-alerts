@@ -21,7 +21,7 @@ Filesystem is predicted to run out of inodes within the next 24 hours at current
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostInodesWillFillIn24Hours" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostInodesWillFillIn24Hours
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Thanos Sidecar {{$labels.instance}} is unhealthy.
 
 {{% rule "thanos/thanos-sidecar.yml" "ThanosSidecarNoConnectionToStartedPrometheus" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosSidecarNoConnectionToStartedPrometheus
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

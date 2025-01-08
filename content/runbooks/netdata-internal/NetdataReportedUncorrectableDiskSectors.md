@@ -21,7 +21,7 @@ Reported uncorrectable disk sectors
 
 {{% rule "netdata/netdata-internal.yml" "NetdataReportedUncorrectableDiskSectors" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NetdataReportedUncorrectableDiskSectors
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

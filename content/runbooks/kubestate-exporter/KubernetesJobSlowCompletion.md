@@ -21,7 +21,7 @@ Kubernetes Job {{ $labels.namespace }}/{{ $labels.job_name }} did not complete i
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesJobSlowCompletion" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesJobSlowCompletion
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

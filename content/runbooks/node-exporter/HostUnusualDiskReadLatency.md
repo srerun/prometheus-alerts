@@ -21,7 +21,7 @@ Disk latency is growing (read operations > 100ms)
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostUnusualDiskReadLatency" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostUnusualDiskReadLatency
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

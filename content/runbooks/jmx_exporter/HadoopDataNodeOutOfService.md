@@ -21,7 +21,7 @@ The Hadoop DataNode is not sending heartbeats.
 
 {{% rule "hadoop/jmx_exporter.yml" "HadoopDataNodeOutOfService" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HadoopDataNodeOutOfService
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Sidekiq queue {{ $labels.name }} is growing
 
 {{% rule "sidekiq/strech-sidekiq-exporter.yml" "SidekiqQueueSize" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: SidekiqQueueSize
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

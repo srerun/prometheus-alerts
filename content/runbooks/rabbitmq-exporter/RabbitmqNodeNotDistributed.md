@@ -21,7 +21,7 @@ Distribution link state is not 'up'
 
 {{% rule "rabbitmq/rabbitmq-exporter.yml" "RabbitmqNodeNotDistributed" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqNodeNotDistributed
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Observing Readonly Bookies
 
 {{% rule "pulsar/pulsar-internal.yml" "PulsarReadOnlyBookies" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PulsarReadOnlyBookies
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

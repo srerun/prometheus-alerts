@@ -21,7 +21,7 @@ MySQL innodb log writes stalling
 
 {{% rule "mysql/mysqld-exporter.yml" "MysqlInnodbLogWaits" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MysqlInnodbLogWaits
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

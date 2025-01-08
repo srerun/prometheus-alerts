@@ -21,7 +21,7 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 {{% rule "jenkins/metric-plugin.yml" "JenkinsOutdatedPlugins" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: JenkinsOutdatedPlugins
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

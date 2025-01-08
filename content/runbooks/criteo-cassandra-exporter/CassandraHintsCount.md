@@ -21,7 +21,7 @@ Cassandra hints count has changed on {{ $labels.instance }} some nodes may go do
 
 {{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraHintsCount" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraHintsCount
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

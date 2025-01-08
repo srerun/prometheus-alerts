@@ -21,7 +21,7 @@ Physical hardware component too hot
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostPhysicalComponentTooHot" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostPhysicalComponentTooHot
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

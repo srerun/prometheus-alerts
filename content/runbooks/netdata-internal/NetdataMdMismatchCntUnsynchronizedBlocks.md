@@ -21,7 +21,7 @@ RAID Array have unsynchronized blocks
 
 {{% rule "netdata/netdata-internal.yml" "NetdataMdMismatchCntUnsynchronizedBlocks" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NetdataMdMismatchCntUnsynchronizedBlocks
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

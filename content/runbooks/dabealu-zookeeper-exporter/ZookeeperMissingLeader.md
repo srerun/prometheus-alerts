@@ -21,7 +21,7 @@ Zookeeper cluster has no node marked as leader
 
 {{% rule "zookeeper/dabealu-zookeeper-exporter.yml" "ZookeeperMissingLeader" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ZookeeperMissingLeader
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Etcd commit duration increasing, 99th percentile is over 0.25s
 
 {{% rule "etcd/etcd-internal.yml" "EtcdHighCommitDurations" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: EtcdHighCommitDurations
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

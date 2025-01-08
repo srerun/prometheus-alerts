@@ -21,7 +21,7 @@ Read failures have occurred, ensure there are not too many unavailable nodes - {
 
 {{% rule "cassandra/instaclustr-cassandra-exporter.yml" "CassandraClientRequestReadFailure" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraClientRequestReadFailure
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

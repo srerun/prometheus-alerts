@@ -21,7 +21,7 @@ All Traefik backends are down
 
 {{% rule "traefik/embedded-exporter-v1.yml" "TraefikBackendDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: TraefikBackendDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ High sessions usage on {{ $labels.instance }}: {{ $value | printf "%.2f"}}%
 
 {{% rule "freeswitch/znerol-freeswitch-exporter.yml" "FreeswitchSessionsCritical" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: FreeswitchSessionsCritical
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

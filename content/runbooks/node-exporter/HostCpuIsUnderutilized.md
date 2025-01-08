@@ -21,7 +21,7 @@ CPU load is < 20% for 1 week. Consider reducing the number of CPUs.
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostCpuIsUnderutilized" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostCpuIsUnderutilized
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

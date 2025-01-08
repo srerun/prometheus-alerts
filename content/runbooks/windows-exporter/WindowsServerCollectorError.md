@@ -21,7 +21,7 @@ Collector {{ $labels.collector }} was not successful
 
 {{% rule "windows-server/windows-exporter.yml" "WindowsServerCollectorError" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: WindowsServerCollectorError
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

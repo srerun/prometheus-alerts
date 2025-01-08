@@ -21,7 +21,7 @@ Ceph monitor storage is low.
 
 {{% rule "ceph/ceph-internal.yml" "CephMonitorLowSpace" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CephMonitorLowSpace
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

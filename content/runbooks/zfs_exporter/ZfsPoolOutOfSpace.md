@@ -21,7 +21,7 @@ Disk is almost full (< 10% left)
 
 {{% rule "zfs/zfs_exporter.yml" "ZfsPoolOutOfSpace" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ZfsPoolOutOfSpace
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

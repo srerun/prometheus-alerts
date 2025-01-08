@@ -21,7 +21,7 @@ All Traefik services are down
 
 {{% rule "traefik/embedded-exporter-v2.yml" "TraefikServiceDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: TraefikServiceDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

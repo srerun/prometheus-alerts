@@ -21,7 +21,7 @@ Too many connection errors to {{ $labels.fqdn }}/{{ $labels.backend }} backend (
 
 {{% rule "haproxy/embedded-exporter-v2.yml" "HaproxyBackendConnectionErrors" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HaproxyBackendConnectionErrors
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

@@ -21,7 +21,7 @@ Probe failed
 
 {{% rule "blackbox/blackbox-exporter.yml" "BlackboxProbeFailed" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: BlackboxProbeFailed
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

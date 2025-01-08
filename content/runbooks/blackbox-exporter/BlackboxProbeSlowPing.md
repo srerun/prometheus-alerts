@@ -20,7 +20,7 @@ Blackbox ping took more than 1s
 
 {{% rule "blackbox/blackbox-exporter.yml" "BlackboxProbeSlowPing" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: BlackboxProbeSlowPing
@@ -38,7 +38,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

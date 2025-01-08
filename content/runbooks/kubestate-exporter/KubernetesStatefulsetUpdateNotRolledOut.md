@@ -21,7 +21,7 @@ StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} update has not bee
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesStatefulsetUpdateNotRolledOut" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesStatefulsetUpdateNotRolledOut
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

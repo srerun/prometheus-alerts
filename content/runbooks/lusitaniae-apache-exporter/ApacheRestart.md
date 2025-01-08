@@ -21,7 +21,7 @@ Apache has just been restarted.
 
 {{% rule "apache/lusitaniae-apache-exporter.yml" "ApacheRestart" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ApacheRestart
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

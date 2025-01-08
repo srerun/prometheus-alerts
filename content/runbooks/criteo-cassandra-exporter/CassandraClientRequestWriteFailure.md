@@ -21,7 +21,7 @@ A lot of write failures encountered. A write failure is a non-timeout exception 
 
 {{% rule "cassandra/criteo-cassandra-exporter.yml" "CassandraClientRequestWriteFailure" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CassandraClientRequestWriteFailure
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

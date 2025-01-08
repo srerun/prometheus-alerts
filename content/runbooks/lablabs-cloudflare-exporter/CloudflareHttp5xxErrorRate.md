@@ -21,7 +21,7 @@ Cloudflare high HTTP 5xx error rate (> 5% for domain {{ $labels.zone }})
 
 {{% rule "cloudflare/lablabs-cloudflare-exporter.yml" "CloudflareHttp5xxErrorRate" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: CloudflareHttp5xxErrorRate
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

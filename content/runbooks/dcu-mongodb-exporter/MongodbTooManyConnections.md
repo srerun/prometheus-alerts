@@ -21,7 +21,7 @@ Too many connections (> 80%)
 
 {{% rule "mongodb/dcu-mongodb-exporter.yml" "MongodbTooManyConnections" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MongodbTooManyConnections
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

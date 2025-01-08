@@ -21,7 +21,7 @@ Pod {{ $labels.namespace }}/{{ $labels.pod }} is crash looping
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesPodCrashLooping" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesPodCrashLooping
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

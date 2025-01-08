@@ -21,7 +21,7 @@ MySQL has just been restarted, less than one minute ago on {{ $labels.instance }
 
 {{% rule "mysql/mysqld-exporter.yml" "MysqlRestarted" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MysqlRestarted
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

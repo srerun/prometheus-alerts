@@ -21,7 +21,7 @@ Physical node temperature alarm triggered
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostNodeOvertemperatureAlarm" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostNodeOvertemperatureAlarm
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

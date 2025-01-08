@@ -21,7 +21,7 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostFilesystemDeviceError" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostFilesystemDeviceError
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

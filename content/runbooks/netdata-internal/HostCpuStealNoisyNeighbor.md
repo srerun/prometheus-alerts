@@ -21,7 +21,7 @@ CPU steal is > 10%. A noisy neighbor is killing VM performances or a spot instan
 
 {{% rule "netdata/netdata-internal.yml" "HostCpuStealNoisyNeighbor" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostCpuStealNoisyNeighbor
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

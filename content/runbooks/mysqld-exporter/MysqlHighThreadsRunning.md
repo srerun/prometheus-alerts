@@ -21,7 +21,7 @@ More than 60% of MySQL connections are in running state on {{ $labels.instance }
 
 {{% rule "mysql/mysqld-exporter.yml" "MysqlHighThreadsRunning" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: MysqlHighThreadsRunning
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

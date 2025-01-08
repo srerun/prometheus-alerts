@@ -21,7 +21,7 @@ OOM kill detected
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostOomKillDetected" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostOomKillDetected
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

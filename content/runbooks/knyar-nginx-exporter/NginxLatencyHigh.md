@@ -21,7 +21,7 @@ Nginx p99 latency is higher than 3 seconds
 
 {{% rule "nginx/knyar-nginx-exporter.yml" "NginxLatencyHigh" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NginxLatencyHigh
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

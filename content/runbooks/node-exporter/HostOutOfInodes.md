@@ -21,7 +21,7 @@ Disk is almost running out of available inodes (< 10% left)
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostOutOfInodes" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostOutOfInodes
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

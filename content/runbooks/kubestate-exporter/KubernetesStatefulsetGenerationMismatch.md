@@ -21,7 +21,7 @@ StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} has failed but has
 
 {{% rule "kubernetes/kubestate-exporter.yml" "KubernetesStatefulsetGenerationMismatch" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: KubernetesStatefulsetGenerationMismatch
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

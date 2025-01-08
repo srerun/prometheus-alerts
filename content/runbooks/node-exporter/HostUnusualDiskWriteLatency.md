@@ -21,7 +21,7 @@ Disk latency is growing (write operations > 100ms)
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostUnusualDiskWriteLatency" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostUnusualDiskWriteLatency
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

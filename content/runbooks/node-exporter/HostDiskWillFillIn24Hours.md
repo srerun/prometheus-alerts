@@ -20,7 +20,7 @@ Filesystem is predicted to run out of space within the next 24 hours at current 
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostDiskWillFillIn24Hours" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostDiskWillFillIn24Hours
@@ -38,7 +38,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

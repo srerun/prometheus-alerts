@@ -21,7 +21,7 @@ Running different version of RabbitMQ in the same cluster, can lead to failure.
 
 {{% rule "rabbitmq/rabbitmq-exporter.yml" "RabbitmqInstancesDifferentVersions" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: RabbitmqInstancesDifferentVersions
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

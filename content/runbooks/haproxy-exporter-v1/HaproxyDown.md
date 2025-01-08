@@ -21,7 +21,7 @@ HAProxy down
 
 {{% rule "haproxy/haproxy-exporter-v1.yml" "HaproxyDown" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HaproxyDown
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

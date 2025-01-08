@@ -21,7 +21,7 @@ Thanos Replicate is failing to run, {{$value | humanize}}% of attempts failed.
 
 {{% rule "thanos/thanos-bucket-replicate.yml" "ThanosBucketReplicateErrorRate" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosBucketReplicateErrorRate
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

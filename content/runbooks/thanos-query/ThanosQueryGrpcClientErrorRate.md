@@ -21,7 +21,7 @@ Thanos Query {{$labels.job}} is failing to send {{$value | humanize}}% of reques
 
 {{% rule "thanos/thanos-query.yml" "ThanosQueryGrpcClientErrorRate" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: ThanosQueryGrpcClientErrorRate
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

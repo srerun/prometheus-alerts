@@ -21,7 +21,7 @@ PGBouncer pools are filling up
 
 {{% rule "pgbouncer/spreaker-pgbouncer-exporter.yml" "PgbouncerActiveConnections" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: PgbouncerActiveConnections
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

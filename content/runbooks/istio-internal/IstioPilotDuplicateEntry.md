@@ -21,7 +21,7 @@ Istio pilot duplicate entry error.
 
 {{% rule "istio/istio-internal.yml" "IstioPilotDuplicateEntry" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: IstioPilotDuplicateEntry
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

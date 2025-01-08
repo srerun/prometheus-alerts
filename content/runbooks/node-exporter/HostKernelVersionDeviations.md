@@ -21,7 +21,7 @@ Different kernel versions are running
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostKernelVersionDeviations" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostKernelVersionDeviations
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

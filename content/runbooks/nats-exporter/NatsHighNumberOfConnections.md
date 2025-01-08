@@ -21,7 +21,7 @@ NATS server has more than 1000 active connections
 
 {{% rule "nats/nats-exporter.yml" "NatsHighNumberOfConnections" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: NatsHighNumberOfConnections
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

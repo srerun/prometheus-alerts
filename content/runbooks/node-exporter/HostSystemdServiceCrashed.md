@@ -21,7 +21,7 @@ systemd service crashed
 
 {{% rule "host-and-hardware/node-exporter.yml" "HostSystemdServiceCrashed" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: HostSystemdServiceCrashed
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 

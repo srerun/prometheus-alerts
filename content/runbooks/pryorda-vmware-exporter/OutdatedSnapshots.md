@@ -21,7 +21,7 @@ Outdated snapshots on {{ $labels.instance }}: {{ $value | printf "%.0f"}} days
 
 {{% rule "vmware/pryorda-vmware-exporter.yml" "OutdatedSnapshots" %}}
 
-<!-- Rule when generated
+{{% comment %}}
 
 ```yaml
 alert: OutdatedSnapshots
@@ -39,7 +39,7 @@ annotations:
 
 ```
 
--->
+{{% /comment %}}
 
 </details>
 
