@@ -13,6 +13,10 @@ Below is a structured runbook for the alerts defined in the provided Prometheus 
 
 ## Runbook for NATS Alerts
 
+Below is the updated runbook with links to the relevant runbook pages for each alert:
+
+---
+
 ### **1. NatsHighConnectionCount**
 - **Meaning**: The number of NATS connections exceeds 100 for more than 3 minutes.
 - **Impact**: Could indicate resource exhaustion or potential misuse of the system.
@@ -23,6 +27,7 @@ Below is a structured runbook for the alerts defined in the provided Prometheus 
   - Ensure legitimate usage patterns.
   - Increase server capacity or adjust connection limits if required.
   - Investigate and terminate any unauthorized connections.
+- **Runbook Link**: [NatsHighConnectionCount](https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighConnectionCount.md)
 
 ---
 
@@ -35,6 +40,7 @@ Below is a structured runbook for the alerts defined in the provided Prometheus 
 - **Mitigation**:
   - Tune client configurations to optimize publishing and consumption rates.
   - Scale consumers or increase processing capacity.
+- **Runbook Link**: [NatsHighPendingBytes](https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighPendingBytes.md)
 
 ---
 
@@ -47,6 +53,7 @@ Below is a structured runbook for the alerts defined in the provided Prometheus 
 - **Mitigation**:
   - Optimize application subscription logic.
   - Reduce redundant or overlapping subscriptions.
+- **Runbook Link**: [NatsHighSubscriptionsCount](https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighSubscriptionsCount.md)
 
 ---
 
@@ -59,6 +66,7 @@ Below is a structured runbook for the alerts defined in the provided Prometheus 
 - **Mitigation**:
   - Simplify the cluster design by reducing unnecessary routes.
   - Review and correct any misconfigured peer connections.
+- **Runbook Link**: [NatsHighRoutesCount](https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighRoutesCount.md)
 
 ---
 
@@ -71,6 +79,7 @@ Below is a structured runbook for the alerts defined in the provided Prometheus 
 - **Mitigation**:
   - Optimize message size and retention policies.
   - Restart the server if necessary to clear memory leaks.
+- **Runbook Link**: [NatsHighMemoryUsage](https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighMemoryUsage.md)
 
 ---
 
@@ -83,6 +92,7 @@ Below is a structured runbook for the alerts defined in the provided Prometheus 
 - **Mitigation**:
   - Increase consumer processing capacity.
   - Optimize message handling to reduce delays.
+- **Runbook Link**: [NatsSlowConsumers](https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsSlowConsumers.md)
 
 ---
 
