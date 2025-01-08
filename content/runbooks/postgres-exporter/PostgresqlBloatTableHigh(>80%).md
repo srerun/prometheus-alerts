@@ -42,19 +42,35 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule:
 
+## Meaning
+
+This alert rule is triggered when a PostgreSQL table is experiencing high bloat, meaning that the table has grown excessively large and is no longer optimal for querying. This can cause performance issues and slow down queries.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Slow query performance
+* Increased disk usage
+* Potential crashes or timeouts
+* Decreased overall system performance
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Identify the affected table: Check the `relname` label in the alert to determine which table is experiencing bloat.
+2. Check table size: Use the `pg_bloat_table_real_size` metric to see how large the table has grown.
+3. Run `VACUUM` command: Execute the `VACUUM` command on the affected table to remove any dead tuples and reclaim space.
+4. Investigate query patterns: Review query logs to identify if there are any inefficient queries that may be contributing to the bloat.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Run `VACUUM` command: Execute the `VACUUM` command on the affected table to remove any dead tuples and reclaim space.
+2. Reindex the table: Run the `REINDEX` command on the affected table to rebuild the index and improve query performance.
+3. Optimize queries: Review and optimize any inefficient queries that may be contributing to the bloat.
+4. Schedule regular maintenance: Set up regular maintenance tasks to run `VACUUM` and `REINDEX` commands to prevent bloat from occurring in the future.
+
+Remember to monitor the table's size and performance after taking these mitigation steps to ensure the issue is resolved.

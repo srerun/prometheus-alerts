@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `PostgresqlHighRateStatementTimeout`:
 
+## Meaning
+
+The `PostgresqlHighRateStatementTimeout` alert is triggered when the rate of statement timeouts in a PostgreSQL instance exceeds 3 per minute. This alert indicates that there is a high rate of statements timing out in the database, which can lead to performance issues and potentially cause errors or crashes.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert can be significant, as statement timeouts can:
 
+* Cause transactions to fail, leading to data inconsistencies and errors
+* Increase the load on the database, leading to performance degradation
+* Potentially lead to cascading failures and crashes of dependent systems
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the cause of the `PostgresqlHighRateStatementTimeout` alert, follow these steps:
 
+1. **Check the PostgreSQL logs** for errors and warnings related to statement timeouts.
+2. **Analyze the query patterns** to identify which queries are causing the timeouts.
+3. **Check the system resources** (CPU, memory, disk space) to ensure they are not overloaded.
+4. **Verify the database configuration** to ensure that the timeout settings are correctly configured.
+5. **Check for any recent changes** to the database, such as new applications or queries that may be causing the timeouts.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the `PostgresqlHighRateStatementTimeout` alert, follow these steps:
+
+1. **Identify and optimize** the queries causing the timeouts.
+2. **Adjust the timeout settings** to a more reasonable value, if necessary.
+3. **Increase system resources** (CPU, memory, disk space) to handle the load.
+4. **Implement query queuing** to manage the concurrent query load.
+5. **Consider upgrading** the PostgreSQL instance to a more performant version.
+6. **Monitor the database** closely to ensure that the issue is resolved and does not recur.

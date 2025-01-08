@@ -42,19 +42,35 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule "PostgresqlBloatIndexHigh (>80%)" :
 
+## Meaning
+
+The PostgresqlBloatIndexHigh (>80%) alert is triggered when the percentage of bloat in a specific PostgreSQL index is higher than 80%. Index bloat occurs when the index grows excessively large due to continued inserts, updates, and deletes, leading to decreased query performance and increased storage usage.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+A bloated index can significantly impact database performance, leading to:
 
+* Slower query execution times
+* Increased storage usage
+* Decreased overall database responsiveness
+* Potential crashes or downtime due to the index becoming too large to handle
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Identify the affected index using the `idxname` label in the alert.
+2. Check the `pg_bloat_btree_real_size` metric to determine the actual size of the index.
+3. Verify that the bloat percentage is indeed higher than 80%.
+4. Review the database logs to identify any recent changes or anomalies that may have contributed to the bloat.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Execute the `REINDEX INDEX CONCURRENTLY {{ $labels.idxname }};` command to rebuild the affected index. This command will lock the table for a short period, so it's recommended to run it during a maintenance window.
+2. Monitor the `pg_bloat_btree_bloat_pct` metric to ensure the bloat percentage returns to a normal level (less than 80%).
+3. Consider implementing regular maintenance tasks, such as running `VACUUM` and `REINDEX` commands, to prevent index bloat in the future.
+4. Review database configuration and tuning parameters to optimize performance and prevent future bloat issues.

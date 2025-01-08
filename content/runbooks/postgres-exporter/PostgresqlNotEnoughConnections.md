@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the Prometheus alert rule `PostgresqlNotEnoughConnections`:
 
+## Meaning
+
+The `PostgresqlNotEnoughConnections` alert is triggered when the total number of connections to a PostgreSQL instance falls below 5. This alert is raised to prevent potential issues with the database performance and availability.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If this alert is not addressed, it may lead to:
 
+* Degraded database performance
+* Increased latency
+* Errors or failures in applications relying on the database
+* Potential data loss or corruption
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the PostgreSQL instance's connection count using the `pg_stat_activity` metric.
+2. Verify that the instance is not experiencing any other issues, such as high CPU usage or disk space issues.
+3. Review the database configuration and connection settings to ensure they are adequate for the workload.
+4. Investigate recent changes to the database or application configuration that may have caused the connection count to drop.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Increase the maximum number of connections allowed in the PostgreSQL configuration file (e.g., `postgresql.conf`).
+2. Review and optimize database queries to reduce the load on the instance.
+3. Consider load balancing or horizontal scaling to distribute the workload across multiple instances.
+4. Implement connection pooling or other optimization techniques to improve database performance.
+5. Monitor the instance's connection count and adjust as necessary to prevent future occurrences of this alert.

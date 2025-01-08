@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `PostgresqlSslCompressionActive`:
 
+## Meaning
+
+This alert is triggered when SSL compression is active on a PostgreSQL instance. SSL compression can add significant jitter to replication delay, which can impact the performance and reliability of the database.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is high, as it can lead to:
 
+* Increased latency and variability in database replication
+* Decreased performance and throughput of the database
+* Potential data inconsistencies and errors due to delayed replication
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the PostgreSQL instance configuration to confirm that SSL compression is enabled.
+2. Verify that the `sslcompression` parameter is set to a non-zero value in the `recovery.conf` file.
+3. Review database performance metrics to identify any signs of replication delay or inconsistency.
+4. Check the PostgreSQL error logs for any related errors or warnings.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Update the `recovery.conf` file to set `sslcompression=0` to disable SSL compression.
+2. Restart the PostgreSQL instance to apply the configuration change.
+3. Monitor database performance metrics to ensure that replication delay and inconsistency have been resolved.
+4. Verify that the alert has been resolved and the database is operating normally.
+
+Note: It is recommended to test the changes in a non-production environment before applying them to production systems.

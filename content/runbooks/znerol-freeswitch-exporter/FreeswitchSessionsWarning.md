@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the Prometheus alert rule `FreeswitchSessionsWarning`:
 
+## Meaning
+
+The `FreeswitchSessionsWarning` alert is triggered when the percentage of active FreeSWITCH sessions exceeds 80% of the maximum allowed sessions for more than 10 minutes. This indicates that the system is approaching its capacity limit and may start to experience performance issues or dropped calls if the trend continues.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unaddressed, high session usage can lead to:
 
+* Decreased call quality and dropped calls
+* Increased latency and response times
+* Potential system crashes or instability
+* Negative impact on business operations and revenue
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the issue, follow these steps:
 
+1. Check the FreeSWITCH logs for any errors or warnings related to session handling.
+2. Verify that the system has sufficient resources (CPU, memory, and disk space) to handle the current load.
+3. Investigate recent changes or updates to the system or configuration that may have caused the increased session usage.
+4. Review call volume and traffic patterns to identify any unusual or unexpected activity.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Increase the `freeswitch_session_limit` configuration value to allow for more sessions, if possible.
+2. Optimize system resources (e.g., add more CPU or memory) to handle the increased load.
+3. Investigate and address any underlying issues causing excessive session usage (e.g., fix errors in the FreeSWITCH configuration or dialplan).
+4. Consider implementing rate limiting or traffic shaping to prevent sudden spikes in call volume.
+5. If the issue persists, consider scaling the system horizontally (adding more nodes) to distribute the load.

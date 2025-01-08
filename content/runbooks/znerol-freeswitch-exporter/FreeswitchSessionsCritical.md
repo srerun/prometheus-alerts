@@ -43,18 +43,34 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The FreeswitchSessionsCritical alert is triggered when the percentage of active FreeSWITCH sessions exceeds 90% of the total session limit. This indicates that the system is experiencing high usage and may be at risk of exhausting available resources.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unaddressed, high session usage can lead to:
 
+* Degraded system performance
+* Increased latency and response times
+* Potential crashes or failures of the FreeSWITCH server
+* Impact on overall system stability and reliability
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the high session usage, follow these steps:
 
+1. Check the FreeSWITCH server logs for any errors or anomalies
+2. Verify that the session limit is set correctly and adjust if necessary
+3. Investigate any recent changes to the system or configuration that may be contributing to the high usage
+4. Review the FreeSWITCH debug logs to identify any specific issues or bottlenecks
+5. Check the system resource utilization (CPU, memory, etc.) to ensure it is within acceptable limits
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the high session usage, follow these steps:
+
+1. Increase the session limit if possible
+2. Identify and terminate any idle or unnecessary sessions
+3. Optimize system configuration and tuning to improve performance and reduce resource utilization
+4. Implement rate limiting or other traffic control measures to prevent sudden spikes in session usage
+5. Consider load balancing or distributing traffic across multiple FreeSWITCH servers to reduce the load on individual instances

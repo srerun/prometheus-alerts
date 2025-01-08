@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the PostgresqlHighRollbackRate alert rule:
 
+## Meaning
+
+The PostgresqlHighRollbackRate alert rule is triggered when the ratio of rolled back transactions to total transactions (rolled back + committed) in a PostgreSQL database exceeds 2% over a 3-minute window. This indicates that there is a high number of transactions being aborted, which can lead to performance issues, increased latency, and potential data inconsistencies.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+A high rollback rate can have significant impacts on the performance and reliability of your PostgreSQL database:
 
+* Increased latency: Frequent rollbacks can lead to increased latency and slower query performance.
+* Reduced throughput: High rollback rates can reduce the overall throughput of your database, leading to decreased performance and responsiveness.
+* Data inconsistencies: In extreme cases, high rollback rates can lead to data inconsistencies and potential data loss.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the cause of the high rollback rate, follow these steps:
 
+1. Check the PostgreSQL logs for errors and warnings related to transaction rollbacks.
+2. Investigate recent changes to the database schema or configuration that may be contributing to the high rollback rate.
+3. Use the `pg_stat_activity` view to identify long-running transactions or transactions that are frequently being rolled back.
+4. Verify that the database is properly configured for concurrency and that the correct isolation level is being used.
+5. Check for any signs of resource contention or excessive locking.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the high rollback rate, follow these steps:
+
+1. Identify and address any underlying issues causing transactions to be rolled back, such as database configuration issues or schema problems.
+2. Optimize database performance by adjusting configuration settings, such as increasing the `max_connections` or `shared_buffers` settings.
+3. Implement retry logic or exponential backoff in applications to reduce the load on the database and minimize the impact of rollbacks.
+4. Consider implementing connection pooling or load balancing to distribute the load across multiple database instances.
+5. Monitor the database performance and transaction metrics closely to ensure that the high rollback rate is not indicative of a larger issue.

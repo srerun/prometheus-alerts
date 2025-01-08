@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `PostgresqlTableNotAutoAnalyzed`:
 
+## Meaning
+
+The `PostgresqlTableNotAutoAnalyzed` alert is triggered when a PostgreSQL table has not been auto-analyzed for 10 days. Auto-analysis is a process that updates table statistics, which are used by the query planner to optimize query execution. Without up-to-date statistics, the query planner may make suboptimal decisions, leading to poor query performance.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of not auto-analyzing a PostgreSQL table can be significant, leading to:
 
+* Poor query performance
+* Increased CPU usage
+* Increased I/O usage
+* Decreased overall system performance
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Identify the affected table by checking the `relname` label in the alert.
+2. Verify that auto-analysis is enabled for the table by checking the `pg_stat_user_tables` view.
+3. Check the PostgreSQL logs for any errors or warnings related to auto-analysis.
+4. Verify that the PostgreSQL instance has sufficient resources (CPU, memory, I/O) to perform auto-analysis.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Run the `ANALYZE` command on the affected table to update its statistics.
+2. Verify that auto-analysis is enabled for the table and schedule a regular maintenance window to run `ANALYZE` periodically.
+3. Optimize the PostgreSQL instance configuration to ensure sufficient resources for auto-analysis.
+4. Monitor the table's statistics and query performance to ensure that the issue is resolved.
+
+Additionally, consider implementing a regular maintenance schedule to run `ANALYZE` on all tables to prevent this issue from happening in the future.
