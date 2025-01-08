@@ -43,18 +43,86 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
-
+This alert triggers when a PostgreSQL table has not been auto-vacuumed for over 10 days. Auto-vacuum is a maintenance task that helps optimize table performance by reclaiming storage and updating table statistics. A failure to perform auto-vacuum can lead to bloated tables, degraded query performance, and outdated query plans.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
-
-
+1. **Performance Degradation**: Queries involving the affected table may experience slower execution times due to bloated table size and inefficient index usage.
+2. **Increased Storage Usage**: Lack of vacuuming can result in table and index bloat, consuming excessive disk space.
+3. **Stale Query Plans**: Outdated statistics can lead to suboptimal execution plans, further impacting query performance.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
+1. **Identify Affected Table**:
+   - Check the alert annotations to find the specific table name: `{{ $labels.relname }}`.
+   - Identify the instance where the alert originated: `{{ $labels.instance }}`.
 
+2. **Query PostgreSQL Statistics**:
+   - Connect to the PostgreSQL instance.
+   - Run the following query to confirm the last auto-vacuum time:
+     ```sql
+     SELECT relname, last_autovacuum
+     FROM pg_stat_user_tables
+     WHERE relname = '<TABLE_NAME>';
+     ```
+   - Replace `<TABLE_NAME>` with the affected table name.
 
+3. **Check Auto-Vacuum Settings**:
+   - Inspect the `autovacuum_enabled` parameter for the table:
+     ```sql
+     SELECT relname, reloptions
+     FROM pg_class
+     WHERE relname = '<TABLE_NAME>';
+     ```
+   - Confirm global auto-vacuum settings using:
+     ```sql
+     SHOW autovacuum;
+     ```
+
+4. **Inspect Workload and Activity**:
+   - Review recent activity on the table to determine if heavy updates or inserts are causing bloat.
+   - Check if vacuum operations are being blocked by long-running transactions:
+     ```sql
+     SELECT pid, state, query, age(clock_timestamp(), xact_start) AS transaction_age
+     FROM pg_stat_activity
+     WHERE state = 'active';
+     ```
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+1. **Manually Vacuum the Table**:
+   - Run the following command to vacuum the table:
+     ```sql
+     VACUUM ANALYZE <TABLE_NAME>;
+     ```
+   - For larger tables, consider using the `VACUUM FULL` command to reclaim space, but note it requires an exclusive lock.
+
+2. **Adjust Auto-Vacuum Settings**:
+   - Increase the frequency or lower the threshold for auto-vacuum by modifying the table-specific parameters:
+     ```sql
+     ALTER TABLE <TABLE_NAME> SET (autovacuum_vacuum_threshold = 50, autovacuum_vacuum_scale_factor = 0.02);
+     ```
+   - Update global settings in the `postgresql.conf` file or via `ALTER SYSTEM`:
+     ```sql
+     ALTER SYSTEM SET autovacuum_vacuum_cost_limit = 200;
+     ```
+     Reload the configuration:
+     ```bash
+     SELECT pg_reload_conf();
+     ```
+
+3. **Resolve Blocking Issues**:
+   - Identify and terminate blocking transactions, if necessary:
+     ```sql
+     SELECT pg_terminate_backend(<PID>);
+     ```
+     Replace `<PID>` with the process ID of the blocking transaction.
+
+4. **Monitor and Validate**:
+   - Verify the vacuum operation completed successfully by checking `pg_stat_user_tables`.
+   - Confirm the alert has resolved.
+
+5. **Long-Term Remediation**:
+   - Monitor vacuum logs to identify recurring issues.
+   - Adjust workload or table design to reduce bloat and improve vacuum efficiency.
+
+---
+For further details, refer to the [official documentation](https://www.postgresql.org/docs/current/routine-vacuuming.html).
+
