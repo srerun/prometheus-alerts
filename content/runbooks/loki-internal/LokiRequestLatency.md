@@ -42,19 +42,34 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the LokiRequestLatency alert:
 
+## Meaning
+
+The LokiRequestLatency alert is triggered when the 99th percentile request latency for Loki requests exceeds 1 second over a 5-minute window. This alert is critical, indicating a severe performance issue with Loki.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* High latency can cause delays in log processing and querying, leading to poor user experience and delayed insights.
+* This can also lead to increased memory usage and potential crashes in Loki components.
+* Services relying on Loki for logging and monitoring may be impacted, causing cascading failures.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of this issue:
 
+1. Check the Loki instance(s) indicated in the alert label for any signs of high load, GC pauses, or resource contention.
+2. Investigate recent changes to the Loki configuration, deployed applications, or infrastructure that may be contributing to the increased latency.
+3. Review the Loki request logs to identify patterns or anomalies in the requests that may be causing the latency.
+4. Verify that the Loki cluster is properly sized and scaled to handle the current load.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this issue:
+
+1. Immediately investigate and address any underlying resource contention or configuration issues in the Loki instance(s).
+2. Consider scaling up or horizontally scaling the Loki cluster to handle the increased load.
+3. Optimize Loki configuration to improve performance, such as adjusting the ingestion rate, batch size, or query concurrency.
+4. Implement caching or other optimization techniques to reduce the load on Loki.
+5. Roll back recent changes to the Loki configuration or deployed applications if deemed necessary.
+6. Monitor the Loki request latency and adjust the alert threshold accordingly to ensure it is set to a reasonable value for the specific Loki deployment.

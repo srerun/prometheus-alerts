@@ -43,18 +43,34 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The PulsarSubscriptionHighNumberOfBacklogEntries alert is triggered when the number of backlog entries for a Pulsar subscription exceeds 5000. This alert indicates that the subscription is experiencing a high volume of unprocessed messages, which can lead to performance issues, latency, and potential message loss.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert can be significant, as a high number of backlog entries can:
 
+* Cause delays in message processing, affecting the overall performance of the system
+* Lead to increased memory usage, potentially causing node crashes or restarts
+* Result in message loss or duplication, affecting data integrity and consistency
+* Affect the overall reliability and availability of the Pulsar cluster
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the cause of this alert, follow these steps:
 
+1. Check the Pulsar subscription configuration to ensure it is properly configured and scaled to handle the expected message volume.
+2. Verify that the Pulsar broker nodes have sufficient resources (e.g., CPU, memory, and disk space) to handle the backlog.
+3. Investigate if there are any issues with the message producers or consumers that may be contributing to the backlog.
+4. Check the Pulsar metrics to identify any trends or patterns that may indicate the root cause of the issue.
+5. Review the Pulsar subscription logs to identify any errors or exceptions that may be related to the backlog.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this alert, follow these steps:
+
+1. Increase the resources (e.g., CPU, memory, and disk space) of the Pulsar broker nodes to handle the backlog.
+2. Adjust the Pulsar subscription configuration to optimize message processing and reduce the backlog.
+3. Implement message consolidation or deduplication to reduce the volume of messages being processed.
+4. Investigate and resolve any issues with message producers or consumers that may be contributing to the backlog.
+5. Monitor the Pulsar subscription metrics and logs to ensure the backlog is decreasing and the system is returning to a stable state.

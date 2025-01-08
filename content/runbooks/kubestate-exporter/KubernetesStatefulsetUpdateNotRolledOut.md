@@ -43,18 +43,36 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The KubernetesStatefulsetUpdateNotRolledOut alert is triggered when a StatefulSet update has not been rolled out to all replicas within a 10-minute window. This alert indicates that there is an issue with the deployment or scaling of the StatefulSet, which may lead to inconsistent or outdated application behavior.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert can be significant, as it may result in:
 
+* Inconsistent application behavior across replicas
+* Rollback or failure to apply updates, potentially leading to security vulnerabilities or feature gaps
+* Increased latency or errors due to outdated or inconsistent application versions
+* Decreased confidence in the reliability and scalability of the application
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of this alert, follow these steps:
 
+1. Check the StatefulSet's rollout history to identify the update that is not rolling out.
+2. Verify that the update is correctly configured and applied to the StatefulSet.
+3. Check the replica's status and logs to identify any errors or issues that may be preventing the update from rolling out.
+4. Verify that the Kubernetes cluster has sufficient resources (e.g., CPU, memory) to support the update.
+5. Check for any network connectivity issues or firewalls that may be blocking the update.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this alert, follow these steps:
+
+1. Roll back the update to a previous version that was successfully deployed.
+2. Identify and fix any configuration issues or errors in the update.
+3. Verify that the replica's status is updated correctly and the update is successfully applied.
+4. Increase the replicas to ensure that the application is still functional, if necessary.
+5. Monitor the StatefulSet's rollout history and logs to ensure that the update is rolling out correctly.
+
+Remember to refer to the provided runbook link for more detailed steps and best practices for resolving this alert.

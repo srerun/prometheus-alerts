@@ -42,19 +42,31 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the RedisClusterFlapping alert:
 
+## Meaning
+The RedisClusterFlapping alert is triggered when there are frequent changes in the number of connected Redis replicas within a short period of time (1 minute). This indicates that the Replica nodes are constantly losing and re-establishing connection to the Master node, causing instability in the Redis cluster.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
+The flapping of Redis replicas can lead to:
 
-
+* Data inconsistencies: As replicas disconnect and reconnect, they may not always be in sync with the Master node, leading to data inconsistencies.
+* Performance issues: The constant reconnecting and syncing of replicas can cause performance issues, such as increased latency and decreased throughput.
+* Increased load on Master node: The Master node may experience increased load as it tries to keep the replicas in sync, leading to performance degradation.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
+To diagnose the issue, follow these steps:
 
-
+* Check the Redis cluster logs for errors or warnings related to replica connections.
+* Verify that the network connectivity between the Master node and Replica nodes is stable.
+* Check the system resources (CPU, memory, disk space) of the Master node and Replica nodes to ensure they are not overloaded.
+* Review the Redis configuration to ensure that it is correctly set up and that the replica nodes are properly configured.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+To mitigate the issue, follow these steps:
+
+* Investigate and resolve any underlying network issues that may be causing the replicas to lose connection to the Master node.
+* Check and adjust the Redis configuration to ensure that the replica nodes are properly configured and that the Master node is not overloaded.
+* Consider increasing the `redis-connected-slaves` metric threshold to reduce the sensitivity of the alert.
+* Implement measures to reduce the load on the Master node, such as load balancing or sharding.
+* Consider upgrading the Redis version or using a more stable Redis cluster setup.

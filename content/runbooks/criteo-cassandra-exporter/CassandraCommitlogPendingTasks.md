@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `CassandraCommitlogPendingTasks`:
 
+## Meaning
+
+The `CassandraCommitlogPendingTasks` alert is triggered when the number of pending tasks in the Cassandra commit log exceeds 15 for a period of 2 minutes. This indicates that Cassandra is not able to process commit log tasks in a timely manner, which can lead to performance issues and data consistency problems.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unchecked, a high number of pending commit log tasks can cause:
 
+* Slow write performance
+* Increased latency
+* Risk of data loss or inconsistencies
+* Reduced overall system reliability
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of this issue, follow these steps:
 
+1. Check the Cassandra node's system logs for any errors or warnings related to the commit log.
+2. Verify that the Cassandra node has sufficient resources (e.g., CPU, memory, disk space) to process the commit log.
+3. Check the Cassandra cluster's overall health and topology to ensure that there are no issues with node connectivity or data replication.
+4. Review the commit log's growth rate and adjust the commit log allocation accordingly.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, take the following steps:
+
+1. Investigate and address any underlying issues causing the commit log to grow excessively (e.g., high write workload, slow disk I/O).
+2. Increase the commit log allocation to allow for more tasks to be processed concurrently.
+3. Consider increasing the number of Cassandra nodes or upgrading node resources to improve overall system performance.
+4. Monitor the commit log pending tasks metric to ensure the issue is resolved and does not reoccur.
+
+Remember to refer to the Cassandra documentation and relevant tuning guides for more detailed information on commit log configuration and optimization.

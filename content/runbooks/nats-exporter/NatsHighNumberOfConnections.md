@@ -43,18 +43,33 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The NatsHighNumberOfConnections alert is triggered when the number of active connections to a NATS server exceeds 1000. This alert indicates that the NATS server is experiencing a high load, which can lead to performance issues, latency, and even crashes.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Performance degradation: High number of connections can cause the NATS server to slow down, leading to increased latency and decreased throughput.
+* Resource exhaustion: A large number of connections can consume system resources such as memory, CPU, and network bandwidth, leading to resource exhaustion.
+* Increased error rates: High connection counts can lead to increased error rates, including connection timeouts, failures, and message losses.
+* Potential crashes: If left unchecked, a high number of connections can cause the NATS server to crash, leading to service disruptions and downtime.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the high number of connections, follow these steps:
 
+1. Check the NATS server logs for any errors or warnings related to connection handling.
+2. Verify that the NATS server is properly configured to handle a high volume of connections.
+3. Investigate recent changes to the system, such as new applications or services that may be contributing to the increased connection count.
+4. Use Prometheus metrics to analyze the connection pattern and identify any anomalies.
+5. Verify that the NATS server has sufficient system resources (CPU, memory, and network bandwidth) to handle the increased load.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the high number of connections, follow these steps:
+
+1. Increase the NATS server's system resources (CPU, memory, and network bandwidth) to handle the increased load.
+2. Implement connection limits or throttling to prevent excessive connections.
+3. Optimize NATS server configuration to improve performance and reduce latency.
+4. Identify and troubleshoot any application or service that is causing the high connection count.
+5. Consider load balancing or clustering NATS servers to distribute the load and improve overall system resilience.
+6. Monitor the NATS server's performance and connection count regularly to prevent similar issues in the future.

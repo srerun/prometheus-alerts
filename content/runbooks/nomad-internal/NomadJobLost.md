@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule "NomadJobLost":
 
+## Meaning
+
+The NomadJobLost alert is triggered when a Nomad job is lost, meaning it is no longer running or has disappeared from the Nomad cluster. This alert is critical because it can indicate a problem with the job itself, the Nomad cluster, or the underlying infrastructure.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of a lost Nomad job can be significant, depending on the importance of the job and the services it provides. If the job is critical to the operation of the system, its loss can lead to:
 
+* Service disruptions or outages
+* Data loss or corruption
+* Increased latency or errors
+* Security vulnerabilities
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the cause of the lost Nomad job, follow these steps:
 
+1. Check the Nomad job logs for errors or warnings that may indicate the reason for the job's disappearance.
+2. Verify that the Nomad cluster is healthy and all nodes are online.
+3. Check the system logs for any errors or issues that may be related to the job's loss.
+4. Verify that the job's configuration and deployment files are correct and up-to-date.
+5. Check for any recent changes to the Nomad cluster or underlying infrastructure that may have caused the job to fail.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the effects of a lost Nomad job, follow these steps:
+
+1. Identify the root cause of the job's disappearance and address it immediately.
+2. Restart the Nomad job if possible, or redeploy it with the correct configuration.
+3. Verify that the job is running correctly and is healthy.
+4. Implement monitoring and logging to prevent similar issues in the future.
+5. Consider implementing redundancy or failover mechanisms to minimize the impact of job losses.
+
+Remember to update the runbook with specific steps and procedures relevant to your organization's Nomad cluster and infrastructure.

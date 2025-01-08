@@ -42,19 +42,35 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the PrometheusLargeScrape alert:
 
+## Meaning
+
+The PrometheusLargeScrape alert is triggered when Prometheus has many scrapes that exceed the sample limit, indicating that Prometheus is collecting more data than it can handle. This can lead to performance issues, increased memory usage, and inaccurate metrics.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is significant, as it can cause:
 
+* Performance degradation of Prometheus and other dependent systems
+* Increased memory usage, potentially leading to OOM (Out of Memory) errors
+* Inaccurate metrics and incomplete data
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of this alert, perform the following steps:
 
+1. Check the Prometheus logs for errors related to sample limit exceedance
+2. Review the `prometheus_target_scrapes_exceeded_sample_limit_total` metric to identify the specific targets and scrapes that are exceeding the sample limit
+3. Verify that the scrape configuration is correct and not overloading the system
+4. Check for any recent changes to the Prometheus configuration or target configuration that may be contributing to the issue
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this alert, perform the following steps:
+
+1. Increase the sample limit for the affected targets to reduce the number of scrapes that exceed the limit
+2. Optimize the scrape configuration to reduce the number of scrapes and improve efficiency
+3. Implement more efficient metrics collection and storage, such as using summarization or aggregation
+4. Consider increasing the resources (e.g., CPU, memory) allocated to Prometheus to handle the increased load
+5. Review and adjust the alert threshold to prevent false positives or unnecessary notifications

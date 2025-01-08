@@ -43,18 +43,25 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
-
+This alert is triggered when the average count of current pending sectors on a disk is greater than 0, as reported by Netdata. A pending sector is a sector on a hard drive that is marked for replacement because it is likely to fail soon. This alert indicates that there is at least one disk with pending sectors that need attention.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
-
-
+If left unaddressed, pending sectors can lead to data loss or corruption, and potentially even cause the disk to fail altogether. This can result in downtime, data loss, and potentially even affect the performance and reliability of the entire system.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
+To diagnose the issue, follow these steps:
 
-
+1. Identify the disk with pending sectors by checking the `instance` label in the alert.
+2. Check the disk's SMART (Self-Monitoring, Analysis and Reporting Technology) logs to confirm the presence of pending sectors.
+3. Run a disk check and scan for bad blocks to identify the extent of the issue.
+4. Verify that the disk is not already failing or showing signs of physical damage.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+To mitigate the issue, follow these steps:
+
+1. Replace the disk with pending sectors as soon as possible to prevent data loss and corruption.
+2. Run a disk check and scan for bad blocks to identify and repair any affected sectors.
+3. Verify that the disk is properly configured and monitored for SMART errors.
+4. Consider implementing disk redundancy and backup procedures to minimize the impact of disk failure.
+
+Note: The runbook provides further guidance and instructions for resolving this issue. Please refer to the link provided in the alert annotations for more information.

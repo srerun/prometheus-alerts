@@ -43,18 +43,36 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The `KubernetesApiServerErrors` alert is triggered when the rate of errors in the Kubernetes API server exceeds 3% of the total requests over a 1-minute period. This alert is critical and indicates that the API server is experiencing a high error rate, which can impact the overall reliability and performance of the Kubernetes cluster.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert can be significant, as it may indicate:
 
+* Increased latency or timeouts for API requests
+* Failure to deploy or manage resources in the cluster
+* Increased error rates for applications and services running in the cluster
+* Potential data loss or corruption due to failed API requests
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the alert, follow these steps:
 
+1. Check the API server logs for errors and exceptions
+2. Investigate the cụause of the errors (e.g., network issues, configuration problems, etc.)
+3. Verify that the API server is running and healthy
+4. Check the cluster's resource utilization (CPU, memory, disk) to ensure it's not overwhelmed
+5. Review the Kubernetes cluster configuration to ensure it's correctly set up
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the impact of the alert, take the following steps:
+
+1. Investigate and resolve the underlying cause of the errors (e.g., fix network issues, update configurations, etc.)
+2. Restart the API server if necessary
+3. Scale up the API server to handle increased load (if necessary)
+4. Implement retry mechanisms for failed API requests
+5. Monitor the API server performance and adjust resource allocations as needed
+
+Remember to refer to the [runbook](https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesApiServerErrors.md) for more detailed steps and guidelines specific to your environment.

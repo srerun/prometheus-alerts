@@ -42,19 +42,32 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the PrometheusJobMissing alert rule:
 
+## Meaning
+The PrometheusJobMissing alert is triggered when Prometheus is unable to scrape metrics from its own internal job. This alert is critical because Prometheus is responsible for monitoring and alerting on other services, and if it is not functioning correctly, it may prevent detecting issues in other parts of the system.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
+The impact of this alert is that Prometheus will not be able to collect metrics from its own internal job, which may lead to:
 
-
+* Incomplete or missing metrics
+* Delayed or missed alerts for critical issues in the system
+* Increased mean time to detect (MTTD) and mean time to resolve (MTTR) for incidents
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
+To diagnose the issue, follow these steps:
 
-
+* Check the Prometheus server logs for any errors or warnings related to the job
+* Verify that the Prometheus instance is running and healthy
+* Check the Prometheus configuration to ensure that the job is correctly configured
+* Verify that the instance label in the alert matches the expected instance name
+* Check the Prometheus targets page to ensure that the job is not being scraped correctly
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+To mitigate the issue, follow these steps:
+
+* Restart the Prometheus instance to ensure it is running correctly
+* Check the Prometheus configuration and update it if necessary to ensure the job is correctly configured
+* Verify that the instance label in the alert matches the expected instance name
+* Check the Prometheus targets page and update the targets configuration if necessary
+* If the issue persists, escalate to the Prometheus administrator for further assistance

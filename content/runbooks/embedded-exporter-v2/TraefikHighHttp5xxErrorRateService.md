@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `TraefikHighHttp5xxErrorRateService`:
 
+## Meaning
+
+This alert is triggered when the HTTP 5xx error rate for a Traefik service exceeds 5% over a 3-minute period. This indicates that there is a critical issue with the service, causing a high number of internal server errors.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert includes:
 
+* Downtime or degraded performance for users of the affected service
+* Potential loss of data or transactions
+* Increased latency or errors for dependent services
+* Reduced confidence in the overall system's reliability and stability
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the cause of this alert, follow these steps:
 
+1. Check the Traefik logs for errors or exceptions that may be contributing to the high 5xx error rate.
+2. Verify that the service is properly configured and that there are no issues with the underlying infrastructure.
+3. Review the service's metrics to identify any trends or patterns that may be contributing to the error rate.
+4. Check for any recent changes or deployments that may be causing the issue.
+5. Investigate any potential dependencies or upstream services that may be experiencing issues.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Investigate and resolve the underlying cause of the high 5xx error rate.
+2. Implement a rollback or revert to a previous version of the service if recent changes are suspected to be the cause.
+3. Increase the resources or capacity of the service to handle the current load.
+4. Implement temporary workarounds, such as load balancing or circuit breakers, to reduce the impact of the issue.
+5. Notify stakeholders and users of the affected service and provide regular updates on the status of the issue.
+
+Remember to update the alert's annotations and labels as necessary to ensure that the correct teams and stakeholders are notified and informed.

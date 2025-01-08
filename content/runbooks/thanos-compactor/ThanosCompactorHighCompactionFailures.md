@@ -43,18 +43,32 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The ThanosCompactorHighCompactionFailures alert is triggered when the percentage of failed compactions in a Thanos compactor exceeds 5% over a 5-minute period. This alert indicates that the compactor is experiencing issues with executing compactions, which can lead to data inconsistencies and affect the overall performance of the system.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert includes:
 
+* Data inconsistencies: Failed compactions can result in incomplete or corrupted data, leading to inaccuracies in metrics and dashboards.
+* Performance degradation: High compaction failure rates can cause the compactor to slow down, leading to increased latency and decreased system performance.
+* Alert fatigue: Frequent or persistent compaction failures can lead to alert fatigue, causing teams to ignore or overlook critical issues.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the ThanosCompactorHighCompactionFailures alert, follow these steps:
 
+1. Check the Thanos compactor logs for errors or exceptions related to compaction failures.
+2. Verify that the compactor has sufficient resources (e.g., CPU, memory, and disk space) to execute compactions successfully.
+3. Investigate any recent changes to the compactor configuration or deployment that may be contributing to the failures.
+4. Check the status of the underlying storage system to ensure it is healthy and responsive.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the ThanosCompactorHighCompactionFailures alert, follow these steps:
+
+1. Investigate and resolve the underlying cause of the compaction failures, as identified during diagnosis.
+2. Increase the resources allocated to the compactor to ensure it can handle the compaction workload.
+3. Implement retries or fallback mechanisms to handle temporary failures or exceptions during compaction.
+4. Consider scaling out the compactor deployment to distribute the compaction workload and improve system resilience.
+5. Update the alert threshold or notification settings to reduce alert fatigue and ensure that critical issues are addressed promptly.

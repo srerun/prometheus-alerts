@@ -43,18 +43,33 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The KubernetesHpaScaleMaximum alert is triggered when a Horizontal Pod Autoscaler (HPA) has reached its maximum allowed number of replicas, and the minimum and maximum replica counts are not equal. This means that the HPA has scaled up to the maximum allowed number of pods, and further scaling up is not possible.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+When an HPA reaches its maximum scale, it may lead to:
 
+* Increased latency or errors in the application due to insufficient resources
+* Inability to handle increased traffic or demand, potentially leading to downtime or lost revenue
+* Inefficient resource utilization, as the HPA is unable to scale down when not needed
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the HPA configuration: Verify that the `maxReplicas` and `minReplicas` values are correctly set in the HPA configuration.
+2. Check the current pod count: Verify the current number of pods running in the deployment/replicaset.
+3. Check the HPA status: Verify the current status of the HPA, including the `desiredReplicas` value.
+4. Check the deployment/replicaset resource usage: Verify the current resource usage (e.g., CPU, memory) of the deployment/replicaset.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Increase the `maxReplicas` value: If the current `maxReplicas` value is too low, consider increasing it to allow for further scaling.
+2. Check for resource bottlenecks: Identify and address any resource bottlenecks (e.g., insufficient CPU, memory, or storage) that may be preventing the HPA from scaling further.
+3. Optimize deployment/replicaset configuration: Review and optimize the deployment/replicaset configuration to ensure efficient resource utilization.
+4. Consider cluster autoscaling: If the HPA is consistently reaching its maximum scale, consider enabling cluster autoscaling to dynamically adjust the cluster size based on demand.
+
+For more information, refer to the [Kubernetes HPA Scale Maximum Runbook](https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/kubestate-exporter/KubernetesHpaScaleMaximum.md).

@@ -43,18 +43,33 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The ClickhouseAuthenticationFailures alert is triggered when there is an increase in authentication failures to a Clickhouse instance over a 5-minute period. This alert indicates potential security issues or misconfiguration with the Clickhouse authentication mechanism.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Unauthorized access to sensitive data stored in Clickhouse
+* Denial of Service (DoS) to legitimate users due to excessive authentication attempts
+* Performance degradation of the Clickhouse instance
+* Increased risk of security breaches and data compromise
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the authentication failures, follow these steps:
 
+1. Check the Clickhouse logs for error messages related to authentication failures.
+2. Verify the Clickhouse configuration files for any changes or misconfigurations.
+3. Investigate the network traffic to identify any unusual patterns or sources of authentication attempts.
+4. Check the Clickhouse user accounts for any suspicious activity or unauthorized access.
+5. Review the system logs for any signs of security breaches or unauthorized access.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the ClickhouseAuthenticationFailures alert, follow these steps:
+
+1. Immediately investigate and address any security breaches or unauthorized access.
+2. Check and rectify any misconfigurations in the Clickhouse configuration files.
+3. Implement additional security measures such as rate limiting, IP blocking, or multi-factor authentication to prevent brute-force attacks.
+4. Monitor Clickhouse logs and system logs for any signs of suspicious activity.
+5. Consider implementing a Clickhouse alerting mechanism to notify administrators of authentication failures in real-time.
+6. Perform a thorough security audit of the Clickhouse instance and related systems to identify and remediate any vulnerabilities.

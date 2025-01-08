@@ -42,19 +42,40 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the Prometheus alert rule `ThanosRuleNoEvaluationFor10Intervals`:
 
+## Meaning
+
+The `ThanosRuleNoEvaluationFor10Intervals` alert is triggered when a Thanos rule group has not been evaluated for at least 10 times its expected interval. This means that the rule group has not been processed or executed for an extended period, which can lead to inconsistent monitoring data and potential issues with alerting and notification.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert can be significant, as it may lead to:
 
+* Inconsistent monitoring data, which can affect decision-making and incident response.
+* Delayed or missing alerts and notifications, which can impact the timely detection and response to incidents.
+* Inability to troubleshoot issues effectively, leading to prolonged downtime or service degradation.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Thanos ruler logs for any errors or warnings related to rule group evaluation.
+2. Verify that the rule group is correctly configured and enabled.
+3. Check the Prometheus instance for any issues or overload conditions that may be preventing rule group evaluation.
+4. Verify that the `prometheus_rule_group_last_evaluation_timestamp_seconds` and `prometheus_rule_group_interval_seconds` metrics are being correctly scraped and updated.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Investigate and address any underlying issues or errors in the Thanos ruler logs.
+2. Verify that the rule group configuration is correct and up-to-date.
+3. Check for any overload conditions or performance issues in the Prometheus instance and consider scaling or optimizing as needed.
+4. Restart the Thanos ruler service or instance to trigger a re-evaluation of the rule groups.
+5. Monitor the alert for resolution and verify that the rule groups are being evaluated correctly.
+
+Additional resources:
+
+* Thanos ruler documentation: [https://thanos.io/components/rule.md](https://thanos.io/components/rule.md)
+* Prometheus alerting documentation: [https://prometheus.io/docs/alerting/latest/alerts](https://prometheus.io/docs/alerting/latest/alerts)

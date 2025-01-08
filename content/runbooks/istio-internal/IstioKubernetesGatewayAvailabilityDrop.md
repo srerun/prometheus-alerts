@@ -42,19 +42,29 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the IstioKubernetesGatewayAvailabilityDrop alert:
 
+## Meaning
+
+The IstioKubernetesGatewayAvailabilityDrop alert is triggered when the number of available replicas for the Istio ingress gateway deployment in the istio-system namespace falls below 2. This indicates a potential issue with the gateway's availability, which may impact inbound traffic.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Inbound traffic to the cluster may be affected, leading to potential service disruptions or errors.
+* Applications relying on the Istio ingress gateway may experience connectivity issues or timeouts.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
-
+* Check the Istio ingress gateway deployment in the istio-system namespace for any errors or issues.
+* Verify that the replicas are running and available by checking the `kube_deployment_status_replicas_available` metric.
+* Review the Kubernetes pod logs for any errors or issues that may be related to the gateway pods.
+* Check the Istio gateway's configuration and ensure it is correct and up-to-date.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+* Investigate and resolve any issues with the Istio ingress gateway deployment, such as pod crashes or configuration errors.
+* Scale the Istio ingress gateway deployment to ensure at least 2 replicas are running and available.
+* Verify that the gateway's configuration is correct and up-to-date.
+* Consider implementing automating scaling or self-healing mechanisms for the Istio ingress gateway deployment to prevent similar issues in the future.
+
+Note: This is just a sample runbook, and you may need to adapt it to your specific environment and requirements.

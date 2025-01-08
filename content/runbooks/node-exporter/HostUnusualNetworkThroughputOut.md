@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule "HostUnusualNetworkThroughputOut":
 
+## Meaning
+
+The "HostUnusualNetworkThroughputOut" alert is triggered when a host's network interface is transmitting data at an unusually high rate, exceeding 100 MB/s. This could indicate a potential issue with the host or its network configuration.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+A high network throughput can have several consequences, including:
 
+* Network congestion: High network traffic can lead to congestion, causing delays and packet loss.
+* Increased CPU usage: Handling large amounts of network traffic can increase CPU usage, potentially impacting system performance.
+* Security risks: Unusual network activity can be a sign of malicious activity, such as data exfiltration or denial-of-service attacks.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Identify the affected host: Check the `instance` label in the alert to determine which host is experiencing the unusual network throughput.
+2. Check network interface usage: Use tools like `top` or `htop` to monitor network interface usage on the affected host.
+3. Investigate processes using high network bandwidth: Use tools like `netstat` or `ss` to identify processes that are using high amounts of network bandwidth.
+4. Review system logs: Check system logs for any errors or signs of malicious activity.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Investigate and stop any malicious processes: If you identify any malicious processes, stop them immediately.
+2. Optimize system configuration: Review system configuration to ensure it is optimized for network performance.
+3. Implement network traffic filtering: Consider implementing network traffic filtering rules to block or rate-limit suspicious traffic.
+4. Monitor network activity: Continuously monitor network activity to ensure the issue is resolved and to detect any future anomalies.
+
+Remember to update the runbook with specific steps and tools relevant to your environment.

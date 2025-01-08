@@ -42,19 +42,32 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the `MysqlRestarted` alert:
 
+## Meaning
+
+The `MysqlRestarted` alert is triggered when the MySQL uptime is less than 60 seconds, indicating that the MySQL instance has been restarted recently. This alert is informational in nature, and its purpose is to notify the operation team that a MySQL restart has occurred.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+The impact of this alert is moderate, as a MySQL restart can cause temporary disruptions to dependent services and applications. Additionally, a restart may indicate underlying issues with the MySQL instance, such as hardware or software failures, that need to be investigated and addressed to prevent future restarts.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the cause of the MySQL restart, follow these steps:
 
+1. Check the MySQL error logs for any errors or warnings that may have led to the restart.
+2. Verify that the MySQL instance is running and accepting connections.
+3. Check the system logs for any signs of hardware or software failures that may have caused the restart.
+4. Review the MySQL configuration files to ensure that they are correct and up-to-date.
+5. Check the MySQL metrics, such as CPU usage, memory usage, and disk usage, to identify any resource bottlenecks that may have contributed to the restart.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the impact of the MySQL restart, follow these steps:
+
+1. Verify that dependent services and applications are functioning correctly and restart them if necessary.
+2. Investigate and address the underlying cause of the restart to prevent future occurrences.
+3. Perform a thorough review of the MySQL instance to ensure that it is configured correctly and optimized for performance.
+4. Consider implementing monitoring and alerting for MySQL metrics to detect potential issues before they cause a restart.
+5. Develop a plan for regularly scheduled maintenance and upgrades to minimize the likelihood of unplanned restarts.

@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the SidekiqQueueSize alert rule:
 
+## Meaning
+
+The SidekiqQueueSize alert is triggered when the size of a Sidekiq queue exceeds 100 jobs. This alert indicates that the queue is growing and may lead to performance issues or errors in the application.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If this alert is not addressed, it can lead to:
 
+* Delayed or lost jobs in the queue
+* Increased memory usage and potential crashes
+* Slower response times and decreased system performance
+* Potential errors or failures in dependent systems or services
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the growing Sidekiq queue, follow these steps:
 
+1. Check the Sidekiq queue metrics to identify the specific queue(s) experiencing growth.
+2. Investigate recent changes to the application code or configuration that may be causing the queue growth.
+3. Review system logs for errors or exceptions related to Sidekiq or the affected queue.
+4. Check for any stuck or failed jobs in the queue that may be contributing to the growth.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the growing Sidekiq queue, follow these steps:
+
+1. Identify and address the root cause of the queue growth, based on the diagnosis steps above.
+2. Consider increasing the Sidekiq worker count or adjusting the queue settings to process jobs more efficiently.
+3. Implement retries or circuit breakers to handle failed or stuck jobs.
+4. Monitor the queue size and adjust the alert threshold or notification settings as needed.
+
+Remember to follow best practices for Sidekiq queue management and tuning to prevent similar issues in the future.

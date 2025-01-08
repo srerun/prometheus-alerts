@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the HostClockSkew alert:
 
+## Meaning
+
+The HostClockSkew alert is triggered when the clock on a host is out of sync with the expected time. This can cause issues with timing-sensitive applications and log analysis. The alert is raised when the clock skew exceeds 50 milliseconds and is increasing over a 5-minute period.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+A clock skew on a host can have several consequences, including:
 
+* Inaccurate timestamps in log files
+* Issues with timing-sensitive applications, such as scheduling and caching
+* Difficulty correlating logs from multiple hosts
+* Potential security issues, such as invalid certificate validation
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the NTP configuration on the host to ensure it is correctly configured.
+2. Verify that the NTP service is running and functioning correctly.
+3. Check the system logs for any errors related to NTP or clock synchronization.
+4. Use the `ntpq` command to check the NTP server status and clock offset.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Ensure NTP is correctly configured on the host, including setting the correct NTP server and enabling the NTP service.
+2. Restart the NTP service to apply any changes.
+3. Monitor the clock skew to ensure it returns to a normal value.
+4. Consider adjusting the NTP server configuration to use a more reliable or redundant time source.
+
+Remember to investigate and resolve the underlying cause of the clock skew to prevent the issue from recurring.

@@ -43,18 +43,35 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The NetdataPredictedDiskFull alert is triggered when the available disk space is predicted to reach 0 GB within the next 24 hours. This alert is based on the `netdata_disk_space_GB_average` metric, which measures the average available and cached disk space over a 3-hour period. The `predict_linear` function is used to forecast the disk space usage over the next 24 hours, and if the prediction indicates that the disk will be full, the alert is triggered.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If this alert is triggered, it means that the disk is expected to run out of free space within the next 24 hours, which can cause significant disruptions to the system. This can lead to:
 
+* Data loss or corruption
+* System crashes or freezes
+* Inability to write new data or perform critical tasks
+* Downtime and lost productivity
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the issue, follow these steps:
 
+1. Check the disk usage graphs in Netdata to identify the rate of disk space consumption.
+2. Investigate which applications or services are consuming the most disk space.
+3. Check for any unnecessary files or data that can be safely removed.
+4. Verify that the disk is not experiencing any hardware issues or errors.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify and remove any unnecessary files or data that are consuming disk space.
+2. Optimize applications or services to reduce their disk space usage.
+3. Consider expanding the disk capacity or adding additional storage.
+4. Implement disk space monitoring and alerting to detect potential issues earlier.
+5. Develop a plan to regularly clean up and maintain the disk space to prevent future issues.
+
+Note: This runbook is a general guide and may need to be adapted to the specific environment and requirements.

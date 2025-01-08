@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the KubernetesDeploymentReplicasMismatch alert:
 
+## Meaning
+
+The KubernetesDeploymentReplicasMismatch alert is triggered when the number of replicas specified in a Kubernetes Deployment's spec does not match the number of available replicas reported by the Deployment's status. This mismatch can indicate a problem with the Deployment's scalability or availability.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert can vary depending on the specific use case and requirements of the Deployment. Potential consequences include:
 
+* Reduced application availability or performance due to insufficient replicas
+* Increased resource utilization or costs due to excessive replicas
+* Difficulty troubleshooting issues or identifying the root cause of problems
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the KubernetesDeploymentReplicasMismatch alert, follow these steps:
 
+1. Check the Deployment's spec and status to confirm the replica mismatch.
+2. Review the Deployment's events and logs to identify any errors or issues that may be contributing to the mismatch.
+3. Verify that the Deployment's configuration and resources (e.g., CPU, memory) are sufficient to support the desired number of replicas.
+4. Check for any network connectivity or communication issues between the Kubernetes control plane and the Deployment's pods.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the KubernetesDeploymentReplicasMismatch alert, follow these steps:
+
+1. Verify the intended replica count and adjust the Deployment's spec accordingly.
+2. Check and resolve any underlying issues preventing the Deployment from scaling or updating correctly.
+3. Consider implementing additional monitoring and alerting to detect and respond to replica mismatches more quickly.
+4. Review and optimize the Deployment's configuration and resource allocation to ensure efficient use of resources.
+
+Remember to refer to the Kubernetes documentation and your organization's specific guidelines for troubleshooting and resolving Deployment replica mismatches.

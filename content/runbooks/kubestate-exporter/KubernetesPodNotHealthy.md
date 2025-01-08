@@ -43,18 +43,36 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The KubernetesPodNotHealthy alert is triggered when a Kubernetes pod has been in a non-running state (Pending, Unknown, or Failed) for more than 15 minutes. This alert indicates a potential issue with the pod or the underlying cluster resources that is preventing the pod from running successfully.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert can be significant, as it may indicate a failure in the application or service that the pod is providing. This can lead to:
 
+* Downtime or unavailability of the application or service
+* Loss of data or inconsistent data
+* Increased latency or errors
+* Negative impact on user experience or business operations
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the pod's status using `kubectl describe pod <pod_name> -n <namespace>`
+2. Check the pod's logs using `kubectl logs <pod_name> -n <namespace>`
+3. Check the cluster's resource usage and node status using `kubectl top nodes` and `kubectl describe node <node_name>`
+4. Check for any ongoing deployments or rollouts that may be affecting the pod
+5. Check the pod's configuration and deployment YAML files for any errors or inconsistencies
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the pod using `kubectl rollout restart deployment <deployment_name> -n <namespace>`
+2. Check and resolve any underlying issues with the cluster resources or nodes
+3. Verify that the pod's configuration and deployment YAML files are correct and up-to-date
+4. Check for any ongoing deployments or rollouts and pause or cancel them if necessary
+5. If the issue persists, consider escalating to a senior engineer or devops team for further assistance.
+
+Note: The runbook URL provided in the alert annotations points to a more detailed runbook that can be used for further guidance and troubleshooting.

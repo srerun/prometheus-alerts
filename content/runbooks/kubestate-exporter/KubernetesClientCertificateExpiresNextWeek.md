@@ -43,18 +43,35 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The `KubernetesClientCertificateExpiresNextWeek` alert is triggered when a client certificate used to authenticate to the Kubernetes API server is approaching expiration. This alert is warning us that the certificate will expire within the next week, which can lead to authentication issues and potentially disrupt cluster operations.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If this alert is not addressed, the expiring client certificate can cause:
 
+* Authentication errors for clients using the affected certificate
+* Disruption to Kubernetes cluster operations and management
+* Potential security risks if the expired certificate is not properly rotated
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Identify the affected certificate by checking the `apiserver_client_certificate_expiration_seconds_count` metric in Prometheus.
+2. Investigate the `apiserver_client_certificate_expiration_seconds_bucket` metric to determine the exact expiration time of the certificate.
+3. Verify the instance and job labels associated with the alert to identify the specific Kubernetes component or pod affected.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify the responsible team or individual for managing client certificates in the Kubernetes cluster.
+2. Rotate the expiring client certificate by generating a new certificate and updating the corresponding configuration.
+3. Verify that the new certificate is properly configured and deployed to the affected component or pod.
+4. Monitor the `apiserver_client_certificate_expiration_seconds_count` metric to ensure the issue is resolved.
+
+Additional resources:
+
+* Refer to the Kubernetes documentation for guidance on managing client certificates and authentication.
+* Review the runbook for this alert on GitHub for more detailed steps and troubleshooting tips.

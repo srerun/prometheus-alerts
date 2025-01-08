@@ -42,19 +42,32 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the IstioPilotHighTotalRequestRate alert:
 
+## Meaning
+
+The IstioPilotHighTotalRequestRate alert is triggered when the total request rate of Istio Pilot is high, indicating that Envoy sidecars may have outdated configuration. This can lead to performance issues and errors in the service mesh.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* High request rates can cause performance degradation and increased latency in the service mesh.
+* Outdated configuration on Envoy sidecars can lead to errors and inconsistencies in the service mesh.
+* If left unchecked, this issue can cause cascading failures and impact the overall reliability of the system.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
-
+1. Check the Pilot logs for any errors or warnings related to configuration pushes.
+2. Verify the version of Istio and Envoy to ensure they are up-to-date.
+3. Check the number of active Envoy sidecars and their configuration status.
+4. Investigate any recent changes to the service mesh configuration or deployment.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+1. Investigate and resolve any underlying issues causing the high request rate, such as network connectivity problems or misconfigured services.
+2. Verify that the Pilot is properly configured and deployed.
+3. Check for any stuck or failed Envoy sidecars and restart them if necessary.
+4. Consider increasing the Pilot's resource allocation (e.g., CPU, memory) to handle the increased request rate.
+5. Implement measures to prevent similar issues in the future, such as:
+	* Regularly checking the Pilot's performance and configuration.
+	* Implementing monitoring and alerting for Pilot errors and performance issues.
+	* Ensuring that Envoy sidecars are properly configured and up-to-date.

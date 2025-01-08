@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the HadoopHbaseRegionServerHeapLow alert:
 
+## Meaning
+
+The HadoopHbaseRegionServerHeapLow alert is triggered when the heap usage of an HBase Region Server exceeds 80% of the maximum heap size, indicating low available heap space. This alert is critical as it can lead to NodeManager restarts, Region Server failures, and eventual data loss.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If this alert is not addressed promptly, it can have significant consequences on the Hadoop cluster's performance and stability. Some potential impacts include:
 
+* NodeManager restarts, leading to temporary data unavailability
+* Region Server failures, causing write failures and data inconsistencies
+* Data loss due to Region Server crashes or inconsistent states
+* Increased latency and decreased performance of Hadoop applications
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of this alert, follow these steps:
 
+1. Check the HBase Region Server logs for any exceptions or errors related to memory issues.
+2. Verify that the Region Server has sufficient memory allocated and that the maximum heap size is correctly configured.
+3. Investigate if there are any memory-intensive operations or processes running on the NodeManager or Region Server.
+4. Check the overall health and load of the Hadoop cluster, including disk usage, CPU utilization, and network traffic.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this alert, follow these steps:
+
+1. Increase the maximum heap size for the Region Server by adjusting the `hbase.regionserver_java_heapsize` property in the `hbase-site.xml` file.
+2. Restart the affected Region Server to apply the new heap size configuration.
+3. Monitor the heap usage and adjust the heap size as needed to prevent future occurrences of this alert.
+4. Consider implementing garbage collection tuning or heap profiling to optimize memory usage and prevent memory leaks.
+5. Verify that the Hadoop cluster is properly sized and configured to handle the workload, and consider adding more nodes or resources if necessary.

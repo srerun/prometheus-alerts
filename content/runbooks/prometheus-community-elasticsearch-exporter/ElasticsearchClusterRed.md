@@ -42,19 +42,40 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the ElasticsearchClusterRed alert rule:
 
+## Meaning
+
+The ElasticsearchClusterRed alert is triggered when the Elasticsearch cluster health status is reported as "red" by the Elasticsearch exporter. This indicates a critical problem with the Elasticsearch cluster, such as node failures, data loss, or shard allocation issues.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+A red Elasticsearch cluster health status can have severe consequences on the system, including:
 
+* Data loss or inconsistency
+* Search and indexing delays or failures
+* Increased latency and errors
+* Potential data corruption
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Elasticsearch cluster health API to confirm the red status.
+2. Review the Elasticsearch logs for errors or warnings related to cluster health.
+3. Verify that all nodes in the cluster are online and reachable.
+4. Check for any ongoing indexing or search operations that may be causing the issue.
+5. Investigate if there are any pending tasks, such as shard relocations or cluster updates, that may be contributing to the problem.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify and resolve any node failures or connectivity issues.
+2. Check for and address any data inconsistencies or corruption.
+3. Run the Elasticsearch cluster health API to retrieve more detailed information about the cluster status.
+4. Consider restarting the Elasticsearch cluster or individual nodes if necessary.
+5. Implement any necessary configuration changes or patches to prevent similar issues in the future.
+6. Monitor the Elasticsearch cluster health status closely to ensure the issue is resolved and does not recur.
+
+Remember to refer to the Elasticsearch documentation and your organization's specific guidelines for additional troubleshooting and mitigation steps.

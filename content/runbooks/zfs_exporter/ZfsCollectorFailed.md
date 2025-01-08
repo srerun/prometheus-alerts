@@ -42,19 +42,33 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the ZfsCollectorFailed alert rule:
 
+## Meaning
+
+The ZfsCollectorFailed alert is triggered when the ZFS collector fails to collect information from a ZFS instance. This means that Prometheus is unable to scrape metrics from the ZFS exporter, which can lead to incomplete or missing data in monitoring dashboards and potential issues with alerting and automation.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+The impact of this alert is moderate. Without ZFS metrics, monitoring and alerting capabilities may be impaired, leading to potential issues with data integrity, capacity planning, and performance troubleshooting. Additionally, automated workflows that rely on ZFS metrics may be affected, leading to delays or failures in critical system operations.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the ZFS exporter logs for errors or issues that may be preventing the collector from scraping metrics.
+2. Verify that the ZFS exporter is running and configured correctly.
+3. Check the network connectivity between the Prometheus server and the ZFS exporter to ensure that there are no connectivity issues.
+4. Review the Prometheus configuration to ensure that the ZFS collector is correctly configured and enabled.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the ZFS exporter service to attempt to re-establish connectivity with Prometheus.
+2. Check and update the ZFS exporter configuration to ensure that it is correct and up-to-date.
+3. Verify that the Prometheus configuration is correct and up-to-date.
+4. If the issue persists, consider increasing the logging verbosity of the ZFS exporter to diagnose any underlying issues.
+5. If all else fails, consider escalating the issue to a senior administrator or ZFS expert for further assistance.
+
+Remember to always follow proper troubleshooting procedures and to verify changes before making them to ensure that the issue is fully resolved and that no additional issues are introduced.

@@ -42,19 +42,35 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the NetdataHighMemoryUsage alert:
 
+## Meaning
+
+The NetdataHighMemoryUsage alert is triggered when the available memory (free and cached) on a Netdata instance falls below 20% of the total system RAM. This alert indicates that the Netdata instance is experiencing high memory usage, which can lead to performance issues, slow response times, and even crashes.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+High memory usage on a Netdata instance can have significant impacts on the system and its users:
 
+* Slow response times: High memory usage can cause Netdata to respond slowly to requests, leading to delays and frustration for users.
+* Performance issues: Insufficient memory can cause Netdata to fail to process data in a timely manner, leading to errors and inconsistencies.
+* Crashes: In extreme cases, high memory usage can cause Netdata to crash, resulting in data loss and system downtime.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the NetdataHighMemoryUsage alert, follow these steps:
 
+1. Check the Netdata dashboard for signs of high memory usage, such as high RAM usage graphs or error messages.
+2. Review the Netdata logs to identify any errors or warnings related to memory usage.
+3. Check for any resource-intensive processes or plugins running on the Netdata instance that may be contributing to high memory usage.
+4. Verify that the Netdata instance is configured to use the correct amount of memory for its workload.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the NetdataHighMemoryUsage alert, follow these steps:
+
+1. Restart the Netdata service to free up memory and restart any resource-intensive processes.
+2. Identify and terminate any unnecessary or resource-intensive processes or plugins running on the Netdata instance.
+3. Adjust the Netdata configuration to optimize memory usage, such as by reducing the sampling rate or disabling unnecessary plugins.
+4. Consider upgrading the Netdata instance to a more powerful machine with more RAM to handle the workload.
+5. Monitor the Netdata instance closely to ensure that memory usage returns to normal levels and does not continue to increase over time.

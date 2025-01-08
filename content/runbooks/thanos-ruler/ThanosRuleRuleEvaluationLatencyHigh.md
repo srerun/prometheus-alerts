@@ -42,19 +42,34 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `ThanosRuleRuleEvaluationLatencyHigh`:
 
+## Meaning
+
+The `ThanosRuleRuleEvaluationLatencyHigh` alert is triggered when the evaluation latency of a Thanos rule group exceeds its interval. This means that the rule group is taking longer to evaluate than its intended interval, which can lead to delayed alerting and increased latency in the system.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is that Thanos rule evaluations may be delayed, leading to:
 
+* Delayed alerting and notification
+* Increased latency in the system
+* Potential for missed alerts or notifications
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Thanos rule group's configuration and ensure that the interval is set correctly.
+2. Verify that the rule group's evaluation latency is not excessively high by checking the `prometheus_rule_group_last_duration_seconds` metric.
+3. Investigate any recent changes to the rule group's configuration or the underlying system that may have caused the evaluation latency to increase.
+4. Check the system's resource utilization (e.g., CPU, memory) to ensure that it is not overloaded.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Adjust the rule group's interval to a higher value to give the system more time to evaluate the rules.
+2. Optimize the rule group's configuration to reduce the evaluation latency (e.g., simplify rules, reduce the number of rules).
+3. Scale up the underlying system to increase its capacity and reduce the evaluation latency.
+4. Consider implementing a caching mechanism to reduce the load on the system and improve evaluation latency.

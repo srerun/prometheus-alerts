@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the Prometheus alert rule "ZfsOfflinePool":
 
+## Meaning
+
+The ZfsOfflinePool alert is triggered when a ZFS zpool is in an unexpected state, meaning it's not online. This alert is critical because it can indicate a storage system failure, which can lead to data loss or unavailability.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is high, as it can cause:
 
+* Data loss or corruption
+* System downtime or unavailability
+* Performance degradation
+* Potential for cascading failures in dependent systems
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the ZFS zpool status using the `zpool status` command.
+2. Verify the zpool configuration and ensure it's correct.
+3. Check the system logs for any errors or warnings related to ZFS or the zpool.
+4. Run `zpool scrub` to check for any data corruption or inconsistencies.
+5. Review the node exporter metrics to identify any trends or patterns leading up to the alert.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Immediately investigate and resolve any underlying system issues causing the zpool to be offline.
+2. If the zpool is offline due to a faulty disk, replace the disk and resilver the zpool using `zpool replace` and `zpool resilver`.
+3. If the zpool is offline due to a configuration issue, correct the configuration and bring the zpool online using `zpool online`.
+4. Monitor the zpool status and node exporter metrics closely to ensure the issue is resolved and the system is stable.
+5. Consider implementing additional monitoring and alerting for ZFS zpool health to detect potential issues before they become critical.

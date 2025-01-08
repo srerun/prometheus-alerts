@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the CephPgBackfillFull alert:
 
+## Meaning
+
+The CephPgBackfillFull alert is triggered when one or more Ceph placement groups (PGs) are located on a full Object Storage Daemon (OSD) on the cluster. This means that the OSD has reached its maximum capacity, and the PGs on that OSD are at risk of becoming unavailable shortly.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is that some PGs may become unavailable, leading to:
 
+* Reduced performance and availability of the Ceph cluster
+* Potential data loss or corruption
+* Disruption to applications and services that rely on the Ceph cluster
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of this alert, follow these steps:
 
+1. Check the OSD utilization: Verify that the OSD utilization is indeed high and identify the specific OSD(s) that are full.
+2. Check the CRUSH map: Review the CRUSH (Controlled Replication Under Scalable Hashing) map to ensure that it is correctly configured and up-to-date.
+3. Check the PG distribution: Verify that the PGs are evenly distributed across the OSDs and that no single OSD is overloaded.
+4. Check for any OSD issues: Investigate if there are any issues with the OSDs, such as disk failures or network connectivity problems.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this alert, follow these steps:
+
+1. Reduce OSD utilization: Free up space on the full OSD by deleting unnecessary data, migrating data to other OSDs, or adding more OSDs to the cluster.
+2. Reconfigure CRUSH rules: Update the CRUSH map to ensure that it is correctly configured and balanced.
+3. Rebalance PGs: Rebalance the PGs across the OSDs to ensure even distribution and prevent overload on any single OSD.
+4. Monitor OSD utilization: Closely monitor OSD utilization to prevent similar issues in the future.
+
+Note: The above steps are general guidelines and may vary depending on your specific Ceph cluster configuration and deployment.

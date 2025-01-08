@@ -42,19 +42,35 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the PrometheusNotificationsBacklog alert rule:
 
+## Meaning
+
+The PrometheusNotificationsBacklog alert is triggered when the Prometheus notification queue has not been empty for 10 minutes. This means that Prometheus is not able to process notifications (e.g. sending alerts to receivers) in a timely manner, which can lead to delayed or lost notifications.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If the Prometheus notification queue is not processed in a timely manner, it can lead to:
 
+* Delayed or lost notifications, which can result in delayed response to critical issues
+* Increased latency in alerting and incident response
+* Potential overload of the notification queue, leading to further delays or even crashes
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, please follow these steps:
 
+1. Check the Prometheus UI to see if there are any errors or warnings related to notification processing.
+2. Check the Prometheus notification queue length to see how many notifications are pending.
+3. Check the system resources (e.g. CPU, memory) to see if they are overwhelmed.
+4. Check the notification receivers (e.g. Slack, PagerDuty) to see if they are experiencing any issues.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, please follow these steps:
+
+1. Restart the Prometheus server to clear the notification queue.
+2. Check and adjust the notification queue settings to ensure they are adequate for the current load.
+3. Investigate and resolve any issues with the notification receivers.
+4. Consider increasing system resources (e.g. CPU, memory) to ensure they can handle the load.
+5. Monitor the situation closely to ensure the queue is being processed correctly and no further delays occur.

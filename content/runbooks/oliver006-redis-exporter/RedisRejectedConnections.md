@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the RedisRejectedConnections alert:
 
+## Meaning
+
+The RedisRejectedConnections alert indicates that Redis has rejected one or more incoming connections within the last minute. This could be due to various reasons such as Redis reaching its maximum connection limit, network issues, or configuration problems.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unaddressed, rejected connections to Redis can lead to:
 
+* Increased latency and timeouts for applications relying on Redis
+* Data loss or inconsistencies due to failed writes or reads
+* Cascading failures in dependent services or applications
+* Decreased overall system performance and reliability
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Redis server logs for error messages related to connection rejections
+2. Verify the current connection count and maximum allowed connections using the `redis_info` metric
+3. Investigate network connectivity issues between the Redis instance and connecting clients
+4. Review recent changes to Redis configuration or deployment
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. **Temporary Fix**: Increase the maximum allowed connections limit on the Redis instance to accommodate the current connection demand
+2. **Root Cause Analysis**: Identify and address the underlying cause of the connection rejections (e.g., network issues, configuration problems)
+3. **Monitoring and Alerting**: Implement additional monitoring and alerting to detect connection rejections and capacity issues proactively
+4. **Long-term Solution**: Consider scaling Redis instances, distributing load across multiple instances, or optimizing Redis configuration for better performance and reliability.
+
+Remember to update the alert annotations with the root cause and mitigation steps taken to resolve the issue.

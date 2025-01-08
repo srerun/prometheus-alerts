@@ -42,19 +42,34 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule:
 
+## Meaning
+
+The ThanosReceiveHighHashringFileRefreshFailures alert is triggered when the ratio of failed Thanos Receive hashring file refreshes to total refresh attempts exceeds 0 within a 5-minute window. This indicates that Thanos Receive is experiencing issues refreshing its hashring file, which can lead to data inconsistencies and affect the overall reliability of the system.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Data inconsistencies and potential loss due to failed hashring file refreshes
+* Reduced reliability of the system, leading to potential outages or performance degradation
+* Increased latency and errors in downstream systems that rely on Thanos Receive
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Thanos Receive logs for errors related to hashring file refreshes
+2. Verify that the Thanos Receive instance has the necessary permissions and access to the hashring file
+3. Check the network connectivity and latency between Thanos Receive and the hashring file storage
+4. Investigate if there are any recent changes to the Thanos Receive configuration or hashring file format
+5. Review the Thanos Receive metrics to identify any patterns or trends in the failure rates
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the Thanos Receive instance to attempt to recover from the failed hashring file refreshes
+2. Verify that the hashring file is up-to-date and accessible by Thanos Receive
+3. Check and update the Thanos Receive configuration to ensure it is correct and valid
+4. Implement temporary workarounds, such as increasing the hashring file refresh interval or reducing the load on Thanos Receive
+5. Schedule a maintenance window to perform a thorough investigation and resolution of the underlying issue

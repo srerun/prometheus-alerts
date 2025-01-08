@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule "EtcdMemberCommunicationSlow":
 
+## Meaning
+
+The EtcdMemberCommunicationSlow alert is triggered when the 99th percentile of etcd network peer round trip time exceeds 0.15 seconds over a 1-minute period, indicating that etcd member communication is slowing down. This could be a sign of network issues, high latency, or resource constraints affecting etcd performance.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+Slowed etcd member communication can lead to:
 
+* Delayed writes and reads to etcd
+* Increased latency in distributed systems that rely on etcd
+* Potential for data inconsistency or loss
+* Increased risk of etcd cluster instability or split-brain scenarios
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the slow etcd member communication:
 
+1. Check the etcd cluster logs for any errors or warnings related to network communication or resource constraints.
+2. Investigate the network infrastructure and connectivity between etcd members to identify any issues or bottlenecks.
+3. Verify that etcd members have sufficient resources (CPU, memory, disk space) to operate efficiently.
+4. Check for any recent changes to the etcd configuration, network topology, or system updates that may be contributing to the slow communication.
+5. Use tools like `etcdctl` or `curl` to test the communication between etcd members and verify the round-trip time.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the effects of slow etcd member communication:
+
+1. Identify and address any network issues or bottlenecks, such as packet loss, high latency, or congestion.
+2. Optimize etcd configuration to reduce the load on the network, such as increasing the `sync-interval` or `send-queue-size`.
+3. Consider upgrading etcd members to improve performance or adding more resources (e.g., increasing CPU or memory).
+4. Implement retries and timeouts in applications that interact with etcd to improve resilience to slow communication.
+5. Consider implementing etcd clustering features, such as leader election or distributed locks, to reduce the impact of slow communication.
+
+Remember to investigate and address the root cause of the issue to prevent future occurrences of slow etcd member communication.

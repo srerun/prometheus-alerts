@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the HaproxyBackendDown alert:
 
+## Meaning
+
+The HaproxyBackendDown alert is triggered when the HAProxy backend is down, indicating that the backend server is not responding or is unavailable. This alert is critical, as it directly impacts the availability of the application or service being load balanced by HAProxy.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is high, as it affects the availability of the application or service, leading to:
 
+* Downtime or unresponsiveness of the application or service
+* Potential loss of revenue or business impact
+* Negative user experience
+* Increased latency or errors
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the HAProxy dashboard or logs to identify the specific backend server that is down.
+2. Verify the backend server's status using tools like `curl` or `telnet` to check connectivity.
+3. Investigate the backend server's system logs for any errors or issues that may be causing the downtime.
+4. Check the network connectivity between HAProxy and the backend server.
+5. Review the HAProxy configuration to ensure that it is correct and up-to-date.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the backend server or container if it is down.
+2. Check and resolve any network connectivity issues between HAProxy and the backend server.
+3. Verify that the backend server's configuration is correct and up-to-date.
+4. Check for any software or application-level issues on the backend server and resolve them.
+5. If the issue persists, consider adding additional backend servers or increasing the capacity of the existing ones to maintain high availability.
+
+Remember to update the alert annotation with any additional information gathered during the diagnosis and mitigation process.

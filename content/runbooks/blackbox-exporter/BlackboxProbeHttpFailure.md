@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the Prometheus alert rule:
 
+## Meaning
+
+The BlackboxProbeHttpFailure alert is triggered when a blackbox probe (a synthetic HTTP request) fails to receive a successful HTTP response (200-399) from a target instance. This alert indicates that the target instance is not responding as expected, which can impact the overall health and availability of the system.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert can be significant, as it may indicate:
 
+* Loss of visibility into system performance and health
+* Unavailability of critical services or applications
+* Potential data loss or corruption
+* Degraded user experience
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of this alert, follow these steps:
 
+1. Check the blackbox exporter logs for errors or exceptions related to the failing probe.
+2. Verify that the target instance is reachable and responding to HTTP requests.
+3. Check the HTTP response code and body for any errors or clues.
+4. Review system and application logs for any signs of errors or issues.
+5. Check for any network connectivity issues or firewall rules that may be blocking the probe.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this alert, follow these steps:
+
+1. Restart the blackbox exporter service to reset the probe.
+2. Verify that the target instance is running and responding to HTTP requests.
+3. Check for any updates or patches to the blackbox exporter or target instance.
+4. Investigate and resolve any underlying issues causing the probe failure.
+5. Consider increasing the timeout or retries for the probe to make it more resilient to temporary failures.
+
+Remember to update the runbook with specific details and procedures relevant to your environment and systems.

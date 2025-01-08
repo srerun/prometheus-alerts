@@ -42,19 +42,40 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the RabbitmqNoConsumer alert:
 
+## Meaning
+
+The RabbitmqNoConsumer alert is triggered when a RabbitMQ queue has no consumers. This means that messages are not being processed from the queue, which can lead to a backlog of messages and potentially cause issues with application functionality.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert can be significant, as it can cause:
 
+* Message processing delays or failures
+* Increased queue length, potentially leading to performance issues or even node crashes
+* Potential data loss or corruption if messages are not processed correctly
+* Impact on dependent applications or services that rely on the RabbitMQ queue
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. **Check RabbitMQ queue status**: Log in to the RabbitMQ management UI and check the status of the affected queue.
+2. **Verify consumer configuration**: Check the configuration of the consumer application or service to ensure it is correctly configured to consume from the queue.
+3. **Check consumer logs**: Review the consumer application logs to see if there are any error messages related to connecting to the RabbitMQ queue.
+4. **Check RabbitMQ node status**: Verify that the RabbitMQ node is running and healthy.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. **Restart the consumer application**: Restart the consumer application or service to re-establish the connection to the RabbitMQ queue.
+2. **Check and update consumer configuration**: Verify and update the consumer configuration to ensure it is correctly set up to consume from the queue.
+3. **Check RabbitMQ node status**: Verify that the RabbitMQ node is running and healthy, and take corrective action if necessary.
+4. **Monitor queue status**: Closely monitor the queue status to ensure the issue is resolved and the queue is processing messages correctly.
+
+Additional resources:
+
+* [RabbitMQ documentation: Queues and Consumers](https://www.rabbitmq.com/tutorials/amqp-concepts.html)
+* [RabbitMQ exporter documentation: Queues](https://github.com/kbudde/rabbitmq_exporter#queues)

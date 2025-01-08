@@ -43,18 +43,35 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The HostCpuStealNoisyNeighbor alert is triggered when the average CPU steal rate across all instances exceeds 10% over a 5-minute period. This indicates that one or more instances on a host are experiencing high CPU steal, which can negatively impact their performance. CPU steal occurs when a virtual machine (VM) or container is waiting for the hypervisor to allocate CPU resources, resulting in stolen CPU cycles.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of high CPU steal on instances can be significant, leading to:
 
+* Increased latency and response times
+* Decreased throughput and performance
+* Increased risk of timeouts and errors
+* Potential for instance crashes or failures
+* In extreme cases, entire hosts or clusters may become unresponsive or crash
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the HostCpuStealNoisyNeighbor alert, follow these steps:
 
+1. Identify the affected instances: Check the `instance` label in the alert to determine which instances are experiencing high CPU steal.
+2. Investigate the host: Use node_uname_info to identify the host on which the instances are running.
+3. Check for noisy neighbors: Inspect the host's resource utilization to identify if there are any noisy neighbors (e.g., instances consuming excessive resources) that may be contributing to the high CPU steal.
+4. Verify VM or spot instance configuration: Check the configuration of the affected instances to ensure they are not running in a spot instance or have incorrect VM settings that may be causing the high CPU steal.
+5. Review system logs: Analyze system logs to identify any errors or warnings related to CPU steal or resource contention.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the HostCpuStealNoisyNeighbor alert, follow these steps:
+
+1. Identify and terminate noisy neighbors: If a noisy neighbor is identified, terminate the instance to prevent further resource contention.
+2. Adjust instance configuration: Check and adjust the instance configuration to ensure it is not running in a spot instance or has incorrect VM settings that may be causing the high CPU steal.
+3. Implement resource constraints: Apply resource constraints (e.g., CPU limits) to prevent instances from consuming excessive resources.
+4. Consider horizontal scaling: If the host is consistently experiencing high CPU steal, consider scaling out the host or adding more resources to improve performance.
+5. Monitor and re-evaluate: Continuously monitor the affected instances and re-evaluate the alert threshold to ensure it is set appropriately for the environment.

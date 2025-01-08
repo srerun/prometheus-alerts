@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the ThanosQueryInstantLatencyHigh alert:
 
+## Meaning
+
+The ThanosQueryInstantLatencyHigh alert is triggered when the 99th percentile latency of Thanos query instant requests exceeds 40 seconds. This indicates that Thanos query instances are experiencing high latency, which can impact the performance and responsiveness of the system.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+High latency in Thanos query instant requests can have a significant impact on the system:
 
+* Delayed query responses can lead to slow dashboard refreshes, affecting the user experience.
+* Increased latency can cause timeouts, leading to failed queries and errors.
+* High latency can also indicate underlying issues with the Thanos query instances, such as resource constraints or network connectivity problems.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the high latency, follow these steps:
 
+1. Check the Thanos query instance logs for errors or warnings related to query execution.
+2. Investigate the system resources (CPU, memory, disk) of the Thanos query instances to identify if they are experiencing resource constraints.
+3. Verify the network connectivity and latency between the Thanos query instances and the storage backend.
+4. Analyze the query patterns and workload to identify if there are any bottlenecks or hotspots.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the high latency issue, follow these steps:
+
+1. **Scale Thanos query instances**: Increase the number of Thanos query instances to distribute the workload and reduce latency.
+2. **Optimize query patterns**: Optimize query patterns to reduce the load on the Thanos query instances and improve performance.
+3. **Tune system resources**: Adjust system resources (CPU, memory, disk) to ensure that the Thanos query instances have sufficient resources to handle the workload.
+4. **Improve network connectivity**: Improve network connectivity and latency between the Thanos query instances and the storage backend.
+5. **Implement caching**: Implement caching mechanisms to reduce the load on the Thanos query instances and improve performance.
+
+Note: This is just a sample runbook, and you may need to adapt it to your specific use case and environment.

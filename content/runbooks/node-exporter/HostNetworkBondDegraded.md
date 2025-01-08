@@ -42,19 +42,40 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the `HostNetworkBondDegraded` alert:
 
+## Meaning
+
+The `HostNetworkBondDegraded` alert is triggered when the number of active bonding interfaces on a host does not match the number of slave interfaces. This indicates that the network bonding configuration on the host is in a degraded state, which can lead to network connectivity issues or failures.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+A degraded network bond can cause:
 
+* Network connectivity issues
+* Packet loss or corruption
+* Slower network performance
+* Uneven traffic distribution across bonding interfaces
+
+This can impact critical workloads and services running on the host, leading to downtime, data loss, or other business disruptions.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue:
 
+1. Check the bonding configuration on the affected host using commands like `cat /proc/net/bonding/bondX` (where X is the bond interface number).
+2. Verify that the number of active and slave interfaces matches the expected configuration.
+3. Check system logs for any errors or warnings related to bonding or network interfaces.
+4. Use tools like `ip link show` or `ip -d link show` to inspect the bonding interface configuration and status.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue:
+
+1. Review the bonding configuration and adjust it according to the expected setup.
+2. Restart the bonding service or reload the bonding configuration to apply changes.
+3. Verify that the number of active and slave interfaces matches the expected configuration.
+4. Monitor the host's network performance and adjust the bonding configuration as needed to ensure optimal performance and redundancy.
+5. Consider implementing redundancy and failover mechanisms for critical network interfaces to minimize downtime and data loss.
+
+Remember to follow your organization's change management procedures and testing protocols before making any changes to the bonding configuration.

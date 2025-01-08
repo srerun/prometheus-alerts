@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the CassandraStorageExceptions alert rule:
 
+## Meaning
+
+The CassandraStorageExceptions alert is triggered when there are more than one storage exceptions in Cassandra within a 1-minute interval. This indicates that there are issues with Cassandra's storage layer, which can cause data inconsistencies, latency, and other performance problems.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is critical, as storage exceptions can lead to:
 
+* Data loss or corruption
+* Increased latency and decreased performance
+* Unavailability of Cassandra services
+* Cascading failures in dependent systems
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Cassandra logs for errors related to storage exceptions.
+2. Verify the disk usage and available disk space on the Cassandra nodes.
+3. Check for any recent configuration changes or software updates that may have caused the issue.
+4. Use Cassandra's built-in monitoring tools, such as `nodetool` or `cqlsh`, to check the node's health and performance.
+5. Review the Cassandra metrics, such as storage load, read/write latency, and exception rates, to identify the root cause of the issue.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Immediately investigate and address any underlying hardware or software issues causing the storage exceptions.
+2. Check for and apply any pending Cassandra software updates or patches.
+3. Consider increasing the disk space or adjusting the storage configuration to prevent storage exceptions.
+4. Implement or adjust Cassandra's built-in mechanisms, such as hinted handoff or read repair, to minimize the impact of storage exceptions.
+5. Perform a rolling restart of the Cassandra nodes to ensure that all nodes are running with the latest configuration and software updates.
+
+Remember to update this runbook according to your team's specific needs and procedures.

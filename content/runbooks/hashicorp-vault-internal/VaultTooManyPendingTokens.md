@@ -42,19 +42,38 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule "VaultTooManyPendingTokens":
 
+## Meaning
+
+The "VaultTooManyPendingTokens" alert is triggered when the average difference between the number of token creations and token stores in Vault exceeds 0 over a 5-minute period. This indicates that there are too many pending tokens in Vault, which can lead to performance issues and potential security risks.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unaddressed, this issue can cause:
 
+* Performance degradation in Vault and dependent systems
+* Increased latency for token requests
+* Potential security risks due to unauthorized access or token leakage
+* In extreme cases, Vault may become unavailable or crash due to excessive memory usage
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Vault logs for any errors or warnings related to token creation or storage.
+2. Verify that the `vault_token_create_count` and `vault_token_store_count` metrics are correct and up-to-date.
+3. Investigate any recent changes to Vault configurations, plugins, or dependent systems that may be causing the issue.
+4. Check the Vault instance's resource utilization (CPU, memory, disk space) to ensure it has sufficient capacity.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Reduce the load on Vault by identifying and addressing any excessive token requests or misconfigured clients.
+2. Verify that Vault is properly configured for token storage and rotation.
+3. Consider increasing the resources (CPU, memory, disk space) allocated to the Vault instance.
+4. Implement additional monitoring and logging to detect and prevent similar issues in the future.
+5. If necessary, consult the Vault documentation and HashiCorp support resources for further guidance.
+
+Remember to update the `vault_token_create_count` and `vault_token_store_count` metrics to reflect any changes made to Vault configurations or dependent systems.

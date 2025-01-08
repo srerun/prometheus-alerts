@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `ThanosQueryHttpRequestQueryRangeErrorRateHigh` using level 2 headers:
 
+## Meaning
+
+This alert is triggered when the error rate for "query_range" requests to Thanos Query exceeds 5% over a 5-minute period. The error rate is calculated as the ratio of failed requests to total requests, aggregated by job.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+A high error rate for "query_range" requests can indicate a problem with Thanos Query, which may lead to:
 
+* Incomplete or inaccurate query results
+* Increased latency or timeouts for query requests
+* Degraded performance or unavailability of dependent systems
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Thanos Query logs for errors related to "query_range" requests
+2. Verify that the Thanos Query instance is running with the correct configuration and resources (e.g., CPU, memory)
+3. Investigate any recent changes to the Thanos Query configuration, infrastructure, or dependent systems
+4. Check the system metrics (e.g., CPU usage, memory usage, disk usage) to identify any resource bottlenecks
+5. Verify that the network connectivity and firewall rules are allowing traffic to/from the Thanos Query instance
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the Thanos Query instance to reset the query_range request handler
+2. Investigate and resolve any underlying issues identified during diagnosis (e.g., configuration errors, resource bottlenecks)
+3. Implement retry mechanisms or circuits breakers to handle temporary failures in the query_range request handler
+4. Consider scaling up or out the Thanos Query instance to handle increased load or traffic
+5. Monitor the error rate and system metrics closely to ensure the issue is resolved and does not recur.

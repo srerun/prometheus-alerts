@@ -42,19 +42,42 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the RedisTooManyConnections alert rule:
 
+## Meaning
+
+The RedisTooManyConnections alert is triggered when the number of connected clients to Redis exceeds 90% of the maximum allowed connections. This alert indicates that Redis is running out of connections, which can lead to performance issues and potentially even crashes.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert can be significant, as it can cause:
 
+* Slow performance and increased latency for applications relying on Redis
+* Increased risk of Redis crashes or failures
+* Potential data loss or corruption
+* Disruption to dependent services and applications
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the RedisTooManyConnections alert, follow these steps:
 
+1. Check the Redis configuration file to verify that the `maxclients` setting is correctly set.
+2. Investigate the number of connected clients and identify any patterns or spikes in connection usage.
+3. Review the application logs to identify any issues or errors related to Redis connections.
+4. Check the Redis metrics to identify any performance bottlenecks or issues.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the RedisTooManyConnections alert, follow these steps:
+
+1. Increase the `maxclients` setting in the Redis configuration file to allow for more connections.
+2. Optimize application behavior to reduce the number of connections required.
+3. Implement connection pooling or other connection management strategies to reduce the load on Redis.
+4. Consider horizontal scaling or sharding Redis to distribute the load and increase capacity.
+5. Implement monitoring and alerting to detect potential issues before they become critical.
+
+Additional resources:
+
+* Refer to the Redis documentation for configuration and tuning guidelines.
+* Consult with application developers and Redis administrators to identify and address root causes.
+* Review Redis best practices for connection management and performance optimization.

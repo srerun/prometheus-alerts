@@ -42,19 +42,33 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the CassandraFlushWriterBlockedTasks alert:
 
+## Meaning
+The CassandraFlushWriterBlockedTasks alert is triggered when the number of blocked tasks in the MemtableFlushWriter thread pool exceeds 15 for more than 2 minutes. This indicates that Cassandra is experiencing issues with flushing memtables to disk, which can lead to performance degradation, increased memory usage, and potentially even node crashes.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
+The impact of this alert is high, as blocked flush writer tasks can cause:
 
-
+* Increased memory usage, leading to OutOfMemory errors
+* Performance degradation, resulting in slower query responses
+* Node instability, potentially leading to node crashes
+* Data loss, in extreme cases where the node crashes before flushing data to disk
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
+To diagnose the root cause of this issue, perform the following steps:
 
-
+1. Check the Cassandra node's system logs for any errors or exceptions related to disk I/O or memtable flushing.
+2. Verify that the disk has sufficient free space and is not experiencing high latency.
+3. Check the MemtableFlushWriter thread pool metrics to identify the trend and pattern of blocked tasks.
+4. Investigate any recent configuration changes or upgrades to Cassandra or the underlying infrastructure.
+5. Review the Node's metrics to identify any signs of resource starvation (e.g., high CPU usage, low available memory).
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+To mitigate the issue, perform the following steps:
+
+1. Restart the Cassandra node to clear the blocked tasks and allow the flush writer to catch up.
+2. Check and adjust the disk configuration to ensure it can handle the write load.
+3. Adjust the memtableflushwriter_thread_count and/or memtableflushwriter_queue_timeout configuration options to improve flushing performance.
+4. Consider adding more resources (e.g., increasing the node count, increasing the disk capacity) to improve overall system performance.
+5. If the issue persists, consider engaging Cassandra experts or the support team for further assistance.

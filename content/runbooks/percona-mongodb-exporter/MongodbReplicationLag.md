@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the MongodbReplicationLag alert rule:
 
+## Meaning
+
+The MongodbReplicationLag alert is triggered when the replication lag in a MongoDB replica set exceeds 10 seconds. This means that the secondary members of the replica set are not keeping up with the primary member, and data written to the primary is taking too long to be replicated to the secondaries.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unaddressed, this alert can lead to:
 
+* Data inconsistencies between primary and secondary members
+* Increased risk of data loss in the event of a primary failure
+* Decreased performance and availability of the MongoDB cluster
+* Potential for application errors and downtime
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the MongoDB logs for any errors or warnings related to replication
+2. Verify that the replica set is properly configured and all members are up and running
+3. Check the network connectivity and latency between primary and secondary members
+4. Investigate any recent changes to the MongoDB configuration or application workload
+5. Use the `mongodb_rs_members_optimeDate` metric to identify the specific replica set and members experiencing the lag
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify and address any underlying network or infrastructure issues causing the lag
+2. Optimize MongoDB configuration for improved replication performance (e.g. adjusting the `syncTimeout` value)
+3. Increase the resources (e.g. CPU, RAM) of the secondary members to improve their ability to keep up with the primary
+4. Consider adding additional secondary members to the replica set to distribute the load and improve replication performance
+5. Perform a manual replication sync to catch up the secondary members, if necessary
+
+Remember to investigate and address the root cause of the issue to prevent future occurrences of this alert.

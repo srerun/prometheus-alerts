@@ -42,19 +42,32 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the CassandraConnectionTimeoutsTotal alert rule:
 
+## Meaning
+
+The CassandraConnectionTimeoutsTotal alert is triggered when the rate of Cassandra connection timeouts exceeds 5 in a 1-minute period, sustained for 2 minutes. This indicates that some connections between nodes are ending in timeouts, which can impact the performance and reliability of the Cassandra cluster.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Connection timeouts can lead to data inconsistencies and loss of availability
+* Impacts read and write performance, leading to slower response times and errors
+* Can cause cascading failures and affect overall system reliability
+* May indicate underlying issues with network connectivity, Cassandra configuration, or node health
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
-
+* Check Cassandra logs for errors and warnings related to connection timeouts
+* Verify network connectivity between nodes using tools like `ping` and `telnet`
+* Run `nodetool` commands to check node status and connection metrics
+* Review Cassandra configuration files (e.g. `cassandra.yaml`) for any misconfigurations
+* Check system resource utilization (e.g. CPU, memory, disk space) to rule out resource-related issues
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+* Investigate and resolve any network issues or misconfigurations
+* Tune Cassandra configuration settings to optimize connection timeouts and retries
+* Implement connection pooling or load balancing to reduce the load on individual nodes
+* Consider upgrading Cassandra versions or patching known issues related to connection timeouts
+* Restart nodes or restart Cassandra service if necessary to clear out stuck connections
+* Monitor Cassandra metrics closely to detect any recurrences of the issue and take proactive measures to prevent it.

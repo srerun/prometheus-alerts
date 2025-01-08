@@ -42,19 +42,35 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the RabbitmqNodeDown alert rule:
 
+## Meaning
+
+The RabbitmqNodeDown alert is triggered when the number of nodes running in the RabbitMQ cluster falls below 3. This means that one or more nodes in the cluster are not available, which can lead to reduced capacity, increased latency, and potential data loss.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is critical, as it can cause:
 
+* Reduced message processing capacity, leading to increased latency and potential message loss
+* Increased risk of data loss and inconsistencies between nodes
+* Potential business impact due to reduced system availability and reliability
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the RabbitMQ cluster status using the RabbitMQ Management UI or the `rabbitmqctl` command-line tool
+2. Verify the number of nodes running in the cluster and identify which nodes are down
+3. Check the system logs for errors or warnings related to the down nodes
+4. Verify that the RabbitMQ exporter is correctly configured and running
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the down nodes or replace them if they are failed
+2. Verify that the nodes are properly configured and connected to the cluster
+3. Check for any software or hardware issues that may be preventing the nodes from running
+4. Consider adding more nodes to the cluster to increase capacity and redundancy
+5. Verify that the RabbitMQ exporter is correctly configured and running to ensure accurate monitoring and alerting.

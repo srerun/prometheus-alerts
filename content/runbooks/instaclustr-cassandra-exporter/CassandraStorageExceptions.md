@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the CassandraStorageExceptions alert:
 
+## Meaning
+
+The CassandraStorageExceptions alert is triggered when there is an increase in Cassandra storage exceptions over a 1-minute period. This indicates that something is going wrong with Cassandra storage, which can lead to data inconsistency, unavailability, or even complete cluster failure.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert can be severe, as it may cause:
 
+* Data loss or corruption
+* Decreased performance and availability of Cassandra cluster
+* Increased latency and timeouts for applications dependent on Cassandra
+* Potential cascading failures in upstream services
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the CassandraStorageExceptions alert, follow these steps:
 
+1. Check the Cassandra cluster logs for errors related to storage exceptions
+2. Verify that the Cassandra node(s) are running and healthy
+3. Check disk usage and free space on Cassandra nodes
+4. Verify that there are no network connectivity issues between Cassandra nodes
+5. Check for any recent changes to Cassandra configuration or schema
+6. Review Cassandra metrics, such as disk usage, read/write latency, and error rates, to identify any trends or patterns
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the CassandraStorageExceptions alert, follow these steps:
+
+1. Investigate and resolve the root cause of the storage exceptions
+2. Restart the Cassandra node(s) if necessary
+3. Free up disk space on Cassandra nodes if disk usage is high
+4. Adjust Cassandra configuration or schema to prevent storage exceptions
+5. Monitor Cassandra metrics and logs closely to ensure the issue is fully resolved
+6. Consider implementing additional monitoring and alerting for Cassandra storage exceptions to catch issues earlier in the future

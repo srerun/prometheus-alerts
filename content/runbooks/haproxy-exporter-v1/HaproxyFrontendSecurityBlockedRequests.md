@@ -43,18 +43,38 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+This runbook is for the "HaproxyFrontendSecurityBlockedRequests" alert, which is triggered when HAProxy blocks more than 10 requests for security reasons within a 2-minute window. This alert indicates that HAProxy is actively blocking traffic due to security concerns, such as URL filtering or rate limiting.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is that legitimate traffic may be blocked, leading to unforeseen consequences such as:
 
+* Disruption to business-critical services
+* Loss of revenue due to blocked transactions
+* Degraded user experience
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of this alert, follow these steps:
 
+1. Investigate the HAProxy logs to determine the reason for the blocked requests.
+2. Check the HAProxy configuration to ensure that security settings are correctly configured.
+3. Verify that the blocked requests are not due to misconfigured firewall rules or other network security policies.
+4. Analyze the traffic patterns to identify any unusual or suspicious activity.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the impact of this alert, follow these steps:
+
+1. Investigate and resolve the root cause of the blocked requests.
+2. Adjust HAProxy security settings to allow legitimate traffic while maintaining adequate security controls.
+3. Implement additional logging and monitoring to detect and respond to security threats in real-time.
+4. Consider implementing a whitelist or approve-list for trusted sources to minimize false positives.
+
+Additional resources:
+
+* For more information on HAProxy security settings, refer to the HAProxy documentation.
+* For guidance on troubleshooting HAProxy issues, refer to the HAProxy troubleshooting guide.
+
+By following this runbook, you should be able to quickly identify and resolve the underlying cause of the blocked requests, minimizing the impact on your business-critical services.

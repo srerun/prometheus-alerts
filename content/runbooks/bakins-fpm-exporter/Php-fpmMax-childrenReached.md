@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `Php-fpmMax-childrenReached`:
 
+## Meaning
+
+The `Php-fpmMax-childrenReached` alert is triggered when the `phpfpm_max_children_reached_total` metric exceeds 0, indicating that the PHP-FPM process has reached its maximum allowed number of child processes. This metric is typically exposed by the bakins-fpm-exporter and is used to monitor the performance and capacity of the PHP-FPM service.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unaddressed, reaching the maximum number of child processes can lead to:
 
+* Increased latency and response times for web requests
+* Decreased throughput and concurrency
+* Potential crashes or instability of the PHP-FPM service
+* Impact on dependent services and applications that rely on PHP-FPM
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, perform the following steps:
 
+1. Check the PHP-FPM logs for any errors or warnings related to process creation or termination.
+2. Verify that the `phpfpm_max_children` setting is set to a reasonable value and is not too low.
+3. Check the system resource utilization (CPU, memory, disk usage) to ensure that the system is not experiencing high resource contention.
+4. Use the bakins-fpm-exporter metrics to analyze the PHP-FPM process idle time, process count, and request queue size.
+5. Investigate recent changes to the application or system configuration that may have caused an increase in resource utilization.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, perform the following steps:
+
+1. Increase the `phpfpm_max_children` setting to a higher value, taking into account system resource constraints.
+2. Optimize the PHP-FPM configuration to improve process management and resource utilization.
+3. Implement load balancing or clustering to distribute the workload across multiple PHP-FPM instances.
+4. Monitor system resource utilization and adjust resource allocation as needed.
+5. Consider implementing a queuing mechanism or load shedding to handle excess requests during peak periods.
+
+Note: This runbook is a general guide and may require customization based on your specific environment and setup.

@@ -42,19 +42,32 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the PrometheusRuleEvaluationSlow alert:
 
+## Meaning
+The PrometheusRuleEvaluationSlow alert is triggered when the time it takes to evaluate Prometheus rules exceeds the scheduled interval. This can indicate a slower storage backend access or overly complex queries.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
+If left unchecked, slow rule evaluation can lead to:
 
-
+* Delays in alerting and notification delivery
+* Increased load on the Prometheus server
+* Potential loss of Prometheus data due to slow processing
+* Inability to detect issues in a timely manner
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
+To diagnose the issue, follow these steps:
 
-
+1. Check the Prometheus server logs for any errors or slowdowns related to rule evaluation.
+2. Investigate the storage backend performance, such as disk I/O or database query times.
+3. Review the complexity of the rules being evaluated, looking for any unnecessary or inefficient queries.
+4. Check the `prometheus_rule_group_last_duration_seconds` and `prometheus_rule_group_interval_seconds` metrics to understand the scale of the issue.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+To mitigate the issue, follow these steps:
+
+1. Optimize the storage backend configuration for better performance.
+2. Simplify or optimize complex rules to reduce evaluation time.
+3. Increase the `prometheus_rule_group_interval_seconds` to give the server more time to evaluate rules.
+4. Consider scaling up the Prometheus server or distributing the load across multiple servers.
+5. Implement a more efficient storage solution, such as(SSD) or a distributed database.

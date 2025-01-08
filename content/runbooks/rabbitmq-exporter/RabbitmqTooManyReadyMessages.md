@@ -42,19 +42,35 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the Prometheus alert rule `RabbitmqTooManyReadyMessages`:
 
+## Meaning
+
+The `RabbitmqTooManyReadyMessages` alert is triggered when the number of ready messages in a RabbitMQ queue exceeds 1000. This indicates that the queue is experiencing a high volume of messages that are ready to be consumed, but have not been processed yet.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+A high number of ready messages in a RabbitMQ queue can have significant impacts on the performance and reliability of the system. Some potential consequences include:
 
+* Increased memory usage on the RabbitMQ node, leading to potential crashes or slow performance
+* Delays in message processing, causing latency and affecting the overall throughput of the system
+* Increased risk of message loss or corruption, leading to data integrity issues
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the `RabbitmqTooManyReadyMessages` alert, follow these steps:
 
+1. Check the RabbitMQ queue metrics to identify the specific queue experiencing the high volume of ready messages.
+2. Investigate the message production rate and consumption rate to determine if there is an imbalance.
+3. Review the application logs to identify any errors or issues that may be contributing to the buildup of ready messages.
+4. Check the RabbitMQ node resource utilization (e.g., CPU, memory, disk) to ensure it is not experiencing any resource constraints.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the `RabbitmqTooManyReadyMessages` alert, take the following steps:
+
+1. Investigate and resolve any underlying application errors or issues that may be causing the buildup of ready messages.
+2. Adjust the message production rate or add additional consumer nodes to balance the message consumption rate.
+3. Implement message routing or filtering to reduce the volume of messages in the affected queue.
+4. Consider increasing the RabbitMQ node resources (e.g., adding more nodes, increasing memory) to handle the increased message volume.
+5. Monitor the queue metrics closely to ensure the issue is resolved and the queue is returning to a normal state.

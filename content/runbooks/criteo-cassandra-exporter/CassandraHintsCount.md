@@ -42,19 +42,45 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the CassandraHintsCount alert:
 
+## Meaning
+
+The CassandraHintsCount alert is triggered when the number of hints in a Cassandra cluster changes rapidly, indicating potential issues with data consistency and node availability.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unaddressed, this issue can lead to:
 
+* Data inconsistencies across nodes in the Cassandra cluster
+* Node failures or crashes, resulting in downtime and data loss
+* Performance degradation and increased latency for applications relying on Cassandra
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Cassandra cluster's overall health and performance using metrics such as node up/down status, CPU usage, and disk usage.
+2. Investigate the specific node(s) where the hints count changed rapidly using tools like `nodetool` or the Cassandra GUI.
+3. Review the Cassandra logs for any error messages or warnings related to hints or node communication.
+4. Verify that the cluster is properly configured and that there are no network connectivity issues.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify and fix any underlying issues causing nodes to go down or hints to build up, such as:
+	* Network connectivity problems
+	* Disk space issues
+	* High CPU usage
+	* Misconfigured Cassandra settings
+2. Run `nodetool repair` to ensure data consistency across nodes.
+3. Consider increasing the `phi_convict_threshold` value to prevent nodes from being incorrectly marked as down.
+4. Monitor the cluster closely for any further issues and adjust the `cassandra.yaml` configuration as needed to prevent similar issues in the future.
+
+Remember to check the provided links for more information on Cassandra configuration and troubleshooting:
+
+* [Cassandra documentation](https://cassandra.apache.org/doc/latest/)
+* [Cassandra troubleshooting guide](https://docs.datastax.com/en/troubleshooting_guide/doc/troubleshooting_guide/index.html)
+
+By following these steps, you should be able to diagnose and mitigate the issue causing the CassandraHintsCount alert.

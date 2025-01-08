@@ -42,19 +42,38 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the WindowsServerMemoryUsage alert rule:
 
+## Meaning
+
+The WindowsServerMemoryUsage alert indicates that the memory usage on a Windows server has exceeded 90%. This can lead to performance issues, slow response times, and even crashes if left unchecked.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+High memory usage can significantly impact the performance and reliability of the Windows server, leading to:
 
+* Slow application response times
+* Increased CPU usage
+* Reduced system stability
+* Potential crashes or freezes
+* Impaired user experience
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. **Verify the alert**: Check the Prometheus graph to confirm that the memory usage is indeed above 90%.
+2. **Check system logs**: Review system logs to identify any error messages or warnings related to memory issues.
+3. **Investigate running processes**: Use tools like Task Manager or Process Explorer to identify which processes are consuming the most memory.
+4. **Check for memory leaks**: Look for any signs of memory leaks or abnormal memory usage patterns.
+5. **Verify system configuration**: Check the system configuration to ensure that memory settings are adequate for the server's workload.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. **Identify and terminate unnecessary processes**: Terminate any unnecessary processes consuming excessive memory.
+2. **Optimize system configuration**: Adjust system configuration settings to optimize memory usage for the server's workload.
+3. **Implement memory monitoring**: Set up regular memory usage monitoring to detect potential issues before they become critical.
+4. **Consider capacity planning**: Review capacity planning to ensure the server has sufficient resources to handle its workload.
+5. **Apply OS and software updates**: Ensure the operating system and software are up-to-date, as newer versions may include memory-related performance optimizations.

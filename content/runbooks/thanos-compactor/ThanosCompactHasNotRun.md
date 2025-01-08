@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule "ThanosCompactHasNotRun":
 
+## Meaning
+
+The "ThanosCompactHasNotRun" alert is triggered when a Thanos Compact instance has not uploaded data to the object store for more than 24 hours. This indicates that the compaction process is not functioning correctly, which can lead to data inconsistencies and potential data loss.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If this alert is not addressed, it can lead to:
 
+* Data inconsistencies and potential data loss
+* Increased storage usage due to uncompact data
+* Performance degradation of the Thanos system
+* Inability to query or retrieve data from the object store
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Thanos Compact instance logs for errors or exceptions related to the upload process.
+2. Verify that the Thanos Compact instance is running and has not crashed or terminated abnormally.
+3. Check the object store configuration and credentials to ensure they are correct and up-to-date.
+4. Verify that the network connectivity between the Thanos Compact instance and the object store is stable and functional.
+5. Check the system resources (CPU, memory, disk space) to ensure they are not overutilized or exhausted.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the Thanos Compact instance to ensure it is running correctly.
+2. Check and update the object store configuration and credentials as necessary.
+3. Verify that the network connectivity between the Thanos Compact instance and the object store is stable and functional.
+4. Check the system resources (CPU, memory, disk space) and allocate additional resources if necessary.
+5. Manually trigger a compaction upload to the object store to ensure the process is functioning correctly.
+
+Note: If the issue persists after following these steps, it may be necessary to escalate the issue to a senior engineer or expert in Thanos Compact for further assistance.

@@ -42,19 +42,32 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the GrafanaAlloyServiceDown alert:
 
+## Meaning
+
+The GrafanaAlloyServiceDown alert is triggered when the Alloy service on a Grafana instance is not responding or has stopped running. This is detected by the absence of recent `alloy_build_info` metrics from the instance.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+The impact of this alert is that the Alloy service, which is responsible for processing and rendering graphs, is unavailable. This means that users may not be able to access or update their dashboards, and any dependent services may fail or behave erratically.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Grafana instance logs for errors or exceptions related to the Alloy service.
+2. Verify that the Alloy service is running and listening on the expected port.
+3. Check the `alloy_build_info` metrics in Prometheus to see if there are any data gaps or anomalies.
+4. Check the system resources (CPU, memory, disk space) of the Grafana instance to ensure they are within acceptable limits.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the Alloy service on the affected Grafana instance.
+2. Check for any software updates or patches that may be available for the Alloy service or Grafana.
+3. Verify that the system resources (CPU, memory, disk space) of the Grafana instance are within acceptable limits.
+4. Consider increasing the monitoring frequency or setting up additional alerting rules to catch potential issues earlier.
+
+Note: This runbook is just a sample and may need to be adapted to your specific environment and requirements.

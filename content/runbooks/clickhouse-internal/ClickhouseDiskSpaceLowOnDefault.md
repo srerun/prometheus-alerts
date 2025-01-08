@@ -43,18 +43,42 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The ClickhouseDiskSpaceLowOnDefault alert is triggered when the available disk space on the default storage of a ClickHouse node falls below 20%. This indicates that the node is running low on disk space, which can lead to performance issues, data loss, or even database crashes.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is moderate to high, as it can:
 
+* Cause slow query performance or timeouts due to low disk space
+* Lead to data loss or corruption if the disk becomes full
+* Prevent ClickHouse from writing new data, leading to gaps in data collection
+* Potentially cause the ClickHouse node to crash or become unavailable
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose this issue, follow these steps:
 
+1. Check the ClickHouse node's disk usage and available space using the `df -h` command or a equivalent tool.
+2. Verify that the default storage is indeed running low on disk space.
+3. Check the ClickHouse logs for any errors or warnings related to disk space issues.
+4. Identify any potential causes for the low disk space, such as:
+	* High data ingestion rates
+	* Inefficient data compression or storage
+	* Lack of disk space monitoring or maintenance
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this issue, follow these steps:
+
+1. Immediately free up disk space by:
+	* Deleting unnecessary data or files
+	* Compressing or optimizing data storage
+	* Moving data to a different storage location
+2. Implement disk space monitoring and alerting to catch low disk space issues before they become critical.
+3. Increase the disk space available to the ClickHouse node by:
+	* Adding more disk space to the node
+	* Migrating to a larger storage instance
+	* Implementing a more efficient data storage strategy
+4. Review and adjust data ingestion rates and compression settings to prevent future disk space issues.
+5. Consider implementing automated disk space maintenance tasks, such as regular cleanups or data pruning.

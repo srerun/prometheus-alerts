@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the MysqlDown alert:
 
+## Meaning
+
+The MysqlDown alert is triggered when the Prometheus `mysql_up` metric returns a value of 0, indicating that the MySQL instance is not responding or is down. This alert has a severity of critical, indicating that immediate attention is required to prevent data loss or application downtime.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of a MySQL instance being down can be severe, including:
 
+* Loss of access to critical data and systems
+* Disruption to business operations and revenue
+* Inability to perform critical tasks or transactions
+* Potential for data corruption or loss
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, perform the following steps:
 
+1. Check the MySQL instance logs for errors or issues that may be causing the downstate.
+2. Verify that the MySQL instance is not overloaded or experiencing high CPU or memory usage.
+3. Check the disk space and verify that it is not full or corrupted.
+4. Verify that the network connectivity to the MySQL instance is stable and not experiencing issues.
+5. Check the Prometheus and MySQL exporter logs for any errors or issues that may be causing the alert.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, perform the following steps:
+
+1. Restart the MySQL instance to attempt to restore service.
+2. Verify that the MySQL instance is properly configured and running with the correct permissions and settings.
+3. Check and resolve any underlying issues causing the downstate, such as disk space or network connectivity issues.
+4. Monitor the MySQL instance for a period of time to ensure that it remains stable and responsive.
+5. If the issue persists, consider escalating to a senior engineer or DBA for further assistance.

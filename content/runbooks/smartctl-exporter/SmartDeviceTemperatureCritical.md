@@ -43,18 +43,40 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The SmartDeviceTemperatureCritical alert is triggered when the temperature of a smart device, as reported by the `smartctl` exporter, exceeds 80 degrees Celsius. This indicates a critical temperature threshold has been breached, which can potentially lead to device failure, data loss, or even physical damage.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert includes:
 
+* Potential device failure or shutdown, leading to data unavailability and system downtime
+* Increased risk of data loss or corruption due to overheating
+* Possible physical damage to the device or surrounding components
+* Decreased reliability and lifespan of the device
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the device's temperature reading using the `smartctl` exporter
+2. Verify that the temperature reading is accurate and not a sensor error
+3. Investigate possible causes of the high temperature, such as:
+	* High ambient temperature
+	* Poor cooling or ventilation
+	* Overloaded or malfunctioning device
+	* Faulty temperature sensor
+4. Review system logs for any related errors or warnings
+5. Consult device documentation and manufacturer guidelines for recommended operating temperatures
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, take the following steps:
+
+1. Immediately shutdown the device to prevent further damage
+2. Verify that the device is properly cooled and ventilated
+3. Check for any blockages or obstructions in the device's airflow
+4. Consider relocating the device to a cooler environment
+5. Monitor the device's temperature closely and take corrective action if it continues to rise
+6. Consider replacing the device if it is faulty or malfunctioning
+7. Review and update device configuration and settings to prevent similar issues in the future

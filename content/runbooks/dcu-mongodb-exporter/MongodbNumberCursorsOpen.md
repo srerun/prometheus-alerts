@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the Prometheus alert rule "MongodbNumberCursorsOpen":
 
+## Meaning
+
+This alert is triggered when the number of open cursors in a MongoDB instance exceeds 10,000. A cursor is a control structure that enables traversal over the records in a database. When a cursor is open, it holds a reference to the data and consumes system resources. A high number of open cursors can lead to performance degradation, increased memory usage, and even crashes.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unchecked, a high number of open cursors can cause:
 
+* Performance degradation: MongoDB will spend more time and resources managing the cursors, leading to slower query execution and increased latency.
+* Increased memory usage: Each open cursor consumes memory, which can lead to memory exhaustion and crashes.
+* Stability issues: In extreme cases, an excessive number of open cursors can cause MongoDB to crash or become unresponsive.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the MongoDB logs for any errors or warnings related to cursors.
+2. Use the MongoDB shell or a GUI tool to inspect the current cursor statistics.
+3. Identify the applications or users that are opening an excessive number of cursors.
+4. Verify that the MongoDB instance has sufficient resources (CPU, memory, and disk space) to handle the workload.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify and optimize the applications or users that are opening an excessive number of cursors.
+2. Implement cursor timeouts or limits to prevent applications from holding onto cursors for too long.
+3. Increase the MongoDB instance's resources (CPU, memory, and disk space) to handle the workload.
+4. Consider implementing connection pooling or other optimization techniques to reduce the number of open cursors.
+5. Monitor the MongoDB instance's performance and adjust the configuration as needed to prevent similar issues in the future.
+
+Remember to investigate and address the root cause of the issue to prevent it from happening again in the future.

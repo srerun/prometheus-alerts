@@ -42,19 +42,35 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the HaproxyBackendConnectionErrors alert:
 
+## Meaning
+
+This alert is triggered when the rate of HAProxy backend connection errors exceeds 100 errors per second for a given backend proxy. This indicates that there are issues with the backend server(s) or the network connectivity, leading to failed connections.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Request throughput may be impacted, resulting in slow or failed responses to users.
+* Increased errors can lead to increased latency and decreased overall system performance.
+* In extreme cases, this can cause a cascading failure of dependent systems or services.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the issue:
 
+1. Check the HAProxy logs for errors related to the specific backend proxy.
+2. Verify the health and connectivity of the backend servers.
+3. Check network connectivity and routing between HAProxy and the backend servers.
+4. Review recent changes to the HAProxy configuration or backend server deployments.
+5. Utilize tools like `haproxy -s` or `haproxyctl` to inspect the current HAProxy configuration and statistics.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue:
+
+1. **Immediately**: Investigate and address any issues with the backend servers, such as high CPU usage, memory issues, or disk space constraints.
+2. **Short-term**: Adjust the HAProxy configuration to reduce the load on the backend servers, such as by increasing the timeout or reducing the number of connections.
+3. **Long-term**: Consider scaling out the backend servers or implementing additional load balancing strategies to handle increased traffic demands.
+4. **Monitoring**: Closely monitor the HAProxy backend connection errors and adjust thresholds or alerting mechanisms as needed to ensure timely detection of future issues.
+
+Remember to update the alert annotation with the root cause and mitigation steps taken to resolve the issue.

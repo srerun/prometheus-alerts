@@ -42,19 +42,40 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the Prometheus alert rule `SmartDeviceTemperatureWarning`:
 
+## Meaning
+
+The `SmartDeviceTemperatureWarning` alert is triggered when the temperature of a smart device exceeds 60 degrees Celsius. This alert is raised to warn of a potential overheating issue that could lead to device failure or data loss.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unchecked, an overheating smart device can lead to:
 
+* Device failure or shutdown, resulting in data loss or unavailability
+* Permanent damage to the device, requiring costly repairs or replacement
+* Compromised data integrity or security
+* Disruption to critical business operations or services
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the device's temperature reading in Prometheus using the `smartctl_device_temperature` metric.
+2. Verify that the device is not in a high-temperature environment or experiencing unusual workload patterns.
+3. Review device logs for any error messages or warnings related to temperature or overheating.
+4. Check the device's cooling system or fan functionality to ensure proper operation.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Immediately shutdown the device to prevent further overheating and potential damage.
+2. Investigate and address any underlying causes of the overheating issue, such as:
+	* High ambient temperature
+	* Inadequate cooling or airflow
+	* Overworked or malfunctioning device components
+3. Consider relocating the device to a cooler environment or providing additional cooling mechanisms.
+4. Monitor the device's temperature closely and implement preventative measures to avoid future overheating issues.
+
+Note: This runbook is a sample and may require modification to fit your specific use case or environment.

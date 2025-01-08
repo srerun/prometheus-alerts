@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the CephPgUnavailable alert:
 
+## Meaning
+
+The CephPgUnavailable alert indicates that one or more Ceph placement groups (PGs) are currently unavailable. This is a critical alert as it can lead to data unavailability and potential data loss.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is high, as it affects the availability of data stored in Ceph. If left unresolved, this issue can lead to:
 
+* Data unavailability
+* Data loss
+* Downtime for critical systems and applications
+* Revenue loss due to system unavailability
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of this issue, follow these steps:
 
+1. Check the Ceph cluster status using `ceph -s` or `ceph status` command.
+2. Verify the PG status using `ceph pg dump` command.
+3. Check the Ceph logs for any errors or warnings related to PG unavailability.
+4. Identify the specific PGs that are unavailable using `ceph pg ls` command.
+5. Verify the health of the Ceph nodes and OSDs using `ceph osd ls` and `ceph osd df` commands.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this issue, follow these steps:
+
+1. Identify the root cause of the PG unavailability (e.g. node failure, network issues, disk errors).
+2. Resolve the underlying issue (e.g. replace failed node, fix network issues, repair disk errors).
+3. Run `ceph pg repair` command to repair the affected PGs.
+4. Verify the PG status using `ceph pg dump` command to ensure that all PGs are now available.
+5. Monitor the Ceph cluster status and PG status to ensure that the issue is resolved and does not reoccur.
+
+Remember to also update the alert status in Prometheus to reflect the resolution of the issue.

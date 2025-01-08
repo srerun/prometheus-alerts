@@ -42,19 +42,40 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the RabbitmqClusterDown alert rule:
 
+## Meaning
+
+The RabbitmqClusterDown alert is triggered when less than 3 nodes are running in the RabbitMQ cluster, indicating that the cluster is down or not fully functional. This alert is critical as it can cause disruptions to message processing and potentially lead to data loss or inconsistencies.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of a RabbitMQ cluster being down can be significant, leading to:
 
+* Message loss or delay
+* Inconsistent data state
+* Disruptions to dependent applications and services
+* Potential data corruption or inconsistencies
+* Increased latency or timeouts
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the RabbitMQ cluster being down, follow these steps:
 
+1. Check the RabbitMQ node status: Verify the status of each node in the cluster to identify which nodes are not running.
+2. Review system logs: Analyze system logs to identify any errors or issues that may be causing nodes to fail or not start.
+3. Check network connectivity: Verify that network connectivity between nodes is stable and healthy.
+4. Verify configuration: Check the RabbitMQ configuration to ensure it is correct and consistent across all nodes.
+5. Run RabbitMQ diagnostics: Run RabbitMQ built-in diagnostics to identify any issues with the cluster.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the RabbitMQ cluster being down, follow these steps:
+
+1. Restart failed nodes: Attempt to restart any failed nodes to bring them back online.
+2. Investigate and resolve root cause: Identify and resolve the root cause of the node failure to prevent recurrence.
+3. Check disk space and resources: Verify that nodes have sufficient disk space and resources to operate correctly.
+4. Implement automated restarts: Configure automated restarts for RabbitMQ nodes to minimize downtime.
+5. Consider failover scenarios: Evaluate failover scenarios to ensure that the cluster can recover from node failures.
+
+Remember to update the runbook with specific instructions and procedures relevant to your environment and team.

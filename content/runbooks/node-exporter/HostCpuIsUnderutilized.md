@@ -42,19 +42,35 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the `HostCpuIsUnderutilized` alert:
 
+## Meaning
+
+The `HostCpuIsUnderutilized` alert is triggered when the CPU load of a host is less than 20% for a sustained period of 1 week. This indicates that the host is not utilizing its CPU resources efficiently, and there may be opportunities to optimize resource allocation.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of underutilized CPU resources can be significant. It can lead to:
 
+* Inefficient use of resources, resulting in unnecessary costs
+* Inability to handle increased workloads, potentially leading to performance issues
+* Difficulty in scaling applications and services, as underutilized resources may not be able to handle increased demand
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the underutilized CPU, follow these steps:
 
+1. Check the node's CPU utilization graph in Prometheus to identify the pattern of underutilization.
+2. Review the node's workload and application logs to identify any potential bottlenecks or inefficiencies.
+3. Verify that the node's configuration and resource allocation are optimal for the current workload.
+4. Check for any resource-intensive processes or applications that may be consuming CPU resources inefficiently.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue of underutilized CPU, follow these steps:
+
+1. Review the node's configuration and resource allocation to identify opportunities for optimization.
+2. Consider reducing the number of CPUs allocated to the node, if possible, to align with the current workload demands.
+3. Optimize resource-intensive processes or applications to improve their CPU efficiency.
+4. Consider right-sizing the node's resources to match the current workload demands.
+5. Monitor the node's CPU utilization regularly to ensure that the mitigation steps have been effective.

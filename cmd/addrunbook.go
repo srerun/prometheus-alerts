@@ -6,11 +6,15 @@ import (
 	"io"
 	"log"
 	"log/slog"
+	"net/http"
 	"os"
 	"path/filepath"
 	"strings"
 	"text/template"
+	"time"
 
+	_ "github.com/joho/godotenv/autoload"
+	"github.com/magicx-ai/groq-go/groq"
 	"gopkg.in/yaml.v3"
 )
 
@@ -37,17 +41,36 @@ type Rule struct {
 }
 
 type Data struct {
-	Path string
-	Rule Rule
+	Path    string
+	Rule    Rule
+	Content string
 }
 
 // const filename = "blackbox.yaml"
 const runbook_url = "https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks"
 const runbookPath = "/Users/tdavis/src/srerun/prometheus-alerts/content/runbooks"
 const rulesPath = "/Users/tdavis/src/srerun/prometheus-alerts/rules"
+const contentTmpl = `## Meaning
+[//]: # "Short paragraph that explains what the alert means"
+
+
+## Impact
+[//]: # "What could / will happen if the alert is not addressed"
+
+
+
+## Diagnosis
+[//]: # "Steps to take to identify the cause of the problem"
+
+
+
+## Mitigation
+[//]: # "The steps necessary to resolve the alert"
+`
 
 //go:embed template.tmpl
 var templates embed.FS
+var groqKey = os.Getenv("GROQ_API_KEY")
 
 func main() {
 	tmpl, err := template.New("template.tmpl").Funcs(template.FuncMap{
@@ -80,7 +103,6 @@ func main() {
 			for _, rule := range group.Rules {
 				rulePath := filepath.Dir(filename)
 				rule.Source = fmt.Sprintf("%s/%s", buildPathname(rulePath), filepath.Base(filename))
-				fmt.Printf("Adding runbook for %s\n", rule.Alert)
 				rule.Annotations.Runbook = fmt.Sprintf("%s/%s/%s.md", runbook_url, path, rule.Alert)
 				createRunbook(path, tmpl, rule)
 			}
@@ -96,6 +118,7 @@ func main() {
 		}
 		fd.Write(out)
 		fd.Close()
+		time.Sleep(2 * time.Second)
 	}
 }
 
@@ -115,13 +138,15 @@ func createRunbook(path string, t *template.Template, rule Rule) {
 	if _, err := os.Stat(filename); !os.IsNotExist(err) {
 		return
 	}
+	fmt.Printf("Adding runbook for %s\n", rule.Alert)
+
 	out, err := os.Create(filename)
 	if err != nil {
 		slog.Error("could not create file", "filename", filename, "error", err)
 		return
 	}
 	defer out.Close()
-	if err = t.Execute(out, Data{path, rule}); err != nil {
+	if err = t.Execute(out, Data{path, rule, generateContent(rule)}); err != nil {
 		slog.Error("error rendering template", "filename", filename, "error", err)
 	}
 }
@@ -160,4 +185,50 @@ func ToYaml(data interface{}) (string, error) {
 
 func FirstLine(lines string) (string, error) {
 	return strings.Split(lines, "\n")[0], nil
+}
+
+func generateContent(rule Rule) string {
+	ruleB, err := yaml.Marshal(rule)
+	if err != nil {
+		return contentTmpl
+	}
+	cli := groq.NewClient(groqKey, &http.Client{})
+
+	req := groq.ChatCompletionRequest{
+		Messages: []groq.Message{
+			{
+				Role: "user",
+				Content: fmt.Sprintf(`Write a runbook using level 2 headers (##) for the sections with the 
+				sections meaning, impact, diagnosis, and mitigation for the following prometheus alert rule.
+				%s`, string(ruleB)),
+			},
+		},
+		Model:       groq.ModelIDLLAMA370B,
+		MaxTokens:   1500,
+		Temperature: 1,
+		TopP:        1,
+		NumChoices:  1,
+		Stream:      false,
+	}
+
+	var resp *groq.ChatCompletionResponse
+	for retries := 0; retries < 3; retries++ {
+		resp, err = cli.CreateChatCompletion(req)
+		if err != nil {
+			if strings.Contains(err.Error(), "invalid status code: 429") {
+				fmt.Println(err.Error())
+				sleepTime := retries + 5
+				fmt.Printf("Rate Limit exceeded...Sleeping for %d seconds", sleepTime)
+				time.Sleep(time.Duration(sleepTime) * time.Second)
+				fmt.Printf("\nretrying...attempt #%d\n", retries+2)
+				continue
+			}
+			fmt.Println(fmt.Errorf("error occurred: %v", err))
+			return contentTmpl
+		} else {
+			return resp.Choices[0].Message.Content
+		}
+	}
+	log.Fatal("Retries exceeded")
+	return contentTmpl
 }

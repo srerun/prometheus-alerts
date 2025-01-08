@@ -42,19 +42,38 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the MongodbReplicationHeadroom alert rule:
 
+## Meaning
+
+The MongodbReplicationHeadroom alert is triggered when the replication headroom in a MongoDB replica set falls to zero or below. Replication headroom refers to the buffer of unread operations in the oplog that allows a secondary node to catch up with the primary node in case of a failover. A headroom of zero or below indicates that the secondary nodes are not able to keep up with the primary node, which can lead to data loss or inconsistencies in case of a failover.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is high, as it can lead to data inconsistencies or loss in case of a failover. If the secondary nodes are not able to keep up with the primary node, it can cause the following issues:
 
+* Data loss or inconsistencies in case of a failover
+* Increased downtime and reduced availability of the MongoDB cluster
+* Difficulty in recovering from a failover or rolling back to a previous state
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the cause of the low replication headroom, follow these steps:
 
+1. Check the MongoDB logs for any signs of replication issues or errors.
+2. Verify that the network connectivity between the nodes is stable and there are no issues with the oplog.
+3. Check the resource utilization of the nodes, including CPU, memory, and disk usage, to identify any bottlenecks.
+4. Review the MongoDB configuration to ensure that it is optimized for replication.
+5. Check the oplog size and adjust it if necessary to ensure that it is large enough to handle the write workload.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify and address any underlying issues with the replication process, such as network connectivity or oplog errors.
+2. Adjust the MongoDB configuration to optimize replication, such as increasing the oplog size or adjusting the replication timeout.
+3. Consider adding more nodes to the replica set to increase the replication capacity.
+4. Implement a more robust monitoring and alerting system to detect replication issues earlier.
+5. Test the failover process to ensure that it is working correctly and that the secondary nodes can catch up with the primary node quickly.
+
+Remember to consult the official MongoDB documentation and the Percona MongoDB Exporter documentation for more information on troubleshooting and optimizing MongoDB replication.

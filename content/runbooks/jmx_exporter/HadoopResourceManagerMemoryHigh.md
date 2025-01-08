@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `HadoopResourceManagerMemoryHigh`:
 
+## Meaning
+
+The `HadoopResourceManagerMemoryHigh` alert is triggered when the memory usage of the Hadoop ResourceManager exceeds 80% of its maximum allowed memory. This indicates that the ResourceManager is approaching its memory limit, which can lead to performance degradation, slowdowns, and potentially even crashes.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is significant, as a ResourceManager with high memory usage can lead to:
 
+* Slower job scheduling and execution
+* Increased latency for users submitting jobs
+* Potential crashes or restarts of the ResourceManager, leading to cluster instability
+* In extreme cases, complete cluster unavailability
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the ResourceManager's log files for any error messages or warnings related to memory usage.
+2. Verify that the ResourceManager's memory settings are configured correctly and are not too low.
+3. Investigate any recent changes to the cluster configuration or application workload that may be contributing to the increased memory usage.
+4. Check the Hadoop cluster's overall health and performance using metrics such as CPU usage, disk usage, and job queue length.
+5. Consider increasing the ResourceManager's memory allocation or adding more nodes to the cluster to alleviate pressure on the ResourceManager.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Increase the ResourceManager's memory allocation to give it more headroom to operate.
+2. Optimize job scheduling and resource allocation to reduce the load on the ResourceManager.
+3. Consider implementing memory-saving techniques such as compressing data or using more efficient data structures.
+4. Monitor the ResourceManager's memory usage closely to catch any future issues early.
+5. Consider implementing automated alerting and remediation actions to respond to high memory usage more quickly in the future.

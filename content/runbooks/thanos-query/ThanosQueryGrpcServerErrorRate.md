@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the ThanosQueryGrpcServerErrorRate alert:
 
+## Meaning
+
+The ThanosQueryGrpcServerErrorRate alert is triggered when the rate of gRPC server errors for a Thanos query instance exceeds 5% over a 5-minute period. This alert indicates that the Thanos query instance is experiencing issues handling requests, which can lead to query failures and impact the overall performance of the system.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Delayed or failed queries
+* Increased latency and response times
+* Potential data loss or inconsistencies
+* Impact on dependent systems and services that rely on Thanos query data
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Thanos query instance logs for error messages related to gRPC server errors.
+2. Verify that the Thanos query instance is properly configured and connected to the required dependencies.
+3. Check the system resources (e.g., CPU, memory, disk space) to ensure they are not exhausted.
+4. Investigate recent changes or updates that may have caused the issue.
+5. Review the gRPC server metrics to identify the specific error codes and frequencies.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the Thanos query instance to clear any temporary errors.
+2. Check and update the Thanos query configuration to ensure it is correct and up-to-date.
+3. Scale up or optimize system resources (e.g., CPU, memory, disk space) to handle increased load.
+4. Implement retry mechanisms or circuit breakers to handle temporary failures.
+5. Investigate and address any underlying issues or bugs causing the gRPC server errors.
+
+Remember to review the alert annotations and labels for specific details about the affected instance and job, and to consult the Thanos query documentation and logs for further troubleshooting and resolution guidance.

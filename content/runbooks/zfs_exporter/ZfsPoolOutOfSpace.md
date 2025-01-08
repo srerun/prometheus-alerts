@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the ZfsPoolOutOfSpace alert rule:
 
+## Meaning
+
+The ZfsPoolOutOfSpace alert rule is triggered when a ZFS pool's free space falls below 10% and the pool is not read-only. This alert indicates that the disk is almost full and immediate action is required to prevent data loss or corruption.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If this alert is not addressed promptly, the affected ZFS pool may become completely full, leading to:
 
+* Data loss or corruption
+* System crashes or instability
+* Inability to write data to the affected pool
+* Potential security risks due to inability to update the system or write logs
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the ZFS pool usage using the `zpool list` command or a similar tool.
+2. Identify the pool that is running low on space.
+3. Check the pool's current usage and available space using the `zfs list` command or a similar tool.
+4. Verify that the pool is not read-only using the `zfs get readonly` command or a similar tool.
+5. Check the system logs for any errors or warnings related to the affected pool.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Immediately stop any unnecessary writes to the affected pool to prevent further space depletion.
+2. Identify and delete unnecessary files or data on the affected pool to free up space.
+3. Consider adding more storage capacity to the affected pool or migrating data to a different pool with more available space.
+4. Verify that the pool is no longer read-only using the `zfs set readonly=off` command or a similar tool.
+5. Monitor the pool's usage and available space to ensure the issue is resolved and does not recur.
+
+Remember to update the runbook as needed based on your specific use case and environment.

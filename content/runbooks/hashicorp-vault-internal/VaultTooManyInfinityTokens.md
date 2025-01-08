@@ -42,19 +42,35 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule "VaultTooManyInfinityTokens":
 
+## Meaning
+
+The "VaultTooManyInfinityTokens" alert is triggered when more than 3 infinity tokens are present in Vault. Infinity tokens are tokens with a creation TTL (time to live) set to infinity, meaning they never expire. This alert indicates a potential security risk, as an excessive number of infinity tokens can lead to unauthorized access to sensitive resources.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The presence of too many infinity tokens in Vault can have the following impacts:
 
+* Increased risk of unauthorized access to sensitive resources
+* Complexity in token management and revocation
+* Potential security breaches due to uncontrolled token usage
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Vault token count: Run the command `vault token count` to get the total number of tokens in Vault.
+2. Identify infinity tokens: Run the command `vault token list -format=json | jq '.[] | select(.creation_ttl == "+Inf")'` to get a list of infinity tokens.
+3. Check token usage: Analyze the token usage patterns to identify potential misuse or abuse.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Revoke excess infinity tokens: Use the `vault token revoke` command to revoke the excess infinity tokens.
+2. Implement token TTL: Configure a sensible TTL for tokens to ensure they expire after a reasonable period.
+3. Implement token counting and alerting: Set up monitoring and alerting to detect and notify about excessive token creation.
+4. Review and adjust token creation policies: Review and adjust token creation policies to ensure they align with security best practices.
+
+Remember to investigate the root cause of the issue and take necessary steps to prevent similar incidents in the future.

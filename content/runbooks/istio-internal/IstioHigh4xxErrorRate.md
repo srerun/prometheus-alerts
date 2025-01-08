@@ -42,19 +42,42 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the IstioHigh4xxErrorRate alert:
 
+## Meaning
+
+The IstioHigh4xxErrorRate alert is triggered when the percentage of HTTP 4xx error responses in Istio exceeds 5% over a 5-minute period. This alert indicates that there is an issue with the Istio configuration or the underlying application that is causing a high rate of client-side errors.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+A high 4xx error rate can have a significant impact on the user experience and the overall reliability of the application. It can lead to:
 
+* Increased latency and timeouts
+* Decreased throughput and performance
+* Frustrated users and potential revenue loss
+* Increased load on upstream services and resources
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the high 4xx error rate, follow these steps:
 
+1. Check the Istio logs for any errors or issues related to the affected service.
+2. Verify that the service is correctly configured and deployed.
+3. Check the application logs for any errors or exceptions that may be causing the 4xx errors.
+4. Use tools like `istioctl` or `kubectl` to inspect the Istio configuration and verify that it is correct.
+5. Check for any known issues or bugs in the Istio version being used.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the high 4xx error rate, follow these steps:
+
+1. Investigate and resolve any underlying issues with the service or application.
+2. Verify that the Istio configuration is correct and up-to-date.
+3. Check for any misconfigured or incorrect routing rules.
+4. Consider implementing retries or circuit breakers to handle transient errors.
+5. Monitor the error rate and performance metrics to ensure that the issue is resolved.
+
+Additional resources:
+
+* Istio documentation: [Troubleshooting](https://istio.io/latest/docs/ops/troubleshooting/)
+* Istio documentation: [Configuring routing rules](https://istio.io/latest/docs/reference/config/networking/virtual-service/)

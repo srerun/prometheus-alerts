@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the ClickhouseMemoryUsageWarning alert:
 
+## Meaning
+
+The ClickhouseMemoryUsageWarning alert is triggered when the memory usage of a ClickHouse instance exceeds 80% of the total available memory. This alert is raised to prevent potential performance issues and out-of-memory errors that can lead to service disruptions.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If this alert is not addressed, high memory usage can cause:
 
+* Slow query performance
+* Increased latency
+* Potential crashes or restarts of the ClickHouse instance
+* Data loss or corruption
+* Downtime for dependent services and applications
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the ClickHouse metrics dashboard for recent changes in memory usage patterns.
+2. Verify that the instance is not experiencing high CPU usage or disk I/O latency.
+3. Review the query logs to identify any resource-intensive queries or jobs that may be contributing to the high memory usage.
+4. Check for any recent changes to the ClickHouse configuration or schema that may be causing increased memory allocation.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify and optimize resource-intensive queries or jobs that are contributing to high memory usage.
+2. Consider increasing the memory allocation for the ClickHouse instance, if possible.
+3. Implement memory-efficient data processing and storage practices, such as using compression and aggregates.
+4. Monitor the ClickHouse instance for signs of memory leaks or other anomalies.
+5. Consider scaling out the ClickHouse cluster to distribute the workload and reduce memory pressure on individual instances.
+
+Remember to update the ClickHouse configuration and monitoring settings as needed to prevent future occurrences of this alert.

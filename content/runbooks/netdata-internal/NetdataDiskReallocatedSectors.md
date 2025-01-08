@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the NetdataDiskReallocatedSectors alert:
 
+## Meaning
+
+The NetdataDiskReallocatedSectors alert is triggered when the rate of reallocated sectors on a disk increases over a 1-minute window. This alert indicates that the disk is experiencing issues and is reallocating sectors, which can be a sign of impending disk failure.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unaddressed, this issue can lead to:
 
+* Data corruption or loss
+* Disk failure, resulting in system downtime
+* Performance degradation, leading to slower system response times
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the disk's SMART attributes using tools such as `smartctl` or `netdata` to determine the extent of the disk's health issues.
+2. Review system logs for any errors or warnings related to the disk.
+3. Verify that the disk is properly configured and mounted correctly.
+4. Run a disk self-test to identify any bad blocks or other issues.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this issue, follow these steps:
+
+1. Back up critical data to a separate storage device to prevent data loss in case of disk failure.
+2. Replace the faulty disk with a new one as soon as possible.
+3. Consider implementing redundant storage configurations, such as RAID, to minimize the impact of disk failure.
+4. Monitor the disk's health regularly to catch any potential issues before they become critical.
+
+Remember to follow proper procedures for replacing the disk and updating the system configuration to ensure minimal disruption to system operation.

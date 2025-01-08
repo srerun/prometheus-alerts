@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the Prometheus alert rule:
 
+## Meaning
+
+The CassandraClientRequestUnavailableRead alert indicates that some Cassandra client requests are unable to read data from the Cassandra cluster. This can lead to application errors, data loss, and poor system performance.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert can be significant, as it may cause:
 
+* Application errors and failures
+* Data loss or inconsistencies
+* Poor system performance and slow response times
+* Downtime and revenue loss
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of this alert, follow these steps:
 
+1. Check the Cassandra cluster status and node health using the Cassandra UI or `nodetool` command.
+2. Verify that the Cassandra client configuration is correct and up-to-date.
+3. Check the Cassandra system logs for errors related to read operations.
+4. Verify that the Cassandra cluster has sufficient resources (e.g., CPU, memory, disk space) to handle read requests.
+5. Investigate recent changes to the Cassandra schema, data model, or application code that may be causing read issues.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this alert, follow these steps:
+
+1. Restart the Cassandra client or application to reconnect to the Cassandra cluster.
+2. Verify that the Cassandra cluster is properly configured and resourced to handle read requests.
+3. Investigate and fix any underlying issues causing read errors, such as data inconsistencies or schema changes.
+4. Consider implementing load balancing or queuing mechanisms to handle high volumes of read requests.
+5. Monitor the Cassandra cluster and client performance to ensure that the issue does not recur.
+
+Remember to follow the link to the runbook provided in the alert annotation for more detailed steps and guidelines.

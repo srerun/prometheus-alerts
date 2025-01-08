@@ -43,18 +43,34 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The HostCpuStealNoisyNeighbor alert indicates that the average CPU steal percentage on a host has exceeded 10% over the past 1 minute, and this condition has persisted for at least 5 minutes. CPU steal occurs when a virtual machine (VM) is waiting for the hypervisor to allocate CPU resources, which can lead to performance issues.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+This alert can have a significant impact on the performance of applications running on the affected host. Noisy neighbors, such as other VMs on the same host, can consume excessive CPU resources, leading to:
 
+* Increased latency
+* Decreased throughput
+* Unresponsive applications
+* Potential crashes or failures of critical services
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of this issue, follow these steps:
 
+1. Check the Netdata dashboard for the affected host to identify the current CPU steal percentage and trend.
+2. Investigate the instance labels `$labels` to determine the specific VM or instance affected.
+3. Review system logs and monitoring data to identify any other performance issues or anomalies on the host.
+4. Check the hypervisor logs to identify if there are any issues with resource allocation or scheduling.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the impact of this issue, follow these steps:
+
+1. Isolate the noisy neighbor: Identify the specific VM or instance causing the CPU steal and consider migrating it to a different host or adjusting its resource allocation.
+2. Adjust instance sizing: Review the instance sizes and resource allocations to ensure they are adequate for the workload.
+3. Optimize hypervisor settings: Check the hypervisor settings to ensure they are optimized for the current workload and resource utilization.
+4. Monitor and adjust: Continuously monitor the CPU steal percentage and adjust the instance sizing, resource allocation, and hypervisor settings as needed to maintain optimal performance.
+
+Remember to consult the [Netdata documentation](https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/netdata-internal/HostCpuStealNoisyNeighbor.md) for more detailed guidance on diagnosing and mitigating this issue.

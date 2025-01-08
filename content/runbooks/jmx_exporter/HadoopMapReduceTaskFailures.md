@@ -42,19 +42,40 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the HadoopMapReduceTaskFailures alert rule:
 
+## Meaning
+
+The HadoopMapReduceTaskFailures alert is triggered when the total number of MapReduce task failures exceeds 100 within a 10-minute window. This indicates that there is an unusually high number of failed tasks in the Hadoop cluster, which can impact the overall performance and reliability of the system.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert can be significant, as failed MapReduce tasks can lead to:
 
+* Data loss or inconsistencies
+* Job failures or timeouts
+* Increased latency and decreased throughput
+* Increased load on the cluster, leading to resource exhaustion
+* Potential cascading failures or errors in dependent systems
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the HadoopMapReduceTaskFailures alert, follow these steps:
 
+1. Check the Hadoop logs for errors or exceptions related to task failures.
+2. Investigate the job history to identify the specific jobs and tasks that are failing.
+3. Review the resource utilization of the cluster, including CPU, memory, and disk usage.
+4. Verify that the Hadoop configuration is correct and up-to-date.
+5. Check for any network connectivity issues or failures.
+6. Review the task attempts and retries to identify any patterns or trends.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the HadoopMapReduceTaskFailures alert, follow these steps:
+
+1. Identify and fix the root cause of the task failures, based on the diagnosis steps above.
+2. Retry failed tasks or jobs to recover from the failures.
+3. Adjust the Hadoop configuration to optimize resource utilization and job scheduling.
+4. Implement additional monitoring and logging to detect and respond to future task failures.
+5. Consider increasing the capacity or scalability of the Hadoop cluster to handle increased load.
+6. Communicate with stakeholders and dependent teams about the issue and resolution.

@@ -43,18 +43,33 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The `MongodbTooManyConnections` alert is triggered when the average rate of current MongoDB connections per instance exceeds 80% of the total available connections. This indicates that the MongoDB instance is experiencing a high load, which can lead to performance issues, increased latency, and potentially even crashes.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unchecked, a high number of connections to MongoDB can cause:
 
+* Performance degradation: As the number of connections increases, MongoDB may struggle to handle the load, leading to slow query response times and decreased overall performance.
+* Increased latency: Higher connection numbers can result in increased latency for applications relying on MongoDB, affecting user experience and overall system responsiveness.
+* Crash or restart: In extreme cases, excessive connections can cause MongoDB to crash or restart, leading to data loss, corruption, or unavailability.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of this alert, follow these steps:
 
+1. **Check MongoDB connection metrics**: Review the `mongodb_connections` metric to identify the instance(s) with high connection rates.
+2. **Investigate connection patterns**: Analyze the connection patterns to determine if there are any unusual or unexpected spikes in connections.
+3. **Verify application behavior**: Check application logs and metrics to ensure that the application is not experiencing any issues that might be contributing to the high connection count.
+4. **Review MongoDB configuration**: Verify that the MongoDB configuration is optimal for the current workload, including settings such as connection limits, timeout values, and resource allocation.
+5. **Check for any recent changes**: Investigate if there have been any recent changes to the application, infrastructure, or MongoDB configuration that might be contributing to the high connection count.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the `MongodbTooManyConnections` alert, follow these steps:
+
+1. **Identify and optimize resource-intensive queries**: Analyze MongoDB query logs to identify resource-intensive queries and optimize them to reduce the load on the instance.
+2. **Implement connection pooling**: Consider implementing connection pooling mechanisms to reduce the number of connections to MongoDB.
+3. **Adjust MongoDB configuration**: Adjust MongoDB configuration settings, such as connection limits, timeout values, and resource allocation, to optimize performance and reduce connection counts.
+4. **Scale MongoDB instance**: Consider scaling the MongoDB instance to handle the increased load, either by adding more resources or by distributing the load across multiple instances.
+5. **Monitor and adjust**: Continuously monitor MongoDB performance and adjust the mitigation steps as needed to ensure the connection count remains within a healthy range.

@@ -42,19 +42,34 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the IstioLatency99Percentile alert rule:
 
+## Meaning
+
+The IstioLatency99Percentile alert is triggered when the 99th percentile of Istio request duration exceeds 1000ms for a given service and namespace. This indicates that 1% of requests are experiencing high latency, which can impact the performance and responsiveness of the application.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Slow request processing can lead to a poor user experience, decreased system throughput, and increased error rates.
+* High latency can also cause cascading failures, as dependent services may timeout or become unavailable.
+* Prolonged latency issues can result in revenue loss, customer dissatisfaction, and damage to the organization's reputation.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of high latency, follow these steps:
 
+1. **Check request traffic patterns**: Analyze the request rate and distribution to identify any sudden changes or spikes.
+2. **Investigate service dependencies**: Verify that dependent services are operating within expected latency bounds.
+3. **Review Istio configuration**: Ensure that Istio is properly configured, and that service mesh metrics are being collected correctly.
+4. **Examine pod and container logs**: Review logs for errors, warnings, or other indicators of issues that may be contributing to high latency.
+5. **Check for resource constraints**: Verify that pods have sufficient resources (CPU, memory, etc.) to handle incoming requests.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate high latency, take the following steps:
+
+1. **Scale out services**: Temporarily increase the number of replicas for the affected service to handle the increased request volume.
+2. **Optimize service configuration**: Review and optimize service configuration, such as timeouts, retries, and circuit breakers.
+3. **Improve resource allocation**: Ensure that pods have sufficient resources to handle incoming requests.
+4. **Apply caching or content compression**: Implement caching or content compression to reduce the load on services and improve response times.
+5. **Investigate root cause**: Identify and address the underlying cause of high latency, which may require fixing application code, database queries, or other system components.

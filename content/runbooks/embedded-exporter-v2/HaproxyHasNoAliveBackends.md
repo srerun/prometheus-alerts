@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `HaproxyHasNoAliveBackends`:
 
+## Meaning
+
+The `HaproxyHasNoAliveBackends` alert is triggered when HAProxy has no alive active or backup backends for a specific proxy instance. This means that HAProxy is unable to forward incoming requests to any available backend servers, causing a complete outage of the service.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is critical, as it leads to a complete loss of service availability. Without any available backend servers, HAProxy is unable to process incoming requests, resulting in:
 
+* Downtime for users
+* Loss of revenue and business impact
+* Increased latency and error rates
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the HAProxy logs for any error messages related to backend server connectivity or availability.
+2. Verify the configuration of the HAProxy instance and ensure that the backend servers are correctly defined and configured.
+3. Check the status of the backend servers to ensure they are running and accepting incoming requests.
+4. Verify that there are no network connectivity issues between HAProxy and the backend servers.
+5. Check the Prometheus metrics for any indication of high latency or error rates that may have contributed to the lack of available backend servers.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify and address any underlying issues causing the unavailability of the backend servers, such as:
+	* Server crashes or restarts
+	* Network connectivity issues
+	* Configuration errors
+2. Immediately restart or redeploy any unavailable backend servers to restore service availability.
+3. Perform a rolling update or rolling restart of the HAProxy instance to ensure that it can reconnect to the available backend servers.
+4. Monitor the HAProxy and backend server metrics closely to ensure that the issue does not reoccur.
+5. Consider implementing additional redundancy and failover mechanisms to minimize the impact of future outages.

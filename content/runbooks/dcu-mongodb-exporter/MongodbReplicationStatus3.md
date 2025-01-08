@@ -43,18 +43,34 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The MongoDBReplicationStatus3 alert is triggered when a MongoDB replica set member is in a state of replication status 3. This state indicates that the member is either performing startup self-checks or transitioning from completing a rollback or resync. This alert is critical, indicating a potential issue with the MongoDB replication process.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is that the MongoDB replica set member may not be fully operational, which can lead to:
 
+* Data inconsistencies between nodes
+* Reduced redundancy and high availability
+* Increased risk of data loss or corruption
+* Potential performance degradation
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the MongoDB replica set status using the `mongo` shell or a MongoDB monitoring tool.
+2. Investigate the replication status of the affected node using the `rs.status()` command.
+3. Review the MongoDB logs to identify any error messages or issues related to replication.
+4. Verify that the node is properly configured and that there are no network connectivity issues.
+5. Check for any recent changes or updates to the MongoDB configuration or deployment.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Check the MongoDB documentation for troubleshooting replication issues.
+2. Restart the affected MongoDB node to allow it to rejoin the replica set.
+3. If the issue persists, consider re-configuring the replica set or seeking assistance from a MongoDB expert.
+4. Verify that the MongoDB replica set is properly configured and that all nodes are in a healthy state.
+5. Consider implementing additional monitoring and alerting to detect replication issues earlier.

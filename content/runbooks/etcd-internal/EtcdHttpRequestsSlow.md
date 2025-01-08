@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the EtcdHttpRequestsSlow alert:
 
+## Meaning
+
+The EtcdHttpRequestsSlow alert is triggered when the 99th percentile of etcd HTTP request durations exceeds 0.15 seconds over a 1-minute window. This indicates that etcd is experiencing slower-than-expected HTTP request processing times, which can impact the overall performance and reliability of the etcd cluster.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Slower etcd request processing can lead to increased latency and decreased responsiveness in dependent systems.
+* Prolonged periods of slow request processing can cause etcd to become unavailable or even lead to cluster instability.
+* This can have a cascading effect on the overall system, causing failures or errors in dependent applications and services.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the slow etcd HTTP requests, follow these steps:
 
+1. Review etcd logs for any errors or warnings related to request processing.
+2. Check the etcd cluster's resource utilization (CPU, memory, disk) to ensure it is within acceptable limits.
+3. Verify that the etcd cluster is properly configured and that no network issues are affecting communication between nodes.
+4. Investigate any recent changes to the etcd configuration, network topology, or dependent systems that may be contributing to the slow request processing.
+5. Use tools like `etcdctl` or `curl` to verify etcd's response times and latency.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the impact of slow etcd HTTP requests, follow these steps:
+
+1. Check for any stuck or slow requests in etcd and cancel them if necessary.
+2. Implement request timeouts to prevent slow requests from blocking other requests.
+3. Consider increasing the etcd cluster's resources (e.g., adding more nodes) to handle increased load.
+4. Optimize etcd configuration for better performance, such as adjusting the `--listen-peer-urls` or `--listen-client-urls` settings.
+5. Implement load balancing or proxying to reduce the load on individual etcd nodes.
+6. Consider upgrading etcd to a newer version that includes performance enhancements.
+
+Remember to investigate and address the root cause of the slow request processing to prevent future occurrences of this alert.

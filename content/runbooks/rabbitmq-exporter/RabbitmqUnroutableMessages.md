@@ -42,19 +42,38 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the RabbitMQ Unroutable Messages alert:
 
+## Meaning
+
+The RabbitMQ Unroutable Messages alert indicates that there are messages in a RabbitMQ queue that cannot be routed to a destination exchange or queue. This can be due to a misconfigured routing key, a non-existent exchange or queue, or a network connectivity issue.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+Unroutable messages can cause issues with message processing and lead to data loss or duplication. If left unattended, this can result in:
 
+* Messages being dropped or lost
+* Applications experiencing errors or timeouts
+* Data inconsistencies between systems
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the RabbitMQ management UI for the specific queue experiencing unroutable messages.
+2. Verify the routing key configuration for the queue.
+3. Check if the destination exchange or queue exists and is properly configured.
+4. Review the RabbitMQ logs for any error messages related to message routing.
+5. Use the RabbitMQ `rabbitmqctl` command to inspect the queue and exchange configurations.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify and fix any misconfigured routing keys or exchange/queue names.
+2. Create or update the destination exchange or queue if it does not exist.
+3. Verify that network connectivity between RabbitMQ nodes is stable and functioning correctly.
+4. Consider implementing a dead-letter queue to handle unroutable messages.
+5. Monitor the queue and exchange configurations regularly to prevent similar issues from occurring in the future.
+
+Remember to update the alert annotations to reflect the correct runbook URL and instance labels.

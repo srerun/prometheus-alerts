@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the ThanosStoreObjstoreOperationLatencyHigh alert:
 
+## Meaning
+
+The ThanosStoreObjstoreOperationLatencyHigh alert is triggered when the 99th percentile latency of Thanos Store objstore bucket operations exceeds 2 seconds and there are ongoing operations. This alert indicates that the Thanos Store is experiencing high latency when performing objstore bucket operations, which may impact the overall performance and reliability of the system.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The high latency of objstore bucket operations can have a significant impact on the system, including:
 
+* Delayed query responses and slower data ingest
+* Increased load on the system, leading to potential crashes or failures
+* Decreased system reliability and availability
+* Potential data loss or corruption
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the high latency, follow these steps:
 
+1. Check the Thanos Store logs for any errors or warnings related to objstore bucket operations.
+2. Investigate the current load and resource utilization of the Thanos Store nodes.
+3. Check the network connectivity and latency between the Thanos Store nodes and the objstore.
+4. Verify that the objstore is properly configured and functioning correctly.
+5. Check the objstore bucket operation metrics to identify any patterns or anomalies.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the high latency of objstore bucket operations, follow these steps:
+
+1. Scale up the Thanos Store nodes to increase resources and handle the load.
+2. Optimize the objstore configuration for better performance.
+3. Implement caching or other optimization techniques to reduce the load on the objstore.
+4. Check for any software or configuration issues and apply updates or patches as needed.
+5. Consider implementing a load balancing or queuing mechanism to handle high volumes of objstore bucket operations.
+
+By following these steps, you should be able to identify and resolve the root cause of the high latency and restore normal operation of the Thanos Store.

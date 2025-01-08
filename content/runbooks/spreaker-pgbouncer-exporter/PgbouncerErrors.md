@@ -42,19 +42,35 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the PgbouncerErrors alert rule:
 
+## Meaning
+
+The PgbouncerErrors alert is triggered when the number of errors logged by Pgbouncer increases by more than 10 in a 1-minute period, excluding errors with the message "server conn crashed?".
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+This alert indicates that Pgbouncer is experiencing errors, which may be caused by a server restart or an administrator interacting with the Pgbouncer console. If left unchecked, these errors could lead to connectivity issues or data loss.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Pgbouncer logs for error messages to identify the root cause of the errors.
+2. Verify that no recent server restarts or maintenance activities have occurred.
+3. Investigate if any administrative commands were executed on the Pgbouncer console.
+4. Review the Pgbouncer configuration to ensure it is correct and up-to-date.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Investigate and resolve the underlying cause of the errors, based on the diagnosis.
+2. Restart the Pgbouncer service to clear any transient errors.
+3. Verify that the Pgbouncer configuration is correct and up-to-date.
+4. Monitor the Pgbouncer logs for any further errors.
+
+Additional resources:
+
+* [Pgbouncer documentation](https://pgbouncer.github.io/)
+* [Pgbouncer exporter documentation](https://github.com/spreaker/pgbouncer_exporter)

@@ -43,18 +43,36 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The `CortexFrontendQueriesStuck` alert is triggered when there are queued up queries in the Cortex query-frontend. This means that the query-frontend is not able to process queries in a timely manner, leading to a backlog of queries.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+This alert has a critical severity, indicating that it can have a significant impact on the system. The stuck queries can cause:
 
+* Delays in query execution, leading to slower response times for users
+* Increased latency in the system, affecting overall performance
+* Potential loss of data or incomplete results if queries are not processed correctly
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Cortex query-frontend logs for errors or warnings that may indicate the cause of the stuck queries.
+2. Verify the query-frontend configuration and ensure it is correctly set up.
+3. Check the system resources (CPU, memory, disk space) to ensure they are not overwhelmed.
+4. Verify that there are no network connectivity issues between the query-frontend and the underlying storage systems.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the query-frontend service to clear the queued up queries.
+2. Investigate and address the root cause of the issue, such as:
+	* Fixing configuration errors
+	* Resolving system resource issues
+	* Addressing network connectivity problems
+3. Consider scaling up or optimizing the query-frontend resources to handle the query load.
+4. Implement query queuing limits or rate limiting to prevent similar issues in the future.
+
+Note: For more detailed steps and specific solutions, refer to the runbook link provided in the alert rule: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/coretex-internal/CortexFrontendQueriesStuck.md

@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the Prometheus alert rule "JenkinsBuildTestsFailing":
 
+## Meaning
+
+The "JenkinsBuildTestsFailing" alert is triggered when the number of failing tests in the last build of a Jenkins job exceeds 0. This indicates that there is an issue with the build or the tests themselves, which can impact the quality and reliability of the software being built.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is that the software build is not reliable, and the failing tests may indicate underlying issues that need to be addressed. This can lead to:
 
+* Delays in software releases
+* Lower quality software
+* Increased risk of defects and bugs
+* Decreased confidence in the software development process
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Jenkins job that triggered the alert and review the build logs to identify the failing tests.
+2. Analyze the test failures to determine the root cause of the issue.
+3. Check the Jenkins job configuration and the test scripts to ensure they are correct and up-to-date.
+4. Verify that the build environment and dependencies are correct and up-to-date.
+5. Check the Jenkins instance and environment to ensure they are functioning correctly.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Fix the failing tests by updating the test scripts or the Jenkins job configuration.
+2. Rerun the build to ensure the tests pass.
+3. Verify that the build is successful and the software is reliable.
+4. Implement monitoring and testing strategies to catch similar issues earlier in the development process.
+5. Consider implementing automated testing and CI/CD pipelines to improve the software development process.
+
+Remember to update the annotations and labels in the Prometheus alert rule to reflect the root cause of the issue and the steps taken to mitigate it.

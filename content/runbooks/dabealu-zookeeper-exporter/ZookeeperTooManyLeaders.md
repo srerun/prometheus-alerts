@@ -42,19 +42,38 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the Prometheus alert rule "ZookeeperTooManyLeaders":
 
+## Meaning
+
+This alert indicates that the Zookeeper cluster has more than one node marked as the leader. In a healthy Zookeeper cluster, there should only be one leader node. Having multiple leader nodes can cause inconsistencies and errors in the cluster.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+Having multiple leader nodes in a Zookeeper cluster can lead to:
 
+* Inconsistent data across the cluster
+* Errors in client applications that rely on Zookeeper
+* Unstable cluster behavior
+* Potential data loss or corruption
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Zookeeper cluster status using the Zookeeper command-line tool or a monitoring tool like Zookeeper Exporter.
+2. Verify that the cluster has more than one node marked as the leader.
+3. Check the Zookeeper server logs for any errors or warnings related to leadership elections or node failures.
+4. Check the network connectivity between the Zookeeper nodes to ensure that there are no issues with communication.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify the cause of the multiple leader nodes, such as a node failure or network partition.
+2. If a node failure is suspected, try to restart the failed node or replace it with a new one.
+3. If a network partition is suspected, try to resolve the network connectivity issue.
+4. If the issue persists, consider restarting the entire Zookeeper cluster to ensure a clean leadership election.
+5. Monitor the cluster closely to ensure that the issue is resolved and the cluster is stable.
+
+Remember to always exercise caution when making changes to a Zookeeper cluster, as it can affect the stability of the entire system.

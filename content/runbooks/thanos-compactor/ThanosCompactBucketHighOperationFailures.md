@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `ThanosCompactBucketHighOperationFailures`:
 
+## Meaning
+
+The `ThanosCompactBucketHighOperationFailures` alert is triggered when the percentage of failed operations in a Thanos compact bucket exceeds 5% over a 5-minute period. This indicates that there is an issue with the compact bucket, which may lead to data inconsistencies or loss.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+The impact of this alert is that the Thanos compact bucket may not be functioning correctly, leading to potential data inconsistencies or loss. This can have a significant impact on the overall reliability and accuracy of the monitoring system.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Thanos compact bucket logs for any error messages or exceptions that may indicate the cause of the failures.
+2. Verify that the compact bucket is properly configured and that there are no issues with the underlying storage system.
+3. Check the network connectivity between the compact bucket and the object store to ensure that there are no connectivity issues.
+4. Review the Thanos compactor metrics to identify any trends or patterns that may indicate the root cause of the issue.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Investigate and resolve any underlying issues with the compact bucket configuration, storage system, or network connectivity.
+2. Restart the Thanos compact bucket to ensure that it is functioning correctly.
+3. Monitor the Thanos compactor metrics to ensure that the issue is resolved and that the compact bucket is functioning correctly.
+4. Consider increasing the logging level for the Thanos compact bucket to gather more detailed information about the issue.
+
+Additional resources:
+
+* Refer to the Thanos documentation for more information on troubleshooting and configuring the compact bucket.
+* Review the Thanos compactor metrics to gain a deeper understanding of the system's behavior.
+
+By following these steps, you should be able to diagnose and mitigate the issue, ensuring that the Thanos compact bucket is functioning correctly and that data inconsistencies or loss are minimized.

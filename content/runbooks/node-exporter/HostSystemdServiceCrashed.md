@@ -43,18 +43,47 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The `HostSystemdServiceCrashed` alert is triggered when a systemd service on a host crashes. This indicates that a critical system service has failed, which can impact the overall functionality and stability of the host. This alert is classified as a warning, indicating that immediate attention is required to prevent potential disruptions.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* The failed systemd service may cause dependent services to also fail or become unavailable.
+* The host may experience instability, slowdowns, or even become unresponsive.
+* Critical system functions, such as logging, networking, or storage, may be affected.
+* The availability and reliability of the host may be compromised, leading to potential outages or data loss.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the systemd service status using the `systemctl` command:
+```
+systemctl status <service_name>
+```
+Replace `<service_name>` with the name of the failed service.
+
+2. Review the system logs for errors related to the failed service:
+```
+journalctl -u <service_name>
+```
+3. Verify the service configuration and dependencies using:
+```
+systemctl show <service_name>
+```
+4. Check the node's system resource utilization (CPU, memory, disk space) to identify potential resource constraints.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Attempt to restart the failed systemd service:
+```
+systemctl restart <service_name>
+```
+2. If the service fails to restart, investigate the underlying cause and resolve any issues found.
+3. Check for any system updates or patches that may be applicable to the failed service.
+4. Consider implementing fail-safe mechanisms, such as service redundancy or automatic restart policies, to minimize the impact of future service crashes.
+5. Monitor the host's system resources and adjust resource allocation as needed to prevent resource constraints.
+
+Remember to consult the node's system documentation and configuration files for specific guidance on troubleshooting and resolving systemd service crashes.

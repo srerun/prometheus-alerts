@@ -42,19 +42,32 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the Prometheus alert rule:
 
+## Meaning
+This alert is triggered when the total number of backlog entries for a Pulsar subscription exceeds 100,000. This indicates that the subscription is not able to keep up with the incoming messages, leading to a large backlog of unprocessed messages.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
+A high backlog of unprocessed messages can cause:
 
-
+* Delays in processing messages, potentially leading to data loss or staleness
+* Increased memory usage on the Pulsar brokers, potentially leading to performance issues or even crashes
+* Decreased overall system performance and reliability
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
+To diagnose the issue, follow these steps:
 
-
+1. Check the Pulsar subscription logs to identify the root cause of the backlog buildup.
+2. Verify that the subscription is properly configured and that the consumers are functioning correctly.
+3. Check the message rate and size to identify if there are any unusual patterns or spikes.
+4. Verify that the Pulsar brokers have sufficient resources (e.g., memory, CPU) to handle the message load.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+To mitigate the issue, follow these steps:
+
+1. Increase the number of consumers for the subscription to help process the backlog.
+2. Check for any message processing bottlenecks and optimize the processing pipeline as needed.
+3. Consider increasing the resources (e.g., memory, CPU) available to the Pulsar brokers to handle the message load.
+4. Implement message retention policies to prevent backlog buildup in the future.
+
+Note: This is just a sample runbook, and you may need to customize it to fit your specific use case and environment.

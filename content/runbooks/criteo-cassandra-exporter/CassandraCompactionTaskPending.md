@@ -42,19 +42,34 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the CassandraCompactionTaskPending alert:
 
+## Meaning
+
+CassandraCompactionTaskPending alert indicates that the number of pending compaction tasks in Cassandra has exceeded a threshold. Compaction tasks are background processes that merge and clean up data in Cassandra to maintain performance and storage efficiency. If compaction tasks are pending for an extended period, it can lead to performance degradation, increased latency, and even node failures.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Performance degradation: Pending compaction tasks can cause increased latency and reduced throughput, affecting the overall performance of the Cassandra cluster.
+* Storage capacity issues: Uncompacted data can lead to increased storage usage, potentially causing storage capacity issues and increased costs.
+* Node failures: If pending compaction tasks are not addressed, it can lead to node failures, causing data loss and additional downtime.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue:
 
+1. Check the Cassandra cluster metrics to identify the node(s) with high pending compaction task counts.
+2. Verify if the nodes have sufficient I/O capacity to handle the compaction tasks.
+3. Review the Cassandra configuration and system resources (e.g., CPU, memory, disk space) to identify potential bottlenecks.
+4. Check the Cassandra logs for any errors or warnings related to compaction tasks.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue:
+
+1. **Increase I/O capacity**: Add nodes to the Cassandra cluster to distribute the load and increase I/O capacity.
+2. **Adjust compaction configuration**: Consider adjusting the compaction settings, such as the compaction throughput, to reduce the load on the nodes.
+3. **Optimize system resources**: Ensure that the nodes have sufficient system resources (e.g., CPU, memory, disk space) to handle the compaction tasks.
+4. **Monitor and respond**: Continuously monitor the Cassandra cluster metrics and respond promptly to any changes in pending compaction task counts.
+
+Remember to review the Cassandra documentation and consult with Cassandra experts if necessary to ensure the correct diagnosis and mitigation steps for your specific use case.

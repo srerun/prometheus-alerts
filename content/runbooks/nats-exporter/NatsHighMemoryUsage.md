@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the NatsHighMemoryUsage alert rule:
 
+## Meaning
+
+The NatsHighMemoryUsage alert is triggered when the memory usage of a NATS server exceeds 200MB. This alert indicates that the NATS server is consuming an abnormal amount of memory, which can lead to performance issues, slow responses, and potentially even crashes.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+High memory usage on a NATS server can have several impacts on the system:
 
+* Decreased performance: Excessive memory consumption can slow down the NATS server, leading to slower message processing times and delayed responses.
+* Increased latency: High memory usage can cause the NATS server to spend more time garbage collecting, leading to increased latency and potentially even message loss.
+* Increased risk of crashes: If memory usage continues to grow unchecked, the NATS server may eventually crash or become unresponsive, leading to downtime and data loss.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of high memory usage on a NATS server, follow these steps:
 
+1. Check the NATS server logs for any error messages or signs of memory-related issues.
+2. Investigate recent changes to the NATS server configuration, such as changes to the message queue size or clustering settings.
+3. Review the NATS server metrics, such as the message queue size, connection count, and subscriber count, to identify potential bottlenecks.
+4. Use debugging tools, such as `nats-top` or `nats-queue-metrics`, to gain more insight into the NATS server's memory usage and message flow.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate high memory usage on a NATS server, follow these steps:
+
+1. Reduce the message queue size: Decrease the maximum number of messages allowed in the queue to prevent memory usage from growing further.
+2. Implement message queuing limits: Set limits on the number of messages that can be queued per subject to prevent excessive memory consumption.
+3. Optimize clustering settings: Adjust clustering settings, such as the number of nodes or the clustering algorithm, to reduce memory usage and improve performance.
+4. Restart the NATS server: If all else fails, restart the NATS server to clear out any existing memory usage and restart with a clean slate.
+
+Remember to monitor the NATS server's memory usage and adjust these settings as needed to ensure optimal performance and prevent further alerts.

@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the ThanosReceiveHighReplicationFailures alert:
 
+## Meaning
+
+The ThanosReceiveHighReplicationFailures alert is triggered when a Thanos Receive instance is experiencing a high rate of replication failures. This alert indicates that the instance is failing to replicate a significant percentage of requests, which can lead to data loss and inconsistencies.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is high, as it can result in:
 
+* Data loss and inconsistencies
+* Downtime or unavailability of the Thanos Receive instance
+* Impact on dependent services and applications
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the issue, follow these steps:
 
+1. Check the Thanos Receive instance logs for errors and exceptions related to replication.
+2. Verify the replication factor and hashring configuration for the instance.
+3. Check the network connectivity and latency between the Thanos Receive instance and its dependencies.
+4. Investigate any recent changes to the instance configuration or deployed code.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Investigate and resolve any underlying issues causing the replication failures.
+2. Verify that the replication factor and hashring configuration are correct and optimal for the instance.
+3. Consider temporarily increasing the replication factor to reduce the risk of data loss.
+4. Implement additional logging and monitoring to detect and alert on replication failures more quickly.
+5. Restart the Thanos Receive instance if necessary.
+
+Note: This runbook is a starting point and may need to be tailored to your specific environment and use case.

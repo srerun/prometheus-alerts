@@ -42,19 +42,38 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `PulsarHighWriteLatency`:
 
+## Meaning
+
+The `PulsarHighWriteLatency` alert is triggered when there is an excessive number of write latency overflows in Pulsar, indicating that messages are not being written in a timely fashion. This can lead to performance issues, data loss, or even complete system unavailability.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert can be severe, as it affects the ability to write data to Pulsar. This can lead to:
 
+* Performance degradation: High write latency can cause slower data processing, leading to delays in downstream applications.
+* Data loss: Unwritten messages may be lost, resulting in incomplete or inaccurate data.
+* System unavailability: In extreme cases, high write latency can cause Pulsar to become unavailable, leading to complete system downtime.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of this alert, follow these steps:
 
+1. Check the Pulsar cluster configuration to ensure that it is properly sized and configured for the current workload.
+2. Investigate disk usage and I/O performance to identify any bottlenecks or issues with storage.
+3. Review Pulsar broker logs for errors or exceptions related to write operations.
+4. Verify that there are no network connectivity issues between Pulsar brokers and bookies.
+5. Check the topic configuration to ensure that the write latency threshold is set correctly.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this alert, follow these steps:
+
+1. Scale up the Pulsar cluster to increase capacity and reduce write latency.
+2. Optimize disk usage and I/O performance by increasing storage capacity, improving disk configuration, or using faster storage.
+3. Implement load balancing to distribute write traffic across multiple brokers.
+4. Implement queuing or buffering mechanisms to handle message bursts and reduce write latency.
+5. Consider upgrading Pulsar version to take advantage of performance improvements and bug fixes.
+
+Remember to investigate and address the root cause of the issue, rather than just treating the symptoms. Once the issue is resolved, the alert should clear automatically.

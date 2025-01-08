@@ -42,19 +42,35 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the `HostNodeOvertemperatureAlarm` alert rule:
 
+## Meaning
+
+The `HostNodeOvertemperatureAlarm` alert is triggered when a node's temperature exceeds a critical or warning threshold, indicating a potential overheating issue. This alert is critical because high temperatures can cause damage to the node's hardware, leading to system failures or data loss.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* The node may experience reduced performance or shut down unexpectedly, leading to service disruptions and potential data loss.
+* Prolonged high temperatures can cause permanent damage to the node's hardware, requiring costly repairs or replacement.
+* If the node is part of a critical service, the downtime can have significant business and financial impacts.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the node's temperature readings in Prometheus to determine the current temperature and trend.
+2. Verify that the temperature sensor is functioning correctly and not reporting false values.
+3. Investigate recent changes to the node's environment, such as changes in air flow, cooling systems, or nearby heat sources.
+4. Check the node's system logs for any error messages related to temperature or cooling systems.
+5. Perform a visual inspection of the node to ensure that it is properly ventilated and that all fans are functioning correctly.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Immediately shut down any non-essential workloads on the node to reduce heat generation.
+2. Verify that the node's cooling system is functioning correctly and adjust as needed.
+3. Implement temporary cooling measures, such as directing cool air towards the node or using temporary cooling devices.
+4. Schedule a maintenance window to inspect and clean the node's air vents and fans.
+5. Consider relocating the node to a cooler location or providing additional cooling solutions, such as air conditioning or liquid cooling systems.
+6. Monitor the node's temperature readings closely to ensure that the issue is resolved and prevent further overheating events.

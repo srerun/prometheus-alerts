@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the KubernetesVolumeFullInFourDays alert:
 
+## Meaning
+
+The KubernetesVolumeFullInFourDays alert is triggered when a Kubernetes volume is predicted to run out of available space within the next four days. This alert is critical, as it can cause disruptions to applications and services running on the affected nodes.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unaddressed, a full volume can cause:
 
+* Disruptions to application and service availability
+* Data loss or corruption
+* Increased latency and errors
+* Potential downstream impacts to dependent services and systems
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Identify the affected namespace and Persistent Volume Claim (PVC) using the `{{ $labels.namespace }}` and `{{ $labels.persistentvolumeclaim }}` labels.
+2. Check the current available space on the volume using the `kubelet_volume_stats_available_bytes` metric.
+3. Investigate the rate of disk usage growth using the `predict_linear` function.
+4. Review recent changes to the application or service using the volume, such as increased traffic or data ingestion.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify the root cause of the disk usage growth and address it, if possible (e.g., reduce data ingestion, optimize application storage usage).
+2. Increase the volume size or add additional storage capacity to the node.
+3. Consider implementing data retention policies or cleaning up unnecessary data to free up space.
+4. Monitor the volume usage closely and adjust the alert threshold as needed.
+
+Remember to also refer to the GitHub runbook linked in the alert annotations for additional information and guidance.

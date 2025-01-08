@@ -42,19 +42,41 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the HaproxyServerResponseErrors alert:
 
+## Meaning
+
+The HaproxyServerResponseErrors alert is triggered when the rate of HAProxy server response errors exceeds 5% of the total HTTP responses for a given server over a 1-minute period. This alert indicates that there is an issue with the HAProxy server or the backend server that is causing a significant number of response errors.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unchecked, this issue can lead to:
 
+* Poor user experience due to failed requests
+* Increased latency and decreased throughput
+* Potential security issues if errors are not properly handled
+* Impact on business-critical applications and services that rely on HAProxy
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the HAProxy server logs for errors and exceptions that may indicate the root cause of the response errors.
+2. Verify that the backend server is functioning correctly and responding to requests as expected.
+3. Check the HAProxy configuration to ensure that it is correctly configured to handle errors and exceptions.
+4. Use tools such as `haproxyctl` or `curl` to test the HAProxy server and verify that it is responding as expected.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify and fix the root cause of the response errors, whether it be a configuration issue, a backend server issue, or a HAProxy server issue.
+2. Implement error handling and retry mechanisms to minimize the impact of response errors on users.
+3. Consider increasing the logging level on the HAProxy server to gather more detailed information about the response errors.
+4. Verify that the HAProxy server is properly configured to handle high levels of traffic and errors.
+
+Additionally, consider implementing long-term solutions such as:
+
+* Implementing a load balancer or redundancy to reduce the impact of server failures
+* Improving the overall health and monitoring of the HAProxy server and backend servers
+* Implementing automated error detection and correction mechanisms

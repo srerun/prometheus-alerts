@@ -43,18 +43,47 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The ThanosQueryOverload alert is triggered when the number of concurrent Thanos query gate requests exceeds the average number of in-flight requests by a significant margin (less than 1) for more than 15 minutes. This indicates that the Thanos query instances are overwhelmed, which can lead to performance issues, slow query responses, or even failures.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert can be significant, as it may lead to:
 
+* Slow or failed queries, affecting the reliability and accuracy of monitoring data
+* Increased latency and decreased performance of the Prometheus API
+* Potential cascading failures in connected components
+* Delays in identifying and resolving underlying issues due to slow query responses
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the ThanosQueryOverload alert, follow these steps:
 
+1. Investigate the health of the Thanos query instances:
+	* Check the instance's resource utilization, such as CPU, memory, and disk usage
+	* Verify that the instance is not experiencing any failures or restarts
+2. Examine the connected Prometheus instances:
+	* Check the Prometheus instances' resource utilization and health
+	* Verify that the Prometheus instances are not experiencing any issues with scraping, storing, or querying data
+3. Identify potential senders of excessive requests:
+	* Analyze the query patterns and identify any unusual or excessive query requests
+	* Check the dashboards and Alertmanager configurations for any misconfigured or abusive queries
+4. Review the Thanos query logs for any errors or warnings:
+	* Check the logs for any errors related to query execution, connection issues, or timeouts
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the ThanosQueryOverload alert, follow these steps:
+
+1. Scale the Thanos query instances:
+	* Increase the instance count or resource allocation to handle the increased query load
+	* Verify that the instances are properly configured and healthy
+2. Optimize Prometheus instances:
+	* Ensure that the Prometheus instances are properly configured and optimized for performance
+	* Consider implementing query caching or other performance optimizations
+3. Identify and address excessive request senders:
+	* Work with the teams responsible for the dashboards and Alertmanager configurations to identify and fix any misconfigured or abusive queries
+	* Implement rate limiting or other measures to prevent excessive requests
+4. Continue monitoring and troubleshooting:
+	* Closely monitor the Thanos query instances and Prometheus instances for any signs of overload or failure
+	* Continuously troubleshoot and address any underlying issues to prevent future occurrences of this alert

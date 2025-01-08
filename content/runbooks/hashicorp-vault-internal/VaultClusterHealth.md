@@ -42,19 +42,38 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the VaultClusterHealth alert rule:
 
+## Meaning
+
+The Vault cluster health alert indicates that the Vault cluster is not in a healthy state. This is determined by checking the ratio of active Vault cores to the total number of Vault cores. If the ratio falls below 50%, the alert is triggered.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+A unhealthy Vault cluster can have significant implications on the overall security and reliability of the system. It can lead to:
 
+* Unavailability of secrets and sensitive data
+* Increased risk of data breaches
+* Disruption to dependent applications and services
+* Potential loss of business critical data
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Vault cluster status using the Vault CLI or Web UI
+2. Verify that the Vault cores are properly configured and running
+3. Check the system logs for any errors or warnings related to Vault
+4. Investigate any recent changes or deployments that may have caused the issue
+5. Review the Vault cluster topology and ensure it is correctly configured
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify the root cause of the unhealthy cluster state
+2. Take corrective action to restore the cluster to a healthy state
+	* This may involve restarting Vault cores, fixing configuration issues, or rolling back recent changes
+3. Verify that the cluster is healthy by checking the status and monitoring metrics
+4. Perform a thorough review of the Vault cluster configuration and topology to prevent similar issues in the future
+5. Consider implementing additional monitoring and alerting to detect potential issues earlier

@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the HaproxyBackendConnectionErrors alert:
 
+## Meaning
+
+The HaproxyBackendConnectionErrors alert indicates that the rate of connection errors to a specific HAProxy backend has exceeded 100 errors per second over the past minute. This may be caused by a variety of factors, including high request throughput, backend server issues, or network connectivity problems.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+This alert may indicate that the HAProxy backend is experiencing connectivity issues, which can lead to:
 
+* Dropped requests and reduced system availability
+* Increased latency and response times
+* Potential errors and failures in dependent systems
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the cause of this alert, perform the following steps:
 
+1. Check the HAProxy logs for errors and exceptions related to the affected backend.
+2. Verify the status of the backend servers and ensure they are operational and responding to requests.
+3. Review network connectivity and firewall rules to ensure there are no issues blocking traffic to the backend servers.
+4. Check the request throughput and latency metrics to determine if there are any unusual patterns or spikes.
+5. Review the HAProxy configuration to ensure it is properly configured and optimized for the current traffic load.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the effects of this alert, perform the following steps:
+
+1. Investigate and resolve any underlying issues with the backend servers, such as resource constraints or software errors.
+2. Adjust the HAProxy configuration to improve connection timeouts, retries, and queuing to handle high request throughput.
+3. Implement traffic shaping or rate limiting to prevent overwhelming the backend servers.
+4. Consider scaling out the backend servers or adding additional instances to handle increased traffic.
+5. Monitor the situation closely and adjust the mitigation strategies as needed to ensure system stability and availability.

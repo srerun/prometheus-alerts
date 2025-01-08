@@ -42,19 +42,31 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule:
 
+## Meaning
+
+This alert is triggered when the `eth_rpc_status` metric returns a value of 1, indicating that the Provider has failed because of a failed `net_version` check. This is a critical alert, as it affects the functionality of the Graph node.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+The impact of this alert is that the Provider is unable to function correctly, which can lead to issues with data retrieval and processing. This can have a cascading effect on dependent services and applications, causing data inconsistencies and errors.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of this issue, follow these steps:
 
+1. Check the Graph node logs for errors related to `net_version` checks.
+2. Verify that the Provider is configured correctly and that the `net_version` API is accessible.
+3. Check the `eth_rpc_status` metric to see if there are any trends or patterns that can indicate the cause of the failure.
+4. Investigate any recent changes to the Provider configuration or the Graph node environment that may have caused the issue.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this issue, follow these steps:
+
+1. Check the Provider configuration and ensure that it is correct and up-to-date.
+2. Restart the Provider service to try to recover from the failed `net_version` check.
+3. If the issue persists, try to debug the `net_version` API to identify the root cause of the failure.
+4. If necessary, roll back any recent changes to the Provider configuration or Graph node environment to a known good state.
+5. If the issue is still not resolved, escalate to the development team for further investigation and resolution.

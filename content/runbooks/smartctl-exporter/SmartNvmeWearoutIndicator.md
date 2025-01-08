@@ -43,18 +43,28 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The SmartNvmeWearoutIndicator alert is triggered when the available spare blocks on an NVMe device falls below a certain threshold. This indicates that the device is worn out and needs to be replaced to prevent data loss or corruption.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Data loss or corruption due to worn-out NVMe device
+* Potential downtime or system unavailability
+* Reduced performance and increased latency
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
-
+1. Check the affected instance and NVMe device using the `instance` and `device` labels.
+2. Verify the current available spare blocks value using the `smartctl_device_available_spare` metric.
+3. Check the device's wear level and health status using other smartctl metrics, such as `smartctl_device_wear_level` and `smartctl_device_health_status`.
+4. Consult the device's documentation and manufacturer's guidelines for replacement or maintenance.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+1. Immediately replace the worn-out NVMe device to prevent data loss or corruption.
+2. Perform a thorough backup of critical data to ensure business continuity.
+3. Consider migrating to a more reliable or redundant storage solution.
+4. Monitor the device's health status and wear level regularly to prevent future wear-out issues.
+5. Update the `smartctl_device_available_spare_threshold` value if necessary, based on the device's manufacturer's guidelines and your organization's requirements.
+
+Note: For more detailed steps and specific instructions, refer to the linked runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/smartctl-exporter/SmartNvmeWearoutIndicator.md

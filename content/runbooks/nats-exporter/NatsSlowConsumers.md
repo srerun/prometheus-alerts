@@ -42,19 +42,38 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the NatsSlowConsumers alert:
 
+## Meaning
+
+This alert is triggered when the NATS cluster has slow consumers, which can impact the performance and reliability of the messaging system. Slow consumers can cause messages to accumulate in the NATS cluster, leading to increased latency and potentially causing instability in the system.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of slow consumers in NATS can be significant, leading to:
 
+* Increased latency for message processing
+* Accumulation of messages in the NATS cluster, potentially causing instability
+* Potential loss of messages if the cluster becomes overwhelmed
+* Impact on dependent systems that rely on NATS for messaging
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the NATS cluster performance metrics, such as message latency and queue depth, to identify the extent of the issue.
+2. Investigate the specific consumers that are slow, using the `gnatsd_varz_slow_consumers` metric and other relevant logs and metrics.
+3. Determine the root cause of the slow consumers, such as high CPU usage, network issues, or application-level problems.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify and restart or replace the slow consumers to restore normal performance.
+2. Implement measures to prevent slow consumers in the future, such as:
+	* Optimizing consumer application performance
+	* Implementing load balancing or scaling for consumers
+	* Improving network connectivity and reducing latency
+	* Implementing timeouts and retries for consumer connections
+3. Consider implementing additional monitoring and alerting for NATS cluster performance and consumer health to detect issues early.
+4. Review and adjust the NATS cluster configuration to ensure it is optimized for performance and can handle the message volume.

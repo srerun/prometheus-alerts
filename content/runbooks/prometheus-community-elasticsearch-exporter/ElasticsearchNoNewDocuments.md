@@ -42,19 +42,32 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the ElasticsearchNoNewDocuments alert:
 
+## Meaning
+
+The ElasticsearchNoNewDocuments alert indicates that no new documents have been indexed in Elasticsearch for the past 10 minutes. This alert is triggered when the rate of new documents being indexed is less than 1 per 10 minutes.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+The impact of this alert can be significant, as it may indicate that data is not being properly ingested into Elasticsearch. This can lead to a lack of visibility into system metrics, logs, and other data, making it difficult to monitor and troubleshoot issues. Additionally, if data is not being indexed, it may not be searchable, which can impact the performance of dependent applications and services.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Elasticsearch cluster health to ensure it is operational and not experiencing any issues.
+2. Verify that the Elasticsearch data node is properly configured and running.
+3. Check the Elasticsearch indexing pipeline to ensure it is functioning correctly.
+4. Review the application logs to determine if there are any issues with data ingestion.
+5. Check the network connectivity between the data sources and Elasticsearch to ensure it is not blocked or restricted.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Investigate and resolve any issues with the Elasticsearch cluster, data node, or indexing pipeline.
+2. Verify that data sources are properly configured and sending data to Elasticsearch.
+3. Check for any issues with network connectivity between the data sources and Elasticsearch.
+4. Consider increasing the timeout period for data ingestion or indexing to ensure that data is not lost during periods of high load or network congestion.
+5. If the issue persists, consider escalating to an Elasticsearch administrator or expert for further assistance.

@@ -42,19 +42,35 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the PrometheusRuleEvaluationFailures alert:
 
+## Meaning
+
+The PrometheusRuleEvaluationFailures alert is triggered when there is an increase in the total number of Prometheus rule evaluation failures within a 3-minute window. This means that Prometheus is experiencing issues evaluating rules, which can lead to missed or delayed alerts.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is critical, as it can result in:
 
+* Missed alerts: Rules that are not evaluated may not trigger alerts, leading to potential issues going undetected.
+* Delayed alerts: Even if rules are eventually evaluated, the delay can cause alerts to be triggered late, reducing the effectiveness of monitoring and incident response.
+* Lack of visibility: Unevaluated rules can lead to a lack of visibility into the system's state, making it harder to identify and respond to issues.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Prometheus logs for errors related to rule evaluation.
+2. Verify that the Prometheus instance is running correctly and not experiencing high CPU usage or memory issues.
+3. Review the rules that are failing to evaluate and check for any syntax errors or conflicts with other rules.
+4. Check the Prometheus configuration file for any issues or typos that could be causing rule evaluation failures.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the Prometheus instance to clear any temporary issues.
+2. Verify that the Prometheus configuration file is correct and up-to-date.
+3. Review and correct any syntax errors or conflicts with other rules that are causing evaluation failures.
+4. Consider increasing the resources (e.g., CPU, memory) allocated to the Prometheus instance to ensure it can handle the load.
+5. Implement additional monitoring and alerting to detect rule evaluation failures earlier and reduce the impact.

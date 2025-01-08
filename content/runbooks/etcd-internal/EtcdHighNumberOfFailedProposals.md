@@ -43,18 +43,36 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The EtcdHighNumberOfFailedProposals alert is triggered when the etcd server experiences a high number of failed proposals within a 1-hour time window. This alert is raised when the increase in failed proposals exceeds 5 within the past hour. This indicates a potential issue with etcd's ability to successfully propose and commit changes to the cluster.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+A high number of failed proposals can have a significant impact on the overall health and stability of the etcd cluster. It can lead to:
 
+* Increased latency and slowed performance
+* Inconsistent data across the cluster
+* Potential data loss or corruption
+* Decreased availability and reliability of the etcd service
+
+If left unaddressed, this issue can have a cascading effect on dependent systems and services, leading to broader system instability and downtime.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the EtcdHighNumberOfFailedProposals alert, follow these steps:
 
+1. Check etcd server logs for errors and warnings related to proposal failures.
+2. Investigate the etcd cluster's current state, including the number of nodes, their health, and any ongoing maintenance or upgrades.
+3. Verify that the etcd servers have sufficient resources (e.g., CPU, memory, and disk space) to handle the current workload.
+4. Check for network connectivity issues between etcd nodes and other components in the system.
+5. Review etcd configuration settings, such as the proposal timeout and election timeout, to ensure they are set correctly.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the EtcdHighNumberOfFailedProposals alert, take the following steps:
+
+1. Investigate and address the root cause of the failed proposals, based on the diagnosis steps above.
+2. Restart the etcd server to reset the proposal counter and allow the system to recover.
+3. Consider increasing the proposal timeout or adjusting other etcd configuration settings to improve proposal success rates.
+4. Verify that etcd servers have sufficient resources to handle the current workload, and consider scaling up or optimizing resource allocation as needed.
+5. Implement additional monitoring and alerting to detect and respond to etcd issues more quickly in the future.

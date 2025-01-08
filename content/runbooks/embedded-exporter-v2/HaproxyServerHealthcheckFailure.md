@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the HaproxyServerHealthcheckFailure alert:
 
+## Meaning
+
+The HaproxyServerHealthcheckFailure alert is triggered when the HAProxy server healthcheck fails, indicating that one or more servers are not responding to healthcheck requests. This alert is raised when the rate of healthcheck failures increases over a 1-minute period, indicating a potential issue with the server or the HAProxy configuration.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert can be significant, as it may indicate that one or more servers are not functioning correctly, which can lead to:
 
+* Reduced system availability
+* Increased error rates
+* Degraded performance
+* Potential data loss or corruption
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the HAProxy logs for errors or warnings related to the healthcheck failures.
+2. Verify that the servers are configured correctly and are responding to healthcheck requests.
+3. Check the server metrics to identify any potential issues, such as high CPU usage or memory consumption.
+4. Review the HAProxy configuration to ensure that it is correct and up-to-date.
+5. Perform a manual healthcheck to validate that the servers are responding correctly.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this issue, follow these steps:
+
+1. Investigate and resolve any issues with the servers, such as restarting the server or applying configuration changes.
+2. Update the HAProxy configuration to ensure it is correct and up-to-date.
+3. Perform a rolling restart of the HAProxy servers to ensure that all servers are updated and functioning correctly.
+4. Verify that the healthcheck failures have decreased or resolved after taking the above steps.
+5. Consider implementing additional monitoring and alerting to detect potential issues with the servers or HAProxy configuration.

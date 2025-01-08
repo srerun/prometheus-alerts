@@ -42,19 +42,32 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule:
 
+## Meaning
+
+The HaproxyHighHttp4xxErrorRateBackend alert is triggered when the rate of HTTP requests with status 4xx (client errors) exceeds 5% of the total HTTP requests on a specific backend server. This indicates that there may be an issue with the backend server or the requests being sent to it.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* High error rates can lead to a poor user experience and reduced confidence in the application.
+* Increased error rates can also lead to increased latency and decreased performance.
+* Prolonged high error rates can also lead to resource wasting, as requests are being sent to a backend that is not able to process them correctly.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
-
+* Check the HAProxy logs to identify the specific 4xx error codes being returned and the URLs被affected.
+* Investigate the backend server logs to determine the root cause of the errors.
+* Check for any recent changes to the backend server or application code that may be contributing to the errors.
+* Verify that the backend server is properly configured and has sufficient resources to handle the incoming requests.
+* Check for any issues with the network connectivity between the HAProxy server and the backend server.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+* Investigate and resolve the root cause of the 4xx errors on the backend server.
+* Implement retry logic on the HAProxy server to retry failed requests.
+* Consider implementing circuit breakers to prevent further requests from being sent to the backend server until the issue is resolved.
+* Check for any opportunities to optimize the backend server or application code to reduce the error rate.
+* Verify that the HAProxy server is properly configured to handle the incoming requests and that the backend server is properly configured to handle the traffic.
+
+Note: The runbook is just a template and should be tailored to the specific environment and requirements of the organization.

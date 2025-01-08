@@ -43,18 +43,32 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The RabbitMQ Slow Queue Consuming alert is triggered when the time elapsed since the last message was consumed from the "my-queue" queue exceeds 60 seconds. This alert indicates that the queue is not being consumed efficiently, which can lead to backlog of messages and potential issues with the application that relies on the queue.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert includes:
 
+* Delayed processing of messages in the queue, which can cause issues with the application that relies on the queue.
+* Increased message backlog, which can lead to increased memory usage and potential errors.
+* Potential impact on the overall performance and availability of the system.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+* Check the RabbitMQ queue metrics to identify the root cause of the slow consumption.
+* Investigate if there are any issues with the consumer application that is processing messages from the queue.
+* Verify if there are any errors or issues with the RabbitMQ cluster or nodes.
+* Check the system resource utilization (e.g., CPU, memory, disk) to ensure that they are within normal limits.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+* Investigate and resolve any issues with the consumer application that is processing messages from the queue.
+* Check and optimize the RabbitMQ configuration to ensure that it is properly sized and configured for the workload.
+* Consider scaling up or adding more nodes to the RabbitMQ cluster to increase processing capacity.
+* Implement queue-based flow control or other mechanisms to prevent message backlog and ensure efficient consumption.
+* Monitor the queue metrics and system resources to ensure that the issue is resolved and does not recur.

@@ -43,18 +43,33 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The ZookeeperMissingLeader alert is triggered when Prometheus detects that there is no node marked as the leader in the Zookeeper cluster. This is determined by the `zk_server_leader` metric, which should have a non-zero value indicating the presence of a leader node. If the sum of this metric is zero, it means that no node is currently acting as the leader, which can have severe consequences for the cluster's availability and integrity.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The absence of a Zookeeper leader node can lead to:
 
+* Cluster instability and potential data loss
+* Inability to perform writes or updates to the Zookeeper database
+* Failure of dependent systems and applications that rely on Zookeeper for coordination and configuration management
+* Increased latency and errors in distributed systems that use Zookeeper
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Zookeeper cluster status using the Zookeeper CLI or a monitoring tool like Apache Zookeeper UI.
+2. Verify that all Zookeeper nodes are running and reachable.
+3. Check the Zookeeper logs for any error messages related to leader election or node connectivity.
+4. Use Prometheus and Grafana to visualize the `zk_server_leader` metric and identify any trends or patterns that may indicate the cause of the issue.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify the cause of the leader node failure and resolve it (e.g., restart the node, fix network connectivity issues, etc.).
+2. If the leader node is down, promote another node to become the leader using the Zookeeper CLI or API.
+3. Verify that the `zk_server_leader` metric returns a non-zero value, indicating the presence of a leader node.
+4. Monitor the Zookeeper cluster for any further issues and take corrective action if necessary.
+5. Consider implementing measures to prevent future leader node failures, such as deploying a highly available Zookeeper cluster or implementing automated leader election and failover.

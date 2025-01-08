@@ -43,18 +43,31 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The MongodbReplicationStatus9 alert is triggered when a MongoDB replica set member enters a rollback state, indicated by a replication status of 9. This means that the node is actively reverting to a previous state, and data is not available for reads until the rollback is complete.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+The impact of this alert is high, as it indicates that data is temporarily unavailable for reads, which can affect the performance and availability of dependent applications. Additionally, rollback operations can lead to data inconsistencies and potential data loss if not addressed promptly.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, check the following:
 
+* Verify the MongoDB replica set member's status using the MongoDB shell or a monitoring tool like MongoDB Atlas or MongoDB Compass.
+* Check the MongoDB logs for any error messages related to the rollback operation.
+* Investigate the cause of the rollback, such as network issues, disk space problems, or software errors.
+* Check the replication lag and oplog size to ensure they are within acceptable limits.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+* Immediately investigate the cause of the rollback and address the underlying issue.
+* If the rollback is due to a network issue, ensure that the network connection is stable and reliable.
+* If the rollback is due to disk space issues, free up disk space or consider increasing storage capacity.
+* If the rollback is due to software errors, apply any necessary patches or updates.
+* Once the underlying issue is resolved, allow the MongoDB replica set member to complete the rollback operation.
+* Monitor the replication status and oplog size to ensure they return to a healthy state.
+* Perform a manual resync of the replica set member to ensure data consistency.
+* Consider implementing additional monitoring and automation to prevent or detect similar issues in the future.

@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule "NatsLeafNodeConnectionIssue":
 
+## Meaning
+
+The NatsLeafNodeConnectionIssue alert is triggered when no leaf node connections have been established in the last 5 minutes. This indicates a critical issue with the NATS cluster, as leaf nodes are responsible for connecting to the NATS server and publishing/subscribing to messages. Without leaf node connections, the NATS cluster is unable to function properly.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this issue is high, as it can lead to:
 
+* Disruption of message processing and delivery
+* Increased latency and errors in the system
+* Potential data loss or corruption
+* Overall system instability and unavailability
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the NATS server logs for any errors or issues related to leaf node connections
+2. Verify that the NATS exporter is functioning correctly and reporting metrics accurately
+3. Investigate the network connectivity between the NATS server and the leaf nodes
+4. Check the leaf node configuration and ensure that it is correct and up-to-date
+5. Verify that there are no firewall or security restrictions blocking the connection between the NATS server and the leaf nodes
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the NATS server and/or the leaf nodes to re-establish connections
+2. Check and update the NATS exporter configuration to ensure it is correct and up-to-date
+3. Verify and update the network configuration to ensure connectivity between the NATS server and the leaf nodes
+4. Check and update the leaf node configuration to ensure it is correct and up-to-date
+5. Consider increasing the monitoring and logging verbosity to gather more information about the issue
+
+Note: If the issue persists, consider escalating to a senior engineer or subject matter expert for further assistance.

@@ -43,18 +43,34 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The ThanosReceiveConfigReloadFailure alert is triggered when a Thanos Receive component fails to reload its hashring configurations. This is indicated by the metric `thanos_receive_config_last_reload_successful` being 0 for a certain job. This alert is critical because it may lead to data inconsistencies and errors in the system.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is that the Thanos Receive component will not be able to function properly, leading to:
 
+* Data inconsistencies and errors
+* Potential data loss
+* Inaccurate query results
+* Downtime of the system
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Thanos Receive component logs for errors related to config reloading.
+2. Verify that the hashring configuration is correct and up-to-date.
+3. Check the network connectivity and permissions to ensure that the Thanos Receive component can access the hashring configuration.
+4. Verify that the Thanos Receive component is running with the correct configuration and flags.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this issue, follow these steps:
+
+1. Check the Thanos Receive component configuration and update it if necessary.
+2. Restart the Thanos Receive component to trigger a config reload.
+3. Verify that the hashring configuration is correct and up-to-date.
+4. If the issue persists, contact theThanos administrator or a senior engineer for further assistance.
+
+Note: For more detailed instructions and troubleshooting steps, refer to the runbook located at [https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-receiver/ThanosReceiveConfigReloadFailure.md](https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-receiver/ThanosReceiveConfigReloadFailure.md).

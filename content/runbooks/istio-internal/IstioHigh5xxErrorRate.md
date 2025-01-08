@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `IstioHigh5xxErrorRate`:
 
+## Meaning
+
+The `IstioHigh5xxErrorRate` alert is triggered when the percentage of HTTP 5xx responses in Istio exceeds 5% over a 5-minute period. This alert indicates that there is a high rate of internal server errors within the Istio service mesh, which can impact the overall reliability and performance of the system.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert can be significant, as it may cause:
 
+* Increased error rates and degraded user experience
+* Decreased system reliability and availability
+* Difficulty troubleshooting and debugging issues
+* Potential revenue loss or business impact due to system downtime
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of this alert, follow these steps:
 
+1. Check the Istio dashboard and logs for any signs of component failures or errors.
+2. Verify that the Istio control plane is healthy and functional.
+3. Inspect the `istio_requests_total` metrics to identify the specific services or pods that are experiencing high error rates.
+4. Check the application logs for any errors or exceptions that may be contributing to the high error rate.
+5. Verify that the underlying infrastructure is healthy and has sufficient resources (e.g., CPU, memory, disk space).
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the impact of this alert, follow these steps:
+
+1. Identify and address any underlying component failures or errors in the Istio control plane or data plane.
+2. Check for any configuration issues or misconfigurations in the Istio setup.
+3. Implement circuit breakers or retries to handle temporary errors and prevent cascading failures.
+4. Scale out the Istio control plane or data plane components to handle increased traffic or load.
+5. Consider implementing additional monitoring and logging to gain more visibility into the system and detect issues earlier.
+
+Remember to investigate and resolve the underlying cause of the alert to prevent it from happening again in the future.

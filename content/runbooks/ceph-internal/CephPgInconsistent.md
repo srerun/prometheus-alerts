@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the CephPgInconsistent alert rule:
 
+## Meaning
+
+The CephPgInconsistent alert is triggered when there are inconsistent placement groups (PGs) in the Ceph cluster. This means that data is available, but it's inconsistent across nodes. This can lead to data discrepancies and potential data loss.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is moderate to high, as it can lead to:
 
+* Data inconsistencies across nodes
+* Potential data loss
+* Performance degradation
+* Increased risk of cluster instability
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Ceph cluster's health using the `ceph health` command.
+2. Identify the PGs that are inconsistent using the `ceph pg dump` command.
+3. Investigate the nodes that are reporting inconsistencies.
+4. Check the Ceph logs for any error messages related to the inconsistent PGs.
+5. Verify that the network connectivity between nodes is stable and not experiencing any issues.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Run `ceph pg repair` to repair the inconsistent PGs.
+2. Verify that the repair was successful by running `ceph pg dump` again.
+3. If the issue persists, consider rebalancing the PGs using `ceph pg rebalance`.
+4. Check the Ceph cluster's configuration to ensure it's properly set up for data replication and consistency.
+5. Consider adding more nodes or increasing the replication factor to improve data durability and reduce the risk of inconsistencies.
+
+Remember to monitor the Ceph cluster's health and performance closely after mitigation to ensure the issue is fully resolved.

@@ -42,19 +42,35 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the OutdatedSnapshots alert rule:
 
+## Meaning
+
+This alert is triggered when a VMware VM snapshot is outdated, meaning it has not been updated in 3 days or more. This can be a problem because outdated snapshots can cause issues with VM performance, backup and restore operations, and can also lead to storage capacity issues.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is moderate to high. Outdated snapshots can cause a range of problems, including:
 
+* Performance degradation: Outdated snapshots can cause VMs to slow down or become unresponsive, leading to downtime and impacting business operations.
+* Backup and restore issues: Outdated snapshots can make it difficult or impossible to restore VMs from backups, leading to data loss and business disruption.
+* Storage capacity issues: Outdated snapshots can consume large amounts of storage space, leading to capacity issues and impacting the overall performance of the VMware environment.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of this alert, follow these steps:
 
+1. Check the VMWare vCenter Server or ESXi host to identify the affected VM and snapshot.
+2. Verify that the snapshot is indeed outdated and not being updated regularly.
+3. Check the VMware logs for any errors or issues related to snapshot creation or updating.
+4. Check the storage capacity and availability to ensure that there are no issues with storage space or performance.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this alert, follow these steps:
+
+1. Update the outdated snapshot to the latest version.
+2. Verify that the snapshot is being updated regularly to prevent future issues.
+3. Consider implementing a snapshot management policy to ensure that snapshots are regularly updated and deleted when no longer needed.
+4. Review and adjust storage capacity and performance to ensure that there are no issues with storage space or performance.
+5. Consider automating snapshot management using VMware APIs or third-party tools to simplify the process and reduce the risk of human error.

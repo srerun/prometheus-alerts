@@ -42,19 +42,38 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the CephOsdReweighted alert rule:
 
+## Meaning
+
+The CephOsdReweighted alert rule triggers when a Ceph Object Storage Daemon (OSD) has its weight reduced to less than 1. This means that the OSD is taking too much time to resize, which can lead to performance issues and impact the overall health of the Ceph cluster.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is that the Ceph cluster may experience reduced performance, slower data replication, and increased latency. This can lead to:
 
+* Slower data access times for clients
+* Increased risk of data loss or corruption
+* Decreased overall cluster reliability
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of this alert, follow these steps:
 
+1. Check the Ceph cluster status using `ceph -s` or `ceph status`
+2. Verify the OSD's weight using `ceph osd tree` or `ceph osd dump`
+3. Check the OSD's logs for any error messages related to resizing or slow performance
+4. Verify that the OSD is not overloaded or experiencing high latency
+5. Check if there are any ongoing maintenance tasks or upgrades that may be causing the issue
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Check if the OSD can be restarted or remapped to improve performance
+2. Verify that the OSD's disk is not full or experiencing high latency
+3. Check if there are any configuration issues or misconfigurations that may be causing the slow performance
+4. Consider increasing the OSD's weight or adjusting the crush map to improve performance
+5. If the issue persists, consider consulting the Ceph documentation or seeking assistance from a Ceph expert or support team.
+
+Remember to always follow proper procedures and testing before making any changes to the Ceph cluster.

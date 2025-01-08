@@ -42,19 +42,38 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `TraefikHighHttp4xxErrorRateBackend`:
 
+## Meaning
+
+This alert is triggered when the rate of HTTP 4xx errors for a Traefik backend exceeds 5% of the total requests over a 3-minute window. This indicates that a significant number of requests to the backend are failing, which can have a negative impact on the user experience and application performance.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Users may experience failed requests or errors when interacting with the application.
+* High error rates can lead to increased latency, decreased system performance, and potential cascading failures.
+* If left unaddressed, this issue can result in revenue loss, damage to reputation, and decreased customer satisfaction.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Identify the affected Traefik backend using the `backend` label in the alert.
+2. Check the Traefik logs for errors related to the identified backend.
+3. Verify that the backend service is operational and responding correctly.
+4. Review recent changes to the application, backend, or Traefik configuration that may be causing the error rate to spike.
+5. Use tools like `curl` or a web debugging proxy to simulate requests to the backend and reproduce the error.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Investigate and address the root cause of the high error rate, such as:
+	* Fixing issues with the backend service or application.
+	* Adjusting Traefik configuration or routing rules.
+	* Implementing retries or circuit breakers to handle transient errors.
+2. Implement a temporary fix to reduce the error rate, such as:
+	* Load shedding or rate limiting to reduce the load on the backend.
+	* Routing traffic to a different backend or instance.
+3. Monitor the error rate and adjust the mitigation strategies as needed to ensure the issue is fully resolved.
+4. Consider implementing additional monitoring and alerting to catch similar issues earlier in the future.

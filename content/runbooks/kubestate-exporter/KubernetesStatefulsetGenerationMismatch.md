@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the KubernetesStatefulsetGenerationMismatch alert:
 
+## Meaning
+
+The KubernetesStatefulsetGenerationMismatch alert is triggered when the observed generation of a StatefulSet does not match the expected generation. This can occur when a StatefulSet update fails, causing the observed generation to diverge from the expected generation.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unresolved, a StatefulSet generation mismatch can lead to:
 
+* Unexpected behavior or errors in the application
+* Inconsistent data or state across replicas
+* Difficulty in rolling back to a previous version
+* Potential data loss or corruption
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the StatefulSet's status using `kubectl describe statefulset <statefulset_name> -n <namespace>`
+2. Verify the observed generation and expected generation values
+3. Check the StatefulSet's update history using `kubectl rollout history statefulset <statefulset_name> -n <namespace>`
+4. Inspect the Pods' status and logs for any errors or issues
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify the root cause of the generation mismatch (e.g., failed update, network issues, etc.)
+2. Roll back the StatefulSet to a previous version using `kubectl rollout undo statefulset <statefulset_name> -n <namespace>`
+3. Verify the StatefulSet's status and generation values after the rollback
+4. Investigate and address any underlying issues that caused the generation mismatch
+5. Consider implementing additional monitoring and logging to detect similar issues in the future

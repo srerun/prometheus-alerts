@@ -42,19 +42,38 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the LokiRequestPanic alert rule:
 
+## Meaning
+
+The LokiRequestPanic alert is triggered when there is a significant increase in panics within Loki requests within a 10-minute window, indicating a critical issue with the Loki service.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is high, as it can result in:
 
+* Loki requests failing, leading to incomplete or missing log data
+* Increased latency and errors in the logging pipeline
+* Potential cascading failures in dependent systems
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the LokiRequestPanic alert, follow these steps:
 
+1. Check the Loki logs for errors related to the panic
+2. Verify that the Loki service is running and configured correctly
+3. Investigate recent changes to the Loki configuration or deployment
+4. Review system metrics for resource utilization and potential bottlenecks
+5. Check for any signs of resource exhaustion or overload
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the LokiRequestPanic alert, follow these steps:
+
+1. Roll back recent changes to the Loki configuration or deployment
+2. Increase resources (e.g. CPU, memory) allocated to the Loki service
+3. Implement rate limiting or queuing to handle high traffic volumes
+4. Restart the Loki service to clear out any stuck requests
+5. Consider implementing retry logic or circuit breakers to handle failed requests
+
+Note: For more detailed steps and context-specific instructions, refer to the runbook URL provided in the alert annotation: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/loki-internal/LokiRequestPanic.md

@@ -43,18 +43,36 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The KubernetesJobNotStarting alert is triggered when a Kubernetes job has not started for 10 minutes. This alert is critical as it indicates that a job that is supposed to be running is not executing, which can lead to delays, data loss, or other issues depending on the job's purpose.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert can be significant, depending on the job's responsibility. Some possible consequences include:
 
+* Delays in data processing or reporting
+* Incomplete or missing data
+* Inability to perform critical tasks or functions
+* Unavailability of dependent services or applications
+* Increased latency or errors in dependent systems
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Kubernetes job's status using `kubectl describe job <job_name> -n <namespace>`
+2. Verify that the job's configuration is correct, including the container image, command, and arguments
+3. Check the job's pod logs for errors or warnings using `kubectl logs <job_pod_name> -n <namespace>`
+4. Verify that the job's dependencies, such as services or other pods, are available and running correctly
+5. Check the cluster's resource utilization, such as CPU, memory, and disk usage, to ensure that the job is not being starved of resources
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Check the job's configuration and update it if necessary to ensure that it is correct and valid
+2. Verify that the job's dependencies are available and running correctly
+3. Increase the job's resource allocation, such as CPU or memory, if necessary
+4. Check the cluster's resource utilization and adjust resource allocation or node count as needed
+5. Implement retry mechanisms or timeouts to ensure that the job is retried if it fails to start
+6. Consider implementing a fallback or backup job to ensure that critical tasks are executed even if the primary job fails to start

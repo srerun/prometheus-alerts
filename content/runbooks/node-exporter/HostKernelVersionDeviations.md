@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the `HostKernelVersionDeviations` alert rule:
 
+## Meaning
+
+This alert is triggered when there are multiple kernel versions running on hosts in the cluster. This can indicate a potential security risk or compatibility issues between hosts.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this issue can be:
 
+* Security vulnerabilities: Running different kernel versions can expose the cluster to known security vulnerabilities.
+* Inconsistent behavior: Different kernel versions can lead to inconsistent behavior between hosts, making troubleshooting and maintenance more challenging.
+* Performance issues: Mismatched kernel versions can cause performance issues, affecting the overall cluster performance.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the alert description for the instance and kernel versions affected.
+2. Verify the kernel versions running on each host using `node_uname_info` metrics.
+3. Identify the hosts with inconsistent kernel versions.
+4. Check the kernel version installed on each host using `uname -r` command.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify the recommended kernel version for the cluster.
+2. Update the kernel version on each host to the recommended version.
+3. Verify that all hosts are running the same kernel version using `node_uname_info` metrics.
+4. Implement a process to ensure kernel version consistency across the cluster, such as automating kernel updates or implementing a kernel version management policy.
+
+Additionally, consider implementing a monitoring and alerting system to detect kernel version deviations in the future.

@@ -43,18 +43,28 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The ThanosRuleAlertmanagerHighDNSFailures alert is triggered when the percentage of failing DNS queries for Alertmanager endpoints exceeds 1% for a Thanos Rule instance. This alert indicates a potential issue with the DNS resolution for Alertmanager endpoints, which may lead to alert delivery failures.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Delayed or failed alert delivery to notification channels
+* Incomplete or inaccurate alerting and notifications
+* Increased latency or timeouts in alert processing
+* Potential impact on incident response and resolution times
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
-
+1. Check the Thanos Rule instance logs for DNS resolution errors or timeouts
+2. Verify the DNS configuration and settings for the Alertmanager endpoints
+3. Check the network connectivity and latency between the Thanos Rule instance and the Alertmanager endpoints
+4. Investigate any recent changes to the DNS infrastructure or Alertmanager configuration
+5. Review the Prometheus metrics for other related errors or issues
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+1. Investigate and resolve any DNS resolution errors or timeouts on the Thanos Rule instance
+2. Verify and update the DNS configuration to ensure correct resolution of Alertmanager endpoints
+3. Check and optimize the network connectivity and latency between the Thanos Rule instance and the Alertmanager endpoints
+4. Consider implementing redundancy or fallback mechanisms for DNS resolution
+5. Monitor the alerting system for any continued issues or errors and take corrective action as needed.

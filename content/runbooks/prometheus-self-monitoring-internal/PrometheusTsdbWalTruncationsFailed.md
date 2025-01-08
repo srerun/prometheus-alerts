@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the PrometheusTsdbWalTruncationsFailed alert rule:
 
+## Meaning
+
+The PrometheusTsdbWalTruncationsFailed alert is triggered when Prometheus encounters failures during the truncation of its Write-Ahead Log (WAL). The WAL is a critical component of Prometheus's storage system, and failures during truncation can lead to data loss or inconsistencies.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If this alert is triggered, it may indicate that Prometheus is experiencing issues with its storage system, which can lead to:
 
+* Data loss or inconsistencies
+* Inaccurate or incomplete metrics
+* Performance degradation
+* Increased risk of data corruption
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Prometheus logs for errors related to WAL truncation.
+2. Verify that the disk space is sufficient and not running out.
+3. Check the disk I/O performance and verify that it's within acceptable limits.
+4. Verify that the WAL directory is not corrupted and is writable.
+5. Check the Prometheus configuration to ensure that it's correctly configured for WAL truncation.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Check the disk space and ensure that it's sufficient.
+2. Restart the Prometheus instance to see if it resolves the issue.
+3. Verify that the WAL directory is not corrupted and is writable.
+4. Check the disk I/O performance and optimize it if necessary.
+5. If the issue persists, consider increasing the `storage.tsdb.retention` configuration option to reduce the frequency of WAL truncations.
+6. Consider increasing the `storage.tsdb.wal-compression` configuration option to reduce the WAL size.
+7. If none of the above steps resolve the issue, consider seeking assistance from a Prometheus administrator or a qualified engineer.

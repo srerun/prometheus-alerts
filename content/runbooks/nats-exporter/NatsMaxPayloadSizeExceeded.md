@@ -43,18 +43,36 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The `NatsMaxPayloadSizeExceeded` alert is triggered when the maximum payload size allowed by NATS exceeds 1MB. This alert indicates that the NATS messaging system is receiving messages with payloads larger than the allowed limit, which can lead to performance issues, message loss, and even system instability.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Performance degradation: Excessive payload sizes can cause NATS to slow down, leading to slower message processing and potentially causing backlogs.
+* Message loss: If the payload size exceeds the allowed limit, messages may be dropped, resulting in data loss and potential system instability.
+* System instability: Prolonged exposure to oversized payloads can cause the NATS system to become unstable, leading to crashes or restarts.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the NATS server logs for error messages related to oversized payloads.
+2. Verify that the `gnatsd_varz_max_payload` metric is accurately reporting the maximum payload size.
+3. Investigate the source of the oversized payloads, which may be due to:
+	* Misconfigured clients or publishers
+	* Incorrectly formatted messages
+	* Unintended data growth
+4. Review the NATS configuration to ensure that the maximum payload size is set correctly.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify and fix the source of the oversized payloads:
+	* Adjust client or publisher settings to adhere to the maximum payload size limit.
+	* Implement payload compression or splitting to reduce message size.
+2. Adjust the NATS configuration to increase the maximum payload size limit, if necessary.
+3. Monitor the `gnatsd_varz_max_payload` metric to ensure the issue is resolved and prevent future occurrences.
+4. Consider implementing payload size monitoring and alerting to detect potential issues proactively.
+
+For more detailed information and guidance, refer to the runbook linked in the alert annotation: <https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsMaxPayloadSizeExceeded.md>

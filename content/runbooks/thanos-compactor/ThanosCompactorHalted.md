@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the ThanosCompactorHalted alert:
 
+## Meaning
+
+The ThanosCompactorHalted alert indicates that the Thanos compactor has failed to run and is currently halted. This means that the compactor is not processing data and may lead to data inconsistencies and potential data loss.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is that the Thanos compactor is not functioning as expected, which can lead to:
 
+* Data inconsistencies and potential data loss
+* Increased storage usage due to unprocessed data
+* Potential performance degradation of dependent systems
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Thanos compactor logs for errors or exceptions that may indicate the cause of the halt.
+2. Verify that the Thanos compactor is properly configured and that all required dependencies are available.
+3. Check the system resources (e.g., CPU, memory, disk space) to ensure they are not causing the compactor to fail.
+4. Review the Thanos compactor metrics to identify any trends or patterns that may indicate the cause of the halt.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the Thanos compactor to attempt to recover from the halted state.
+2. Investigate and resolve any underlying issues identified during diagnosis, such as configuration errors or system resource constraints.
+3. Verify that the compactor is properly configured and all required dependencies are available.
+4. Monitor the Thanos compactor metrics to ensure it is functioning correctly and processing data as expected.
+
+Note: If the issue persists, consider seeking assistance from the Thanos community or a qualified expert.

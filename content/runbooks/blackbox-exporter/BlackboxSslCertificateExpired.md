@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `BlackboxSslCertificateExpired`:
 
+## Meaning
+
+The `BlackboxSslCertificateExpired` alert is triggered when the SSL certificate of a blackbox exporter instance has expired. This means that the certificate is no longer valid and may cause issues with encryption and trust between clients and the exporter.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of an expired SSL certificate can be significant, as it can lead to:
 
+* Encryption issues: An expired certificate may not be trusted by clients, causing encryption to fail.
+* Trust issues: An expired certificate may not be recognized as valid by clients, leading to trust errors.
+* Service disruption: In some cases, an expired certificate may cause the exporter to become unavailable or unresponsive.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the exporter instance: Identify the specific exporter instance that is affected by the expired certificate.
+2. Verify the certificate: Check the SSL certificate details to confirm that it has indeed expired.
+3. Check the certificate chain: Verify that the certificate chain is correct and up-to-date.
+4. Review system logs: Review system logs to identify any errors or issues related to the certificate expiration.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Renew the SSL certificate: Obtain a new, valid SSL certificate and install it on the affected exporter instance.
+2. Update the certificate chain: Ensure that the certificate chain is updated to reflect the new certificate.
+3. Restart the exporter: Restart the exporter instance to ensure that the new certificate is loaded correctly.
+4. Verify the fix: Verify that the certificate has been updated correctly and that the exporter is functioning as expected.
+
+Note: This runbook provides general guidance for diagnosing and mitigating the issue. Specific steps may vary depending on the environment and setup.

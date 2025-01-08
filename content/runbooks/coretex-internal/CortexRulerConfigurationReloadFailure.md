@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the CortexRulerConfigurationReloadFailure alert:
 
+## Meaning
+
+The CortexRulerConfigurationReloadFailure alert is triggered when the Cortex ruler configuration fails to reload successfully. This alert is critical because it indicates that the ruler configuration has not been updated, which can lead to rules not being executed correctly, resulting in incorrect alerts and notifications.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is high, as it can lead to:
 
+* Incorrect alerting and notification
+* Delayed or missed alerts
+* Incomplete or inaccurate monitoring data
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Cortex ruler logs for errors related to configuration reload.
+2. Verify that the ruler configuration file is correct and up-to-date.
+3. Check the instance {{ $labels.instance }} for any issues or errors.
+4. Verify that the Cortex ruler service is running and healthy.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the Cortex ruler service to attempt a configuration reload.
+2. Check and update the ruler configuration file if necessary.
+3. Investigate and resolve any issues or errors on the instance {{ $labels.instance }}.
+4. Verify that the Cortex ruler service is running and healthy after the restart.
+5. If the issue persists, escalate to the Cortex administrator or developer team for further assistance.
+
+Remember to monitor the Cortex ruler service and instance {{ $labels.instance }} closely after mitigation to ensure the issue is resolved.

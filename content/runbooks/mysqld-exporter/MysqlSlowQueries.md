@@ -42,19 +42,40 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the MysqlSlowQueries alert rule:
 
+## Meaning
+
+The MysqlSlowQueries alert is triggered when the MySQL server experiences an increase in slow queries within a 1-minute time frame. This means that the MySQL server is taking longer than expected to execute queries, which can lead to performance issues and affect the overall performance of the system.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of slow queries on the system can be significant. It can lead to:
 
+* Increased latency for users
+* Decreased system throughput
+* Increased resource utilization (CPU, memory, disk I/O)
+* Potential crashes or hangs of the MySQL server
+* Impact on dependent applications and services
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the MySQL slow query log to identify the slow queries.
+2. Analyze the slow query log to determine the cause of the slowness (e.g., poor indexing, inefficient queries, high load).
+3. Check the MySQL server metrics (e.g., CPU usage, disk I/O, connection count) to identify any bottlenecks.
+4. Review the MySQL configuration to ensure it is optimized for performance.
+5. Check for any recent changes to the system or application that may be contributing to the slow queries.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify and optimize the slow queries (e.g., add indexing, rewrite inefficient queries).
+2. Adjust the MySQL server configuration to improve performance (e.g., increase buffer pool size, optimize innodb settings).
+3. Implement query caching or other caching mechanisms to reduce the load on the MySQL server.
+4. Consider load balancing or sharding the MySQL database to distribute the load.
+5. Monitor the MySQL server metrics and adjust as needed to prevent future slow query issues.
+
+Remember to refer to the MySQL server documentation and the MysqlSlowQueries alert rule definition for more information on how to diagnose and mitigate slow queries.

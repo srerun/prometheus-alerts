@@ -42,19 +42,30 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the Prometheus alert rule:
 
+## Meaning
+
+The ThanosStoreBucketHighOperationFailures alert is triggered when the percentage of failed operations in a Thanos Store bucket exceeds 5% over a 5-minute window. This indicates that the bucket is experiencing an unusual number of failures, which may impact the availability and reliability of the system.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* High operation failures in a Thanos Store bucket can lead to data loss, corruption, or inconsistency.
+* This may cause issues with downstream systems that rely on the data stored in the bucket.
+* Prolonged failures can lead to a buildup of undelivered data, causing further problems when the bucket recovers.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
-
+* Check the Thanos Store bucket logs for error messages indicating the cause of the failures.
+* Investigate the network connectivity and storage system health to rule out infrastructure-related issues.
+* Verify that the bucket is properly configured and that the storage capacity is sufficient.
+* Check the system load and resource utilization to identify any resource constraints.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+* Investigate and address the root cause of the operation failures, such as network issues, storage system problems, or configuration errors.
+* Temporarily increase the storage capacity or add more resources to alleviate any resource constraints.
+* Implement retries or fall-back mechanisms to minimize the impact of failures on downstream systems.
+* Consider scaling up or out the Thanos Store cluster to improve its resilience and availability.
+
+Note: This runbook is a general guideline and may need to be tailored to your specific environment and use case.

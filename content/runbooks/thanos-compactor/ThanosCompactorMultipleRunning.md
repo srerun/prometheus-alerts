@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the ThanosCompactorMultipleRunning alert:
 
+## Meaning
+
+The ThanosCompactorMultipleRunning alert is triggered when multiple Thanos Compactor instances are running simultaneously. This is not expected behavior, as Thanos Compactor is designed to run as a single instance. Running multiple instances can lead to inconsistencies and errors in the compacted data.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of running multiple Thanos Compactor instances can be significant, leading to:
 
+* Data inconsistencies and errors
+* Increased resource usage and load on the system
+* Potential data loss or corruption
+* Difficulty in troubleshooting and debugging issues
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Prometheus metrics to verify the number of running Thanos Compactor instances.
+2. Check the Thanos Compactor logs to see if there are any errors or warnings related to multiple instances running.
+3. Check the system configuration and deployment scripts to ensure that only one instance of Thanos Compactor is intended to be running.
+4. Check for any automation or scheduling issues that may be causing multiple instances to start unintentionally.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Immediately stop all but one of the running Thanos Compactor instances to prevent further data inconsistencies and errors.
+2. Investigate and resolve the root cause of the multiple instances running, such as a configuration or deployment error.
+3. Verify that the system configuration and deployment scripts are corrected to ensure only one instance of Thanos Compactor is running.
+4. Monitor the system closely to ensure that the issue does not recur.
+5. Consider implementing additional monitoring and alerting to detect and prevent similar issues in the future.

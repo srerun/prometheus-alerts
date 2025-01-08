@@ -42,19 +42,31 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the PgbouncerMaxConnections alert:
 
+## Meaning
+The PgbouncerMaxConnections alert is triggered when the number of PGBouncer client connections reaches the maximum allowed limit (max_client_conn). This means that PGBouncer is refusing new connections, which can impact the availability and performance of dependent services.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
+The impact of this alert is critical, as it can cause:
 
-
+* Service unavailability: New connections to the database may be refused, leading to errors and downtime for dependent services.
+* Performance degradation: Existing connections may be affected, leading to slow performance and latency issues.
+* Data loss: In extreme cases, data may be lost or corrupted due to the inability to establish new connections.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
+To diagnose the issue, follow these steps:
 
-
+1. Check the PGBouncer dashboard for the instance in question to confirm the max connections threshold has been reached.
+2. Review the PGBouncer logs to identify the reason for the connection limit being reached (e.g., high traffic, resource constraints, etc.).
+3. Verify that the max_client_conn setting is set correctly and adjust it if necessary.
+4. Check for any other alerts or issues related to PGBouncer or dependent services.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+To mitigate the issue, follow these steps:
+
+1. Increase the max_client_conn setting in PGBouncer configuration to allow more connections.
+2. Identify and address the root cause of the high connection demand (e.g., optimizing queries, reducing traffic, etc.).
+3. Implement connection pooling or other optimization techniques to reduce the load on PGBouncer.
+4. Consider scaling up or load-balancing PGBouncer instances to distribute the connection load.
+5. Monitor the situation closely and be prepared to roll back changes if they do not resolve the issue.

@@ -42,19 +42,31 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule "NginxHighHttp5xxErrorRate":
 
+## Meaning
+
+This alert is triggered when the rate of HTTP requests with a 5xx status code (indicating an error on the server side) exceeds 5% of the total HTTP requests over a 1-minute period. This may indicate a problem with the Nginx server or the application it is serving.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* High error rates can lead to a poor user experience, as users may encounter errors when trying to access the application.
+* If left unaddressed, this issue can result in a loss of user trust and revenue.
+* It can also indicate a potential security issue or misconfiguration of the Nginx server.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
-
+* Check the Nginx error logs to identify the specific errors and their causes.
+* Verify that the application is functioning correctly and not returning errors.
+* Investigate recent changes to the Nginx configuration or the application code that may have caused the issue.
+* Check the system resources (CPU, memory, disk space) to ensure they are not overwhelmed.
+* Review the access logs to identify any patterns or trends in the errors.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+* Immediately investigate and address the root cause of the errors.
+* Implement a temporary fix, such as increasing the resources available to the Nginx server or load balancing the traffic.
+* Perform a rolling restart of the Nginx servers to ensure that any stuck processes are terminated.
+* Consider implementing retries or circuit breakers in the application to reduce the impact of errors on users.
+* Review and refine the Nginx configuration to prevent similar issues in the future.
+* Monitor the error rate closely to ensure that it returns to a normal level.

@@ -42,19 +42,38 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the MongodbReplicationStatus8 alert rule:
 
+## Meaning
+
+The MongodbReplicationStatus8 alert rule is triggered when a MongoDB replication set member is unreachable from another member of the set. This means that the MongoDB instance is not responding or is not reachable, which can cause data inconsistencies and availability issues.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is critical, as it can result in:
 
+* Data loss or inconsistencies
+* Unavailability of the MongoDB instance
+* Impact on dependent applications and services
+* Potential downtime and revenue loss
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the MongoDB instance status using the MongoDB export metrics.
+2. Verify the network connectivity between the MongoDB instances.
+3. Check the MongoDB logs for any error messages related to replication.
+4. Verify that the MongoDB configuration is correct and up-to-date.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the MongoDB instance if it is not responding.
+2. Check and resolve any network connectivity issues.
+3. Investigate and resolve any underlying issues causing the replication failure.
+4. Verify that the MongoDB replication set is properly configured and functional.
+5. Consider performing a failover to a secondary node if the primary node is unreachable.
+
+Note: Refer to the MongoDB documentation and the MongoDB exporter documentation for more detailed troubleshooting steps and configuration recommendations.

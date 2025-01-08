@@ -42,19 +42,34 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `MongodbCursorsTimeouts`:
 
+## Meaning
+
+This alert is triggered when the number of MongoDB cursor timeouts exceeds 100 in a 1-minute interval, indicating that MongoDB is experiencing performance issues.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Slow query performance: Cursor timeouts can lead to slow query performance, which can impact application responsiveness and user experience.
+* Data inconsistencies: In extreme cases, cursor timeouts can cause data inconsistencies or even data loss.
+* System instability: Prolonged cursor timeouts can lead to system instability, as resources are wasted on waiting for unresponsive queries.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. **Check MongoDB logs**: Review MongoDB logs for any error messages related to cursor timeouts, slow queries, or other performance issues.
+2. **Analyze query performance**: Use tools like MongoDB's built-in `explain` method or third-party tools like MongoDB Compass or MongoDB Atlas to analyze query performance and identify slow queries.
+3. **Verify cursor configuration**: Check the cursor configuration to ensure it is set up correctly and not causing unnecessary timeouts.
+4. **Check system resources**: Verify that the system has sufficient resources (CPU, memory, disk space) to handle the workload.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. **Optimize slow queries**: Identify and optimize slow queries to reduce their execution time and prevent cursor timeouts.
+2. **Adjust cursor configuration**: Adjust the cursor configuration to allow for more time to execute or to increase the batch size to reduce the number of cursors.
+3. **Scale MongoDB resources**: Scale up MongoDB resources (e.g., increase instance size, add more nodes) to handle the workload.
+4. **Implement query retries**: Implement query retries to prevent data inconsistencies in case of timeouts.
+
+Note: Refer to the MongoDB documentation and your organization's best practices for specific guidance on resolving cursor timeouts.

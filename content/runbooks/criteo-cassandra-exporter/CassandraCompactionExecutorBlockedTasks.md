@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `CassandraCompactionExecutorBlockedTasks`:
 
+## Meaning
+
+This alert is triggered when the Cassandra compaction executor has blocked tasks. The compaction executor is responsible for merging and rewriting data in Cassandra to optimize storage and improve performance. Blocked tasks can lead to increased latency, reduced throughput, and potential data inconsistencies.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Increased latency and reduced performance for Cassandra queries
+* Potential data inconsistencies and errors
+* Reduced overall system reliability and availability
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the cause of blocked compaction executor tasks:
 
+1. Check the Cassandra logs for any errors or exceptions related to compaction
+2. Verify that the Cassandra node has sufficient resources (CPU, memory, disk space) to perform compactions
+3. Check for any connectivity issues or network bottlenecks that may be blocking compactions
+4. Verify that the compaction strategy is correctly configured and not excessively aggressive
+5. Check for any long-running queries or maintenance operations that may be blocking compactions
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate blocked compaction executor tasks:
+
+1. Investigate and resolve any underlying issues causing the blockage (e.g., resource constraints, network issues)
+2. Adjust the compaction strategy to reduce the load on the compaction executor
+3. Consider increasing the resources (CPU, memory, disk space) available to the Cassandra node
+4. Implement measures to reduce the load on Cassandra, such as load balancing or caching
+5. Consider running a manual compaction operation to clear any blocked tasks
+
+Remember to monitor the situation and adjust the mitigation strategy as needed to prevent further blockages.

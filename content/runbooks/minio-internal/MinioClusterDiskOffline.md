@@ -42,19 +42,42 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the MinioClusterDiskOffline alert rule:
 
+## Meaning
+
+The MinioClusterDiskOffline alert is triggered when one or more disks in a Minio cluster are offline. This means that the disk is not available for reading or writing, which can impact the availability and performance of the Minio cluster.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is high, as it can lead to:
 
+* Data loss or corruption
+* Inconsistent data across the cluster
+* Reduced performance or unavailability of the Minio cluster
+* Potential data inconsistency or loss for applications relying on the Minio cluster
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Minio cluster status using the Minio dashboard or CLI tools
+2. Identify which disk(s) are offline and investigate the reason for the outage
+3. Check the system logs for any errors or warnings related to the disk or Minio cluster
+4. Verify that the disk is properly connected and configured
+5. Check for any underlying hardware or software issues that may be causing the disk to be offline
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Immediately investigate the cause of the disk offline and take corrective action
+2. Attempt to bring the offline disk back online
+3. If the disk cannot be brought back online, replace it with a new disk
+4. Verify that the Minio cluster is stable and functional after the disk is brought back online or replaced
+5. Consider implementing redundancy or failover mechanisms to prevent similar issues in the future
+
+Additional resources:
+
+* Refer to the Minio documentation for troubleshooting and troubleshooting guides
+* Consult with the Minio cluster administrators or subject matter experts for further assistance if needed.

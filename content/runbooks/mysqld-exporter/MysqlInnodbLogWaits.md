@@ -42,19 +42,38 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the MysqlInnodbLogWaits alert:
 
+## Meaning
+
+The MysqlInnodbLogWaits alert is triggered when the rate of InnoDB log waits exceeds 10 per 15 minutes. This indicates that the MySQL database is experiencing issues with writing logs to disk, which can lead to performance problems and even crashes.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+* Increased latency and slow query performance
+* Higher risk of database crashes or corruption
+* Potential for data loss or inconsistencies
 
+If left unchecked, this issue can have a significant impact on the availability and reliability of the MySQL database, leading to frustrated users and potentially even financial losses.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of this issue, follow these steps:
 
+1. Check the MySQL error log for any indications of disk I/O issues or errors related to log writing.
+2. Verify that the disk is not full and that there is sufficient free space for the log files.
+3. Check the InnoDB log file size and verify that it is not too large, causing write stalls.
+4. Investigate any recent changes to the MySQL configuration or environment that may be contributing to the issue.
+5. Run the `SHOW ENGINE INNODB STATUS` command to gather more information about the current InnoDB log wait situation.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this issue, follow these steps:
+
+1. Increase the `innodb_log_file_size` variable to reduce the frequency of log writes.
+2. Verify that the disk is optimized for high I/O performance, and consider upgrading to a faster disk if necessary.
+3. Implement regular backups and ensure that the backups are completing successfully.
+4. Consider increasing the `innodb_log_buffer_size` variable to improve log write performance.
+5. If the issue persists, consider consulting with a MySQL expert or seeking additional support to resolve the issue.
+
+Remember to monitor the situation closely and adjust the mitigation strategies as needed to ensure the stability and performance of the MySQL database.

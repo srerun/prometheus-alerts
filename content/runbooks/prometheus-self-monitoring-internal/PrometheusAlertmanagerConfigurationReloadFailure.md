@@ -43,18 +43,29 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The Prometheus Alertmanager Configuration Reload Failure alert is triggered when the Alertmanager configuration reload is unsuccessful. This alert indicates that there is an issue with the Alertmanager configuration that prevents it from reloading correctly.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+The impact of this alert is that Alertmanager will not be able to send notifications correctly, leading to potential issues with alerting and incident response. This can result in delayed or missed alerts, potentially causing downtime or service disruptions.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Alertmanager configuration file for any syntax errors or invalid configurations.
+2. Verify that the Alertmanager service is running correctly and has the necessary permissions to read the configuration file.
+3. Review the Alertmanager logs for any error messages related to the configuration reload failure.
+4. Check the value of the `alertmanager_config_last_reload_successful` metric to determine the nature of the failure.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Review and correct any syntax errors or invalid configurations in the Alertmanager configuration file.
+2. Restart the Alertmanager service to attempt a reload of the configuration.
+3. Verify that the Alertmanager service has the necessary permissions to read the configuration file.
+4. If the issue persists, consider rolling back to a previous known good configuration or seeking assistance from a Prometheus administrator.
+
+Remember to refer to the runbook URL provided in the alert annotation for more detailed instructions and troubleshooting steps.

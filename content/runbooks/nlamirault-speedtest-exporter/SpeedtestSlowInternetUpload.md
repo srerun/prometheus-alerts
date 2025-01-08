@@ -42,19 +42,34 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the SpeedtestSlowInternetUpload alert:
 
+## Meaning
+
+The SpeedtestSlowInternetUpload alert is triggered when the average internet upload speed, as measured by the speedtest exporter, falls below 20 Mbps over a 10-minute period. This indicates that the internet upload speed is slower than expected, which may impact the performance of applications and services that rely on uploading data to the internet.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+A slow internet upload speed can have several impacts on the system and its users, including:
 
+* Poor performance of applications that rely on uploading data to the internet, such as cloud-based services or online backups
+* Increased latency and timeouts for users uploading data to the internet
+* Potential impact on business-critical operations that rely on fast and reliable internet connectivity
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the slow internet upload speed, follow these steps:
 
+1. Check the speedtest exporter logs for any errors or issues that may be causing the slow upload speeds.
+2. Verify that the internet connection is stable and not experiencing any outages or packet loss.
+3. Check the network infrastructure, including routers, switches, and firewalls, to ensure they are functioning correctly and not bottlenecking the upload speed.
+4. Investigate any recent changes to the network configuration or infrastructure that may be contributing to the slow upload speeds.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the impact of a slow internet upload speed, follow these steps:
+
+1. Contact the internet service provider (ISP) to report the slow upload speeds and request assistance in troubleshooting and resolving the issue.
+2. Consider upgrading the internet plan or infrastructure to improve the upload speeds.
+3. Implement Quality of Service (QoS) policies to prioritize critical applications and services that rely on uploading data to the internet.
+4. Consider implementing a backup internet connection or redundant infrastructure to ensure business continuity in the event of an internet outage or slow speeds.

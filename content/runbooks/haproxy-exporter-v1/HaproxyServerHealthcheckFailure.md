@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the Prometheus alert rule `HaproxyServerHealthcheckFailure`:
 
+## Meaning
+
+The `HaproxyServerHealthcheckFailure` alert is triggered when the number of healthcheck failures for a HAProxy server increases within a 1-minute window. This indicates that one or more servers behind the load balancer are not responding correctly to health checks, which may lead to reduced availability or incorrect routing of traffic.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is that some servers may be taken out of rotation by HAProxy, leading to:
 
+* Reduced capacity and potential service disruption
+* Incorrect traffic routing, which may cause errors or timeouts for clients
+* Increased latency or connection failures for clients accessing the affected servers
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the HAProxy logs for errors related to healthcheck failures
+2. Verify the healthcheck configuration for the affected server(s)
+3. Check the server logs for any errors or issues that may be causing the healthcheck failures
+4. Verify that the server(s) are properly configured and running correctly
+5. Check for any network connectivity issues between the HAProxy instance and the affected server(s)
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Investigate and resolve the underlying cause of the healthcheck failures
+2. Verify that the affected server(s) are properly configured and running correctly
+3. If necessary, update the HAProxy configuration to temporarily remove the affected server(s) from rotation
+4. Implement additional logging or monitoring to detect similar issues in the future
+5. Consider implementing automated remediation steps, such as restarting the affected server(s) or running a healthcheck script to verify server health.

@@ -43,18 +43,35 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The `MongodbReplicationLag` alert is triggered when the average replication lag between the primary and secondary nodes in a MongoDB replica set exceeds 10 seconds. This lag can indicate issues with data replication, network connectivity, or node performance, which can lead to data inconsistencies and availability problems.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+A prolonged MongoDB replication lag can have significant impacts on the availability and integrity of the data:
 
+* Data inconsistencies: If the lag persists, it can lead to divergent data sets between nodes, which can cause errors, data loss, or inconsistencies.
+* Data availability: In the event of a node failure, a significant replication lag can delay the recovery process, leading to extended downtime and data unavailability.
+* Performance degradation: Replication lag can cause increased latency, reduced throughput, and decreased system performance.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the `MongodbReplicationLag` alert, follow these steps:
 
+1. Check the MongoDB replica set status using `rs.status()` or MongoDB Atlas/Cloud Manager.
+2. Verify network connectivity and latency between nodes using tools like `ping` or `mtr`.
+3. Investigate node performance, including CPU, memory, and disk usage, using tools like `top` or `htop`.
+4. Review MongoDB logs for errors or warnings related to replication.
+5. Check the output of `mongodb_replset_member_optime_date` metrics to identify the specific nodes experiencing lag.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the `MongodbReplicationLag` alert, follow these steps:
+
+1. Investigate and address any network connectivity issues between nodes.
+2. Optimize node performance by adjusting resource allocation, tuning MongoDB configuration, or upgrading hardware.
+3. Check and fix any MongoDB configuration issues, such as incorrect replica set configuration or outdated MongoDB versions.
+4. Consider increasing the `syncSource` timeout to allow for more time for replication to catch up.
+5. If the lag persists, consider reconfiguring the replica set or adding more nodes to improve replication performance.
+
+Remember to consult the MongoDB documentation and expert resources for further guidance on troubleshooting and optimizing MongoDB replication performance.

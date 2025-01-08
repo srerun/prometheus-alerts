@@ -42,19 +42,38 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `NatsJetstreamConsumersExceeded`:
 
+## Meaning
+
+The `NatsJetstreamConsumersExceeded` alert is triggered when the number of active JetStream consumers exceeds 100. This indicates that the system is experiencing high consumption rates, which may lead to performance issues, increased latency, and potential errors.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is moderate to high. If left unattended, high consumption rates can cause:
 
+* Performance degradation
+* Increased latency
+* Errors and failures in message processing
+* Increased resource utilization, leading to potential resource exhaustion
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the JetStream account statistics using the `gnatsd_varz_jetstream_stats_accounts` metric to identify the specific account(s) with excessive consumption.
+2. Investigate the applications or services consuming messages from JetStream to determine the root cause of the increased consumption.
+3. Review the JetStream configuration to ensure that it is correctly sized for the expected workload.
+4. Analyze the system logs to identify any errors or issues related to message processing.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify and address the root cause of the increased consumption, such as:
+	* Optimizing application or service behavior to reduce message consumption rates.
+	* Implementing message batching or buffering to reduce the load on JetStream.
+	* Increasing the capacity of the JetStream cluster to handle the increased load.
+2. Implement rate limiting or quotas to prevent excessive consumption from individual applications or services.
+3. Monitor the system closely to ensure that the mitigation steps are effective and the consumption rates return to normal.
+4. Consider implementing automated scaling or alerting to prevent similar issues in the future.

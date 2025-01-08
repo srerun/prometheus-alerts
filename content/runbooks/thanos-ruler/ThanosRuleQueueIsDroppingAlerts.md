@@ -43,18 +43,31 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The `ThanosRuleQueueIsDroppingAlerts` alert is triggered when Thanos Rule Queue is dropping alerts. This means that the Thanos Ruler instance is unable to queue alerts, which can lead to missing or delayed notifications for critical issues.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is high, as it can result in:
 
+* Missing or delayed notifications for critical issues, potentially leading to undetected problems or service outages.
+* Incomplete or inaccurate alerting, which can lead to incorrect incident responses or root cause analyses.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Thanos Ruler instance logs for errors or warnings related to alert queuing.
+2. Investigate the Thanos Ruler configuration to ensure that the alert queue is properly configured.
+3. Verify that the Thanos Ruler instance has sufficient resources (e.g., memory, CPU) to process alerts.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the Thanos Ruler instance to attempt to recover from any temporary issues.
+2. Investigate and resolve any configuration issues or resource constraints that may be contributing to the alert queuing failure.
+3. Consider increasing the resources (e.g., memory, CPU) available to the Thanos Ruler instance to improve its ability to process alerts.
+4. If the issue persists, consider escalating to the Thanos Ruler development team or seeking additional support from a qualified engineer.
+
+Remember to refer to the [runbook](https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosRuleQueueIsDroppingAlerts.md) for more detailed steps and troubleshooting guidance.

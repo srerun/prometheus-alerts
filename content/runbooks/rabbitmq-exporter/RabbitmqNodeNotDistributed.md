@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the RabbitmqNodeNotDistributed alert:
 
+## Meaning
+
+The RabbitmqNodeNotDistributed alert is triggered when a RabbitMQ node's distribution link state is not in the "up" state. This means that the node is not properly connected to other nodes in the cluster, which can lead to inconsistencies in message queues, loss of data, and other issues.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unaddressed, this issue can cause significant disruptions to message processing and queuing, leading to:
 
+* Loss of data or messages
+* Inconsistent queue states across nodes
+* Increased latency or timeouts in message processing
+* Potential cascade failures in dependent systems
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose this issue, follow these steps:
 
+1. Check the RabbitMQ node's logs for errors or warnings related to distribution link state.
+2. Use the RabbitMQ management UI or command-line tools to check the node's current distribution link state.
+3. Verify that the node is properly configured to join the cluster and that there are no network connectivity issues between nodes.
+4. Check for any recent changes or updates to the RabbitMQ configuration or network infrastructure.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this issue, follow these steps:
+
+1. Check the RabbitMQ node's configuration to ensure it is properly configured to join the cluster.
+2. Restart the RabbitMQ node to re-establish the distribution link.
+3. Verify that the distribution link state is "up" after the restart.
+4. If the issue persists, check the network infrastructure and ensure that there are no connectivity issues between nodes.
+5. Consider increasing the logging verbosity or enabling debug logging to gather more information about the issue.
+6. If the issue cannot be resolved, consider reaching out to RabbitMQ support or consulting the RabbitMQ documentation for further guidance.

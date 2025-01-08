@@ -43,18 +43,32 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The PrometheusTsdbCheckpointDeletionFailures alert is triggered when Prometheus fails to delete checkpoint files from its TSDB (Time Series Database) storage. Checkpoint files are used to store the current state of Prometheus's internal data structures, such as the in-memory index and the WAL (Write-Ahead Log). The deletion of these files is crucial to prevent disk space exhaustion and maintain a healthy Prometheus instance.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If this alert is not addressed, it can lead to:
 
+* Disk space exhaustion, causing Prometheus to run out of storage capacity, leading to performance issues, and potentially even crashes.
+* Inconsistent data, as the failed checkpoint deletion can cause inconsistencies in the TSDB, leading to incorrect query results or even data loss.
+* Increased memory usage, as the system may retain unnecessary data in memory, further exacerbating performance issues.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Prometheus server's disk usage and available storage capacity.
+2. Verify that the TSDB is functioning correctly and that the WAL is being properly truncated.
+3. Review the Prometheus server logs for any errors or warnings related to checkpoint deletion failures.
+4. Check the $labels.instance label to identify the specific Prometheus instance affected.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Immediately free up disk space by deleting unnecessary files and data.
+2. Restart the Prometheus server to allow it to recover and retry the checkpoint deletion.
+3. Verify that the TSDB is functioning correctly and that the WAL is being properly truncated.
+4. Implement a regular maintenance schedule to ensure that disk space is regularly cleaned up and that the TSDB is healthy.
+5. Consider increasing the storage capacity or implementing a more robust storage solution to prevent future disk space exhaustion issues.

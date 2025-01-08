@@ -43,18 +43,37 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The ThanosReceiveNoUpload alert is triggered when a Thanos Receive instance has not uploaded any data to object storage within the last 3 hours. This indicates a potential issue with the data ingestion pipeline, which may lead to incomplete or missing data in the monitoring system.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is that the monitoring system may not have access to the latest data, which can affect the accuracy of alerts, dashboards, and Grafana visualizations. This can lead to:
 
+* Delayed or missed alerting on critical issues
+* Incomplete or inaccurate monitoring data
+* Inability to troubleshoot issues due to missing data
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Thanos Receive instance logs for any errors or issues related to data upload.
+2. Verify that the instance is properly configured and authenticated to access object storage.
+3. Check the object storage bucket for any issues or errors related to data upload.
+4. Verify that the Thanos Shipper is properly configured and running.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Investigate and resolve any errors or issues found in the Thanos Receive instance logs.
+2. Verify that the instance is properly configured and authenticated to access object storage.
+3. Attempt to manually trigger a data upload to object storage.
+4. If the issue persists, consider restarting the Thanos Receive instance or consulting with the storage team to resolve any object storage issues.
+
+Additional resources:
+
+* Refer to the Thanos Receive documentation for configuration and troubleshooting guidelines.
+* Consult with the storage team for assistance with object storage issues.
+* Review the Thanos Shipper configuration and logs for any related issues.

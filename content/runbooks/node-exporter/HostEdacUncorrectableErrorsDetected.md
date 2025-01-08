@@ -42,19 +42,34 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `HostEdacUncorrectableErrorsDetected`:
 
+## Meaning
+
+This alert is triggered when the Node Exporter metric `node_edac_uncorrectable_errors_total` reports one or more uncorrectable memory errors on a host. EDAC (Error Detection and Correction) is a Linux kernel module that detects and reports memory errors. Uncorrectable errors are those that cannot be recovered from and may indicate a hardware issue.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+The impact of this alert is potentially high, as uncorrectable memory errors can lead to data corruption, system crashes, or even data loss. If left unaddressed, these errors can cause system instability, affecting the overall reliability and availability of the host.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Prometheus metrics to identify the specific host and instance affected.
+2. Review system logs for error messages related to EDAC and memory errors.
+3. Verify that the EDAC kernel module is properly configured and loaded.
+4. Run diagnostic tools, such as `edac-util` or `memtester`, to further investigate memory issues.
+5. Check system hardware for signs of wear or damage, such as overheating, electrical issues, or physical damage to the RAM.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Immediately shut down the affected host to prevent further data corruption or system crashes.
+2. Replace any faulty RAM modules or other hardware components that may be causing the errors.
+3. Perform a thorough system memory test to identify and isolate any issues.
+4. Verify that the EDAC kernel module is properly configured and loaded to detect and report memory errors.
+5. Consider implementing additional memory redundancy or error correction mechanisms to increase system reliability.
+
+Remember to adjust the mitigation steps based on the specific system configuration, hardware, and requirements.

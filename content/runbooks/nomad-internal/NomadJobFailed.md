@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule "NomadJobFailed":
 
+## Meaning
+
+This alert indicates that a Nomad job has failed. Nomad is a distributed job scheduler and runner that manages and runs tasks and services. A failed job can impact the overall health and availability of the system.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of a failed Nomad job can be significant, depending on the job's purpose and the services it provides. Some possible consequences include:
 
+* Disruption to critical services
+* Loss of data or processing
+* Increased latency or errors
+* Inability to scale or deploy new services
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Nomad UI or CLI to identify the failed job and its associated tasks.
+2. Review the job's configuration and dependencies to identify potential causes of the failure.
+3. Check the Nomad agent logs for errors or warnings related to the failed job.
+4. Verify that the job's dependencies, such as databases or file systems, are available and functional.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify and address the root cause of the failure, such as a misconfigured job or a dependency issue.
+2. Restart the failed job or task, if possible.
+3. Check the job's configuration and dependencies to ensure they are correct and functional.
+4. Consider implementing retries or fallbacks for failed jobs to minimize downtime and data loss.
+5. Monitor the job's status and performance to ensure it is running correctly and make any necessary adjustments.

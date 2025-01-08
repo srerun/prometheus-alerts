@@ -43,18 +43,40 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The CortexNotConnectedToAlertmanager alert is triggered when Cortex is not connected to Alertmanager. This means that Cortex, a crucial component of the monitoring system, is unable to send alerts to Alertmanager, which is responsible for handling and notifying teams of critical incidents. This disconnection can lead to delayed or missed alerts, potentially causing significant impact to the system and business.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is significant, as it can lead to:
 
+* Delayed or missed alerts, causing critical incidents to go unnoticed
+* Unmonitored system errors, leading to prolonged downtime or data loss
+* Inefficient incident response, resulting in delayed resolution and increased mean time to detect (MTTD) and mean time to resolve (MTTR)
+* Potential revenue loss and damage to reputation due to unplanned outages
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Cortex logs for errors related to Alertmanager connectivity
+2. Verify the Alertmanager configuration and ensure it is correctly set up
+3. Check the network connectivity between Cortex and Alertmanager
+4. Review the Cortex and Alertmanager pod/container statuses to ensure they are running correctly
+5. Check the Prometheus notifications metrics to ensure they are being generated correctly
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this issue, follow these steps:
+
+1. Check the Cortex configuration and ensure it is correctly set up to connect to Alertmanager
+2. Restart the Cortex service to re-establish the connection to Alertmanager
+3. Verify that the Alertmanager API is accessible from Cortex
+4. Check the network connectivity between Cortex and Alertmanager and resolve any issues
+5. Consider implementing a fallback or redundant Alertmanager instance to ensure high availability
+
+Additional resources:
+
+* Refer to the Cortex documentation for configuration and troubleshooting guides
+* Review the Alertmanager documentation for configuration and troubleshooting guides
+* Consult with the monitoring team or system administrators for assistance with diagnosis and mitigation.

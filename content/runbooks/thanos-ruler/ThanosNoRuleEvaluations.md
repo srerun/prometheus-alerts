@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the ThanosNoRuleEvaluations alert:
 
+## Meaning
+
+The ThanosNoRuleEvaluations alert is triggered when a Thanos Rule instance has not performed any rule evaluations in the past 10 minutes, despite having loaded rules. This indicates that the rule evaluation pipeline is not functioning correctly, which can lead to missing alerts and notifications.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is high, as it can result in:
 
+* Missed alerts and notifications, leading to potential service disruptions or security breaches
+* Incomplete monitoring and observability, making it difficult to identify and troubleshoot issues
+* Delayed or inadequate response to incidents, leading to increased downtime and revenue loss
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Thanos Rule instance logs for errors or warnings related to rule evaluation.
+2. Verify that the Thanos Rule instance is correctly configured and has access to the necessary resources (e.g., memory, CPU).
+3. Check the Prometheus metrics for the Thanos Rule instance to ensure that the `prometheus_rule_evaluations_total` metric is being reported correctly.
+4. Verify that the loaded rules are correct and up-to-date.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the Thanos Rule instance to ensure that any stuck or hung processes are terminated.
+2. Check and update the Thanos Rule configuration to ensure that it is correct and up-to-date.
+3. Verify that the necessary resources (e.g., memory, CPU) are available to the Thanos Rule instance.
+4. Check for any network connectivity issues that may be preventing the Thanos Rule instance from communicating with Prometheus.
+5. If the issue persists, consider increasing the logging level or enabling debug logs to gather more detailed information about the issue.
+
+Note: This runbook provides general guidance for diagnosing and mitigating the ThanosNoRuleEvaluations alert. The specific steps may vary depending on your environment and setup.

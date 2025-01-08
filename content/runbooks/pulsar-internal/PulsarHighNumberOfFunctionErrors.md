@@ -42,19 +42,41 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the Prometheus alert rule:
 
+## Meaning
+
+The `PulsarHighNumberOfFunctionErrors` alert is triggered when the rate of function errors in Pulsar exceeds 10 errors per minute. This indicates a significant issue with the Pulsar functions, potentially causing failures, data loss, or performance degradation.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Function execution failures may lead to data loss or inconsistencies.
+* Increased error rates can cause performance degradation, leading to slower processing times or even complete system halts.
+* High error rates can also indicate potential security vulnerabilities or configuration issues.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue:
 
+1. Check the Pulsar function logs for error messages and exceptions to identify the root cause of the errors.
+2. Verify the function configuration and ensure that it is correct and up-to-date.
+3. Check the system resources (e.g., CPU, memory, and disk space) to ensure they are not overwhelmed.
+4. Review the Pulsar cluster's overall health and performance metrics to identify any underlying issues.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue:
+
+1. **Immediate Action**: Pause or roll back the affected Pulsar functions to prevent further errors and data loss.
+2. **Short-term Fix**: Investigate and resolve the root cause of the errors, which may involve:
+	* Updating function code or configuration.
+	* Adjusting system resources or scaling the Pulsar cluster.
+	* Implementing retry mechanisms or circuit breakers to handle transient errors.
+3. **Long-term Solution**: Implement proactive measures to prevent similar issues in the future, such as:
+	* Enhancing function monitoring and logging.
+	* Implementing automated testing and validation for functions.
+	* Conducting regular Pulsar cluster maintenance and upgrades.
+4. **Post-Incident Activities**:
+	* Perform a thorough post-mortem analysis to identify areas for improvement.
+	* Update the runbook to reflect new knowledge and best practices.
+	* Schedule a review of the incident with the teams involved to discuss lessons learned and prevent similar incidents in the future.

@@ -42,19 +42,38 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the ApcUpsBatteryNearlyEmpty alert:
 
+## Meaning
+
+The ApcUpsBatteryNearlyEmpty alert indicates that the battery level of an APC UPS (Uninterruptible Power Supply) has fallen below 10%. This critical alert suggests that the UPS is at risk of shutting down due to low battery power, which can lead to unexpected downtime and potential data loss.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unattended, a low battery level can cause the UPS to shut down, leading to:
 
+* Unexpected downtime of critical systems and services
+* Potential data loss or corruption
+* Disruption of business operations and revenue loss
+* Increased risk of hardware damage due to sudden power loss
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the current battery level and voltage: Use the `apcupsd` command-line tool or a monitoring dashboard to check the current battery level and voltage.
+2. Verify the UPS is properly connected and configured: Ensure the UPS is correctly connected to the device it is supposed to protect, and that all cables are securely connected.
+3. Check for any alarms or error messages: Review the UPS logs and event history to identify any error messages or alarm conditions that may be contributing to the low battery level.
+4. Perform a self-test: Initiate a self-test on the UPS to verify its functionality and identify any potential issues.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Replace the battery: If the battery is old or has been in use for an extended period, consider replacing it with a new one.
+2. Perform a battery calibration: Calibrate the battery to ensure it is accurately reporting its charge level.
+3. Reduce the load: Identify any unnecessary devices connected to the UPS and disconnect them to reduce the load and conserve battery power.
+4. Implement a backup plan: Develop a backup plan to ensure business continuity in the event of an extended power outage or UPS failure.
+5. Schedule a maintenance window: Schedule a maintenance window to perform further diagnostic checks and repairs as needed.
+
+Remember to always follow proper safety precautions when working with electrical equipment, and consult the UPS user manual or manufacturer's instructions if you are unsure about any of the mitigation steps.

@@ -42,19 +42,33 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the KubernetesHpaUnderutilized alert:
 
+## Meaning
+
+The KubernetesHpaUnderutilized alert is triggered when a Horizontal Pod Autoscaler (HPA) is constantly at minimum replicas for 50% of the time, indicating potential underutilization of resources. This alert is triggered when the desired replicas of the HPA are equal to the minimum replicas for more than 50% of the time in the past 24 hours.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Underutilization of resources (e.g., CPU, memory) allocated to the pods
+* Potential cost savings by right-sizing the resources
+* Inefficient use of cluster resources, which can lead to resource shortages for other applications
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the HPA configuration to ensure that the minimum replicas are set correctly.
+2. Verify that the application is not experiencing high traffic or usage patterns that require more resources.
+3. Investigate the pod utilization metrics (e.g., CPU, memory) to determine if the pods are indeed underutilized.
+4. Check for any recent changes to the application or deployment that may have caused the underutilization.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Review and adjust the HPA configuration to set a more optimal minimum replica count.
+2. Consider implementing a more dynamic scaling strategy based on resource utilization metrics.
+3. Right-size the resources allocated to the pods to match the actual usage patterns.
+4. Consider implementing cost-saving measures, such as resource pooling or bin packing, to optimize resource utilization.
+5. Monitor the HPA and pod utilization metrics regularly to detect any future underutilization or overutilization issues.

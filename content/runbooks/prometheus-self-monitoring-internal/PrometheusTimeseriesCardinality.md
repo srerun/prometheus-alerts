@@ -42,19 +42,35 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the PrometheusTimeseriesCardinality alert rule:
 
+## Meaning
+
+The PrometheusTimeseriesCardinality alert is triggered when the number of unique time series in Prometheus exceeds 10,000. This can indicate a high cardinality of metrics, which can lead to performance issues and increased memory usage in Prometheus.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unchecked, high time series cardinality can cause:
 
+* Performance degradation in Prometheus, leading to slow query times and increased latency
+* Increased memory usage, which can lead to OOM (Out of Memory) errors and crashes
+* Decreased data retention and accuracy due to the high volume of metrics
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the high time series cardinality, follow these steps:
 
+1. Identify the specific metric with high cardinality using the `label_replace` function in the alert expression
+2. Check the metric's label values to determine which dimension is causing the high cardinality (e.g., instance, namespace, pod, etc.)
+3. Review the metric's configuration and ensure it is properly configured to avoid unnecessary label creation
+4. Consult with the team responsible for the metric to determine if there are any changes that can be made to reduce cardinality
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the high time series cardinality, follow these steps:
+
+1. Optimize metric configurations to reduce label creation and cardinality
+2. Implement data aggregation and rollup to reduce the number of time series
+3. Consider implementing a metric filtering or dropping solution to remove unnecessary metrics
+4. Increase the resources (CPU, memory, disk) allocated to Prometheus to handle the increased load, if necessary
+5. Monitor the metric's cardinality and adjust the alert threshold as needed to ensure timely detection of high cardinality issues.

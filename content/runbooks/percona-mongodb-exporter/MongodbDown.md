@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `MongodbDown`:
 
+## Meaning
+
+The `MongodbDown` alert is triggered when the `mongodb_up` metric returns a value of 0, indicating that the MongoDB instance is not responding or is down. This alert is critical, as it can cause data loss and affect the overall performance of the application.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Data loss or inconsistencies due to the unavailability of the MongoDB instance
+* Application downtime or degradation, leading to a poor user experience
+* Increased latency or errors in the application, causing revenue loss or customer dissatisfaction
+* Potential security risks due to the exposure of sensitive data
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the MongoDB instance logs for errors or exceptional conditions that may be causing the downtime.
+2. Verify that the MongoDB instance is properly configured and running with the correct credentials.
+3. Check the system resources (CPU, memory, disk space) to ensure they are not depleted.
+4. Verify that the network connection to the MongoDB instance is stable and not blocked by firewalls or other security measures.
+5. Check the Percona MongoDB Exporter logs for any errors or issues that may be preventing it from reporting the MongoDB status accurately.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the MongoDB instance and verify that it is running correctly.
+2. Check and adjust the MongoDB configuration to ensure it is optimal for the current workload.
+3. Increase system resources (CPU, memory, disk space) if necessary to prevent resource depletion.
+4. Verify that the network connection to the MongoDB instance is stable and not blocked by firewalls or other security measures.
+5. Verify that the Percona MongoDB Exporter is correctly configured and reporting the MongoDB status accurately.
+
+Additional steps may be necessary depending on the specific cause of the issue. Please refer to the Percona MongoDB Exporter documentation and MongoDB documentation for further troubleshooting and resolution steps.

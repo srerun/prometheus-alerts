@@ -43,18 +43,33 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The `HostNetworkReceiveErrors` alert is triggered when the rate of receive errors on a host's network interface exceeds 1% of the total receive packets over a 2-minute period. This indicates a potential issue with the host's network connectivity or configuration.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Receive errors can cause packet loss, leading to decreased network performance and potential application failures.
+* High receive error rates can indicate issues with the network interface, cable, or switch, which can impact the entire cluster or application.
+* Unaddressed receive errors can lead to increased latency, reduced throughput, and decreased overall system reliability.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Identify the affected host and interface using the `instance` and `device` labels.
+2. Check the system logs for any error messages related to the network interface or driver.
+3. Verify the network cable and connection to ensure they are secure and functioning properly.
+4. Use tools like `ethtool` or `ip link` to check the interface configuration and stats.
+5. Check for any firmware or driver updates for the network interface.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the network interface using `ip link set <interface> down && ip link set <interface> up`.
+2. Check and update the network interface firmware or driver to the latest version.
+3. Inspect and clean the network cable and connection to ensure they are secure and functioning properly.
+4. Consider replacing the network cable or interface if it's faulty.
+5. If the issue persists, consider escalating to a network administrator or infrastructure team for further assistance.
+
+Remember to reference the node exporter documentation and official runbooks for more detailed troubleshooting and mitigation steps.

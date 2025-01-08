@@ -43,18 +43,30 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The SidekiqSchedulingLatencyTooHigh alert is triggered when the maximum sidekiq queue latency exceeds 60 seconds. This indicates that Sidekiq jobs are taking more than 1 minute to be picked up, which can result in delays in background processing.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Users may experience delays in background processing, leading to a degraded user experience.
+* Critical business processes may be affected, causing revenue loss or other operational issues.
+* The high latency can also lead to job processing failures, causing data inconsistencies and further cascading failures.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
-
+* Check the Sidekiq queue latency metrics in Prometheus to identify the specific queue(s) experiencing high latency.
+* Investigate the root cause of the high latency, such as:
+	+ High CPU usage or memory pressure on the Sidekiq node.
+	+ Network connectivity issues or high latency between nodes.
+	+ Too many pending jobs in the queue, leading to congestion.
+	+ Misconfigured Sidekiq settings or worker pool size.
+* Review the Sidekiq logs for any errors or exceptions that may indicate the cause of the high latency.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+* Immediately investigate and address the root cause of the high latency to minimize the impact on users and business processes.
+* Consider increasing the Sidekiq worker pool size to process jobs more efficiently.
+* Optimize Sidekiq settings, such as the concurrency or timeout values, to improve job processing performance.
+* Implement load balancing or queue sharding to distribute the job processing load and reduce latency.
+* Consider implementing a circuit breaker or other resilience mechanisms to prevent cascading failures.
+* Monitor the Sidekiq queue latency metrics closely to ensure the mitigation steps are effective and make adjustments as needed.

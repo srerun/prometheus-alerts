@@ -42,19 +42,34 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the KafkaConsumerLag alert:
 
+## Meaning
+
+The KafkaConsumerLag alert is triggered when a Kafka consumer's lag (the difference between the latest offset in a partition and the consumer's current offset) has been increasing for at least 30 minutes and is currently greater than 0. This means that the consumer is not keeping up with the production of new messages in the partition, which can lead to data loss, increased latency, and other issues.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Data loss: If the consumer lag continues to increase, it may lead to missed messages, which can result in data loss or inconsistencies.
+* Increased latency: As the consumer lags behind, it may take longer for messages to be processed, leading to increased latency and slower system response times.
+* System performance: A lagging consumer can put additional pressure on the Kafka cluster, leading to decreased performance and potential issues with other consumers or producers.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Kafka cluster's overall health and performance using metrics such as Kafka's request latency, throughput, and error rates.
+2. Verify that the consumer is properly configured and running correctly.
+3. Check the consumer's logs for any errors or warnings that may indicate the cause of the lag.
+4. Use tools like `kafka-consumer-groups` or `kafka-console-consumer` to inspect the consumer group's offset and lag.
+5. Investigate any recent changes to the Kafka cluster, consumer configuration, or application code that may be contributing to the lag.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the KafkaConsumerLag issue, follow these steps:
+
+1. **Increase consumer instances or partitions**: If the consumer is under-provisioned, adding more instances or partitions can help it catch up with the incoming messages.
+2. **Optimize consumer configuration**: Review the consumer configuration and optimize settings such as `fetch.min.bytes`, `fetch.max.bytes`, and `max.partition.fetch.bytes` to improve its performance.
+3. **Investigate and resolve underlying issues**: Address any underlying issues that may be causing the lag, such as network connectivity problems, Kafka broker issues, or application code bugs.
+4. **Consider rebalancing the consumer group**: If the lag is due to an uneven distribution of partitions among consumers, consider rebalancing the consumer group to redistribute the load.
+5. **Monitor the consumer's progress**: Continue to monitor the consumer's lag and adjust the mitigation strategy as needed to ensure the consumer catches up with the incoming messages.

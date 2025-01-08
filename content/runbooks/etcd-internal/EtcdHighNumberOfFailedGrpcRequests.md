@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the EtcdHighNumberOfFailedGrpcRequests alert:
 
+## Meaning
+
+The EtcdHighNumberOfFailedGrpcRequests alert is triggered when the rate of failed GRPC requests in Etcd exceeds 1% of the total requests over a 1-minute period. This alert indicates that there is an issue with Etcd's GRPC requests, which can impact the overall reliability and performance of the system.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If this alert is not addressed, it can lead to:
 
+* Increased latency and errors in Etcd operations
+* Decreased system reliability and availability
+* Potential data inconsistencies and loss
+* Increased load on the system, leading to further performance degradation
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the issue, follow these steps:
 
+1. Check the Etcd server logs for errors or warnings related to GRPC requests
+2. Verify that the Etcd cluster is properly configured and that all nodes are synchronized
+3. Check for any network connectivity issues between Etcd nodes
+4. Verify that the GRPC requests are not being throttled or rate-limited
+5. Check for any known bugs or issues in Etcd or related components
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Check the Etcd documentation for troubleshooting GRPC request failures
+2. Verify that the Etcd cluster is properly scaled to handle the current load
+3. Implement measures to reduce the load on the Etcd cluster, such as load balancing or caching
+4. Consider increasing the resources (CPU, memory, etc.) allocated to the Etcd nodes
+5. If the issue persists, consider rolling back to a previous version of Etcd or related components
+
+Note: The runbook URL provided in the annotation points to a more comprehensive runbook that may include additional steps and details.

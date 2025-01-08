@@ -42,19 +42,33 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the IstioMixerPrometheusDispatchesLow alert rule:
 
+## Meaning
+
+The IstioMixerPrometheusDispatchesLow alert is triggered when the number of Mixer dispatches to Prometheus falls below a certain threshold (180 dispatches per minute). This could indicate that Istio metrics are not being exported properly, which can lead to incomplete or inaccurate monitoring data.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+The impact of this alert is that critical metrics about the Istio service mesh may not be available, making it difficult to monitor and troubleshoot issues in the system. This could lead to delayed or incomplete problem identification and resolution, potentially affecting the overall reliability and performance of the system.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Mixer logs for any errors or issues related to dispatching metrics to Prometheus.
+2. Verify that the Prometheus instance is properly configured and running.
+3. Check the Istio configuration to ensure that metrics are being sent to the correct Prometheus instance.
+4. Review the Mixer runtime metrics to identify any trends or patterns that may indicate the root cause of the issue.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the Mixer component to ensure that it is properly configured and running.
+2. Verify that the Prometheus instance is properly configured and running.
+3. Check the Istio configuration to ensure that metrics are being sent to the correct Prometheus instance.
+4. If the issue persists, consider scaling up the Mixer component or adjusting the thresholds in the alert rule.
+5. Review the Mixer runtime metrics to identify any trends or patterns that may indicate the root cause of the issue and take corrective action.
+
+Note: This runbook is just a starting point, and you may need to tailor it to your specific environment and requirements.

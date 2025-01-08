@@ -42,19 +42,32 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the HostCpuHighIowait alert rule:
 
+## Meaning
+
+The HostCpuHighIowait alert is triggered when the average CPU I/O wait time for a host exceeds 10% over a 5-minute period. This indicates that the host is experiencing high I/O wait times, which can be caused by disk or network bottlenecks.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+High I/O wait times can lead to performance degradation, increased latency, and reduced overall system throughput. This can impact the responsiveness and reliability of applications and services running on the affected host.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of high I/O wait times, follow these steps:
 
+1. **Check disk usage and performance**: Investigate disk usage and performance metrics (e.g., disk IOPS, disk latency) to determine if there are any disk bottlenecks.
+2. **Inspect network performance**: Examine network performance metrics (e.g., network throughput, packet loss) to determine if there are any network bottlenecks.
+3. **Check system logs**: Review system logs for any errors or warnings related to disk or network issues.
+4. **Verify resource utilization**: Check resource utilization (e.g., CPU, memory, disk space) to ensure that the host is not experiencing resource starvation.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate high I/O wait times, follow these steps:
+
+1. **Optimize disk configuration**: Ensure that disks are properly configured, and consider optimizing disk layout, disk scheduling, and disk caching.
+2. **Improve network performance**: Ensure that network interfaces are properly configured, and consider upgrading network hardware or optimizing network routing.
+3. **Implement caching or buffering**: Consider implementing caching or buffering mechanisms to reduce the load on disks and networks.
+4. **Scale up or out**: If resource utilization is high, consider scaling up or out to distribute the load across multiple hosts.
+
+Remember to monitor the host's performance and adjust your mitigation strategy as needed to ensure that I/O wait times return to normal levels.

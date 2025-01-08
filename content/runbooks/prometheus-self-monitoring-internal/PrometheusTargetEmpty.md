@@ -43,18 +43,35 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The PrometheusTargetEmpty alert is triggered when Prometheus has no targets in its service discovery, indicating that Prometheus is not scraping any metrics from any targets. This alert is critical as it means that Prometheus is not functioning correctly, and no metrics are being collected.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert is high as it means that Prometheus is not monitoring any targets, resulting in:
 
+* No metrics being collected
+* No alerts being triggered
+* No visibility into the system's performance and health
+* Potential loss of critical monitoring data
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the cause of this alert, follow these steps:
 
+1. Check the Prometheus configuration to ensure that the service discovery is correctly configured.
+2. Verify that the targets are correctly configured and available.
+3. Check the Prometheus logs for any errors or warnings related to service discovery or target scraping.
+4. Use the Prometheus web interface to manually query the `prometheus_sd_discovered_targets` metric to verify the value.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate this alert, follow these steps:
+
+1. Review and update the Prometheus configuration to ensure that the service discovery is correctly configured.
+2. Verify that the targets are correctly configured and available.
+3. Restart the Prometheus service to re-initialize the service discovery.
+4. Monitor the Prometheus logs for any errors or warnings related to service discovery or target scraping.
+5. Perform a manual query of the `prometheus_sd_discovered_targets` metric to verify the value.
+
+Note: Refer to the provided runbook URL for more detailed instructions and troubleshooting steps.

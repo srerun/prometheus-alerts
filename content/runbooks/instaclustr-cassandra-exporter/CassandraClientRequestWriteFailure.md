@@ -42,19 +42,48 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule `CassandraClientRequestWriteFailure`:
 
+## Meaning
+This alert is triggered when there is an increase in write request failures to a Cassandra cluster within a 1-minute window. This indicates that the Cassandra client is experiencing issues writing data to the cluster, which can lead to data loss or inconsistencies.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
+The impact of this alert varies depending on the nature of the application and the data being written. In general, this alert can cause:
 
-
+* Data loss or corruption
+* Inconsistent data across replicas
+* Increased latency or timeouts for write operations
+* Potential cascading failures in dependent systems
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
+To diagnose the root cause of this alert, follow these steps:
 
-
+1. Check the Cassandra cluster health:
+	* Verify that there are no unavailable nodes in the cluster.
+	* Check the node status and ensure that all nodes are online and reachable.
+2. Investigate the Cassandra client logs:
+	* Check the client logs for any error messages related to write requests.
+	* Verify that the client is correctly configured and authenticated to the Cassandra cluster.
+3. Check the Cassandra cluster configuration:
+	* Verify that the cluster is properly configured for writes (e.g., correct replication factor, consistent hashing, etc.).
+4. Check for network issues:
+	* Verify that there are no network connectivity issues between the client and the Cassandra cluster.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+To mitigate this alert, follow these steps:
+
+1. Identify and resolve any unavailable nodes in the Cassandra cluster:
+	* Investigate the node status and identify the cause of any node unavailability.
+	* Perform any necessary repairs or replacements to bring the node back online.
+2. Verify and correct Cassandra client configuration:
+	* Check the client configuration for any errors or misconfigurations.
+	* Ensure that the client is correctly authenticated and authorized to write to the Cassandra cluster.
+3. Verify and correct Cassandra cluster configuration:
+	* Check the cluster configuration for any errors or misconfigurations.
+	* Ensure that the cluster is properly configured for writes (e.g., correct replication factor, consistent hashing, etc.).
+4. Implement retry mechanisms:
+	* Consider implementing retry mechanisms in the Cassandra client to handle temporary write failures.
+5. Monitor and analyze write request patterns:
+	* Analyze write request patterns to identify any trends or anomalies that may indicate a larger issue.
+
+Remember to consult the Cassandra cluster and client documentation for specific troubleshooting and configuration guidance.

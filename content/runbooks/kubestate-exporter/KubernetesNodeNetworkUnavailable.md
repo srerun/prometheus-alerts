@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the KubernetesNodeNetworkUnavailable alert:
 
+## Meaning
+
+The KubernetesNodeNetworkUnavailable alert is triggered when a Kubernetes node reports a NetworkUnavailable condition, indicating that the node's network is not available. This can cause pods running on the node to become unreachable, leading to service disruptions and potential data loss.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* Pods running on the affected node may become unreachable, leading to service disruptions and potential data loss.
+* Applications relying on the node's network connectivity may experience errors or failures.
+* Cluster performance and reliability may be impacted if the node is critical to the cluster's operations.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the node's status using `kubectl get node <node_name>`.
+2. Verify the node's network configuration using `kubectl describe node <node_name>`.
+3. Review the node's system logs for network-related errors using `kubectl logs -f <node_name>`.
+4. Check the node's network interface configuration using `ip addr show` or `ifconfig`.
+5. Verify that the node's network cable is connected and functioning properly.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the node's network interface using `ip link set <interface_name> down && ip link set <interface_name> up`.
+2. Check if the node's network configuration is correct and update it if necessary.
+3. Verify that the node's network cable is connected and functioning properly.
+4. If the issue persists, consider rebooting the node or replacing the network hardware if necessary.
+5. Once the node's network is available again, verify that pods are running correctly and services are accessible.
+
+Remember to refer to the Kubernetes documentation and your organization's specific guidelines for troubleshooting and resolving node network issues.

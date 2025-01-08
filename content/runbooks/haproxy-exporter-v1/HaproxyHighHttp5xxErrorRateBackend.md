@@ -43,18 +43,32 @@ annotations:
 
 
 ## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 
+The `HaproxyHighHttp5xxErrorRateBackend` alert is triggered when the rate of HTTP requests with a 5xx status code on a specific backend exceeds 5% of the total requests to that backend over a 1-minute period. This indicates a significant error rate on the backend, which can impact the overall availability and performance of the service.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+* High error rates can lead to a degradation of service quality, causing frustration for users and potential revenue loss.
+* Increased error rates can also put additional load on the system, leading to performance issues and potentially even crashes.
+* If left unaddressed, high error rates can lead to a loss of customer trust and reputation damage.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
-
+1. Check the HAProxy logs to identify the specific backend and instance affected by the high error rate.
+2. Investigate the root cause of the 5xx errors using the HAProxy logs, server logs, and application logs.
+3. Verify that the backend is correctly configured and that there are no issues with the underlying infrastructure.
+4. Check for any recent changes or deployments that may have introduced the error.
+5. Use tools like `curl` or `wget` to test the backend and verify that the 5xx errors are still occurring.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+1. Identify and address the root cause of the 5xx errors, which may involve:
+	* Restarting or reloading the backend service.
+	* Adjusting server or application configurations.
+	* Implementing retries or circuit breakers to reduce the impact of errors.
+2. Implement a temporary fix to reduce the error rate, such as:
+	* Decreasing the traffic to the affected backend.
+	* Implementing a load balancing strategy to distribute traffic to other backends.
+3. Perform a thorough investigation and create a permanent fix to prevent similar issues in the future.
+4. Monitor the error rate and adjust the alert threshold as necessary to ensure it is effective in detecting issues.
+5. Update the runbook and documentation to reflect the root cause and mitigation steps taken to address the issue.

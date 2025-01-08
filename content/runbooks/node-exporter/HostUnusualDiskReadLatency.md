@@ -42,19 +42,38 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the `HostUnusualDiskReadLatency` alert:
 
+## Meaning
+
+The `HostUnusualDiskReadLatency` alert is triggered when the average disk read latency on a host exceeds 100ms. This indicates that disk I/O operations are taking longer than usual to complete, which can impact system performance and responsiveness.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+High disk read latency can cause:
 
+* Slow application performance
+* Increased load times
+* Decreased system responsiveness
+* Potential data loss or corruption
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the system logs for any errors or warnings related to disk I/O operations.
+2. Verify that the disk is not experiencing any hardware issues, such as high disk usage or hardware failures.
+3. Check the disk queue length and disk utilization to identify if there are any bottlenecks.
+4. Investigate if there are any resource-intensive applications or processes running on the system that may be contributing to the high disk read latency.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Check and clean up any unnecessary files or data on the disk to free up space.
+2. Consider upgrading to faster disk hardware, such as SSDs, if possible.
+3. Optimize disk configuration and settings, such as adjusting disk scheduling algorithms or enabling write caching.
+4. Identify and optimize resource-intensive applications or processes that may be contributing to the high disk read latency.
+5. Consider implementing disk I/O monitoring and alerting to catch potential issues before they become critical.
+
+Additionally, review system configuration and tuning options, such as adjusting disk timeouts or queue lengths, to optimize disk performance.

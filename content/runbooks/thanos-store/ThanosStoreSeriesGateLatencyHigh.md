@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the ThanosStoreSeriesGateLatencyHigh alert rule:
 
+## Meaning
+
+The ThanosStoreSeriesGateLatencyHigh alert is triggered when the 99th percentile latency of store series gate requests in Thanos Store exceeds 2 seconds and there are more than 0 requests in the last 5 minutes. This indicates that the Thanos Store is experiencing high latency when handling store series gate requests, which may impact the overall performance and reliability of the system.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+High latency in store series gate requests can cause:
 
+* Increased response times for queries and writes to the Thanos Store
+* Reduced throughput and performance of dependent systems
+* Potential data inconsistency and errors due to timeouts or retries
+* Increased load on the Thanos Store and its dependencies
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of the high latency, follow these steps:
 
+1. Check the Thanos Store log for any errors or warnings related to store series gate requests
+2. Verify that the Thanos Store is properly configured and has sufficient resources (e.g., CPU, memory, disk space)
+3. Investigate any recent changes or updates to the Thanos Store or its dependencies
+4. Check the network connectivity and latency between the Thanos Store and its clients
+5. Analyze the performance metrics of the Thanos Store and its dependencies to identify any bottlenecks
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the high latency, follow these steps:
+
+1. Increase the resources (e.g., CPU, memory, disk space) allocated to the Thanos Store
+2. Optimize the configuration of the Thanos Store and its dependencies for better performance
+3. Implement caching or other performance optimization techniques for store series gate requests
+4. Reduce the load on the Thanos Store by scaling out or distributing the traffic
+5. Consider implementing a queue or buffer to handle store series gate requests to reduce latency and improve overall system reliability

@@ -42,19 +42,42 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the IstioLowTotalRequestRate alert:
 
+## Meaning
+
+The IstioLowTotalRequestRate alert is triggered when the total request rate in the service mesh falls below 100 requests per 5 minutes. This indicates a significant decrease in traffic flowing through the service mesh, which may be a sign of a problem with the application, infrastructure, or Istio configuration.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+A low total request rate can have several impacts on the system:
 
+* Reduced application performance or availability
+* Impact on business KPIs, such as revenue or user engagement
+* Increased latency or errors for users
+* Potential security risks if the decrease in traffic is due to a misconfigured firewall or network policy
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the cause of the low total request rate, follow these steps:
 
+1. Check the Istio dashboard for any errors or warnings related to request processing.
+2. Verify that the application and its dependencies are functioning correctly.
+3. Review the networking and firewall configurations to ensure they are not blocking traffic.
+4. Check the load balancer and ingress gateway configurations to ensure they are functioning correctly.
+5. Analyze the request traffic patterns to identify any unusual changes or trends.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the impact of the low total request rate, follow these steps:
+
+1. Investigate and resolve any errors or warnings related to request processing in Istio.
+2. Verify that the application and its dependencies are properly configured and scaled.
+3. Adjust the networking and firewall configurations to allow traffic to flow properly.
+4. Review and adjust the load balancer and ingress gateway configurations as needed.
+5. Consider scaling up or out to increase capacity and handle increased traffic.
+
+Additional resources:
+
+* For more information on troubleshooting Istio, refer to the Istio documentation: <https://istio.io/latest/docs/ops/troubleshooting/>
+* For more information on Prometheus alerting, refer to the Prometheus documentation: <https://prometheus.io/docs/alerting/latest/>

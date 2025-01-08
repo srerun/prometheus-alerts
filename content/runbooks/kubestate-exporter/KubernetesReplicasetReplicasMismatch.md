@@ -42,19 +42,43 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the Prometheus alert rule:
 
+## Meaning
+
+The `KubernetesReplicasetReplicasMismatch` alert is triggered when the number of replicas specified in a ReplicaSet's configuration (`kube_replicaset_spec_replicas`) does not match the number of ready replicas reported by the ReplicaSet's status (`kube_replicaset_status_ready_replicas`). This mismatch indicates that the ReplicaSet is not in a healthy state, and may lead to issues with the application or service being deployed.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+A mismatch between the specified and actual number of replicas can have several consequences, including:
 
+* Under or over-provisioning of resources, leading to wasted resources or decreased performance
+* Inconsistent application behavior, potentially leading to errors or downtime
+* Difficulty in troubleshooting and debugging issues, due to the mismatch between expected and actual replica counts
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, perform the following steps:
 
+1. Check the ReplicaSet's configuration and status using `kubectl`:
+```
+kubectl get rs <replicaset_name> -n <namespace> -o yaml
+```
+2. Verify the number of replicas specified in the configuration (`spec.replicas`) and the number of ready replicas reported in the status (`status.readyReplicas`).
+3. Investigate the ReplicaSet's events and logs to determine the cause of the mismatch:
+```
+kubectl describe rs <replicaset_name> -n <namespace>
+```
+4. Check the cluster's resource utilization and node availability to ensure that there are no underlying issues that could be contributing to the mismatch.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, perform the following steps:
+
+1. Update the ReplicaSet's configuration to reflect the correct number of replicas:
+```
+kubectl patch rs <replicaset_name> -n <namespace> -p='{"spec":{"replicas":<correct_number>}}'
+```
+2. Verify that the ReplicaSet's status updates to reflect the new configuration.
+3. Monitor the ReplicaSet's status and events to ensure that the issue does not recur.
+4. Consider implementing automated self-healing mechanisms, such as a Kubernetes PodDisruptionBudget, to help maintain the desired number of replicas.

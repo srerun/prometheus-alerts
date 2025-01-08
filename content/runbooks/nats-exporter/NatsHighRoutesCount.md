@@ -42,19 +42,40 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the Prometheus alert rule "NatsHighRoutesCount":
 
+## Meaning
+
+The "NatsHighRoutesCount" alert is triggered when the number of NATS routes exceeds 10. This indicates that the NATS server is handling an unusually high number of routes, which can lead to performance issues and increased latency.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+A high number of NATS routes can cause:
 
+* Increased memory usage and CPU utilization on the NATS server
+* Slower message processing and delivery times
+* Increased risk of server crashes or timeouts
+* Potential disruption to applications depending on the NATS server
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the NATS server logs for any errors or warnings related to route management
+2. Verify that the NATS configuration is correct and optimized for the current workload
+3. Review the application logs to identify any issues with message processing or delivery
+4. Use the `nats_varz_routes` metric to monitor the number of routes over time and identify trends or patterns
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Review and adjust the NATS server configuration to optimize route management and reduce memory usage
+2. Identify and address any application-level issues causing an excessive number of routes to be created
+3. Consider implementing route filtering or aggregation to reduce the number of routes
+4. Monitor the NATS server metrics closely to catch any signs of route growth and take proactive measures to prevent issues.
+
+Additional resources:
+
+* [NATS documentation: Route Management](https://docs.nats.io/running-a-nats-service/configuration/route_management)
+* [NATS exporter documentation: gnatsd_varz_routes](https://github.com/nats-io/prometheus-nats-exporter/blob/master/docs/metrics.md#gnatsd_varz_routes)

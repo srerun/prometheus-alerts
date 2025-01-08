@@ -42,19 +42,39 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the CassandraManyCompactionTasksArePending alert rule:
 
+## Meaning
+
+The CassandraManyCompactionTasksArePending alert is triggered when the number of pending compaction tasks in a Cassandra cluster exceeds 100. This indicates that the cluster is experiencing high latency and may be unable to keep up with write requests.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unaddressed, this issue can lead to:
 
+* Increased latency for read and write operations
+* Decreased overall performance of the Cassandra cluster
+* Potential data inconsistencies and errors
+* Increased risk of cluster instability and downtime
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Cassandra cluster's current load and usage patterns to identify potential bottlenecks.
+2. Review the Cassandra logs to identify any errors or issues related to compaction.
+3. Verify that the node responsible for compaction is not experiencing high CPU or disk usage.
+4. Check the pending compaction tasks queue to identify the Source, Keyspace, and Table with the highest number of pending compactions.
+5. Verify that the Cassandra configuration is optimal for the current workload.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify and address any bottlenecks in the Cassandra cluster, such as high CPU or disk usage.
+2. Adjust the Cassandra configuration to optimize performance, such as increasing the number of compaction threads or adjusting the compaction throughput.
+3. Consider adding additional nodes to the cluster to distribute the load and improve performance.
+4. Implement a more efficient data model or query patterns to reduce the load on the Cassandra cluster.
+5. Monitor the Cassandra cluster closely to ensure the issue is resolved and does not reoccur.
+
+Note: It's recommended to consult the Cassandra documentation and seek expert advice if you're unsure about the mitigation steps or their impact on your specific cluster configuration.

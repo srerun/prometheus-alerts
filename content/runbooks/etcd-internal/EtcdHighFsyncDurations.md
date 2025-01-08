@@ -42,19 +42,37 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the EtcdHighFsyncDurations alert:
 
+## Meaning
+
+The EtcdHighFsyncDurations alert is triggered when the 99th percentile of etcd's WAL fsync duration exceeds 0.5 seconds over a 1-minute period. This indicates that etcd is experiencing high latency when writing to disk, which can impact the overall performance and reliability of the system.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of high fsync durations can be significant, leading to:
 
+* Slow etcd write performance
+* Increased latency for etcd operations
+* Potential for etcd to fall behind, leading to inconsistencies and errors
+* Increased risk of data loss or corruption in the event of a failure
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the root cause of high fsync durations, follow these steps:
 
+1. Check etcd disk usage and available space to ensure that the disk is not full or nearly full.
+2. Verify that the disk is properly configured and healthy (e.g., check for disk errors, firmware issues, etc.).
+3. Investigate system resource utilization (CPU, memory, I/O) to identify potential bottlenecks.
+4. Check etcd logs for errors or warnings related to disk I/O or fsync operations.
+5. Verify that etcd is properly configured and optimized for the underlying storage system.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the effects of high fsync durations, follow these steps:
+
+1. Immediately investigate and address any underlying disk or system resource issues.
+2. Consider increasing etcd's disk write buffer size to reduce the frequency of fsync operations.
+3. Optimize etcd's configuration for the underlying storage system (e.g., adjust sync interval, etc.).
+4. Consider migrating etcd to a faster storage system or optimizing the existing storage configuration.
+5. Implement additional monitoring and alerting to detect potential issues before they become critical.

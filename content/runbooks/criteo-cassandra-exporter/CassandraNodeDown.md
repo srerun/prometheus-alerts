@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a sample runbook for the Prometheus alert rule "CassandraNodeDown":
 
+## Meaning
+
+The CassandraNodeDown alert is triggered when one or more Cassandra nodes are down, indicating that the node(s) are not responding to requests. This alert is critical, as it can impact the overall availability and performance of the Cassandra cluster.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+The impact of this alert can be significant, as a downed Cassandra node can lead to:
 
+* Data inconsistencies and potential data loss
+* Increased latency and decreased performance for applications relying on Cassandra
+* Reduced availability of the Cassandra cluster, potentially causing errors or downtime for dependent services
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Cassandra node's system logs for any errors or exceptions that may indicate the cause of the downtime.
+2. Verify that the node is properly configured and that there are no network connectivity issues.
+3. Check the Cassandra cluster's overall health and performance metrics, such as latency and throughput, to identify any other potential issues.
+4. Investigate any recent changes or deployments that may have caused the node to go down.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the downed Cassandra node to attempt to bring it back online.
+2. If the node does not come back online, investigate the root cause of the issue and take corrective action (e.g., fix network connectivity issues, update configuration, etc.).
+3. If the issue persists, consider replacing the node or scaling out the Cassandra cluster to maintain availability.
+4. Notify relevant teams and stakeholders of the issue and the actions being taken to resolve it.
+
+Remember to consult the Cassandra documentation and relevant internal resources for more detailed troubleshooting and resolution steps.

@@ -42,19 +42,36 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is a runbook for the `HostOutOfInodes` alert rule:
 
+## Meaning
+
+The `HostOutOfInodes` alert is triggered when a host's file system is running low on available inodes. Inodes are data structures that represent files and directories on a file system. When a file system runs out of inodes, it can no longer create new files or directories, even if there is still available disk space.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
+If left unaddressed, a host out of inodes can cause:
 
+* Failure to write data to files or create new files and directories
+* System crashes or hangs due to file system errors
+* Disruption to applications and services that rely on writing to files or creating new files and directories
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Identify the affected host and file system using the `instance` and `mountpoint` labels.
+2. Use the `df -i` command to check the inode usage on the affected file system.
+3. Verify that the file system is not read-only using the `mount` command.
+4. Check for any disk space issues using the `df` command.
+5. Review system logs for any errors or warnings related to file system errors.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Identify and remove any unnecessary files or directories to free up inodes.
+2. Consider increasing the inode count on the affected file system by resizing the file system or adding more disk space.
+3. Verify that the file system is properly configured and that there are no issues with disk space allocation.
+4. Consider implementing inode quotas or limits to prevent future inode exhaustion.
+5. Monitor the host's file system inode usage regularly to prevent similar issues in the future.

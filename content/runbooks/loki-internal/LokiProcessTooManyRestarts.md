@@ -42,19 +42,33 @@ annotations:
 </details>
 
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
+Here is the runbook for the Prometheus alert rule "LokiProcessTooManyRestarts":
 
+## Meaning
+
+The "LokiProcessTooManyRestarts" alert is triggered when a Loki process restarts more than 2 times within a 15-minute window. This indicates that the Loki process is experiencing instability or issues that are causing it to restart frequently.
 
 ## Impact
-[//]: # "What could / will happen if the alert is not addressed"
 
-
+The impact of this alert is that Loki may not be able to collect and store log data correctly, leading to gaps in log data and potential issues with log-based alerting and monitoring. This can also lead to increased latency and decreased performance in the logging pipeline.
 
 ## Diagnosis
-[//]: # "Steps to take to identify the cause of the problem"
 
+To diagnose the issue, follow these steps:
 
+1. Check the Loki process logs for errors or exceptions that may be causing the restarts.
+2. Verify that the Loki configuration is correct and that there are no issues with the underlying infrastructure (e.g. disk space, network connectivity).
+3. Check the system metrics (e.g. CPU, memory, disk usage) to see if there are any resource constraints that may be contributing to the restarts.
+4. Check the Loki process status and verify that it is running correctly.
 
 ## Mitigation
-[//]: # "The steps necessary to resolve the alert"
+
+To mitigate the issue, follow these steps:
+
+1. Restart the Loki process and verify that it is running correctly.
+2. Check and update the Loki configuration to ensure that it is correct and up-to-date.
+3. Investigate and resolve any underlying infrastructure issues (e.g. disk space, network connectivity).
+4. Consider increasing the resources allocated to the Loki process (e.g. increasing the available memory or CPU).
+5. Implement additional logging and monitoring to detect and alert on Loki process restarts.
+
+Note: For more detailed steps and troubleshooting guides, please refer to the Loki documentation and the referenced runbook URL.
