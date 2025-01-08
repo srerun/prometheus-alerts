@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # MongodbReplicationStatus6
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 MongoDB Replication set member as seen from another member of the set, is not yet known
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

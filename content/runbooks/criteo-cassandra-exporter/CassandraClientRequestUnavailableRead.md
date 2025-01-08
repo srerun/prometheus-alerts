@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # CassandraClientRequestUnavailableRead
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Read failures have occurred because too many nodes are unavailable
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

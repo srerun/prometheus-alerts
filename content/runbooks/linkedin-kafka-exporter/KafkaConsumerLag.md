@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # KafkaConsumerLag
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Kafka consumer has a 30 minutes and increasing lag
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

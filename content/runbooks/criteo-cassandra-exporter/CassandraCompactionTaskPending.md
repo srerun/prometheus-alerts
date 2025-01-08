@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # CassandraCompactionTaskPending
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Many Cassandra compaction tasks are pending. You might need to increase I/O capacity by adding nodes to the cluster.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # ProviderFailedBecauseNet_versionFailed
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Failed net_version for Provider `{{$labels.provider}}` in Graph node `{{$labels.instance}}`
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

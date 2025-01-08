@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # PrometheusTargetScrapingSlow
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Prometheus is scraping exporters slowly since it exceeded the requested interval time. Your Prometheus server is under-provisioned.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

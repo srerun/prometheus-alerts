@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # ClickhouseDiskSpaceCriticalOnDefault
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Disk space on default disk is critically low, below 10%.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

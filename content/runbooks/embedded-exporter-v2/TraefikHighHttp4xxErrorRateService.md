@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # TraefikHighHttp4xxErrorRateService
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Traefik service 4xx error rate is above 5%
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

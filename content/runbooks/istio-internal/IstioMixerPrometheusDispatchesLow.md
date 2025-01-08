@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # IstioMixerPrometheusDispatchesLow
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Number of Mixer dispatches to Prometheus is too low. Istio metrics might not be being exported properly.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

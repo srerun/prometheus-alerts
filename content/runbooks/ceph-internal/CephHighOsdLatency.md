@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # CephHighOsdLatency
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Ceph Object Storage Daemon latency is high. Please check if it doesn't stuck in weird state.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # CephMonitorClockSkew
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Ceph monitor clock skew detected. Please check ntp and hardware clock settings
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

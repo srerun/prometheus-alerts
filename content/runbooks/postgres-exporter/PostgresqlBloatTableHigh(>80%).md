@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # PostgresqlBloatTableHigh(>80%)
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 The table {{ $labels.relname }} is bloated. You should execute `VACUUM {{ $labels.relname }};`
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

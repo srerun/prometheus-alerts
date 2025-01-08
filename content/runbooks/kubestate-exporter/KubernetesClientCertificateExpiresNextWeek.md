@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # KubernetesClientCertificateExpiresNextWeek
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 A client certificate used to authenticate to the apiserver is expiring next week.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

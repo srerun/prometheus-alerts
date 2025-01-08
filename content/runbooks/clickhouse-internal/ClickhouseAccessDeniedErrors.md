@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # ClickhouseAccessDeniedErrors
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Access denied errors have been logged, which could indicate permission issues or unauthorized access attempts.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

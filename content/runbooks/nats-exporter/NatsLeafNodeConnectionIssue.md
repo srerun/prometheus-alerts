@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # NatsLeafNodeConnectionIssue
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 No leaf node connections have been established in the last 5 minutes
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

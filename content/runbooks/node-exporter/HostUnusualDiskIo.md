@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # HostUnusualDiskIo
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Time spent in IO is too high on {{ $labels.instance }}. Check storage for issues.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

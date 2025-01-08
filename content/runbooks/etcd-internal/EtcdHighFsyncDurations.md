@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # EtcdHighFsyncDurations
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Etcd WAL fsync duration increasing, 99th percentile is over 0.5s
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

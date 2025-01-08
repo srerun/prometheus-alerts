@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # MongodbReplicationStatus9
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 MongoDB Replication set member is actively performing a rollback. Data is not available for reads
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

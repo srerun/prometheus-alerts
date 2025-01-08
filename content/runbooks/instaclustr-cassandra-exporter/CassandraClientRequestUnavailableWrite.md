@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # CassandraClientRequestUnavailableWrite
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Some Cassandra client requests are unavailable to write - {{ $labels.cassandra_cluster }}
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

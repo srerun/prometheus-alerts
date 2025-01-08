@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # HostContextSwitchingHigh
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Context switching is growing on the node (twice the daily average during the last 15m)
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

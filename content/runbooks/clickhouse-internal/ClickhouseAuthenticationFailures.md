@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # ClickhouseAuthenticationFailures
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Authentication failures detected, indicating potential security issues or misconfiguration.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

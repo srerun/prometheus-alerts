@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # PrometheusTargetMissingWithWarmupTime
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Allow a job time to start up (10 minutes) before alerting that it's down.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

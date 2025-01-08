@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # EtcdHighNumberOfLeaderChanges
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Etcd leader changed more than 2 times during 10 minutes
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

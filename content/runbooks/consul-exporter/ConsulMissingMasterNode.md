@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # ConsulMissingMasterNode
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Numbers of consul raft peers should be 3, in order to preserve quorum.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

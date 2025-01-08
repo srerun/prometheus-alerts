@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # MysqlTooManyConnections(>80%)
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 More than 80% of MySQL connections are in use on {{ $labels.instance }}
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

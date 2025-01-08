@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # EtcdGrpcRequestsSlow
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 GRPC requests slowing down, 99th percentile is over 0.15s
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

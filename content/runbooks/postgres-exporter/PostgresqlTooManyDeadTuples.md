@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # PostgresqlTooManyDeadTuples
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 PostgreSQL dead tuples is too large
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

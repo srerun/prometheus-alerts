@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # HostMemoryUnderMemoryPressure
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 The node is under heavy memory pressure. High rate of major page faults
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

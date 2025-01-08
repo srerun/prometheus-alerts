@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # MongodbReplicationStatus3
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 MongoDB Replication set member either perform startup self-checks, or transition from completing a rollback or resync
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

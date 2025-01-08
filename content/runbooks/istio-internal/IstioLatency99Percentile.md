@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # IstioLatency99Percentile
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Istio 1% slowest requests are longer than 1000ms.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

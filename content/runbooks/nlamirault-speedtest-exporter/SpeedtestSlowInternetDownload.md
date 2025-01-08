@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # SpeedtestSlowInternetDownload
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Internet download speed is currently {{humanize $value}} Mbps.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

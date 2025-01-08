@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # VaultTooManyInfinityTokens
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Too many infinity tokens {{ $labels.instance }}: {{ $value | printf "%.2f"}}%
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

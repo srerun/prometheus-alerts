@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # PrometheusRuleEvaluationSlow
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Prometheus rule evaluation took more time than the scheduled interval. It indicates a slower storage backend access or too complex query.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

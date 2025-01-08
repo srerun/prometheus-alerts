@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # ContainerLowMemoryUsage
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Container Memory usage is under 20% for 1 week. Consider reducing the allocated memory.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

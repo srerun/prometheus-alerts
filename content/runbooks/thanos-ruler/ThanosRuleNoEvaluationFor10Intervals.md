@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # ThanosRuleNoEvaluationFor10Intervals
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Thanos Rule {{$labels.job}} has rule groups that did not evaluate for at least 10x of their expected interval.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

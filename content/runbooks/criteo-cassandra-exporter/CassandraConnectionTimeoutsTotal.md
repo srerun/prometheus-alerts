@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # CassandraConnectionTimeoutsTotal
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Some connection between nodes are ending in timeout
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

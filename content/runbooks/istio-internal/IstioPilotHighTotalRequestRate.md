@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # IstioPilotHighTotalRequestRate
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Number of Istio Pilot push errors is too high (> 5%). Envoy sidecars might have outdated configuration.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

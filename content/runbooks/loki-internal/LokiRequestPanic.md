@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # LokiRequestPanic
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 The {{ $labels.job }} is experiencing {{ printf "%.2f" $value }}% increase of panics
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

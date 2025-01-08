@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # ApacheWorkersLoad
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Apache workers in busy state approach the max workers count 80% workers busy on {{ $labels.instance }}
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

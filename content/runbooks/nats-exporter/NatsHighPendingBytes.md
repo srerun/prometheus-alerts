@@ -14,10 +14,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 High number of NATS pending bytes
 
-## Meaning
-
-This alert triggers when the number of pending bytes for NATS connections exceeds 100,000 bytes for a duration of 3 minutes. Pending bytes represent messages waiting to be delivered to clients, indicating potential performance issues or bottlenecks in message processing.
-
 <details>
   <summary>Alert Rule</summary>
 
@@ -44,6 +40,11 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+
+This alert triggers when the number of pending bytes for NATS connections exceeds 100,000 bytes for a duration of 3 minutes. Pending bytes represent messages waiting to be delivered to clients, indicating potential performance issues or bottlenecks in message processing.
 
 
 ## Impact

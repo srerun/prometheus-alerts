@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # HostCpuStealNoisyNeighbor
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 CPU steal is > 10%. A noisy neighbor is killing VM performances or a spot instance may be out of credit.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

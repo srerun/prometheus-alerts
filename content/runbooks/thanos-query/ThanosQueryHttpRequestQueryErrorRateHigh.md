@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # ThanosQueryHttpRequestQueryErrorRateHigh
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Thanos Query {{$labels.job}} is failing to handle {{$value | humanize}}% of "query" requests.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

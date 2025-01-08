@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # EtcdHighNumberOfFailedProposals
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Etcd server got more than 5 failed proposals past hour
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # ThanosReceiveHighReplicationFailures
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Thanos Receive {{$labels.job}} is failing to replicate {{$value | humanize}}% of requests.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

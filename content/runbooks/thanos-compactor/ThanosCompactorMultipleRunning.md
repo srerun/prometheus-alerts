@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # ThanosCompactorMultipleRunning
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 No more than one Thanos Compact instance should be running at once. There are {{$value}} instances running.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

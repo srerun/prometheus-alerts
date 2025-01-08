@@ -11,8 +11,7 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # PostgresqlCommitRateLow
 
-## **Meaning**
-This alert triggers when the rate of committed transactions in a PostgreSQL database instance drops below 10 transactions per second, as averaged over a 1-minute period. This indicates that the database might not be processing transactions as expected, which could be a sign of reduced activity, resource contention, or a broader issue in the application stack.
+Postgresql seems to be processing very few transactions
 
 <details>
   <summary>Alert Rule</summary>
@@ -40,6 +39,9 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+## **Meaning**
+This alert triggers when the rate of committed transactions in a PostgreSQL database instance drops below 10 transactions per second, as averaged over a 1-minute period. This indicates that the database might not be processing transactions as expected, which could be a sign of reduced activity, resource contention, or a broader issue in the application stack.
 
 
 ## Impact

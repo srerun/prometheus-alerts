@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # RabbitmqInstancesDifferentVersions
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Running different version of RabbitMQ in the same cluster, can lead to failure.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

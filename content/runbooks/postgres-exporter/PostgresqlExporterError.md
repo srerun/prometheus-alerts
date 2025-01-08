@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # PostgresqlExporterError
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Postgresql exporter is showing errors. A query may be buggy in query.yaml
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

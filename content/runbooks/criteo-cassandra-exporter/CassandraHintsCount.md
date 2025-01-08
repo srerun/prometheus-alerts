@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # CassandraHintsCount
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Cassandra hints count has changed on {{ $labels.instance }} some nodes may go down
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # RabbitmqDeadLetterQueueFillingUp
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Dead letter queue is filling up (> 10 msgs)
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

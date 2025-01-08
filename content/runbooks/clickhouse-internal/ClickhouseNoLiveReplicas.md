@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # ClickhouseNoLiveReplicas
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 There are too few live replicas available, risking data loss and service disruption.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

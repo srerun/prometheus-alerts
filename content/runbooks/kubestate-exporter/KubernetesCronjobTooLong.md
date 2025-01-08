@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # KubernetesCronjobTooLong
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 CronJob {{ $labels.namespace }}/{{ $labels.cronjob }} is taking more than 1h to complete.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

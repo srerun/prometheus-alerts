@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # MongodbReplicationStatus10
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 MongoDB Replication set member was once in a replica set but was subsequently removed
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

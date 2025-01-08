@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # IstioHigh5xxErrorRate
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 High percentage of HTTP 5xx responses in Istio (> 5%).
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

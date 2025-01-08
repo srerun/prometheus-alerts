@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # HostClockSkew
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Clock skew detected. Clock is out of sync. Ensure NTP is configured correctly on this host.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

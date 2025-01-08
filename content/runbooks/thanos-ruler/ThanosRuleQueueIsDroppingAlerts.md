@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # ThanosRuleQueueIsDroppingAlerts
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Thanos Rule {{$labels.instance}} is failing to queue alerts.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # SidekiqSchedulingLatencyTooHigh
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 Sidekiq jobs are taking more than 1min to be picked up. Users may be seeing delays in background processing.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact

@@ -12,8 +12,6 @@ dateCreated: 2020-04-10T18:32:27.079Z
 
 # HostCpuHighIowait
 
-## Meaning
-[//]: # "Short paragraph that explains what the alert means"
 CPU iowait > 10%. A high iowait means that you are disk or network bound.
 
 <details>
@@ -42,6 +40,10 @@ annotations:
 {{% /comment %}}
 
 </details>
+
+
+## Meaning
+[//]: # "Short paragraph that explains what the alert means"
 
 
 ## Impact
