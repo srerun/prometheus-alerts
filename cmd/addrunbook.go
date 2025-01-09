@@ -47,9 +47,9 @@ type Data struct {
 }
 
 // const filename = "blackbox.yaml"
-const runbook_url = "https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks"
-const runbookPath = "/Users/tdavis/src/srerun/prometheus-alerts/content/runbooks"
-const rulesPath = "/Users/tdavis/src/srerun/prometheus-alerts/rules"
+const runbook_url = "https://srerun.github.io/prometheus-alerts/runbooks"
+const runbookPath = "content/runbooks"
+const rulesPath = "rules"
 const contentTmpl = `## Meaning
 [//]: # "Short paragraph that explains what the alert means"
 
@@ -103,7 +103,7 @@ func main() {
 			for _, rule := range group.Rules {
 				rulePath := filepath.Dir(filename)
 				rule.Source = fmt.Sprintf("%s/%s", buildPathname(rulePath), filepath.Base(filename))
-				rule.Annotations.Runbook = fmt.Sprintf("%s/%s/%s.md", runbook_url, path, rule.Alert)
+				rule.Annotations.Runbook = fmt.Sprintf("%s/%s/%s/", runbook_url, path, strings.ToLower(rule.Alert))
 				createRunbook(path, tmpl, rule)
 			}
 		}

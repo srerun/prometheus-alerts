@@ -12,7 +12,7 @@ groups:
                 Service {{ $labels.name }} run by argo is currently not in sync.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/argocd-internal/ArgocdServiceNotSynced.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/argocd-internal/argocdservicenotsynced/
         - alert: ArgocdServiceUnhealthy
           expr: argocd_app_info{health_status!="Healthy"} != 0
           for: 15m
@@ -24,4 +24,4 @@ groups:
                 Service {{ $labels.name }} run by argo is currently not healthy.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/argocd-internal/ArgocdServiceUnhealthy.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/argocd-internal/argocdserviceunhealthy/

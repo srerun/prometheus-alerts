@@ -12,4 +12,4 @@ groups:
                 Linkerd error rate for {{ $labels.deployment | $labels.statefulset | $labels.daemonset }} is over 10%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/linkerd-internal/LinkerdHighErrorRate.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/linkerd-internal/linkerdhigherrorrate/

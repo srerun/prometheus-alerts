@@ -12,7 +12,7 @@ groups:
                 Memory usage is critically high, over 90%.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseMemoryUsageCritical.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/clickhouse-internal/clickhousememoryusagecritical/
         - alert: ClickhouseMemoryUsageWarning
           expr: ClickHouseAsyncMetrics_CGroupMemoryUsed / ClickHouseAsyncMetrics_CGroupMemoryTotal * 100 > 80
           for: 5m
@@ -24,7 +24,7 @@ groups:
                 Memory usage is over 80%.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseMemoryUsageWarning.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/clickhouse-internal/clickhousememoryusagewarning/
         - alert: ClickhouseDiskSpaceLowOnDefault
           expr: ClickHouseAsyncMetrics_DiskAvailable_default / (ClickHouseAsyncMetrics_DiskAvailable_default + ClickHouseAsyncMetrics_DiskUsed_default) * 100 < 20
           for: 2m
@@ -36,7 +36,7 @@ groups:
                 Disk space on default is below 20%.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseDiskSpaceLowOnDefault.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/clickhouse-internal/clickhousediskspacelowondefault/
         - alert: ClickhouseDiskSpaceCriticalOnDefault
           expr: ClickHouseAsyncMetrics_DiskAvailable_default / (ClickHouseAsyncMetrics_DiskAvailable_default + ClickHouseAsyncMetrics_DiskUsed_default) * 100 < 10
           for: 2m
@@ -48,7 +48,7 @@ groups:
                 Disk space on default disk is critically low, below 10%.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseDiskSpaceCriticalOnDefault.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/clickhouse-internal/clickhousediskspacecriticalondefault/
         - alert: ClickhouseDiskSpaceLowOnBackups
           expr: ClickHouseAsyncMetrics_DiskAvailable_backups / (ClickHouseAsyncMetrics_DiskAvailable_backups + ClickHouseAsyncMetrics_DiskUsed_backups) * 100 < 20
           for: 2m
@@ -60,7 +60,7 @@ groups:
                 Disk space on backups is below 20%.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseDiskSpaceLowOnBackups.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/clickhouse-internal/clickhousediskspacelowonbackups/
         - alert: ClickhouseReplicaErrors
           expr: ClickHouseErrorMetric_ALL_REPLICAS_ARE_STALE == 1 or ClickHouseErrorMetric_ALL_REPLICAS_LOST == 1
           for: 0m
@@ -72,7 +72,7 @@ groups:
                 Critical replica errors detected, either all replicas are stale or lost.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseReplicaErrors.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/clickhouse-internal/clickhousereplicaerrors/
         - alert: ClickhouseNoAvailableReplicas
           expr: ClickHouseErrorMetric_NO_AVAILABLE_REPLICA == 1
           for: 0m
@@ -84,7 +84,7 @@ groups:
                 No available replicas in ClickHouse.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseNoAvailableReplicas.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/clickhouse-internal/clickhousenoavailablereplicas/
         - alert: ClickhouseNoLiveReplicas
           expr: ClickHouseErrorMetric_TOO_FEW_LIVE_REPLICAS == 1
           for: 0m
@@ -96,7 +96,7 @@ groups:
                 There are too few live replicas available, risking data loss and service disruption.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseNoLiveReplicas.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/clickhouse-internal/clickhousenolivereplicas/
         - alert: ClickhouseHighNetworkTraffic
           expr: ClickHouseMetrics_NetworkSend > 250 or ClickHouseMetrics_NetworkReceive > 250
           for: 5m
@@ -108,7 +108,7 @@ groups:
                 Network traffic is unusually high, may affect cluster performance.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseHighNetworkTraffic.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/clickhouse-internal/clickhousehighnetworktraffic/
         - alert: ClickhouseHighTcpConnections
           expr: ClickHouseMetrics_TCPConnection > 400
           for: 5m
@@ -120,7 +120,7 @@ groups:
                 High number of TCP connections, indicating heavy client or inter-cluster communication.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseHighTcpConnections.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/clickhouse-internal/clickhousehightcpconnections/
         - alert: ClickhouseInterserverConnectionIssues
           expr: increase(ClickHouseMetrics_InterserverConnection[5m]) > 0
           for: 1m
@@ -132,7 +132,7 @@ groups:
                 An increase in interserver connections may indicate replication or distributed query handling issues.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseInterserverConnectionIssues.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/clickhouse-internal/clickhouseinterserverconnectionissues/
         - alert: ClickhouseZookeeperConnectionIssues
           expr: avg(ClickHouseMetrics_ZooKeeperSession) != 1
           for: 3m
@@ -144,7 +144,7 @@ groups:
                 ClickHouse is experiencing issues with ZooKeeper connections, which may affect cluster state and coordination.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseZookeeperConnectionIssues.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/clickhouse-internal/clickhousezookeeperconnectionissues/
         - alert: ClickhouseAuthenticationFailures
           expr: increase(ClickHouseErrorMetric_AUTHENTICATION_FAILED[5m]) > 0
           for: 0m
@@ -156,7 +156,7 @@ groups:
                 Authentication failures detected, indicating potential security issues or misconfiguration.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseAuthenticationFailures.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/clickhouse-internal/clickhouseauthenticationfailures/
         - alert: ClickhouseAccessDeniedErrors
           expr: increase(ClickHouseErrorMetric_RESOURCE_ACCESS_DENIED[5m]) > 0
           for: 0m
@@ -168,4 +168,4 @@ groups:
                 Access denied errors have been logged, which could indicate permission issues or unauthorized access attempts.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/clickhouse-internal/ClickhouseAccessDeniedErrors.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/clickhouse-internal/clickhouseaccessdeniederrors/

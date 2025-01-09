@@ -12,7 +12,7 @@ groups:
                 Etcd cluster should have an odd number of members
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdInsufficientMembers.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/etcd-internal/etcdinsufficientmembers/
         - alert: EtcdNoLeader
           expr: etcd_server_has_leader == 0
           for: 0m
@@ -24,7 +24,7 @@ groups:
                 Etcd cluster have no leader
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdNoLeader.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/etcd-internal/etcdnoleader/
         - alert: EtcdHighNumberOfLeaderChanges
           expr: increase(etcd_server_leader_changes_seen_total[10m]) > 2
           for: 0m
@@ -36,7 +36,7 @@ groups:
                 Etcd leader changed more than 2 times during 10 minutes
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdHighNumberOfLeaderChanges.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/etcd-internal/etcdhighnumberofleaderchanges/
         - alert: EtcdHighNumberOfFailedGrpcRequests
           expr: sum(rate(grpc_server_handled_total{grpc_code!="OK"}[1m])) BY (grpc_service, grpc_method) / sum(rate(grpc_server_handled_total[1m])) BY (grpc_service, grpc_method) > 0.01
           for: 2m
@@ -48,7 +48,7 @@ groups:
                 More than 1% GRPC request failure detected in Etcd
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdHighNumberOfFailedGrpcRequests.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/etcd-internal/etcdhighnumberoffailedgrpcrequests/
         - alert: EtcdHighNumberOfFailedGrpcRequests
           expr: sum(rate(grpc_server_handled_total{grpc_code!="OK"}[1m])) BY (grpc_service, grpc_method) / sum(rate(grpc_server_handled_total[1m])) BY (grpc_service, grpc_method) > 0.05
           for: 2m
@@ -60,7 +60,7 @@ groups:
                 More than 5% GRPC request failure detected in Etcd
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdHighNumberOfFailedGrpcRequests.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/etcd-internal/etcdhighnumberoffailedgrpcrequests/
         - alert: EtcdGrpcRequestsSlow
           expr: histogram_quantile(0.99, sum(rate(grpc_server_handling_seconds_bucket{grpc_type="unary"}[1m])) by (grpc_service, grpc_method, le)) > 0.15
           for: 2m
@@ -72,7 +72,7 @@ groups:
                 GRPC requests slowing down, 99th percentile is over 0.15s
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdGrpcRequestsSlow.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/etcd-internal/etcdgrpcrequestsslow/
         - alert: EtcdHighNumberOfFailedHttpRequests
           expr: sum(rate(etcd_http_failed_total[1m])) BY (method) / sum(rate(etcd_http_received_total[1m])) BY (method) > 0.01
           for: 2m
@@ -84,7 +84,7 @@ groups:
                 More than 1% HTTP failure detected in Etcd
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdHighNumberOfFailedHttpRequests.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/etcd-internal/etcdhighnumberoffailedhttprequests/
         - alert: EtcdHighNumberOfFailedHttpRequests
           expr: sum(rate(etcd_http_failed_total[1m])) BY (method) / sum(rate(etcd_http_received_total[1m])) BY (method) > 0.05
           for: 2m
@@ -96,7 +96,7 @@ groups:
                 More than 5% HTTP failure detected in Etcd
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdHighNumberOfFailedHttpRequests.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/etcd-internal/etcdhighnumberoffailedhttprequests/
         - alert: EtcdHttpRequestsSlow
           expr: histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[1m])) > 0.15
           for: 2m
@@ -108,7 +108,7 @@ groups:
                 HTTP requests slowing down, 99th percentile is over 0.15s
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdHttpRequestsSlow.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/etcd-internal/etcdhttprequestsslow/
         - alert: EtcdMemberCommunicationSlow
           expr: histogram_quantile(0.99, rate(etcd_network_peer_round_trip_time_seconds_bucket[1m])) > 0.15
           for: 2m
@@ -120,7 +120,7 @@ groups:
                 Etcd member communication slowing down, 99th percentile is over 0.15s
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdMemberCommunicationSlow.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/etcd-internal/etcdmembercommunicationslow/
         - alert: EtcdHighNumberOfFailedProposals
           expr: increase(etcd_server_proposals_failed_total[1h]) > 5
           for: 2m
@@ -132,7 +132,7 @@ groups:
                 Etcd server got more than 5 failed proposals past hour
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdHighNumberOfFailedProposals.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/etcd-internal/etcdhighnumberoffailedproposals/
         - alert: EtcdHighFsyncDurations
           expr: histogram_quantile(0.99, rate(etcd_disk_wal_fsync_duration_seconds_bucket[1m])) > 0.5
           for: 2m
@@ -144,7 +144,7 @@ groups:
                 Etcd WAL fsync duration increasing, 99th percentile is over 0.5s
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdHighFsyncDurations.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/etcd-internal/etcdhighfsyncdurations/
         - alert: EtcdHighCommitDurations
           expr: histogram_quantile(0.99, rate(etcd_disk_backend_commit_duration_seconds_bucket[1m])) > 0.25
           for: 2m
@@ -156,4 +156,4 @@ groups:
                 Etcd commit duration increasing, 99th percentile is over 0.25s
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/etcd-internal/EtcdHighCommitDurations.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/etcd-internal/etcdhighcommitdurations/

@@ -12,4 +12,4 @@ groups:
                 OpenEBS Pool use more than 80% of his capacity
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/openebs-internal/OpenebsUsedPoolCapacity.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/openebs-internal/openebsusedpoolcapacity/

@@ -12,7 +12,7 @@ groups:
                 High number of NATS connections ({{ $value }}) for {{ $labels.instance }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighConnectionCount.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/nats-exporter/natshighconnectioncount/
         - alert: NatsHighPendingBytes
           expr: gnatsd_connz_pending_bytes > 100000
           for: 3m
@@ -24,7 +24,7 @@ groups:
                 High number of NATS pending bytes ({{ $value }}) for {{ $labels.instance }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighPendingBytes.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/nats-exporter/natshighpendingbytes/
         - alert: NatsHighSubscriptionsCount
           expr: gnatsd_connz_subscriptions > 50
           for: 3m
@@ -36,7 +36,7 @@ groups:
                 High number of NATS subscriptions ({{ $value }}) for {{ $labels.instance }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighSubscriptionsCount.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/nats-exporter/natshighsubscriptionscount/
         - alert: NatsHighRoutesCount
           expr: gnatsd_varz_routes > 10
           for: 3m
@@ -48,7 +48,7 @@ groups:
                 High number of NATS routes ({{ $value }}) for {{ $labels.instance }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighRoutesCount.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/nats-exporter/natshighroutescount/
         - alert: NatsHighMemoryUsage
           expr: gnatsd_varz_mem > 200 * 1024 * 1024
           for: 5m
@@ -60,7 +60,7 @@ groups:
                 NATS server memory usage is above 200MB for {{ $labels.instance }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighMemoryUsage.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/nats-exporter/natshighmemoryusage/
         - alert: NatsSlowConsumers
           expr: gnatsd_varz_slow_consumers > 0
           for: 3m
@@ -72,7 +72,7 @@ groups:
                 There are slow consumers in NATS for {{ $labels.instance }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsSlowConsumers.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/nats-exporter/natsslowconsumers/
         - alert: NatsHighCpuUsage
           expr: rate(gnatsd_varz_cpu[5m]) > 0.8
           for: 5m
@@ -84,7 +84,7 @@ groups:
                 NATS server is using more than 80% CPU for the last 5 minutes
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighCpuUsage.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/nats-exporter/natshighcpuusage/
         - alert: NatsHighNumberOfConnections
           expr: gnatsd_connz_num_connections > 1000
           for: 5m
@@ -96,7 +96,7 @@ groups:
                 NATS server has more than 1000 active connections
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighNumberOfConnections.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/nats-exporter/natshighnumberofconnections/
         - alert: NatsHighJetstreamStoreUsage
           expr: gnatsd_varz_jetstream_stats_storage / gnatsd_varz_jetstream_config_max_storage > 0.8
           for: 5m
@@ -108,7 +108,7 @@ groups:
                 JetStream store usage is over 80%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighJetstreamStoreUsage.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/nats-exporter/natshighjetstreamstoreusage/
         - alert: NatsHighJetstreamMemoryUsage
           expr: gnatsd_varz_jetstream_stats_memory / gnatsd_varz_jetstream_config_max_memory > 0.8
           for: 5m
@@ -120,7 +120,7 @@ groups:
                 JetStream memory usage is over 80%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighJetstreamMemoryUsage.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/nats-exporter/natshighjetstreammemoryusage/
         - alert: NatsHighNumberOfSubscriptions
           expr: gnatsd_connz_subscriptions > 1000
           for: 5m
@@ -132,7 +132,7 @@ groups:
                 NATS server has more than 1000 active subscriptions
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighNumberOfSubscriptions.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/nats-exporter/natshighnumberofsubscriptions/
         - alert: NatsHighPendingBytes
           expr: gnatsd_connz_pending_bytes > 100000
           for: 5m
@@ -144,7 +144,7 @@ groups:
                 NATS server has more than 100,000 pending bytes
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsHighPendingBytes.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/nats-exporter/natshighpendingbytes/
         - alert: NatsTooManyErrors
           expr: increase(gnatsd_varz_jetstream_stats_api_errors[5m]) > 0
           for: 5m
@@ -156,7 +156,7 @@ groups:
                 NATS server has encountered errors in the last 5 minutes
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsTooManyErrors.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/nats-exporter/natstoomanyerrors/
         - alert: NatsJetstreamConsumersExceeded
           expr: sum(gnatsd_varz_jetstream_stats_accounts) > 100
           for: 5m
@@ -168,7 +168,7 @@ groups:
                 JetStream has more than 100 active consumers
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsJetstreamConsumersExceeded.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/nats-exporter/natsjetstreamconsumersexceeded/
         - alert: NatsFrequentAuthenticationTimeouts
           expr: increase(gnatsd_varz_auth_timeout[5m]) > 5
           for: 5m
@@ -180,7 +180,7 @@ groups:
                 There have been more than 5 authentication timeouts in the last 5 minutes
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsFrequentAuthenticationTimeouts.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/nats-exporter/natsfrequentauthenticationtimeouts/
         - alert: NatsMaxPayloadSizeExceeded
           expr: max(gnatsd_varz_max_payload) > 1024 * 1024
           for: 5m
@@ -192,7 +192,7 @@ groups:
                 The max payload size allowed by NATS has been exceeded (1MB)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsMaxPayloadSizeExceeded.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/nats-exporter/natsmaxpayloadsizeexceeded/
         - alert: NatsLeafNodeConnectionIssue
           expr: increase(gnatsd_varz_leafnodes[5m]) == 0
           for: 5m
@@ -204,7 +204,7 @@ groups:
                 No leaf node connections have been established in the last 5 minutes
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsLeafNodeConnectionIssue.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/nats-exporter/natsleafnodeconnectionissue/
         - alert: NatsMaxPingOperationsExceeded
           expr: gnatsd_varz_ping_max > 50
           for: 5m
@@ -216,7 +216,7 @@ groups:
                 The maximum number of ping operations in NATS has exceeded 50
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsMaxPingOperationsExceeded.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/nats-exporter/natsmaxpingoperationsexceeded/
         - alert: NatsWriteDeadlineExceeded
           expr: gnatsd_varz_write_deadline > 10
           for: 5m
@@ -228,4 +228,4 @@ groups:
                 The write deadline has been exceeded in NATS, indicating potential message delivery issues
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/nats-exporter/NatsWriteDeadlineExceeded.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/nats-exporter/natswritedeadlineexceeded/

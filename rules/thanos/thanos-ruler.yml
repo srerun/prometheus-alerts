@@ -12,7 +12,7 @@ groups:
                 Thanos Rule {{$labels.instance}} is failing to queue alerts.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosRuleQueueIsDroppingAlerts.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/thanos-ruler/thanosrulequeueisdroppingalerts/
         - alert: ThanosRuleSenderIsFailingAlerts
           expr: sum by (job, instance) (rate(thanos_alert_sender_alerts_dropped_total{job=~".*thanos-rule.*"}[5m])) > 0
           for: 5m
@@ -24,7 +24,7 @@ groups:
                 Thanos Rule {{$labels.instance}} is failing to send alerts to alertmanager.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosRuleSenderIsFailingAlerts.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/thanos-ruler/thanosrulesenderisfailingalerts/
         - alert: ThanosRuleHighRuleEvaluationFailures
           expr: (sum by (job, instance) (rate(prometheus_rule_evaluation_failures_total{job=~".*thanos-rule.*"}[5m])) / sum by (job, instance) (rate(prometheus_rule_evaluations_total{job=~".*thanos-rule.*"}[5m])) * 100 > 5)
           for: 5m
@@ -36,7 +36,7 @@ groups:
                 Thanos Rule {{$labels.instance}} is failing to evaluate rules.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosRuleHighRuleEvaluationFailures.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/thanos-ruler/thanosrulehighruleevaluationfailures/
         - alert: ThanosRuleHighRuleEvaluationWarnings
           expr: sum by (job, instance) (rate(thanos_rule_evaluation_with_warnings_total{job=~".*thanos-rule.*"}[5m])) > 0
           for: 15m
@@ -48,7 +48,7 @@ groups:
                 Thanos Rule {{$labels.instance}} has high number of evaluation warnings.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosRuleHighRuleEvaluationWarnings.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/thanos-ruler/thanosrulehighruleevaluationwarnings/
         - alert: ThanosRuleRuleEvaluationLatencyHigh
           expr: (sum by (job, instance, rule_group) (prometheus_rule_group_last_duration_seconds{job=~".*thanos-rule.*"}) > sum by (job, instance, rule_group) (prometheus_rule_group_interval_seconds{job=~".*thanos-rule.*"}))
           for: 5m
@@ -60,7 +60,7 @@ groups:
                 Thanos Rule {{$labels.instance}} has higher evaluation latency than interval for {{$labels.rule_group}}.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosRuleRuleEvaluationLatencyHigh.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/thanos-ruler/thanosruleruleevaluationlatencyhigh/
         - alert: ThanosRuleGrpcErrorRate
           expr: (sum by (job, instance) (rate(grpc_server_handled_total{grpc_code=~"Unknown|ResourceExhausted|Internal|Unavailable|DataLoss|DeadlineExceeded", job=~".*thanos-rule.*"}[5m]))/  sum by (job, instance) (rate(grpc_server_started_total{job=~".*thanos-rule.*"}[5m])) * 100 > 5)
           for: 5m
@@ -72,7 +72,7 @@ groups:
                 Thanos Rule {{$labels.job}} is failing to handle {{$value | humanize}}% of requests.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosRuleGrpcErrorRate.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/thanos-ruler/thanosrulegrpcerrorrate/
         - alert: ThanosRuleConfigReloadFailure
           expr: avg by (job, instance) (thanos_rule_config_last_reload_successful{job=~".*thanos-rule.*"}) != 1
           for: 5m
@@ -84,7 +84,7 @@ groups:
                 Thanos Rule {{$labels.job}} has not been able to reload its configuration.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosRuleConfigReloadFailure.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/thanos-ruler/thanosruleconfigreloadfailure/
         - alert: ThanosRuleQueryHighDNSFailures
           expr: (sum by (job, instance) (rate(thanos_rule_query_apis_dns_failures_total{job=~".*thanos-rule.*"}[5m])) / sum by (job, instance) (rate(thanos_rule_query_apis_dns_lookups_total{job=~".*thanos-rule.*"}[5m])) * 100 > 1)
           for: 15m
@@ -96,7 +96,7 @@ groups:
                 Thanos Rule {{$labels.job}} has {{$value | humanize}}% of failing DNS queries for query endpoints.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosRuleQueryHighDNSFailures.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/thanos-ruler/thanosrulequeryhighdnsfailures/
         - alert: ThanosRuleAlertmanagerHighDNSFailures
           expr: (sum by (job, instance) (rate(thanos_rule_alertmanagers_dns_failures_total{job=~".*thanos-rule.*"}[5m])) / sum by (job, instance) (rate(thanos_rule_alertmanagers_dns_lookups_total{job=~".*thanos-rule.*"}[5m])) * 100 > 1)
           for: 15m
@@ -108,7 +108,7 @@ groups:
                 Thanos Rule {{$labels.instance}} has {{$value | humanize}}% of failing DNS queries for Alertmanager endpoints.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosRuleAlertmanagerHighDNSFailures.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/thanos-ruler/thanosrulealertmanagerhighdnsfailures/
         - alert: ThanosRuleNoEvaluationFor10Intervals
           expr: time() -  max by (job, instance, group) (prometheus_rule_group_last_evaluation_timestamp_seconds{job=~".*thanos-rule.*"})>10 * max by (job, instance, group) (prometheus_rule_group_interval_seconds{job=~".*thanos-rule.*"})
           for: 5m
@@ -120,7 +120,7 @@ groups:
                 Thanos Rule {{$labels.job}} has rule groups that did not evaluate for at least 10x of their expected interval.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosRuleNoEvaluationFor10Intervals.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/thanos-ruler/thanosrulenoevaluationfor10intervals/
         - alert: ThanosNoRuleEvaluations
           expr: sum by (job, instance) (rate(prometheus_rule_evaluations_total{job=~".*thanos-rule.*"}[5m])) <= 0  and sum by (job, instance) (thanos_rule_loaded_rules{job=~".*thanos-rule.*"}) > 0
           for: 5m
@@ -132,4 +132,4 @@ groups:
                 Thanos Rule {{$labels.instance}} did not perform any rule evaluations in the past 10 minutes.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-ruler/ThanosNoRuleEvaluations.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/thanos-ruler/thanosnoruleevaluations/

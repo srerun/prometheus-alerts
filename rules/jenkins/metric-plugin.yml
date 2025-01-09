@@ -12,7 +12,7 @@ groups:
                 Jenkins offline: `{{$labels.instance}}` in realm {{$labels.realm}}/{{$labels.env}} ({{$labels.region}})
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/metric-plugin/JenkinsOffline.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/metric-plugin/jenkinsoffline/
         - alert: JenkinsHealthcheck
           expr: jenkins_health_check_score < 1
           for: 0m
@@ -24,7 +24,7 @@ groups:
                 Jenkins healthcheck score: {{$value}}. Healthcheck failure for `{{$labels.instance}}` in realm {{$labels.realm}}/{{$labels.env}} ({{$labels.region}})
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/metric-plugin/JenkinsHealthcheck.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/metric-plugin/jenkinshealthcheck/
         - alert: JenkinsOutdatedPlugins
           expr: sum(jenkins_plugins_withUpdate) by (instance) > 3
           for: 1d
@@ -36,7 +36,7 @@ groups:
                 {{ $value }} plugins need update
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/metric-plugin/JenkinsOutdatedPlugins.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/metric-plugin/jenkinsoutdatedplugins/
         - alert: JenkinsBuildsHealthScore
           expr: default_jenkins_builds_health_score < 1
           for: 0m
@@ -48,7 +48,7 @@ groups:
                 Healthcheck failure for `{{$labels.instance}}` in realm {{$labels.realm}}/{{$labels.env}} ({{$labels.region}})
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/metric-plugin/JenkinsBuildsHealthScore.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/metric-plugin/jenkinsbuildshealthscore/
         - alert: JenkinsRunFailureTotal
           expr: delta(jenkins_runs_failure_total[1h]) > 100
           for: 0m
@@ -60,7 +60,7 @@ groups:
                 Job run failures: ({{$value}}) {{$labels.jenkins_job}}. Healthcheck failure for `{{$labels.instance}}` in realm {{$labels.realm}}/{{$labels.env}} ({{$labels.region}})
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/metric-plugin/JenkinsRunFailureTotal.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/metric-plugin/jenkinsrunfailuretotal/
         - alert: JenkinsBuildTestsFailing
           expr: default_jenkins_builds_last_build_tests_failing > 0
           for: 0m
@@ -72,7 +72,7 @@ groups:
                 Last build tests failed: {{$labels.jenkins_job}}. Failed build Tests for job `{{$labels.jenkins_job}}` on {{$labels.instance}}/{{$labels.env}} ({{$labels.region}})
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/metric-plugin/JenkinsBuildTestsFailing.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/metric-plugin/jenkinsbuildtestsfailing/
         - alert: JenkinsLastBuildFailed
           expr: default_jenkins_builds_last_build_result_ordinal == 2
           for: 0m
@@ -84,4 +84,4 @@ groups:
                 Last build failed: {{$labels.jenkins_job}}. Failed build for job `{{$labels.jenkins_job}}` on {{$labels.instance}}/{{$labels.env}} ({{$labels.region}})
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/metric-plugin/JenkinsLastBuildFailed.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/metric-plugin/jenkinslastbuildfailed/

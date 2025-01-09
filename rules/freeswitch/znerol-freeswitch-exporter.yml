@@ -12,7 +12,7 @@ groups:
                 Freeswitch is unresponsive
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/znerol-freeswitch-exporter/FreeswitchDown.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/znerol-freeswitch-exporter/freeswitchdown/
         - alert: FreeswitchSessionsWarning
           expr: (freeswitch_session_active * 100 / freeswitch_session_limit) > 80
           for: 10m
@@ -24,7 +24,7 @@ groups:
                 High sessions usage on {{ $labels.instance }}: {{ $value | printf "%.2f"}}%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/znerol-freeswitch-exporter/FreeswitchSessionsWarning.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/znerol-freeswitch-exporter/freeswitchsessionswarning/
         - alert: FreeswitchSessionsCritical
           expr: (freeswitch_session_active * 100 / freeswitch_session_limit) > 90
           for: 5m
@@ -36,4 +36,4 @@ groups:
                 High sessions usage on {{ $labels.instance }}: {{ $value | printf "%.2f"}}%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/znerol-freeswitch-exporter/FreeswitchSessionsCritical.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/znerol-freeswitch-exporter/freeswitchsessionscritical/

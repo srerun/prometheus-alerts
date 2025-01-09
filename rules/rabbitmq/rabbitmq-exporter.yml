@@ -12,7 +12,7 @@ groups:
                 Less than 3 nodes running in RabbitMQ cluster
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/rabbitmq-exporter/RabbitmqNodeDown.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/rabbitmq-exporter/rabbitmqnodedown/
         - alert: RabbitmqNodeNotDistributed
           expr: erlang_vm_dist_node_state < 3
           for: 0m
@@ -24,7 +24,7 @@ groups:
                 Distribution link state is not 'up'
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/rabbitmq-exporter/RabbitmqNodeNotDistributed.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/rabbitmq-exporter/rabbitmqnodenotdistributed/
         - alert: RabbitmqInstancesDifferentVersions
           expr: count(count(rabbitmq_build_info) by (rabbitmq_version)) > 1
           for: 1h
@@ -36,7 +36,7 @@ groups:
                 Running different version of RabbitMQ in the same cluster, can lead to failure.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/rabbitmq-exporter/RabbitmqInstancesDifferentVersions.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/rabbitmq-exporter/rabbitmqinstancesdifferentversions/
         - alert: RabbitmqMemoryHigh
           expr: rabbitmq_process_resident_memory_bytes / rabbitmq_resident_memory_limit_bytes * 100 > 90
           for: 2m
@@ -48,7 +48,7 @@ groups:
                 A node use more than 90% of allocated RAM
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/rabbitmq-exporter/RabbitmqMemoryHigh.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/rabbitmq-exporter/rabbitmqmemoryhigh/
         - alert: RabbitmqFileDescriptorsUsage
           expr: rabbitmq_process_open_fds / rabbitmq_process_max_fds * 100 > 90
           for: 2m
@@ -60,7 +60,7 @@ groups:
                 A node use more than 90% of file descriptors
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/rabbitmq-exporter/RabbitmqFileDescriptorsUsage.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/rabbitmq-exporter/rabbitmqfiledescriptorsusage/
         - alert: RabbitmqTooManyReadyMessages
           expr: sum(rabbitmq_queue_messages_ready) BY (queue) > 1000
           for: 1m
@@ -72,7 +72,7 @@ groups:
                 RabbitMQ too many ready messages on {{ $labels.instace }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/rabbitmq-exporter/RabbitmqTooManyReadyMessages.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/rabbitmq-exporter/rabbitmqtoomanyreadymessages/
         - alert: RabbitmqTooManyUnackMessages
           expr: sum(rabbitmq_queue_messages_unacked) BY (queue) > 1000
           for: 1m
@@ -84,7 +84,7 @@ groups:
                 Too many unacknowledged messages
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/rabbitmq-exporter/RabbitmqTooManyUnackMessages.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/rabbitmq-exporter/rabbitmqtoomanyunackmessages/
         - alert: RabbitmqTooManyConnections
           expr: rabbitmq_connections > 1000
           for: 2m
@@ -96,7 +96,7 @@ groups:
                 The total connections of a node is too high
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/rabbitmq-exporter/RabbitmqTooManyConnections.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/rabbitmq-exporter/rabbitmqtoomanyconnections/
         - alert: RabbitmqNoQueueConsumer
           expr: rabbitmq_queue_consumers < 1
           for: 1m
@@ -108,7 +108,7 @@ groups:
                 A queue has less than 1 consumer
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/rabbitmq-exporter/RabbitmqNoQueueConsumer.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/rabbitmq-exporter/rabbitmqnoqueueconsumer/
         - alert: RabbitmqUnroutableMessages
           expr: increase(rabbitmq_channel_messages_unroutable_returned_total[1m]) > 0 or increase(rabbitmq_channel_messages_unroutable_dropped_total[1m]) > 0
           for: 2m
@@ -120,4 +120,4 @@ groups:
                 A queue has unroutable messages
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/rabbitmq-exporter/RabbitmqUnroutableMessages.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/rabbitmq-exporter/rabbitmqunroutablemessages/

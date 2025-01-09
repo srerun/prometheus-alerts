@@ -12,7 +12,7 @@ groups:
                 The {{ $labels.job }} {{ $labels.route }} is experiencing {{ printf "%.2f" $value }}% errors.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/promtail-internal/PromtailRequestErrors.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/promtail-internal/promtailrequesterrors/
         - alert: PromtailRequestLatency
           expr: histogram_quantile(0.99, sum(rate(promtail_request_duration_seconds_bucket[5m])) by (le)) > 1
           for: 5m
@@ -24,4 +24,4 @@ groups:
                 The {{ $labels.job }} {{ $labels.route }} is experiencing {{ printf "%.2f" $value }}s 99th percentile latency.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/promtail-internal/PromtailRequestLatency.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/promtail-internal/promtailrequestlatency/
