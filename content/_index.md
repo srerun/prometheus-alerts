@@ -5,32 +5,23 @@ type: docs
 
 # Welcome!
 
-Welcome to the site hosting runbooks for alerts shipped with
-[kube-prometheus](https://github.com/prometheus-operator/kube-prometheus) project.
+Welcome to the site hosting runbooks for alerts in the 
+[prometheus-alerts](https://github.com/sre/prometheus-alerts) project.
 
-
-<details>
-  <summary>Alert Rule</summary>
-
-{{% rule "blackbox/blackbox-exporter.yml" "BlackboxSlowProbe" %}}
-</details>
 
 ## Reason
 
-Kube-prometheus was always meant to provide the complete monitoring solution for kubernetes environments. The project
-already includes a lot of various components to fullfill this goal and one crucial part is including alerting rules.
-However what good are those alerting rules when one don't know what to do when the alert fires?
+The rules have been pulled from the [awesome-prometheus-alerts](https://samber.github.io/awesome-prometheus-alerts/) project with a runbook attribute added that points to the runbooks here because
+what good are those alerting rules when one don't know what to do when the alert fires?
 
 ## Goal
 
-We aim to ship meaningful runbook for every alert in kube-prometheus project and provide enough insight to help
-kube-prometheus users during incidents.
+We aim to ship meaningful runbook for every alert provided with enough insight to help
+users during incidents.  The initial set of runbooks were AI-generated from the actual rules.
 
 ## How to contribute?
 
 If you find any issues with current runbooks, please use the `Edit this page` link at the bottom of the runbook page.
 
-For adding a new runbook please follow [add runbook](/docs/add-runbook) guide.
+If you find any other issues, please [open an issue on GitHub](https://github.com/srerun/prometheus-alerts/issues/new).
 
-If you find any other issues, please [open an issue on GitHub](https://github.com/prometheus-operator/runbooks/issues/new)
-or ask questions in [prometheus-operator slack channel](https://kubernetes.slack.com/archives/CFFDS2Z7F).
