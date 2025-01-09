@@ -12,7 +12,7 @@ groups:
                 Battery is almost empty (< 10% left)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/apcupsd_exporter/ApcUpsBatteryNearlyEmpty.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/apcupsd_exporter/apcupsbatterynearlyempty/
         - alert: ApcUpsLessThan15MinutesOfBatteryTimeRemaining
           expr: apcupsd_battery_time_left_seconds < 900
           for: 0m
@@ -24,7 +24,7 @@ groups:
                 Battery is almost empty (< 15 Minutes remaining)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/apcupsd_exporter/ApcUpsLessThan15MinutesOfBatteryTimeRemaining.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/apcupsd_exporter/apcupslessthan15minutesofbatterytimeremaining/
         - alert: ApcUpsAcInputOutage
           expr: apcupsd_battery_time_on_seconds > 0
           for: 0m
@@ -36,7 +36,7 @@ groups:
                 UPS now running on battery (since {{$value | humanizeDuration}})
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/apcupsd_exporter/ApcUpsAcInputOutage.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/apcupsd_exporter/apcupsacinputoutage/
         - alert: ApcUpsLowBatteryVoltage
           expr: (apcupsd_battery_volts / apcupsd_battery_nominal_volts) < 0.95
           for: 0m
@@ -48,7 +48,7 @@ groups:
                 Battery voltage is lower than nominal (< 95%)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/apcupsd_exporter/ApcUpsLowBatteryVoltage.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/apcupsd_exporter/apcupslowbatteryvoltage/
         - alert: ApcUpsHighTemperature
           expr: apcupsd_internal_temperature_celsius >= 40
           for: 2m
@@ -60,7 +60,7 @@ groups:
                 Internal temperature is high ({{$value}}°C)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/apcupsd_exporter/ApcUpsHighTemperature.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/apcupsd_exporter/apcupshightemperature/
         - alert: ApcUpsHighLoad
           expr: apcupsd_ups_load_percent > 80
           for: 0m
@@ -72,4 +72,4 @@ groups:
                 UPS load is > 80%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/apcupsd_exporter/ApcUpsHighLoad.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/apcupsd_exporter/apcupshighload/

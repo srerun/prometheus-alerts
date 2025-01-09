@@ -12,7 +12,7 @@ groups:
                 Device temperature  warning (instance {{ $labels.instance }})
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/smartctl-exporter/SmartDeviceTemperatureWarning.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/smartctl-exporter/smartdevicetemperaturewarning/
         - alert: SmartDeviceTemperatureCritical
           expr: smartctl_device_temperature > 80
           for: 2m
@@ -24,7 +24,7 @@ groups:
                 Device temperature critical  (instance {{ $labels.instance }})
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/smartctl-exporter/SmartDeviceTemperatureCritical.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/smartctl-exporter/smartdevicetemperaturecritical/
         - alert: SmartCriticalWarning
           expr: smartctl_device_critical_warning > 0
           for: 15m
@@ -36,7 +36,7 @@ groups:
                 device has critical warning (instance {{ $labels.instance }})
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/smartctl-exporter/SmartCriticalWarning.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/smartctl-exporter/smartcriticalwarning/
         - alert: SmartMediaErrors
           expr: smartctl_device_media_errors > 0
           for: 15m
@@ -48,7 +48,7 @@ groups:
                 device has media errors (instance {{ $labels.instance }})
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/smartctl-exporter/SmartMediaErrors.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/smartctl-exporter/smartmediaerrors/
         - alert: SmartNvmeWearoutIndicator
           expr: smartctl_device_available_spare{device=~"nvme.*"} < smartctl_device_available_spare_threshold{device=~"nvme.*"}
           for: 15m
@@ -60,4 +60,4 @@ groups:
                 NVMe device is wearing out (instance {{ $labels.instance }})
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/smartctl-exporter/SmartNvmeWearoutIndicator.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/smartctl-exporter/smartnvmewearoutindicator/

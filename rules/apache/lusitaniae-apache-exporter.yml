@@ -12,7 +12,7 @@ groups:
                 Apache down
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/lusitaniae-apache-exporter/ApacheDown.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/lusitaniae-apache-exporter/apachedown/
         - alert: ApacheWorkersLoad
           expr: (sum by (instance) (apache_workers{state="busy"}) / sum by (instance) (apache_scoreboard) ) * 100 > 80
           for: 2m
@@ -24,7 +24,7 @@ groups:
                 Apache workers in busy state approach the max workers count 80% workers busy on {{ $labels.instance }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/lusitaniae-apache-exporter/ApacheWorkersLoad.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/lusitaniae-apache-exporter/apacheworkersload/
         - alert: ApacheRestart
           expr: apache_uptime_seconds_total / 60 < 1
           for: 0m
@@ -36,4 +36,4 @@ groups:
                 Apache has just been restarted.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/lusitaniae-apache-exporter/ApacheRestart.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/lusitaniae-apache-exporter/apacherestart/

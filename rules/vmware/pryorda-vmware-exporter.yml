@@ -12,7 +12,7 @@ groups:
                 High memory usage on {{ $labels.instance }}: {{ $value | printf "%.2f"}}%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pryorda-vmware-exporter/VirtualMachineMemoryWarning.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/pryorda-vmware-exporter/virtualmachinememorywarning/
         - alert: VirtualMachineMemoryCritical
           expr: vmware_vm_mem_usage_average / 100 >= 90
           for: 1m
@@ -24,7 +24,7 @@ groups:
                 High memory usage on {{ $labels.instance }}: {{ $value | printf "%.2f"}}%
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pryorda-vmware-exporter/VirtualMachineMemoryCritical.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/pryorda-vmware-exporter/virtualmachinememorycritical/
         - alert: HighNumberOfSnapshots
           expr: vmware_vm_snapshots > 3
           for: 30m
@@ -36,7 +36,7 @@ groups:
                 High snapshots number on {{ $labels.instance }}: {{ $value }}
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pryorda-vmware-exporter/HighNumberOfSnapshots.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/pryorda-vmware-exporter/highnumberofsnapshots/
         - alert: OutdatedSnapshots
           expr: (time() - vmware_vm_snapshot_timestamp_seconds) / (60 * 60 * 24) >= 3
           for: 5m
@@ -48,4 +48,4 @@ groups:
                 Outdated snapshots on {{ $labels.instance }}: {{ $value | printf "%.0f"}} days
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pryorda-vmware-exporter/OutdatedSnapshots.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/pryorda-vmware-exporter/outdatedsnapshots/

@@ -12,7 +12,7 @@ groups:
                 Mongodb replication lag is more than 10s
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dcu-mongodb-exporter/MongodbReplicationLag.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/dcu-mongodb-exporter/mongodbreplicationlag/
         - alert: MongodbReplicationStatus3
           expr: mongodb_replset_member_state == 3
           for: 0m
@@ -24,7 +24,7 @@ groups:
                 MongoDB Replication set member either perform startup self-checks, or transition from completing a rollback or resync
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dcu-mongodb-exporter/MongodbReplicationStatus3.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/dcu-mongodb-exporter/mongodbreplicationstatus3/
         - alert: MongodbReplicationStatus6
           expr: mongodb_replset_member_state == 6
           for: 0m
@@ -36,7 +36,7 @@ groups:
                 MongoDB Replication set member as seen from another member of the set, is not yet known
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dcu-mongodb-exporter/MongodbReplicationStatus6.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/dcu-mongodb-exporter/mongodbreplicationstatus6/
         - alert: MongodbReplicationStatus8
           expr: mongodb_replset_member_state == 8
           for: 0m
@@ -48,7 +48,7 @@ groups:
                 MongoDB Replication set member as seen from another member of the set, is unreachable
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dcu-mongodb-exporter/MongodbReplicationStatus8.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/dcu-mongodb-exporter/mongodbreplicationstatus8/
         - alert: MongodbReplicationStatus9
           expr: mongodb_replset_member_state == 9
           for: 0m
@@ -60,7 +60,7 @@ groups:
                 MongoDB Replication set member is actively performing a rollback. Data is not available for reads
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dcu-mongodb-exporter/MongodbReplicationStatus9.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/dcu-mongodb-exporter/mongodbreplicationstatus9/
         - alert: MongodbReplicationStatus10
           expr: mongodb_replset_member_state == 10
           for: 0m
@@ -72,7 +72,7 @@ groups:
                 MongoDB Replication set member was once in a replica set but was subsequently removed
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dcu-mongodb-exporter/MongodbReplicationStatus10.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/dcu-mongodb-exporter/mongodbreplicationstatus10/
         - alert: MongodbNumberCursorsOpen
           expr: mongodb_metrics_cursor_open{state="total_open"} > 10000
           for: 2m
@@ -84,7 +84,7 @@ groups:
                 Too many cursors opened by MongoDB for clients (> 10k)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dcu-mongodb-exporter/MongodbNumberCursorsOpen.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/dcu-mongodb-exporter/mongodbnumbercursorsopen/
         - alert: MongodbCursorsTimeouts
           expr: increase(mongodb_metrics_cursor_timed_out_total[1m]) > 100
           for: 2m
@@ -96,7 +96,7 @@ groups:
                 Too many cursors are timing out
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dcu-mongodb-exporter/MongodbCursorsTimeouts.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/dcu-mongodb-exporter/mongodbcursorstimeouts/
         - alert: MongodbTooManyConnections
           expr: avg by(instance) (rate(mongodb_connections{state="current"}[1m])) / avg by(instance) (sum (mongodb_connections) by (instance)) * 100 > 80
           for: 2m
@@ -108,7 +108,7 @@ groups:
                 Too many connections (> 80%)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dcu-mongodb-exporter/MongodbTooManyConnections.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/dcu-mongodb-exporter/mongodbtoomanyconnections/
         - alert: MongodbVirtualMemoryUsage
           expr: (sum(mongodb_memory{type="virtual"}) BY (instance) / sum(mongodb_memory{type="mapped"}) BY (instance)) > 3
           for: 2m
@@ -120,4 +120,4 @@ groups:
                 High memory usage
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/dcu-mongodb-exporter/MongodbVirtualMemoryUsage.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/dcu-mongodb-exporter/mongodbvirtualmemoryusage/

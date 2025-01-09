@@ -12,7 +12,7 @@ groups:
                 The number of subscription backlog entries is over 5k
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pulsar-internal/PulsarSubscriptionHighNumberOfBacklogEntries.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/pulsar-internal/pulsarsubscriptionhighnumberofbacklogentries/
         - alert: PulsarSubscriptionVeryHighNumberOfBacklogEntries
           expr: sum(pulsar_subscription_back_log) by (subscription) > 100000
           for: 1h
@@ -24,7 +24,7 @@ groups:
                 The number of subscription backlog entries is over 100k
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pulsar-internal/PulsarSubscriptionVeryHighNumberOfBacklogEntries.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/pulsar-internal/pulsarsubscriptionveryhighnumberofbacklogentries/
         - alert: PulsarTopicLargeBacklogStorageSize
           expr: sum(pulsar_storage_size > 5*1024*1024*1024) by (topic)
           for: 1h
@@ -36,7 +36,7 @@ groups:
                 The topic backlog storage size is over 5 GB
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pulsar-internal/PulsarTopicLargeBacklogStorageSize.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/pulsar-internal/pulsartopiclargebacklogstoragesize/
         - alert: PulsarTopicVeryLargeBacklogStorageSize
           expr: sum(pulsar_storage_size > 20*1024*1024*1024) by (topic)
           for: 1h
@@ -48,7 +48,7 @@ groups:
                 The topic backlog storage size is over 20 GB
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pulsar-internal/PulsarTopicVeryLargeBacklogStorageSize.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/pulsar-internal/pulsartopicverylargebacklogstoragesize/
         - alert: PulsarHighWriteLatency
           expr: sum(pulsar_storage_write_latency_overflow > 0) by (topic)
           for: 1h
@@ -60,7 +60,7 @@ groups:
                 Messages cannot be written in a timely fashion
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pulsar-internal/PulsarHighWriteLatency.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/pulsar-internal/pulsarhighwritelatency/
         - alert: PulsarLargeMessagePayload
           expr: sum(pulsar_entry_size_overflow > 0) by (topic)
           for: 1h
@@ -72,7 +72,7 @@ groups:
                 Observing large message payload (> 1MB)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pulsar-internal/PulsarLargeMessagePayload.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/pulsar-internal/pulsarlargemessagepayload/
         - alert: PulsarHighLedgerDiskUsage
           expr: sum(bookie_ledger_dir__pulsar_data_bookkeeper_ledgers_usage) by (kubernetes_pod_name) > 75
           for: 1h
@@ -84,7 +84,7 @@ groups:
                 Observing Ledger Disk Usage (> 75%)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pulsar-internal/PulsarHighLedgerDiskUsage.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/pulsar-internal/pulsarhighledgerdiskusage/
         - alert: PulsarReadOnlyBookies
           expr: count(bookie_SERVER_STATUS{} == 0) by (pod)
           for: 5m
@@ -96,7 +96,7 @@ groups:
                 Observing Readonly Bookies
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pulsar-internal/PulsarReadOnlyBookies.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/pulsar-internal/pulsarreadonlybookies/
         - alert: PulsarHighNumberOfFunctionErrors
           expr: sum((rate(pulsar_function_user_exceptions_total{}[1m]) + rate(pulsar_function_system_exceptions_total{}[1m])) > 10) by (name)
           for: 1m
@@ -108,7 +108,7 @@ groups:
                 Observing more than 10 Function errors per minute
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pulsar-internal/PulsarHighNumberOfFunctionErrors.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/pulsar-internal/pulsarhighnumberoffunctionerrors/
         - alert: PulsarHighNumberOfSinkErrors
           expr: sum(rate(pulsar_sink_sink_exceptions_total{}[1m]) > 10) by (name)
           for: 1m
@@ -120,4 +120,4 @@ groups:
                 Observing more than 10 Sink errors per minute
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/pulsar-internal/PulsarHighNumberOfSinkErrors.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/pulsar-internal/pulsarhighnumberofsinkerrors/

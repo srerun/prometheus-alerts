@@ -12,4 +12,4 @@ groups:
                 Number of CoreDNS panics encountered
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/coredns-internal/CorednsPanicCount.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/coredns-internal/corednspaniccount/

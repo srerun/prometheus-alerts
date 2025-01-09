@@ -12,7 +12,7 @@ groups:
                 Postgresql instance is down
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlDown.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqldown/
         - alert: PostgresqlRestarted
           expr: time() - pg_postmaster_start_time_seconds < 60
           for: 0m
@@ -24,7 +24,7 @@ groups:
                 Postgresql restarted
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlRestarted.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqlrestarted/
         - alert: PostgresqlExporterError
           expr: pg_exporter_last_scrape_error > 0
           for: 0m
@@ -36,7 +36,7 @@ groups:
                 Postgresql exporter is showing errors. A query may be buggy in query.yaml
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlExporterError.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqlexportererror/
         - alert: PostgresqlTableNotAutoVacuumed
           expr: (pg_stat_user_tables_last_autovacuum > 0) and (time() - pg_stat_user_tables_last_autovacuum) > 60 * 60 * 24 * 10
           for: 0m
@@ -48,7 +48,7 @@ groups:
                 Table {{ $labels.relname }} has not been auto vacuumed for 10 days
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlTableNotAutoVacuumed.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqltablenotautovacuumed/
         - alert: PostgresqlTableNotAutoAnalyzed
           expr: (pg_stat_user_tables_last_autoanalyze > 0) and (time() - pg_stat_user_tables_last_autoanalyze) > 24 * 60 * 60 * 10
           for: 0m
@@ -60,7 +60,7 @@ groups:
                 Table {{ $labels.relname }} has not been auto analyzed for 10 days
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlTableNotAutoAnalyzed.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqltablenotautoanalyzed/
         - alert: PostgresqlTooManyConnections
           expr: sum by (instance, job, server) (pg_stat_activity_count) > min by (instance, job, server) (pg_settings_max_connections * 0.8)
           for: 2m
@@ -72,7 +72,7 @@ groups:
                 PostgreSQL instance has too many connections (> 80%).
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlTooManyConnections.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqltoomanyconnections/
         - alert: PostgresqlNotEnoughConnections
           expr: sum by (datname) (pg_stat_activity_count{datname!~"template.*|postgres"}) < 5
           for: 2m
@@ -84,7 +84,7 @@ groups:
                 PostgreSQL instance should have more connections (> 5)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlNotEnoughConnections.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqlnotenoughconnections/
         - alert: PostgresqlDeadLocks
           expr: increase(pg_stat_database_deadlocks{datname!~"template.*|postgres"}[1m]) > 5
           for: 0m
@@ -96,7 +96,7 @@ groups:
                 PostgreSQL has dead-locks
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlDeadLocks.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqldeadlocks/
         - alert: PostgresqlHighRollbackRate
           expr: sum by (namespace,datname) ((rate(pg_stat_database_xact_rollback{datname!~"template.*|postgres",datid!="0"}[3m])) / ((rate(pg_stat_database_xact_rollback{datname!~"template.*|postgres",datid!="0"}[3m])) + (rate(pg_stat_database_xact_commit{datname!~"template.*|postgres",datid!="0"}[3m])))) > 0.02
           for: 0m
@@ -108,7 +108,7 @@ groups:
                 Ratio of transactions being aborted compared to committed is > 2 %
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlHighRollbackRate.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqlhighrollbackrate/
         - alert: PostgresqlCommitRateLow
           expr: rate(pg_stat_database_xact_commit[1m]) < 10
           for: 2m
@@ -120,7 +120,7 @@ groups:
                 Postgresql seems to be processing very few transactions
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlCommitRateLow.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqlcommitratelow/
         - alert: PostgresqlLowXidConsumption
           expr: rate(pg_txid_current[1m]) < 5
           for: 2m
@@ -132,7 +132,7 @@ groups:
                 Postgresql seems to be consuming transaction IDs very slowly
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlLowXidConsumption.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqllowxidconsumption/
         - alert: PostgresqlHighRateStatementTimeout
           expr: rate(postgresql_errors_total{type="statement_timeout"}[1m]) > 3
           for: 0m
@@ -144,7 +144,7 @@ groups:
                 Postgres transactions showing high rate of statement timeouts
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlHighRateStatementTimeout.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqlhighratestatementtimeout/
         - alert: PostgresqlHighRateDeadlock
           expr: increase(postgresql_errors_total{type="deadlock_detected"}[1m]) > 1
           for: 0m
@@ -156,7 +156,7 @@ groups:
                 Postgres detected deadlocks
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlHighRateDeadlock.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqlhighratedeadlock/
         - alert: PostgresqlUnusedReplicationSlot
           expr: pg_replication_slots_active == 0
           for: 1m
@@ -168,7 +168,7 @@ groups:
                 Unused Replication Slots
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlUnusedReplicationSlot.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqlunusedreplicationslot/
         - alert: PostgresqlTooManyDeadTuples
           expr: ((pg_stat_user_tables_n_dead_tup > 10000) / (pg_stat_user_tables_n_live_tup + pg_stat_user_tables_n_dead_tup)) >= 0.1
           for: 2m
@@ -180,7 +180,7 @@ groups:
                 PostgreSQL dead tuples is too large
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlTooManyDeadTuples.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqltoomanydeadtuples/
         - alert: PostgresqlConfigurationChanged
           expr: '{__name__=~"pg_settings_.*"} != ON(__name__, instance) {__name__=~"pg_settings_([^t]|t[^r]|tr[^a]|tra[^n]|tran[^s]|trans[^a]|transa[^c]|transac[^t]|transact[^i]|transacti[^o]|transactio[^n]|transaction[^_]|transaction_[^r]|transaction_r[^e]|transaction_re[^a]|transaction_rea[^d]|transaction_read[^_]|transaction_read_[^o]|transaction_read_o[^n]|transaction_read_on[^l]|transaction_read_onl[^y]).*"} OFFSET 5m'
           for: 0m
@@ -192,7 +192,7 @@ groups:
                 Postgres Database configuration change has occurred
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlConfigurationChanged.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqlconfigurationchanged/
         - alert: PostgresqlSslCompressionActive
           expr: sum(pg_stat_ssl_compression) > 0
           for: 0m
@@ -204,7 +204,7 @@ groups:
                 Database connections with SSL compression enabled. This may add significant jitter in replication delay. Replicas should turn off SSL compression via `sslcompression=0` in `recovery.conf`.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlSslCompressionActive.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqlsslcompressionactive/
         - alert: PostgresqlTooManyLocksAcquired
           expr: ((sum (pg_locks_count)) / (pg_settings_max_locks_per_transaction * pg_settings_max_connections)) > 0.20
           for: 2m
@@ -216,7 +216,7 @@ groups:
                 Too many locks acquired on the database. If this alert happens frequently, we may need to increase the postgres setting max_locks_per_transaction.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlTooManyLocksAcquired.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqltoomanylocksacquired/
         - alert: PostgresqlBloatIndexHigh(>80%)
           expr: pg_bloat_btree_bloat_pct > 80 and on (idxname) (pg_bloat_btree_real_size > 100000000)
           for: 1h
@@ -228,7 +228,7 @@ groups:
                 The index {{ $labels.idxname }} is bloated. You should execute `REINDEX INDEX CONCURRENTLY {{ $labels.idxname }};`
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlBloatIndexHigh(>80%).md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqlbloatindexhigh(>80%)/
         - alert: PostgresqlBloatTableHigh(>80%)
           expr: pg_bloat_table_bloat_pct > 80 and on (relname) (pg_bloat_table_real_size > 200000000)
           for: 1h
@@ -240,7 +240,7 @@ groups:
                 The table {{ $labels.relname }} is bloated. You should execute `VACUUM {{ $labels.relname }};`
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlBloatTableHigh(>80%).md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqlbloattablehigh(>80%)/
         - alert: PostgresqlInvalidIndex
           expr: pg_general_index_info_pg_relation_size{indexrelname=~".*ccnew.*"}
           for: 6h
@@ -252,4 +252,4 @@ groups:
                 The table {{ $labels.relname }} has an invalid index: {{ $labels.indexrelname }}. You should execute `DROP INDEX {{ $labels.indexrelname }};`
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/postgres-exporter/PostgresqlInvalidIndex.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqlinvalidindex/

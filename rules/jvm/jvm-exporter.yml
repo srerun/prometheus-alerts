@@ -12,4 +12,4 @@ groups:
                 JVM memory is filling up (> 80%)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/jvm-exporter/JvmMemoryFillingUp.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/jvm-exporter/jvmmemoryfillingup/

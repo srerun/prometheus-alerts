@@ -12,7 +12,7 @@ groups:
                 Thanos Query {{$labels.job}} is failing to handle {{$value | humanize}}% of "query" requests.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-query/ThanosQueryHttpRequestQueryErrorRateHigh.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/thanos-query/thanosqueryhttprequestqueryerrorratehigh/
         - alert: ThanosQueryHttpRequestQueryRangeErrorRateHigh
           expr: (sum by (job) (rate(http_requests_total{code=~"5..", job=~".*thanos-query.*", handler="query_range"}[5m]))/  sum by (job) (rate(http_requests_total{job=~".*thanos-query.*", handler="query_range"}[5m]))) * 100 > 5
           for: 5m
@@ -24,7 +24,7 @@ groups:
                 Thanos Query {{$labels.job}} is failing to handle {{$value | humanize}}% of "query_range" requests.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-query/ThanosQueryHttpRequestQueryRangeErrorRateHigh.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/thanos-query/thanosqueryhttprequestqueryrangeerrorratehigh/
         - alert: ThanosQueryGrpcServerErrorRate
           expr: (sum by (job) (rate(grpc_server_handled_total{grpc_code=~"Unknown|ResourceExhausted|Internal|Unavailable|DataLoss|DeadlineExceeded", job=~".*thanos-query.*"}[5m]))/  sum by (job) (rate(grpc_server_started_total{job=~".*thanos-query.*"}[5m])) * 100 > 5)
           for: 5m
@@ -36,7 +36,7 @@ groups:
                 Thanos Query {{$labels.job}} is failing to handle {{$value | humanize}}% of requests.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-query/ThanosQueryGrpcServerErrorRate.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/thanos-query/thanosquerygrpcservererrorrate/
         - alert: ThanosQueryGrpcClientErrorRate
           expr: (sum by (job) (rate(grpc_client_handled_total{grpc_code!="OK", job=~".*thanos-query.*"}[5m])) / sum by (job) (rate(grpc_client_started_total{job=~".*thanos-query.*"}[5m]))) * 100 > 5
           for: 5m
@@ -48,7 +48,7 @@ groups:
                 Thanos Query {{$labels.job}} is failing to send {{$value | humanize}}% of requests.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-query/ThanosQueryGrpcClientErrorRate.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/thanos-query/thanosquerygrpcclienterrorrate/
         - alert: ThanosQueryHighDNSFailures
           expr: (sum by (job) (rate(thanos_query_store_apis_dns_failures_total{job=~".*thanos-query.*"}[5m])) / sum by (job) (rate(thanos_query_store_apis_dns_lookups_total{job=~".*thanos-query.*"}[5m]))) * 100 > 1
           for: 15m
@@ -60,7 +60,7 @@ groups:
                 Thanos Query {{$labels.job}} have {{$value | humanize}}% of failing DNS queries for store endpoints.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-query/ThanosQueryHighDNSFailures.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/thanos-query/thanosqueryhighdnsfailures/
         - alert: ThanosQueryInstantLatencyHigh
           expr: (histogram_quantile(0.99, sum by (job, le) (rate(http_request_duration_seconds_bucket{job=~".*thanos-query.*", handler="query"}[5m]))) > 40 and sum by (job) (rate(http_request_duration_seconds_bucket{job=~".*thanos-query.*", handler="query"}[5m])) > 0)
           for: 10m
@@ -72,7 +72,7 @@ groups:
                 Thanos Query {{$labels.job}} has a 99th percentile latency of {{$value}} seconds for instant queries.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-query/ThanosQueryInstantLatencyHigh.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/thanos-query/thanosqueryinstantlatencyhigh/
         - alert: ThanosQueryRangeLatencyHigh
           expr: (histogram_quantile(0.99, sum by (job, le) (rate(http_request_duration_seconds_bucket{job=~".*thanos-query.*", handler="query_range"}[5m]))) > 90 and sum by (job) (rate(http_request_duration_seconds_count{job=~".*thanos-query.*", handler="query_range"}[5m])) > 0)
           for: 10m
@@ -84,7 +84,7 @@ groups:
                 Thanos Query {{$labels.job}} has a 99th percentile latency of {{$value}} seconds for range queries.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-query/ThanosQueryRangeLatencyHigh.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/thanos-query/thanosqueryrangelatencyhigh/
         - alert: ThanosQueryOverload
           expr: (max_over_time(thanos_query_concurrent_gate_queries_max[5m]) - avg_over_time(thanos_query_concurrent_gate_queries_in_flight[5m]) < 1)
           for: 15m
@@ -96,4 +96,4 @@ groups:
                 Thanos Query {{$labels.job}} has been overloaded for more than 15 minutes. This may be a symptom of excessive simultanous complex requests, low performance of the Prometheus API, or failures within these components. Assess the health of the Thanos query instances, the connnected Prometheus instances, look for potential senders of these requests and then contact support.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/thanos-query/ThanosQueryOverload.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/thanos-query/thanosqueryoverload/

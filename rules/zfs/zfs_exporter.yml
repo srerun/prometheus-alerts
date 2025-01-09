@@ -12,7 +12,7 @@ groups:
                 Disk is almost full (< 10% left)
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/zfs_exporter/ZfsPoolOutOfSpace.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/zfs_exporter/zfspooloutofspace/
         - alert: ZfsPoolUnhealthy
           expr: zfs_pool_health > 0
           for: 0m
@@ -24,7 +24,7 @@ groups:
                 ZFS pool state is {{ $value }}. See comments for more information.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/zfs_exporter/ZfsPoolUnhealthy.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/zfs_exporter/zfspoolunhealthy/
         - alert: ZfsCollectorFailed
           expr: zfs_scrape_collector_success != 1
           for: 0m
@@ -36,4 +36,4 @@ groups:
                 ZFS collector for {{ $labels.instance }} has failed to collect information
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://github.com/srerun/prometheus-alerts/blob/main/content/runbooks/zfs_exporter/ZfsCollectorFailed.md
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/zfs_exporter/zfscollectorfailed/
