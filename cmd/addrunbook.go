@@ -79,6 +79,11 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	if groqKey == "" {
+		slog.Warn("GROQ_API_KEY is not set.  AI-generated runbooks will not be created.")
+	}
+
 	fmt.Printf("Reading rules files in %s\n", rulesPath)
 	files, err := filepath.Glob(fmt.Sprintf("%s/*/*.yml", rulesPath))
 	if err != nil {
@@ -188,6 +193,9 @@ func FirstLine(lines string) (string, error) {
 }
 
 func generateContent(rule Rule) string {
+	if groqKey == "" {
+		return contentTmpl
+	}
 	ruleB, err := yaml.Marshal(rule)
 	if err != nil {
 		return contentTmpl
