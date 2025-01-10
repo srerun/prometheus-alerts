@@ -7,7 +7,7 @@ assetDir: rules
 theme: book
 
 params:
-  BookRepo: "https://github.com/sre/prometheus-alerts"
+  BookRepo: "https://github.com/srerun/prometheus-alerts"
   BookEditPath: "edit/main"
   BookSearch: true
   BookSection: "runbooks"
