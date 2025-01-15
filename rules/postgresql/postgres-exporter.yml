@@ -110,7 +110,7 @@ groups:
                   LABELS = {{ $labels }}
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqlhighrollbackrate/
         - alert: PostgresqlCommitRateLow
-          expr: rate(pg_stat_database_xact_commit[1m]) < 10
+          expr: rate(pg_stat_database_xact_commit{datname !~ 'template.|postgres'}[1m]) < 10
           for: 2m
           labels:
             severity: critical
