@@ -1,0 +1,84 @@
+groups:
+    - name: FreeradiusExporter
+      rules:
+        - alert: FreeRADIUSDown
+          expr: freeradius_up == 0
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: FreeRADIUS is down
+            description: The FreeRADIUS server is not reachable. Please check the server immediately.
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/freeradius-exporter/freeradiusdown/
+        - alert: FreeRADIUSHangupNotOccurred
+          expr: freeradius_start_time == freeradius_hup_time
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: FreeRADIUS server has not been restarted
+            description: The FreeRADIUS server has not been hup'd since it started. Consider restarting it if necessary.
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/freeradius-exporter/freeradiushangupnotoccurred/
+        - alert: FreeRADIUSHighAccountingQueueLength
+          expr: freeradius_queue_len_acct > 100
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: High Accounting Queue Length
+            description: The accounting queue length ({{ $value }}) is above the threshold of 100.
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/freeradius-exporter/freeradiushighaccountingqueuelength/
+        - alert: FreeRADIUSHighAuthenticationQueueLength
+          expr: freeradius_queue_len_auth > 100
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: High Authentication Queue Length
+            description: The authentication queue length ({{ $value }}) is above the threshold of 100.
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/freeradius-exporter/freeradiushighauthenticationqueuelength/
+        - alert: FreeRADIUSHighProxyQueueLength
+          expr: freeradius_queue_len_proxy > 100
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: High Proxy Queue Length
+            description: The proxy queue length ({{ $value }}) is above the threshold of 100.
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/freeradius-exporter/freeradiushighproxyqueuelength/
+        - alert: FreeRADIUSHighMalformedRequests
+          expr: freeradius_total_acct_malformed_requests > 0 or freeradius_total_auth_malformed_requests > 0
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: Malformed Requests Detected
+            description: There are malformed requests in the FreeRADIUS server. Investigate the source of the malformed requests.
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/freeradius-exporter/freeradiushighmalformedrequests/
+        - alert: FreeRADIUSDroppedRequests
+          expr: freeradius_total_acct_dropped_requests > 0 or freeradius_total_auth_dropped_requests > 0
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: Dropped Requests Detected
+            description: The FreeRADIUS server has dropped requests. Investigate potential performance issues or client misconfigurations.
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/freeradius-exporter/freeradiusdroppedrequests/
+        - alert: FreeRADIUSHighQueuePPS
+          expr: freeradius_queue_pps_in > 1000 or freeradius_queue_pps_out > 1000
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: High Queue Packets Per Second
+            description: The FreeRADIUS server is processing a high number of packets per second ({{ $value }}). Check server load.
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/freeradius-exporter/freeradiushighqueuepps/
+        - alert: FreeRADIUSStatsErrorDetected
+          expr: freeradius_stats_error == 1
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: Stats Error Detected
+            description: A stats error has been reported in the FreeRADIUS server. Investigate the source of the error.
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/freeradius-exporter/freeradiusstatserrordetected/
