@@ -17,7 +17,7 @@ Some HAProxy requests are pending on {{ $labels.proxy }} - {{ $value | printf "%
 <details>
   <summary>Alert Rule</summary>
 
-{{% rule "haproxy/embedded-exporter-v2.yml" "HaproxyPendingRequests" %}}
+{{% rule "haproxy/haproxy-embedded-exporter-v2.yml" "HaproxyPendingRequests" %}}
 
 {{% comment %}}
 

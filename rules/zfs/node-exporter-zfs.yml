@@ -12,4 +12,4 @@ groups:
                 A ZFS zpool is in a unexpected state: {{ $labels.state }}.
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
-            runbook: https://srerun.github.io/prometheus-alerts/runbooks/node-exporter/zfsofflinepool/
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/node-exporter-zfs/zfsofflinepool/

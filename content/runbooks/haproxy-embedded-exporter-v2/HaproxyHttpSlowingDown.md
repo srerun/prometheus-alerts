@@ -17,7 +17,7 @@ Average request time is increasing - {{ $value | printf "%.2f"}}
 <details>
   <summary>Alert Rule</summary>
 
-{{% rule "haproxy/embedded-exporter-v2.yml" "HaproxyHttpSlowingDown" %}}
+{{% rule "haproxy/haproxy-embedded-exporter-v2.yml" "HaproxyHttpSlowingDown" %}}
 
 {{% comment %}}
 

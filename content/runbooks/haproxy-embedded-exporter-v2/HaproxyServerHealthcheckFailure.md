@@ -17,7 +17,7 @@ Some server healthcheck are failing on {{ $labels.server }}
 <details>
   <summary>Alert Rule</summary>
 
-{{% rule "haproxy/embedded-exporter-v2.yml" "HaproxyServerHealthcheckFailure" %}}
+{{% rule "haproxy/haproxy-embedded-exporter-v2.yml" "HaproxyServerHealthcheckFailure" %}}
 
 {{% comment %}}
 

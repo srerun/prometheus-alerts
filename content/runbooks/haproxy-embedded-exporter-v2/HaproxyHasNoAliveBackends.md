@@ -17,7 +17,7 @@ HAProxy has no alive active or backup backends for {{ $labels.proxy }}
 <details>
   <summary>Alert Rule</summary>
 
-{{% rule "haproxy/embedded-exporter-v2.yml" "HaproxyHasNoAliveBackends" %}}
+{{% rule "haproxy/haproxy-embedded-exporter-v2.yml" "HaproxyHasNoAliveBackends" %}}
 
 {{% comment %}}
 

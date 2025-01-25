@@ -17,7 +17,7 @@ Too many connection errors to {{ $labels.fqdn }}/{{ $labels.backend }} backend (
 <details>
   <summary>Alert Rule</summary>
 
-{{% rule "haproxy/embedded-exporter-v2.yml" "HaproxyBackendConnectionErrors" %}}
+{{% rule "haproxy/haproxy-embedded-exporter-v2.yml" "HaproxyBackendConnectionErrors" %}}
 
 {{% comment %}}
 

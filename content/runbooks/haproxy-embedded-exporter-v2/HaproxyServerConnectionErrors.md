@@ -17,7 +17,7 @@ Too many connection errors to {{ $labels.server }} server (> 100 req/s). Request
 <details>
   <summary>Alert Rule</summary>
 
-{{% rule "haproxy/embedded-exporter-v2.yml" "HaproxyServerConnectionErrors" %}}
+{{% rule "haproxy/haproxy-embedded-exporter-v2.yml" "HaproxyServerConnectionErrors" %}}
 
 {{% comment %}}
 

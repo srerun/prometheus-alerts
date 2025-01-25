@@ -17,7 +17,7 @@ Session limit from backend {{ $labels.proxy }} to server {{ $labels.server }} re
 <details>
   <summary>Alert Rule</summary>
 
-{{% rule "haproxy/embedded-exporter-v2.yml" "HaproxyBackendMaxActiveSession>80%" %}}
+{{% rule "haproxy/haproxy-embedded-exporter-v2.yml" "HaproxyBackendMaxActiveSession>80%" %}}
 
 {{% comment %}}
 

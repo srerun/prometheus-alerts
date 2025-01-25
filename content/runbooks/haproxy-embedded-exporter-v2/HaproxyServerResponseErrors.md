@@ -17,7 +17,7 @@ Too many response errors to {{ $labels.server }} server (> 5%).
 <details>
   <summary>Alert Rule</summary>
 
-{{% rule "haproxy/embedded-exporter-v2.yml" "HaproxyServerResponseErrors" %}}
+{{% rule "haproxy/haproxy-embedded-exporter-v2.yml" "HaproxyServerResponseErrors" %}}
 
 {{% comment %}}
 

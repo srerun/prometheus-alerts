@@ -17,7 +17,7 @@ Too many HTTP requests with status 4xx (> 5%) on backend {{ $labels.fqdn }}/{{ $
 <details>
   <summary>Alert Rule</summary>
 
-{{% rule "haproxy/embedded-exporter-v2.yml" "HaproxyHighHttp4xxErrorRateBackend" %}}
+{{% rule "haproxy/haproxy-embedded-exporter-v2.yml" "HaproxyHighHttp4xxErrorRateBackend" %}}
 
 {{% comment %}}
 

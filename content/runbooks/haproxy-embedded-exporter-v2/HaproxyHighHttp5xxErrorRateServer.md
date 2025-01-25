@@ -17,7 +17,7 @@ Too many HTTP requests with status 5xx (> 5%) on server {{ $labels.server }}
 <details>
   <summary>Alert Rule</summary>
 
-{{% rule "haproxy/embedded-exporter-v2.yml" "HaproxyHighHttp5xxErrorRateServer" %}}
+{{% rule "haproxy/haproxy-embedded-exporter-v2.yml" "HaproxyHighHttp5xxErrorRateServer" %}}
 
 {{% comment %}}
 
