@@ -87,3 +87,17 @@ systemctl restart <service_name>
 5. Monitor the host's system resources and adjust resource allocation as needed to prevent resource constraints.
 
 Remember to consult the node's system documentation and configuration files for specific guidance on troubleshooting and resolving systemd service crashes.
+
+If the service is no longer relevant on the affected node:
+
+1. Disable the service:
+
+```
+systemctl disable <service_name>
+```
+
+2. Clear the failed state:
+
+```
+systemctl reset-failed <service_name>
+```
