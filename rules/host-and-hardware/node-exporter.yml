@@ -122,14 +122,14 @@ groups:
                   LABELS = {{ $labels }}
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/node-exporter/hostoutofinodes/
         - alert: HostFilesystemDeviceError
-          expr: node_filesystem_device_error == 1
+          expr: node_filesystem_device_error{device!="tmpfs"} == 1
           for: 2m
           labels:
             severity: critical
           annotations:
             summary: Host filesystem device error (instance {{ $labels.instance }})
             description: |-
-                {{ $labels.instance }}: Device error with the {{ $labels.mountpoint }} filesystem
+                {{ $labels.instance }}: {{ $labels.device_error }} with the {{ $labels.mountpoint }} filesystem
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/node-exporter/hostfilesystemdeviceerror/
