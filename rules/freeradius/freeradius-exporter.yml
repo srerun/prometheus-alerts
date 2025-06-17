@@ -74,7 +74,7 @@ groups:
             description: The FreeRADIUS server is processing a high number of packets per second ({{ $value }}). Check server load.
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/freeradius-exporter/freeradiushighqueuepps/
         - alert: FreeRADIUSStatsErrorDetected
-          expr: freeradius_stats_error == 1
+          expr: freeradius_stats_error{error!~"^$"} == 1
           for: 5m
           labels:
             severity: warning

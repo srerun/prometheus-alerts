@@ -23,7 +23,7 @@ A stats error has been reported in the FreeRADIUS server. Investigate the source
 
 ```yaml
 alert: FreeRADIUSStatsErrorDetected
-expr: freeradius_stats_error == 1
+expr: freeradius_stats_error{error!~"^$"} == 1
 for: 5m
 labels:
     severity: warning
@@ -41,31 +41,25 @@ annotations:
 
 ## Meaning
 
-The `FreeRADIUSStatsErrorDetected` alert is triggered when the FreeRADIUS server reports a stats error. This error can indicate a problem with the FreeRADIUS server's ability to collect or process statistical data, which can impact the accuracy of billing, authentication, and authorization processes.
+The FreeRADIUSStatsErrorDetected alert is triggered when the FreeRADIUS server reports an error in its statistics. This error can indicate a problem with the source of the error, which may affect the accuracy of the statistics reported by the FreeRADIUS server. This can lead to incorrect decisions based on faulty data.
 
 ## Impact
 
-The impact of this alert is potentially high, as it can lead to:
-
-* Inaccurate billing and revenue loss
-* Authentication and authorization issues
-* Difficulty in troubleshooting and debugging issues due to incomplete or inaccurate statistical data
+The impact of this alert is moderate, as it may affect the ability to make informed decisions based on accurate statistics. However, it does not necessarily indicate a critical issue with the FreeRADIUS server or its functionality.
 
 ## Diagnosis
 
-To diagnose the root cause of the `FreeRADIUSStatsErrorDetected` alert, follow these steps:
+To diagnose the issue, follow these steps:
 
-1. Check the FreeRADIUS server logs for error messages related to stats collection and processing.
-2. Verify that the FreeRADIUS server is properly configured to collect and process statistical data.
-3. Check the FreeRADIUS exporter configuration to ensure it is correctly configured to scrape stats data from the FreeRADIUS server.
-4. Review the network and system logs to identify any underlying issues that may be contributing to the stats error.
+1. Check the FreeRADIUS server logs for error messages related to statistics.
+2. Investigate the source of the error, which may be a specific module or component of the FreeRADIUS server.
+4. Verify that the statistics are being reported correctly and accurately reflect the current state of the system.
 
 ## Mitigation
 
-To mitigate the impact of the `FreeRADIUSStatsErrorDetected` alert, follow these steps:
+To mitigate the issue, follow these steps:
 
-1. Immediately investigate and resolve the underlying cause of the stats error.
-2. Restart the FreeRADIUS server and exporter to ensure that the stats collection and processing are restarted.
-3. Verify that the stats data is being collected and processed correctly after the restart.
-4. Implement additional monitoring and logging to detect and alert on similar issues in the future.
-5. Consider implementing redundant stats collection and processing mechanisms to mitigate the impact of future errors.
+1. Correct the source of the statistics error, which may require updating or configuring the FreeRADIUS server module.
+2. Restart the FreeRADIUS server to ensure that the changes take effect.
+3. Verify that the statistics are being reported correctly and accurately reflect the current state of the system.
+4. Update the monitoring system to reflect the changes made to the FreeRADIUS server.
