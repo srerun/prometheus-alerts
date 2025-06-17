@@ -11,7 +11,7 @@ groups:
             description: Proxmox Backup Server {{ $labels.instance }} is not available.
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/pbs-exporter/proxmoxbackuphostdown/
         - alert: ProxmoxBackupSnapshotVerifyFailed
-          expr: sum by (vm_id) (max_over_time(pbs_snapshot_vm_last_verify[2d]) and pbs_snapshot_vm_count > 1) == 0
+          expr: sum by (vm_id, vm_name) (max_over_time(pbs_snapshot_vm_last_verify[2d]) and pbs_snapshot_vm_count > 1) == 0
           for: 2m
           labels:
             severity: warning
