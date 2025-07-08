@@ -109,18 +109,6 @@ groups:
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqlhighrollbackrate/
-        - alert: PostgresqlCommitRateLow
-          expr: rate(pg_stat_database_xact_commit{datname !~ 'template.|postgres'}[1m]) < 10
-          for: 2m
-          labels:
-            severity: critical
-          annotations:
-            summary: Postgresql commit rate low (instance {{ $labels.instance }})
-            description: |-
-                Postgresql seems to be processing very few transactions
-                  VALUE = {{ $value }}
-                  LABELS = {{ $labels }}
-            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqlcommitratelow/
         - alert: PostgresqlLowXidConsumption
           expr: rate(pg_txid_current[1m]) < 5
           for: 2m
