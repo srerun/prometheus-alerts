@@ -253,3 +253,27 @@ groups:
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqlinvalidindex/
+        - alert: PostgresqlReplicationLagSizeTooLarge
+          expr: pg_replication_status_lag_size > 1e+09
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: Postgresql is more than 1G behind (instance {{ $labels.instance }})
+            description: |-
+                "Replication lag size on server {{$labels.instance}} ({{$labels.application_name}}) is currently {{ $value | humanize1024}}B behind the leader in cluster {{$labels.cluster_name}}"
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqlreplicationlagsizetoolarge/
+        - alert: PostgresqlReplicationBehind
+          expr: pg_replication_lag_seconds > 60
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: Postgresql replication is more than 60s behind
+            description: |-
+                "Replication lag is greater than 60 seconds on server {{$labels.instance}}.  Currently {{ $value }} seconds behind"
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/postgres-exporter/postgresqlreplicationbehind/
