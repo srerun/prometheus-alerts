@@ -56,7 +56,7 @@ groups:
             description: There are malformed requests in the FreeRADIUS server. Investigate the source of the malformed requests.
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/freeradius-exporter/freeradiushighmalformedrequests/
         - alert: FreeRADIUSDroppedRequests
-          expr: freeradius_total_acct_dropped_requests > 0 or freeradius_total_auth_dropped_requests > 0
+          expr: rate(freeradius_total_acct_dropped_requests[10m]) > 0 or rate(freeradius_total_auth_dropped_requests[10m]) > 0
           for: 5m
           labels:
             severity: warning
