@@ -1,0 +1,75 @@
+groups:
+    - name: vbng_alerts
+      rules:
+        - alert: HighCPUUsage
+          expr: vbng_cpuUsage > 80
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: High CPU usage on bng
+            description: 'CPU usage is above 80% for more than 5 minutes (current value: {{ $value }}%). This may indicate resource contention or overload.'
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/netelastic/highcpuusage/
+        - alert: HighMemoryUsage
+          expr: vbng_memUsage > 80
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: High memory usage on bng
+            description: 'Memory usage is above 80% for more than 5 minutes (current value: {{ $value }}%). This may lead to performance degradation.'
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/netelastic/highmemoryusage/
+        - alert: LowCallCompletionRate
+          expr: vbng_call_rate_percent{vbng_usertype="ipoe"} < 95
+          for: 10m
+          labels:
+            severity: warning
+          annotations:
+            summary: Low call completion rate
+            description: 'Call completion rate for IPOE users is below 95% for more than 10 minutes (current value: {{ $value }}%). This may indicate connectivity issues.'
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/netelastic/lowcallcompletionrate/
+        - alert: HighIPv4DroppedPackets
+          expr: vbng_ipv4_down_dropped_packets > 100 or vbng_ipv4_up_dropped_packets > 100
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: High IPv4 dropped packets
+            description: 'IPv4 dropped packets (up or down) for user {{ $labels.vbng_userName }} (index: {{ $labels.vbng_userIndex }}) exceed 100 for more than 5 minutes (current value: {{ $value }}). This may indicate network congestion or configuration issues.'
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/netelastic/highipv4droppedpackets/
+        - alert: HighIPv6DroppedPackets
+          expr: vbng_ipv6_down_dropped_packets > 100 or vbng_ipv6_up_dropped_packets > 100
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: High IPv6 dropped packets
+            description: 'IPv6 dropped packets (up or down) for user {{ $labels.vbng_userName }} (index: {{ $labels.vbng_userIndex }}) exceed 100 for more than 5 minutes (current value: {{ $value }}). This may indicate network issues.'
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/netelastic/highipv6droppedpackets/
+        - alert: IPPoolExhaustion
+          expr: (vbng_pool_ip_used_total / vbng_pool_ip_max) * 100 > 90
+          for: 10m
+          labels:
+            severity: critical
+          annotations:
+            summary: IP pool nearing exhaustion
+            description: 'IP pool usage for group {{ $labels.vbng_groupName }} is above 90% for more than 10 minutes (current usage: {{ $value }}%). This may prevent new users from connecting.'
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/netelastic/ippoolexhaustion/
+        - alert: LowSessionCount
+          expr: vbng_sessions_total{vbng_slotId="0"} < 1
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: Low session count
+            description: 'Total sessions on slot 0 is below 1 for more than 5 minutes (current value: {{ $value }}). This may indicate a service disruption.'
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/netelastic/lowsessioncount/
+        - alert: HighSNMPScrapeDuration
+          expr: snmp_scrape_duration_seconds{module="netelastic"} > 1
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: High SNMP scrape duration
+            description: 'SNMP scrape duration is above 1 second for more than 5 minutes (current value: {{ $value }} seconds). This may indicate network latency or bng performance issues.'
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/netelastic/highsnmpscrapeduration/
