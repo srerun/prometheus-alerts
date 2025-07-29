@@ -1,0 +1,143 @@
+groups:
+    - name: ProxmoxNodes
+      rules:
+        - alert: ProxmoxNodeDown
+          expr: |
+            proxmox_node_up == 0
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: Proxmox node {{ printf "{{ $labels.node }}" }} is down
+            description: Check the alerting Proxmox host
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxnodedown/
+        - alert: ProxmoxNodeTargetLost
+          expr: |
+            absent_over_time(proxmox_node_up[1h])
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: Proxmox node up metric absent for {{ printf "{{ $labels.node }}" }}
+            description: Something wrong with the exporter, the Proxmox API server(s) it is configured to make requests to, or the server the exporter is running on
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxnodetargetlost/
+        - alert: ProxmoxGuestDown
+          expr: |
+            proxmox_guest_up == 0
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: Proxmox guest {{ printf "{{ $labels.name }}" }} is down
+            description: Guest {{ printf "{{ $labels.name }}" }} of type {{ printf "{{ $labels.type }}" }} on node {{ printf "{{ $labels.node }}" }} is down
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxguestdown/
+        - alert: ProxmoxGuestTargetLost
+          expr: |
+            absent_over_time(proxmox_guest_up[1h])
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: Proxmox guest up metric absent for {{ printf "{{ $labels.name }}" }}
+            description: Guest {{ printf "{{ $labels.name }}" }} of type {{ printf "{{ $labels.type }}" }} on node {{ printf "{{ $labels.node }}" }} may be down
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxguesttargetlost/
+        - alert: ProxmoxDiskUnhealthy
+          expr: |
+            proxmox_node_disk_smart_status == 0
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: Proxmox disk {{ printf "{{ $labels.devpath }}" }} is unhealthy
+            description: The disk {{ printf "{{ $labels.devpath }}" }} in node {{ printf "{{ $labels.node }}" }} is reporting unhealthy in SMART tests
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxdiskunhealthy/
+        - alert: ProxmoxDiskTargetLost
+          expr: |
+            absent_over_time(proxmox_node_disk_smart_status[1h])
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: Lost metrics for Proxmox disk {{ printf "{{ $labels.devpath }}" }}
+            description: The disk {{ printf "{{ $labels.devpath }}" }} in node {{ printf "{{ $labels.node }}" }} is not showing up in metrics from Proxmox anymore
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxdisktargetlost/
+        - alert: ProxmoxCertificateExpiring
+          expr: |
+            proxmox_node_days_until_cert_expiration < {{ .Values.prometheusRule.threshold_ProxmoxCertificateExpiring | default 7 }}
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: Proxmox certificate on node {{ printf "{{ $labels.node }}" }} is expiring in a week
+            description: The certificate with subject {{ printf "{{ $labels.subject }}" }} on that node is expiring in {{ printf "{{ $value }}" }} days
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxcertificateexpiring/
+        - alert: ProxmoxCertificateExpiringWarning
+          expr: |
+            proxmox_node_days_until_cert_expiration < {{ .Values.prometheusRule.threshold_ProxmoxCertificateExpiringWarning | default 14 }}
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: Proxmox certificate on node {{ printf "{{ $labels.node }}" }} is expiring soon
+            description: The certificate with subject {{ printf "{{ $labels.subject }}" }} on that node is expiring in {{ printf "{{ $value }}" }} days
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxcertificateexpiringwarning/
+        - alert: ProxmoxUnsharedStorageNearlyFull
+          expr: |
+            100 * (sum by (storage,node) (proxmox_node_storage_used_bytes{shared="false"}) / sum by (storage,node) (proxmox_node_storage_total_bytes)) > {{ .Values.prometheusRule.threshold_ProxmoxUnsharedStorageNearlyFull | default 90 }}
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: Proxmox storage volume {{ printf "{{ $labels.node }}" }}/{{ printf "{{ $labels.storage }}" }} nearly full
+            description: Volume of type {{ printf "{{ $labels.type }}" }} is {{ printf "{{ $value }}" }}% full
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxunsharedstoragenearlyfull/
+        - alert: ProxmoxUnsharedStorageFilling
+          expr: |
+            100 * (sum by (storage,node) (proxmox_node_storage_used_bytes{shared="false"}) / sum by (storage,node) (proxmox_node_storage_total_bytes)) > {{ .Values.prometheusRule.threshold_ProxmoxUnsharedStorageFilling | default 80 }}
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: Proxmox storage volume {{ printf "{{ $labels.node }}" }}/{{ printf "{{ $labels.storage }}" }} nearly full
+            description: Volume of type {{ printf "{{ $labels.type }}" }} is {{ printf "{{ $value }}" }}% full
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxunsharedstoragefilling/
+        - alert: ProxmoxSharedStorageNearlyFull
+          expr: |
+            100 * (sum by (storage) (proxmox_node_storage_used_bytes{shared="true"}) / sum by (storage) (proxmox_node_storage_total_bytes)) > {{ .Values.prometheusRule.threshold_ProxmoxSharedStorageNearlyFull | default 90 }}
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: Proxmox shared storage volume {{ printf "{{ $labels.storage }}" }} nearly full
+            description: Volume of type {{ printf "{{ $labels.type }}" }} is {{ printf "{{ $value }}" }}% full
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxsharedstoragenearlyfull/
+        - alert: ProxmoxSharedStorageFilling
+          expr: |
+            100 * (sum by (storage) (proxmox_node_storage_used_bytes{shared="true"}) / sum by (storage) (proxmox_node_storage_total_bytes)) > {{ .Values.prometheusRule.threshold_ProxmoxSharedStorageFilling | default 80 }}
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: Proxmox shared storage volume {{ printf "{{ $labels.storage }}" }} nearly full
+            description: Volume of type {{ printf "{{ $labels.type }}" }} is {{ printf "{{ $value }}" }}% full
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxsharedstoragefilling/
+        - alert: ProxmoxCPUAllocationHigh
+          expr: |
+            100 * (proxmox_node_cpus_allocated / proxmox_node_cpus_total) > {{ .Values.prometheusRule.threshold_ProxmoxCPUAllocationHigh | default 90 }}
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: Proxmox node {{ printf "{{ $labels.node }}" }} has {{ printf "{{ $value }}" }}% of its CPU allocated to guests
+            description: It is recommended to keep more of your node's CPU unallocated for use by PVE and other server applications your Proxmox node runs
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxcpuallocationhigh/
+        - alert: ProxmoxMemoryAllocationHigh
+          expr: |
+            100 * (proxmox_node_memory_allocated_bytes / proxmox_node_memory_total_bytes) > {{ .Values.prometheusRule.threshold_ProxmoxMemoryAllocationHigh | default 90 }}
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: Proxmox node {{ printf "{{ $labels.node }}" }} has {{ printf "{{ $value }}" }}% of its memory allocated to guests
+            description: It is recommended to keep more of your node's memory unallocated for use by PVE and other server applications your Proxmox node runs
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxmemoryallocationhigh/

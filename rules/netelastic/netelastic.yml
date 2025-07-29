@@ -19,15 +19,6 @@ groups:
             summary: High memory usage on bng
             description: 'Memory usage is above 80% for more than 5 minutes (current value: {{ $value }}%). This may lead to performance degradation.'
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/netelastic/highmemoryusage/
-        #- alert: LowCallCompletionRate
-        #  expr: vbng_call_rate_percent{vbng_usertype="ipoe"} < 95
-        #  for: 10m
-        #  labels:
-        #    severity: warning
-        #  annotations:
-        #    summary: Low call completion rate
-        #    description: 'Call completion rate for IPOE users is below 95% for more than 10 minutes (current value: {{ $value }}%). This may indicate connectivity issues.'
-        #    runbook: https://srerun.github.io/prometheus-alerts/runbooks/netelastic/lowcallcompletionrate/
         - alert: HighIPv4DroppedPackets
           expr: vbng_ipv4_down_dropped_packets > 100 or vbng_ipv4_up_dropped_packets > 100
           for: 5m
