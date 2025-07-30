@@ -63,7 +63,7 @@ groups:
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxdisktargetlost/
         - alert: ProxmoxCertificateExpiring
           expr: |
-            proxmox_node_days_until_cert_expiration < {{ .Values.prometheusRule.threshold_ProxmoxCertificateExpiring | default 7 }}
+            proxmox_node_days_until_cert_expiration < 7 
           for: 5m
           labels:
             severity: critical
@@ -73,7 +73,7 @@ groups:
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxcertificateexpiring/
         - alert: ProxmoxCertificateExpiringWarning
           expr: |
-            proxmox_node_days_until_cert_expiration < {{ .Values.prometheusRule.threshold_ProxmoxCertificateExpiringWarning | default 14 }}
+            proxmox_node_days_until_cert_expiration < 14
           for: 5m
           labels:
             severity: warning
@@ -83,7 +83,7 @@ groups:
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxcertificateexpiringwarning/
         - alert: ProxmoxUnsharedStorageNearlyFull
           expr: |
-            100 * (sum by (storage,node) (proxmox_node_storage_used_bytes{shared="false"}) / sum by (storage,node) (proxmox_node_storage_total_bytes)) > {{ .Values.prometheusRule.threshold_ProxmoxUnsharedStorageNearlyFull | default 90 }}
+            100 * (sum by (storage,node) (proxmox_node_storage_used_bytes{shared="false"}) / sum by (storage,node) (proxmox_node_storage_total_bytes)) > 90
           for: 5m
           labels:
             severity: critical
@@ -93,7 +93,7 @@ groups:
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxunsharedstoragenearlyfull/
         - alert: ProxmoxUnsharedStorageFilling
           expr: |
-            100 * (sum by (storage,node) (proxmox_node_storage_used_bytes{shared="false"}) / sum by (storage,node) (proxmox_node_storage_total_bytes)) > {{ .Values.prometheusRule.threshold_ProxmoxUnsharedStorageFilling | default 80 }}
+            100 * (sum by (storage,node) (proxmox_node_storage_used_bytes{shared="false"}) / sum by (storage,node) (proxmox_node_storage_total_bytes)) > 80
           for: 5m
           labels:
             severity: warning
@@ -103,7 +103,7 @@ groups:
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxunsharedstoragefilling/
         - alert: ProxmoxSharedStorageNearlyFull
           expr: |
-            100 * (sum by (storage) (proxmox_node_storage_used_bytes{shared="true"}) / sum by (storage) (proxmox_node_storage_total_bytes)) > {{ .Values.prometheusRule.threshold_ProxmoxSharedStorageNearlyFull | default 90 }}
+            100 * (sum by (storage) (proxmox_node_storage_used_bytes{shared="true"}) / sum by (storage) (proxmox_node_storage_total_bytes)) > 90
           for: 5m
           labels:
             severity: critical
@@ -113,7 +113,7 @@ groups:
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxsharedstoragenearlyfull/
         - alert: ProxmoxSharedStorageFilling
           expr: |
-            100 * (sum by (storage) (proxmox_node_storage_used_bytes{shared="true"}) / sum by (storage) (proxmox_node_storage_total_bytes)) > {{ .Values.prometheusRule.threshold_ProxmoxSharedStorageFilling | default 80 }}
+            100 * (sum by (storage) (proxmox_node_storage_used_bytes{shared="true"}) / sum by (storage) (proxmox_node_storage_total_bytes)) > 80
           for: 5m
           labels:
             severity: warning
@@ -123,7 +123,7 @@ groups:
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxsharedstoragefilling/
         - alert: ProxmoxCPUAllocationHigh
           expr: |
-            100 * (proxmox_node_cpus_allocated / proxmox_node_cpus_total) > {{ .Values.prometheusRule.threshold_ProxmoxCPUAllocationHigh | default 90 }}
+            100 * (proxmox_node_cpus_allocated / proxmox_node_cpus_total) > 90
           for: 5m
           labels:
             severity: critical
@@ -133,7 +133,7 @@ groups:
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxcpuallocationhigh/
         - alert: ProxmoxMemoryAllocationHigh
           expr: |
-            100 * (proxmox_node_memory_allocated_bytes / proxmox_node_memory_total_bytes) > {{ .Values.prometheusRule.threshold_ProxmoxMemoryAllocationHigh | default 90 }}
+            100 * (proxmox_node_memory_allocated_bytes / proxmox_node_memory_total_bytes) > 90
           for: 5m
           labels:
             severity: critical
