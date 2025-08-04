@@ -43,7 +43,7 @@ groups:
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxguesttargetlost/
         - alert: ProxmoxDiskUnhealthy
           expr: |
-            proxmox_node_disk_smart_status == 0
+            proxmox_node_disk_smart_status{devpath != "/dev/sdc"} == 0 
           for: 1m
           labels:
             severity: critical
@@ -51,16 +51,16 @@ groups:
             summary: Proxmox disk {{ $labels.devpath }} is unhealthy
             description: The disk {{ $labels.devpath }} in node {{ $labels.node }} is reporting unhealthy in SMART tests
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxdiskunhealthy/
-        - alert: ProxmoxDiskTargetLost
-          expr: |
-            absent_over_time(proxmox_node_disk_smart_status[1h])
-          for: 1m
-          labels:
-            severity: critical
-          annotations:
-            summary: Lost metrics for Proxmox disk {{ $labels.devpath }}
-            description: The disk {{ $labels.devpath }} in node {{ $labels.node }} is not showing up in metrics from Proxmox anymore
-            runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxdisktargetlost/
+        #- alert: ProxmoxDiskTargetLost
+        #  expr: |
+        #    absent_over_time(proxmox_node_disk_smart_status[1h])
+        #  for: 1m
+        #  labels:
+        #    severity: critical
+        #  annotations:
+        #    summary: Lost metrics for Proxmox disk {{ $labels.devpath }}
+        #    description: The disk {{ $labels.devpath }} in node {{ $labels.node }} is not showing up in metrics from Proxmox anymore
+        #    runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxdisktargetlost/
         - alert: ProxmoxCertificateExpiring
           expr: |
             proxmox_node_days_until_cert_expiration < 7 
