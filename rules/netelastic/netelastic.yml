@@ -20,7 +20,7 @@ groups:
             description: 'Memory usage is above 80% for more than 5 minutes (current value: {{ $value }}%). This may lead to performance degradation.'
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/netelastic/highmemoryusage/
         - alert: HighIPv4DroppedPackets
-          expr: vbng_ipv4_down_dropped_packets > 100 or vbng_ipv4_up_dropped_packets > 100
+          expr: rate(vbng_ipv4_down_dropped_packets[5m]) > 100 or rate(vbng_ipv4_up_dropped_packets[5m]) > 100
           for: 5m
           labels:
             severity: warning
@@ -29,7 +29,7 @@ groups:
             description: 'IPv4 dropped packets (up or down) for user {{ $labels.vbng_userName }} (index: {{ $labels.vbng_userIndex }}) exceed 100 for more than 5 minutes (current value: {{ $value }}). This may indicate network congestion or configuration issues.'
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/netelastic/highipv4droppedpackets/
         - alert: HighIPv6DroppedPackets
-          expr: vbng_ipv6_down_dropped_packets > 100 or vbng_ipv6_up_dropped_packets > 100
+          expr: rate(vbng_ipv6_down_dropped_packets[5m]) > 100 or rate(vbng_ipv6_up_dropped_packets[5m]) > 100
           for: 5m
           labels:
             severity: warning
