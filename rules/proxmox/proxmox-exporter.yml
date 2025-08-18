@@ -23,7 +23,7 @@ groups:
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/proxmox-exporter/proxmoxnodetargetlost/
         - alert: ProxmoxGuestDown
           expr: |
-            proxmox_guest_up == 0
+            proxmox_guest_up{tags!~"standby"} == 0
           for: 1m
           labels:
             severity: critical
