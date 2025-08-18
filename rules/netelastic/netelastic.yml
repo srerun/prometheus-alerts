@@ -47,7 +47,7 @@ groups:
             description: 'IP pool usage for group {{ $labels.vbng_groupName }} is above 90% for more than 10 minutes (current usage: {{ $value }}%). This may prevent new users from connecting.'
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/netelastic/ippoolexhaustion/
         - alert: LowSessionCount
-          expr: vbng_sessions_total{vbng_slotId="0"} < 1
+          expr: vbng_sessions_total{vbng_slotId="0", ha!="standby"} < 1
           for: 5m
           labels:
             severity: critical
