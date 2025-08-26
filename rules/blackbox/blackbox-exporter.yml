@@ -26,7 +26,7 @@ groups:
                   LABELS = {{ $labels }}
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/blackbox-exporter/blackboxconfigurationreloadfailure/
         - alert: BlackboxSlowProbe
-          expr: avg_over_time(probe_duration_seconds[1m]) > 1
+          expr: avg_over_time(probe_duration_seconds[1m]) > 1 and probe_success == 1
           for: 1m
           labels:
             severity: warning
