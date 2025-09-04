@@ -113,7 +113,7 @@ groups:
           expr: vector(1)
           for: 0m
           labels:
-            severity: critical
+            severity: warning
           annotations:
             summary: Prometheus AlertManager E2E dead man switch (instance {{ $labels.instance }})
             description: |-
