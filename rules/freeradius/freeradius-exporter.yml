@@ -57,7 +57,7 @@ groups:
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/freeradius-exporter/freeradiushighmalformedrequests/
         - alert: FreeRADIUSDroppedRequests
           expr: rate(freeradius_total_acct_dropped_requests[10m]) > 0 or rate(freeradius_total_auth_dropped_requests[10m]) > 0
-          for: 5m
+          for: 10m
           labels:
             severity: warning
           annotations:
