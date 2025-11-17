@@ -205,18 +205,6 @@ groups:
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/node-exporter/hostunusualdiskio/
-#        - alert: HostContextSwitchingHigh
-#          expr: '(rate(node_context_switches_total[15m])/count without(mode,cpu) (node_cpu_seconds_total{mode="idle"})) / (rate(node_context_switches_total[1d])/count without(mode,cpu) (node_cpu_seconds_total{mode="idle"})) > 2 '
-#          for: 0m
-#          labels:
-#            severity: warning
-#          annotations:
-#            summary: Host context switching high (instance {{ $labels.instance }})
-#            description: |-
-#                Context switching is growing on the node (twice the daily average during the last 15m)
-#                  VALUE = {{ $value }}
-#                  LABELS = {{ $labels }}
-#            runbook: https://srerun.github.io/prometheus-alerts/runbooks/node-exporter/hostcontextswitchinghigh/
         - alert: HostSwapIsFillingUp
           expr: ((1 - (node_memory_SwapFree_bytes / node_memory_SwapTotal_bytes)) * 100 > 80) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
           for: 2m

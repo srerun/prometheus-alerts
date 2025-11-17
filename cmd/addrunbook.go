@@ -46,6 +46,8 @@ type Data struct {
 	Content string
 }
 
+const groqModel groq.ModelID = "llama-3.3-70b-versatile"
+
 // const filename = "blackbox.yaml"
 const runbook_url = "https://srerun.github.io/prometheus-alerts/runbooks"
 const runbookPath = "content/runbooks"
@@ -211,7 +213,7 @@ func generateContent(rule Rule) string {
 				%s`, string(ruleB)),
 			},
 		},
-		Model:       groq.ModelIDLLAMA370B,
+		Model:       groqModel,
 		MaxTokens:   1500,
 		Temperature: 1,
 		TopP:        1,
