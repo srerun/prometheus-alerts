@@ -1,19 +1,6 @@
 groups:
     - name: OPNsenseExporter
       rules:
-        # Commented out alert as opnsense_firewall_status metric is not reliable since not all values are returned in the API that are being checked.
-        # - alert: OPNsenseFirewallStatusError
-        #   expr: opnsense_firewall_status == 0
-        #   for: 1m
-        #   labels:
-        #     severity: critical
-        #   annotations:
-        #     summary: OPNsense firewall status error (instance {{ $labels.opnsense_instance }})
-        #     description: |-
-        #         OPNsense firewall is reporting errors
-        #           VALUE = {{ $value }}
-        #           LABELS = {{ $labels }}
-        #     runbook: https://srerun.github.io/prometheus-alerts/runbooks/opnsense/opnsensefirewallstatuserror/
         - alert: OPNsenseGatewayOffline
           expr: opnsense_gateways_status != 1
           for: 2m
@@ -122,31 +109,30 @@ groups:
                   VALUE = {{ $value }}
                   LABELS = {{ $labels }}
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/opnsense/opnsensefirmwarerebootrequired/
-        # Removed until CARP metrics are added to the exporter in order to determine the active node.
-        # - alert: OPNsenseWireGuardInterfaceDown
-        #   expr: opnsense_wireguard_interfaces_status == 0
-        #   for: 2m
-        #   labels:
-        #     severity: critical
-        #   annotations:
-        #     summary: OPNsense WireGuard interface down (instance {{ $labels.opnsense_instance }})
-        #     description: |-
-        #         WireGuard interface {{ $labels.device_name }} is down
-        #           VALUE = {{ $value }}
-        #           LABELS = {{ $labels }}
-        #     runbook: https://srerun.github.io/prometheus-alerts/runbooks/opnsense/opnsensewireguardinterfacedown/
-        # - alert: OPNsenseWireGuardPeerStaleHandshake
-        #   expr: (time() - opnsense_wireguard_peer_last_handshake_seconds) > 300
-        #   for: 5m
-        #   labels:
-        #     severity: warning
-        #   annotations:
-        #     summary: OPNsense WireGuard peer stale handshake (instance {{ $labels.opnsense_instance }})
-        #     description: |-
-        #         WireGuard peer {{ $labels.peer_name }} has not handshaked in > 5 minutes
-        #           VALUE = {{ $value }}
-        #           LABELS = {{ $labels }}
-        #     runbook: https://srerun.github.io/prometheus-alerts/runbooks/opnsense/opnsensewireguardpeerstalehandshake/
+        - alert: OPNsenseWireGuardPeerStaleHandshake
+          expr: (time() - opnsense_wireguard_peer_last_handshake_seconds) > 300 and on(device_name) opnsense_wireguard_interfaces_status == 1
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: OPNsense WireGuard peer stale handshake (instance {{ $labels.opnsense_instance }})
+            description: |-
+                WireGuard peer {{ $labels.peer_name }} has not handshaked in > 5 minutes
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/opnsense/opnsensewireguardpeerstalehandshake/
+        - alert: OPNsenseWireGuardPeerOffline
+          expr: opnsense_wireguard_peer_status == 0 and on(device_name) opnsense_wireguard_interfaces_status == 1
+          for: 2m
+          labels:
+            severity: critical
+          annotations:
+            summary: OPNsense WireGuard peer offline (instance {{ $labels.opnsense_instance }})
+            description: |-
+                WireGuard peer {{ $labels.peer_name }} is offline
+                  VALUE = {{ $value }}
+                  LABELS = {{ $labels }}
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/opnsense/opnsensewireguardpeeroffline/
         - alert: OPNsenseExporterEndpointErrors
           expr: increase(opnsense_exporter_endpoint_errors_total[5m]) > 0
           for: 5m
