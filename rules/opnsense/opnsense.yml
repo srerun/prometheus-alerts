@@ -110,7 +110,7 @@ groups:
                   LABELS = {{ $labels }}
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/opnsense/opnsensefirmwarerebootrequired/
         - alert: OPNsenseWireGuardPeerStaleHandshake
-          expr: (time() - opnsense_wireguard_peer_last_handshake_seconds) > 300 and on(device_name) opnsense_wireguard_interfaces_status == 1
+          expr: (time() - opnsense_wireguard_peer_last_handshake_seconds) > 300 and on(device_name, opnsense_instance) opnsense_wireguard_interfaces_status == 1
           for: 5m
           labels:
             severity: warning
@@ -122,7 +122,7 @@ groups:
                   LABELS = {{ $labels }}
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/opnsense/opnsensewireguardpeerstalehandshake/
         - alert: OPNsenseWireGuardPeerOffline
-          expr: opnsense_wireguard_peer_status == 0 and on(device_name) opnsense_wireguard_interfaces_status == 1
+          expr: opnsense_wireguard_peer_status == 0 and on(device_name, opnsense_instance) opnsense_wireguard_interfaces_status == 1
           for: 2m
           labels:
             severity: critical
