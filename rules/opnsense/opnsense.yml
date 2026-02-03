@@ -2,7 +2,7 @@ groups:
     - name: OPNsenseExporter
       rules:
         - alert: OPNsenseGatewayOffline
-          expr: opnsense_gateways_status != 1
+          expr: opnsense_gateways_status != 1 and on(opnsense_instance) opnsense_services_status{name="frr"} == 1
           for: 2m
           labels:
             severity: critical
@@ -26,7 +26,10 @@ groups:
                   LABELS = {{ $labels }}
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/opnsense/opnsensegatewayhighlatency/
         - alert: OPNsenseGatewayPacketLoss
-          expr: opnsense_gateways_loss_percentage > 1
+          expr: |
+              (opnsense_gateways_loss_percentage > 1)
+              and on (name, address, opnsense_instance)
+              (opnsense_gateways_status == 1)
           for: 5m
           labels:
             severity: warning
@@ -74,7 +77,7 @@ groups:
                   LABELS = {{ $labels }}
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/opnsense/opnsensehighblockedpackets/
         - alert: OPNsenseServiceDown
-          expr: opnsense_services_status == 0
+          expr: opnsense_services_status{name!="frr"} == 0
           for: 2m
           labels:
             severity: critical
