@@ -108,6 +108,9 @@ func main() {
 		path := buildPathname(filename)
 		for _, group := range rules.Groups {
 			for _, rule := range group.Rules {
+				if rule.Alert == "" {
+					continue
+				}
 				rulePath := filepath.Dir(filename)
 				rule.Source = fmt.Sprintf("%s/%s", buildPathname(rulePath), filepath.Base(filename))
 				rule.Annotations.Runbook = fmt.Sprintf("%s/%s/%s/", runbook_url, path, strings.ToLower(rule.Alert))
