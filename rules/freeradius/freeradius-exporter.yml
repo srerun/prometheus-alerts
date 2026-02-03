@@ -10,15 +10,6 @@ groups:
             summary: FreeRADIUS is down
             description: The FreeRADIUS server is not reachable. Please check the server immediately.
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/freeradius-exporter/freeradiusdown/
-        - alert: FreeRADIUSHangupNotOccurred
-          expr: freeradius_start_time == freeradius_hup_time
-          for: 5m
-          labels:
-            severity: warning
-          annotations:
-            summary: FreeRADIUS server has not been restarted
-            description: The FreeRADIUS server has not been hup'd since it started. Consider restarting it if necessary.
-            runbook: https://srerun.github.io/prometheus-alerts/runbooks/freeradius-exporter/freeradiushangupnotoccurred/
         - alert: FreeRADIUSHighAccountingQueueLength
           expr: freeradius_queue_len_acct > 100
           for: 5m

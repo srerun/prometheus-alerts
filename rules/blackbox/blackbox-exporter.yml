@@ -87,7 +87,7 @@ groups:
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/blackbox-exporter/blackboxsslcertificateexpired/
         - alert: BlackboxProbeSlowHttp
           expr: avg_over_time(probe_http_duration_seconds[1m]) > 1
-          for: 1m
+          for: 15m
           labels:
             severity: warning
           annotations:

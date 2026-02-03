@@ -51,7 +51,7 @@ groups:
             runbook: https://srerun.github.io/prometheus-alerts/runbooks/node-exporter/hostunusualnetworkthroughputout/
         - alert: HostUnusualDiskReadRate
           expr: (sum by (instance) (rate(node_disk_read_bytes_total[2m])) / 1024 / 1024 > 50) * on(instance) group_left (nodename) node_uname_info{nodename!="proxbackup"}
-          for: 5m
+          for: 15m
           labels:
             severity: warning
           annotations:
