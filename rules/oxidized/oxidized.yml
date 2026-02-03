@@ -1,124 +1,140 @@
 groups:
-  - name: oxidized.rules
-    rules:
-
-      # ====================
-      # Recording rules
-      # ====================
-
-      - record: oxidized:device_last_backup_age_seconds
-        expr: |
-          time() - oxidized_device_last_backup_end
-
-      - record: oxidized:device_last_backup_duration_seconds
-        expr: |
-          oxidized_device_last_backup_time
-
-      - record: oxidized:device_backup_success
-        expr: |
-          oxidized_device_last_backup_status == 2
-
-      - record: oxidized:device_backup_failed
-        expr: |
-          oxidized_device_last_backup_status == 1
-
-      - record: oxidized:device_never_backed_up
-        expr: |
-          oxidized_device_status == 1
-
-      - record: oxidized:device_no_connection
-        expr: |
-          oxidized_device_status == 0
-
-      - record: oxidized:device_config_lines
-        expr: oxidized_device_config_lines
-
-      - record: oxidized:device_config_size_bytes
-        expr: oxidized_device_config_size
-
-      # ====================
-      # Alerting rules
-      # ====================
-
-      - alert: OxidizedBackupFailed
-        expr: |
-          oxidized_device_last_backup_status == 1
-        for: 15m
-        labels:
-          severity: warning
-        annotations:
-          summary: "Oxidized backup failed for {{ $labels.name }} ({{ $labels.group }} / {{ $labels.model }})"
-          description: |
-            Last backup attempt for device {{ $labels.name }} failed.
-            Status = error (1)
-            Last successful backup was {{ $value | humanizeDuration }} ago.
-            Please check Oxidized logs for this device.
-
-      - alert: OxidizedDeviceNoConnection
-        expr: |
-          oxidized_device_status == 0
-        for: 30m
-        labels:
-          severity: warning
-        annotations:
-          summary: "Oxidized cannot connect to {{ $labels.name }}"
-          description: |
-            Oxidized is unable to connect to device {{ $labels.name }} ({{ $labels.group }}).
-            Status = no connection (0)
-            This has been the case for more than 30 minutes.
-
-      - alert: OxidizedDeviceNeverBackedUp
-        expr: |
-          oxidized_device_status == 1
-          and on(name) (oxidized_device_last_backup_end == 0 or absent(oxidized_device_last_backup_end))
-        for: 24h
-        labels:
-          severity: warning
-        annotations:
-          summary: "Device {{ $labels.name }} has never been backed up"
-          description: |
-            Oxidized has never successfully backed up device {{ $labels.name }}.
-            Status = never backed up (1)
-            This device may be newly added or permanently failing.
-
-      - alert: OxidizedBackupVeryOld
-        expr: |
-          time() - oxidized_device_last_backup_end > 86400 * 2
-          and on(name) oxidized_device_status == 2
-          and on(name) oxidized_device_last_backup_status == 2
-        for: 60m
-        labels:
-          severity: warning
-        annotations:
-          summary: "Very old backup for {{ $labels.name }}"
-          description: |
-            Last successful backup of {{ $labels.name }} is older than 2 days.
-            Age: {{ $value | humanizeDuration }}
-            Device is still marked as success, but backup is stale.
-
-      - alert: OxidizedBackupVeryOldCritical
-        expr: |
-          time() - oxidized_device_last_backup_end > 86400 * 7
-          and on(name) oxidized_device_status == 2
-        for: 60m
-        labels:
-          severity: critical
-        annotations:
-          summary: "CRITICAL: No recent backup for {{ $labels.name }}"
-          description: |
-            Device {{ $labels.name }} has not been backed up in over 7 days!
-            Last backup: {{ $value | humanizeDuration }} ago
-            Immediate attention required.
-
-      - alert: OxidizedConnectionDown
-        expr: |
-          oxidized_status == 0
-        for: 5m
-        labels:
-          severity: critical
-        annotations:
-          summary: "Oxidized exporter cannot connect to Oxidized"
-          description: |
-            The prometheus exporter cannot communicate with Oxidized instance.
-            oxidized_status = 0 (error)
-            Check exporter logs, connectivity and Oxidized service status.
+    - name: oxidized.rules
+      rules:
+        - alert: ""
+          expr: |
+            time() - oxidized_device_last_backup_end
+          for: ""
+          labels:
+            severity: ""
+          annotations: null
+        - alert: ""
+          expr: |
+            oxidized_device_last_backup_time
+          for: ""
+          labels:
+            severity: ""
+          annotations: null
+        - alert: ""
+          expr: |
+            oxidized_device_last_backup_status == 2
+          for: ""
+          labels:
+            severity: ""
+          annotations: null
+        - alert: ""
+          expr: |
+            oxidized_device_last_backup_status == 1
+          for: ""
+          labels:
+            severity: ""
+          annotations: null
+        - alert: ""
+          expr: |
+            oxidized_device_status == 1
+          for: ""
+          labels:
+            severity: ""
+          annotations: null
+        - alert: ""
+          expr: |
+            oxidized_device_status == 0
+          for: ""
+          labels:
+            severity: ""
+          annotations: null
+        - alert: ""
+          expr: oxidized_device_config_lines
+          for: ""
+          labels:
+            severity: ""
+          annotations: null
+        - alert: ""
+          expr: oxidized_device_config_size
+          for: ""
+          labels:
+            severity: ""
+          annotations: null
+        - alert: OxidizedBackupFailed
+          expr: |
+            oxidized_device_last_backup_status == 1
+          for: 15m
+          labels:
+            severity: warning
+          annotations:
+            summary: Oxidized backup failed for {{ $labels.name }} ({{ $labels.group }} / {{ $labels.model }})
+            description: |
+                Last backup attempt for device {{ $labels.name }} failed.
+                Status = error (1)
+                Last successful backup was {{ $value | humanizeDuration }} ago.
+                Please check Oxidized logs for this device.
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/oxidized/oxidizedbackupfailed/
+        - alert: OxidizedDeviceNoConnection
+          expr: |
+            oxidized_device_status == 0
+          for: 30m
+          labels:
+            severity: warning
+          annotations:
+            summary: Oxidized cannot connect to {{ $labels.name }}
+            description: |
+                Oxidized is unable to connect to device {{ $labels.name }} ({{ $labels.group }}).
+                Status = no connection (0)
+                This has been the case for more than 30 minutes.
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/oxidized/oxidizeddevicenoconnection/
+        - alert: OxidizedDeviceNeverBackedUp
+          expr: |
+            oxidized_device_status == 1
+            and on(name) (oxidized_device_last_backup_end == 0 or absent(oxidized_device_last_backup_end))
+          for: 24h
+          labels:
+            severity: warning
+          annotations:
+            summary: Device {{ $labels.name }} has never been backed up
+            description: |
+                Oxidized has never successfully backed up device {{ $labels.name }}.
+                Status = never backed up (1)
+                This device may be newly added or permanently failing.
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/oxidized/oxidizeddeviceneverbackedup/
+        - alert: OxidizedBackupVeryOld
+          expr: |
+            time() - oxidized_device_last_backup_end > 86400 * 2
+            and on(name) oxidized_device_status == 2
+            and on(name) oxidized_device_last_backup_status == 2
+          for: 60m
+          labels:
+            severity: warning
+          annotations:
+            summary: Very old backup for {{ $labels.name }}
+            description: |
+                Last successful backup of {{ $labels.name }} is older than 2 days.
+                Age: {{ $value | humanizeDuration }}
+                Device is still marked as success, but backup is stale.
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/oxidized/oxidizedbackupveryold/
+        - alert: OxidizedBackupVeryOldCritical
+          expr: |
+            time() - oxidized_device_last_backup_end > 86400 * 7
+            and on(name) oxidized_device_status == 2
+          for: 60m
+          labels:
+            severity: critical
+          annotations:
+            summary: 'CRITICAL: No recent backup for {{ $labels.name }}'
+            description: |
+                Device {{ $labels.name }} has not been backed up in over 7 days!
+                Last backup: {{ $value | humanizeDuration }} ago
+                Immediate attention required.
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/oxidized/oxidizedbackupveryoldcritical/
+        - alert: OxidizedConnectionDown
+          expr: |
+            oxidized_status == 0
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: Oxidized exporter cannot connect to Oxidized
+            description: |
+                The prometheus exporter cannot communicate with Oxidized instance.
+                oxidized_status = 0 (error)
+                Check exporter logs, connectivity and Oxidized service status.
+            runbook: https://srerun.github.io/prometheus-alerts/runbooks/oxidized/oxidizedconnectiondown/
